@@ -1,0 +1,4210 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Intimi Segreti, boutique di intimo, abbigliamento e borse a Lugo (RA).">
+<meta name="theme-color" content="#4a1021">
+<meta name="robots" content="noindex">
+<script>window.IS_FOTO_UNICA=true</script>
+<title>Intimi Segreti</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Jost:wght@300;400&display=swap">
+<style>:root{color-scheme:dark}
+/* vuoto.css */
+/* ../../../../../home/claude/intimi-segreti/src/styles/base.css */
+:root {
+  --borgogna: #4a1021;
+  --borgogna-notte: #2a0a14;
+  --borgogna-vivo: #6a1a2f;
+  --cipria: #dcb3a9;
+  --cipria-chiaro: #ecd5cd;
+  --avorio: #f4ece0;
+  --champagne: #d9c3a0;
+  --nero: #1d191a;
+  --fondo: var(--borgogna);
+  --testo: var(--avorio);
+  --tenue: color-mix(in srgb, var(--testo) 62%, transparent);
+  --linea: color-mix(in srgb, var(--testo) 22%, transparent);
+  --accento: var(--champagne);
+  --serif:
+    "Fraunces",
+    "Fraunces Variable",
+    "Cormorant Garamond",
+    "Didot",
+    "Bodoni MT",
+    "Iowan Old Style",
+    Georgia,
+    serif;
+  --sans:
+    "Jost",
+    "Avenir Next",
+    "Helvetica Neue",
+    system-ui,
+    sans-serif;
+  --ease-entrata: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-uscita: cubic-bezier(0.55, 0, 0.9, 0.3);
+  --ease-scena: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-molla: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --t-micro: 0.25s;
+  --t-breve: 0.5s;
+  --t-media: 0.9s;
+  --t-lunga: 1.4s;
+  --bordo: max(16px, env(safe-area-inset-left));
+  --sotto: env(safe-area-inset-bottom, 0px);
+  --sopra: env(safe-area-inset-top, 0px);
+  --testata: 64px;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+[hidden] {
+  display: none !important;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: clip;
+}
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--testo);
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+  min-height: 100svh;
+}
+img,
+picture,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+img {
+  height: auto;
+}
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+a {
+  color: inherit;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 350;
+  font-variation-settings: "SOFT" 100;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+em {
+  font-style: italic;
+}
+:focus-visible {
+  outline: 2px solid var(--accento);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+::selection {
+  background: var(--cipria);
+  color: var(--nero);
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.salta {
+  position: fixed;
+  left: var(--bordo);
+  top: -80px;
+  z-index: 100;
+  background: var(--avorio);
+  color: var(--nero);
+  padding: 10px 16px;
+  transition: top var(--t-micro) var(--ease-entrata);
+}
+.salta:focus {
+  top: calc(var(--sopra) + 10px);
+}
+.occhiello {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--tenue);
+}
+.car {
+  display: inline-block;
+  will-change: transform;
+}
+.parola {
+  display: inline-block;
+  white-space: nowrap;
+}
+.bottone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  min-height: 52px;
+  padding: 0 1.6em;
+  border: 1px solid var(--testo);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    background-color var(--t-micro) var(--ease-entrata),
+    color var(--t-micro) var(--ease-entrata),
+    transform var(--t-micro) var(--ease-molla);
+}
+.bottone:hover {
+  background: var(--testo);
+  color: var(--fondo);
+}
+.bottone:active {
+  transform: scale(0.97);
+}
+.bottone.pieno {
+  background: var(--testo);
+  color: var(--fondo);
+}
+.bottone.pieno:hover {
+  background: transparent;
+  color: var(--testo);
+}
+.bottone.piccolo {
+  min-height: 44px;
+  padding: 0 1.1em;
+  font-size: 0.7rem;
+}
+.tondo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--linea);
+  display: inline-grid;
+  place-items: center;
+  transition:
+    background-color var(--t-micro),
+    border-color var(--t-micro),
+    transform var(--t-micro) var(--ease-molla);
+}
+.tondo:hover {
+  border-color: var(--testo);
+}
+.tondo:active {
+  transform: scale(0.92);
+}
+.tondo svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+}
+.tondo[aria-pressed=true] svg.cuore {
+  fill: currentColor;
+}
+.testata {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 40;
+  height: calc(var(--testata) + var(--sopra));
+  padding: var(--sopra) var(--bordo) 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+  mix-blend-mode: normal;
+}
+.testata > * {
+  pointer-events: auto;
+}
+.marchio {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.35rem;
+  text-decoration: none;
+  letter-spacing: 0;
+}
+.testata-azioni {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.conta-preferiti {
+  position: relative;
+}
+.conta-preferiti b {
+  position: absolute;
+  top: 4px;
+  right: 2px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 9px;
+  background: #6a1a2f;
+  color: #f4ece0;
+  font-size: 0.62rem;
+  font-weight: 500;
+  line-height: 17px;
+  text-align: center;
+}
+.conta-preferiti b:empty {
+  display: none;
+}
+.apri-menu {
+  height: 48px;
+  padding: 0 4px 0 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+.apri-menu i {
+  width: 26px;
+  height: 9px;
+  border-block: 1px solid currentColor;
+  transition: height var(--t-micro) var(--ease-entrata);
+}
+.apri-menu:hover i {
+  height: 3px;
+}
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: var(--borgogna);
+  color: var(--avorio);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: calc(var(--sopra) + 12px) var(--bordo) calc(var(--sotto) + 22px);
+  clip-path: inset(0 0 100% 0);
+  visibility: hidden;
+  overflow: auto;
+}
+.menu.aperto {
+  visibility: visible;
+}
+.menu-testa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+}
+.menu-voci {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-self: center;
+  display: grid;
+  gap: 0.1em;
+}
+.menu-voci a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5em;
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 11vw, 5.6rem);
+  line-height: 1.08;
+  text-decoration: none;
+  transition: transform var(--t-breve) var(--ease-entrata), color var(--t-micro);
+}
+.menu-voci a:hover {
+  transform: translateX(0.25em);
+  color: var(--cipria);
+  font-style: italic;
+}
+.menu-voci small {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--cipria);
+}
+.menu-piede {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  font-size: 0.82rem;
+  color: color-mix(in srgb, var(--avorio) 70%, transparent);
+}
+.avviso {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--sotto) + 96px);
+  z-index: 90;
+  translate: -50% 0;
+  max-width: min(92vw, 420px);
+  padding: 12px 18px;
+  border-radius: 14px;
+  background: var(--avorio);
+  color: var(--nero);
+  font-size: 0.88rem;
+  text-align: center;
+  box-shadow: 0 12px 40px rgb(0 0 0 / 0.3);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity var(--t-micro), transform var(--t-breve) var(--ease-entrata);
+  pointer-events: none;
+}
+.avviso.visibile {
+  opacity: 1;
+  transform: none;
+}
+.in-attesa {
+  display: inline-block;
+  padding: 0.35em 0.8em;
+  border: 1px dashed var(--linea);
+  border-radius: 8px;
+  font-size: 0.84rem;
+  color: var(--tenue);
+}
+.etichetta-demo {
+  display: inline-block;
+  padding: 0.2em 0.7em;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--tenue);
+}
+dialog.foglio {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 70;
+  width: 100%;
+  max-width: none;
+  max-height: 92dvh;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--avorio);
+  color: var(--nero);
+  border-radius: 22px 22px 0 0;
+  overflow: hidden;
+  --testo: var(--nero);
+  --fondo: var(--avorio);
+  --tenue: rgb(29 25 26 / 0.62);
+  --linea: rgb(29 25 26 / 0.18);
+  --accento: var(--borgogna);
+  transform: translateY(100%);
+  transition:
+    transform var(--t-media) var(--ease-entrata),
+    overlay var(--t-media) allow-discrete,
+    display var(--t-media) allow-discrete;
+}
+dialog.foglio[open] {
+  transform: none;
+  display: flex;
+  flex-direction: column;
+}
+@starting-style {
+  dialog.foglio[open] {
+    transform: translateY(100%);
+  }
+}
+dialog.foglio::backdrop {
+  background: rgb(20 6 10 / 0.55);
+  backdrop-filter: blur(6px);
+}
+.foglio-maniglia {
+  flex: none;
+  width: 100%;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  touch-action: none;
+  cursor: grab;
+}
+.foglio-maniglia::before {
+  content: "";
+  width: 44px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgb(29 25 26 / 0.25);
+}
+.foglio-corpo {
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 0 var(--bordo) calc(var(--sotto) + 20px);
+  -webkit-overflow-scrolling: touch;
+}
+.foglio-chiudi {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  background: rgb(244 236 224 / 0.85);
+}
+@media (min-width: 900px) {
+  .scheda-foto {
+    max-height: 52dvh;
+  }
+  dialog.foglio {
+    inset: 0 0 0 auto;
+    width: min(520px, 46vw);
+    height: 100dvh;
+    max-height: none;
+    border-radius: 0;
+    transform: translateX(100%);
+  }
+  @starting-style {
+    dialog.foglio[open] {
+      transform: translateX(100%);
+    }
+  }
+  .foglio-maniglia {
+    display: none;
+  }
+  .foglio-corpo {
+    padding-top: 28px;
+  }
+  dialog.foglio.largo {
+    inset: 0;
+    width: 100%;
+  }
+}
+.scheda-foto {
+  position: relative;
+  margin: 0 calc(var(--bordo) * -1) 18px;
+  aspect-ratio: 4 / 3.6;
+  max-height: 36dvh;
+  width: calc(100% + var(--bordo) * 2);
+  overflow: hidden;
+  background: var(--cipria-chiaro);
+}
+.scheda-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 35%;
+  transition: opacity var(--t-breve);
+}
+.scheda-foto .etichetta-demo {
+  position: absolute;
+  left: var(--bordo);
+  bottom: 12px;
+  background: rgb(244 236 224 / 0.8);
+}
+.scheda h2 {
+  font-size: clamp(2rem, 7vw, 2.8rem);
+  margin: 6px 0 12px;
+}
+.scheda-descr {
+  color: var(--tenue);
+  max-width: 46ch;
+}
+.scheda-dettagli {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.scheda-dettagli li {
+  padding: 0.35em 0.9em;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+.varianti {
+  margin: 22px 0 0;
+  padding: 0;
+  border: 0;
+}
+.varianti legend {
+  padding: 0;
+  margin-bottom: 10px;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tenue);
+}
+.varianti legend b {
+  font-weight: 400;
+  color: var(--testo);
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-size: 0.92rem;
+  margin-left: 0.5em;
+}
+.campioni {
+  display: flex;
+  gap: 12px;
+}
+.campione {
+  position: relative;
+  width: 44px;
+  height: 44px;
+}
+.campione input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+.campione span {
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  background: var(--c);
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.15);
+  transition: transform var(--t-micro) var(--ease-molla);
+}
+.campione::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  transition: border-color var(--t-micro);
+}
+.campione:has(input:checked)::after {
+  border-color: var(--nero);
+}
+.campione:has(input:checked) span {
+  transform: scale(0.86);
+}
+.campione:has(input:focus-visible)::after {
+  outline: 2px solid var(--borgogna);
+  outline-offset: 2px;
+}
+.scheda-azioni {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 26px calc(var(--bordo) * -1) 0;
+  padding: 14px var(--bordo) 4px;
+  background: linear-gradient(transparent, var(--avorio) 28%);
+}
+.scheda-azioni .bottone {
+  flex: 1;
+}
+.scheda-nota {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--tenue);
+}
+.lista-preferiti {
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.lista-preferiti li {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: 14px;
+  align-items: center;
+}
+.lista-preferiti img {
+  width: 64px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.lista-preferiti a {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  text-decoration: none;
+}
+.lista-preferiti small {
+  display: block;
+  color: var(--tenue);
+}
+.cursore {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 95;
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+  border-radius: 50%;
+  background: var(--avorio);
+  mix-blend-mode: difference;
+  pointer-events: none;
+  display: none;
+}
+.cursore span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--nero);
+  opacity: 0;
+  white-space: nowrap;
+}
+.cursore.trascina,
+.cursore.apri {
+  width: 84px;
+  height: 84px;
+  margin: -42px 0 0 -42px;
+  mix-blend-mode: normal;
+}
+.cursore.trascina span,
+.cursore.apri span {
+  opacity: 1;
+}
+.cursore.attivo {
+  width: 44px;
+  height: 44px;
+  margin: -22px 0 0 -22px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .ha-cursore .cursore {
+    display: block;
+    transition:
+      width var(--t-micro) var(--ease-entrata),
+      height var(--t-micro) var(--ease-entrata),
+      margin var(--t-micro) var(--ease-entrata);
+  }
+}
+@view-transition {
+  navigation: auto;
+}
+::view-transition-old(root) {
+  animation: porta-esce var(--t-media) var(--ease-scena) both;
+}
+::view-transition-new(root) {
+  animation: porta-entra var(--t-media) var(--ease-scena) both;
+}
+@keyframes porta-esce {
+  to {
+    transform: scale(1.35);
+    opacity: 0;
+    filter: blur(8px);
+  }
+}
+@keyframes porta-entra {
+  from {
+    transform: scale(0.86);
+    opacity: 0;
+    clip-path: inset(0 50% 0 50%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+.sipario {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  pointer-events: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  visibility: hidden;
+}
+.sipario i {
+  background: var(--borgogna);
+  transform: scaleX(0);
+}
+.sipario i:first-child {
+  transform-origin: left;
+}
+.sipario i:last-child {
+  transform-origin: right;
+}
+.piede {
+  position: relative;
+  z-index: 3;
+  padding: 56px var(--bordo) calc(var(--sotto) + 40px);
+  background: var(--borgogna-notte);
+  color: var(--avorio);
+  --testo: var(--avorio);
+  --tenue: rgb(244 236 224 / 0.6);
+  --linea: rgb(244 236 224 / 0.2);
+  display: grid;
+  gap: 28px;
+}
+.piede .marchio {
+  font-size: clamp(2.4rem, 9vw, 4.6rem);
+}
+.piede-righe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  font-size: 0.86rem;
+  color: var(--tenue);
+}
+.piede-righe a {
+  text-underline-offset: 4px;
+}
+.pagina-testo {
+  max-width: 68ch;
+  margin: 0 auto;
+  padding: calc(var(--testata) + var(--sopra) + 48px) var(--bordo) 80px;
+}
+.pagina-testo h1 {
+  font-size: clamp(2.6rem, 9vw, 4.4rem);
+  margin-bottom: 0.5em;
+}
+.pagina-testo h2 {
+  font-size: 1.7rem;
+  margin: 2em 0 0.5em;
+}
+.pagina-testo p,
+.pagina-testo li {
+  color: var(--tenue);
+  margin-bottom: 0.9em;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
+.scheda-foto picture {
+  position: absolute;
+  inset: 0;
+}
+.visore {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: 78svh;
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      120% 90% at 30% 20%,
+      #f7efe4,
+      #e2d2c0);
+  color: var(--nero);
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.visore canvas {
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+.visore.trascinando canvas {
+  cursor: grabbing;
+}
+.visore-scheda {
+  margin-top: 14px;
+  aspect-ratio: 1;
+}
+.visore .etichetta-demo {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  background: rgb(244 236 224 / 0.8);
+  color: rgb(29 25 26 / 0.7);
+  border-color: rgb(29 25 26 / 0.2);
+}
+.punto {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 44px;
+  height: 44px;
+  margin: -22px 0 0 -22px;
+  display: grid;
+  place-items: center;
+  transition: opacity var(--t-micro);
+}
+.punto::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--avorio);
+  box-shadow: 0 0 0 1px rgb(29 25 26 / 0.5), 0 0 0 7px rgb(244 236 224 / 0.35);
+  transition: transform var(--t-micro) var(--ease-molla);
+}
+.punto:hover::before,
+.punto[aria-pressed=true]::before {
+  transform: scale(1.35);
+  background: var(--borgogna);
+}
+.punto.dietro {
+  opacity: 0.15;
+  pointer-events: none;
+}
+.visore-nota {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 66px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: rgb(244 236 224 / 0.92);
+  font-size: 0.9rem;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--t-micro), transform var(--t-breve) var(--ease-entrata);
+  pointer-events: none;
+}
+.visore-nota.visibile {
+  opacity: 1;
+  transform: none;
+}
+.visore-nota b {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.15rem;
+}
+.visore-barra {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  --testo: var(--nero);
+  --linea: rgb(29 25 26 / 0.25);
+}
+.visore-barra .campioni {
+  gap: 4px;
+}
+.visore-zoom {
+  display: flex;
+  gap: 8px;
+}
+.visore-zoom .tondo {
+  width: 44px;
+  height: 44px;
+  background: rgb(244 236 224 / 0.8);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+.scheda-prezzo {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  margin: -4px 0 12px;
+}
+.scheda-prezzo span {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--tenue);
+  margin-left: 0.8em;
+}
+.logo {
+  display: block;
+  height: 44px;
+  aspect-ratio: 943 / 512;
+  background: currentColor;
+  -webkit-mask: url(assets/site/logo.png) center / contain no-repeat;
+  mask: url(assets/site/logo.png) center / contain no-repeat;
+}
+.testata .marchio {
+  display: block;
+  padding: 4px 0;
+}
+.logo-oro {
+  display: block;
+  width: min(72vw, 380px);
+  height: auto;
+}
+.testata {
+  transition:
+    transform 0.32s cubic-bezier(0.2, 0.7, 0.2, 1),
+    background-color 0.25s,
+    box-shadow 0.25s;
+}
+.testata.velata {
+  background: rgb(42 10 20 / 0.94);
+  color: var(--avorio);
+  box-shadow: 0 1px 0 rgb(244 236 224 / 0.08);
+}
+[data-tono-pagina=chiaro] .testata.velata,
+.pagina-vetrina.chiaro .testata.velata {
+  background: rgb(244 236 224 / 0.95);
+  color: var(--nero);
+  box-shadow: 0 1px 0 rgb(29 25 26 / 0.08);
+}
+.testata.nascosta {
+  transform: translateY(-100%);
+}
+@media (min-width: 900px) {
+  .testata.nascosta {
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .testata {
+    transition: none;
+  }
+}
+.indietro {
+  position: fixed;
+  left: -46px;
+  top: 50%;
+  z-index: 95;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--avorio);
+  color: var(--borgogna);
+  box-shadow: 0 8px 24px rgb(20 6 10 / 0.28);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(0, -50%, 0) scale(0.7);
+  transition:
+    transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 0.2s,
+    background-color 0.15s,
+    color 0.15s;
+}
+.indietro.attivo {
+  transition: background-color 0.15s, color 0.15s;
+}
+.indietro svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.indietro.pronto {
+  background: var(--borgogna);
+  color: var(--avorio);
+}
+.indietro.via {
+  opacity: 0 !important;
+  transform: translate3d(150px, -50%, 0) scale(1) !important;
+}
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+a,
+button,
+label,
+summary,
+[role=button] {
+  touch-action: manipulation;
+}
+
+/* ../../../../../home/claude/intimi-segreti/src/styles/home.css */
+.pagina-home {
+  background: var(--borgogna);
+}
+.pagina-home .testata,
+.capitoli {
+  color: var(--avorio);
+  transition:
+    color 0.35s,
+    transform 0.32s cubic-bezier(0.2, 0.7, 0.2, 1),
+    background-color 0.25s;
+}
+[data-tono-pagina=chiaro] .pagina-home .testata,
+[data-tono-pagina=chiaro] .capitoli {
+  color: var(--nero);
+}
+main {
+  position: relative;
+  z-index: 3;
+}
+.scena {
+  position: relative;
+  --p: 0;
+}
+.fermo {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+}
+.capitoli {
+  position: fixed;
+  z-index: 30;
+  right: max(10px, env(safe-area-inset-right));
+  top: 50%;
+  translate: 0 -50%;
+  display: grid;
+  gap: 2px;
+}
+.capitoli button {
+  position: relative;
+  width: 44px;
+  height: 30px;
+  display: grid;
+  place-items: center end;
+  padding-right: 8px;
+}
+.capitoli button::before {
+  content: "";
+  width: 14px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+  transition: width var(--t-breve) var(--ease-entrata), opacity var(--t-micro);
+}
+.capitoli button[aria-current=true]::before {
+  width: 28px;
+  opacity: 1;
+}
+.capitoli button span {
+  position: absolute;
+  right: 48px;
+  white-space: nowrap;
+  font-size: 0.66rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateX(8px);
+  transition: opacity var(--t-micro), transform var(--t-breve) var(--ease-entrata);
+  pointer-events: none;
+}
+.capitoli button:hover span,
+.capitoli button:focus-visible span {
+  opacity: 1;
+  transform: none;
+}
+@media (max-width: 767px) {
+  .capitoli {
+    right: 0;
+  }
+  .capitoli button {
+    width: 30px;
+  }
+  .capitoli button span {
+    display: none;
+  }
+}
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  color: var(--avorio);
+}
+.intro-anta {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50.5%;
+  background: #2a0a14;
+  transition: transform 1s var(--ease-scena);
+}
+.intro-anta:nth-child(1) {
+  left: 0;
+  box-shadow: inset -1px 0 0 rgb(220 179 169 / 0.25);
+}
+.intro-anta:nth-child(2) {
+  right: 0;
+}
+.intro-centro {
+  position: relative;
+  text-align: center;
+  padding: 0 var(--bordo);
+  transition: transform 0.9s var(--ease-scena), opacity 0.5s;
+}
+.intro-logo {
+  display: block;
+  width: min(74vw, 520px);
+  height: auto;
+  margin: 10px auto 4px;
+  animation: intro-logo 1.25s var(--ease-scena) 0.1s both;
+}
+@keyframes intro-logo {
+  from {
+    clip-path: inset(0 100% 0 0);
+    transform: translateX(-3%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+.intro-sopra,
+.intro-sotto {
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgb(244 236 224 / 0.7);
+  animation: entra-testo 0.8s var(--ease-entrata) 0.7s both;
+}
+.intro-sotto {
+  animation-delay: 0.95s;
+}
+.intro-linea {
+  display: block;
+  width: min(60vw, 420px);
+  height: 1px;
+  margin: 14px auto;
+  background: var(--champagne);
+  transform-origin: left;
+  animation: intro-linea 1.1s var(--ease-scena) 0.55s both;
+}
+@keyframes intro-linea {
+  from {
+    transform: scaleX(0);
+  }
+}
+.intro-salta {
+  position: absolute;
+  left: 50%;
+  bottom: calc(var(--sotto) + 26px);
+  translate: -50% 0;
+  min-height: 44px;
+  padding: 0 1.4em;
+  font-size: 0.68rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgb(244 236 224 / 0.6);
+  transition: opacity 0.3s;
+}
+.intro.apri {
+  pointer-events: none;
+}
+.intro.apri .intro-anta:nth-child(1) {
+  transform: translateX(-101%);
+}
+.intro.apri .intro-anta:nth-child(2) {
+  transform: translateX(101%);
+}
+.intro.apri .intro-centro {
+  transform: scale(1.5);
+  opacity: 0;
+}
+.intro.apri .intro-salta {
+  opacity: 0;
+}
+.intro-in-corso {
+  overflow: hidden;
+}
+.apertura-zona {
+  position: relative;
+  height: 100svh;
+  min-height: 520px;
+  overflow: hidden;
+  background: var(--borgogna-notte);
+  color: var(--avorio);
+  --testo: var(--avorio);
+  --fondo: var(--borgogna);
+  --tenue: rgb(244 236 224 / 0.74);
+}
+.manifesto {
+  position: absolute;
+  inset: 0;
+}
+.m-foto {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+.m-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 30%;
+  transform-origin: 70% 40%;
+  animation: respiro 26s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@keyframes respiro {
+  from {
+    transform: scale(1.03);
+  }
+  to {
+    transform: scale(1.13);
+  }
+}
+.m-velo {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgb(42 10 20 / 0.5),
+      transparent 26%,
+      transparent 52%,
+      rgb(42 10 20 / 0.82));
+  pointer-events: none;
+}
+.m-testo {
+  position: absolute;
+  left: var(--bordo);
+  right: var(--bordo);
+  bottom: calc(var(--sotto) + 26px);
+}
+.m-logo {
+  display: block;
+  width: min(56vw, 260px);
+  height: auto;
+  margin: 0 0 18px -4px;
+}
+.m-frase {
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 7.4vw, 3rem);
+  line-height: 1.05;
+  margin: 0.3em 0 0.7em;
+  max-width: 12em;
+}
+.m-azioni {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.m-azioni .bottone {
+  min-height: 46px;
+}
+@media (min-width: 768px) {
+  .m-foto img {
+    object-position: 50% 30%;
+  }
+  .m-velo {
+    background:
+      linear-gradient(
+        180deg,
+        rgb(42 10 20 / 0.35),
+        transparent 22%,
+        transparent 60%,
+        rgb(42 10 20 / 0.7));
+  }
+  .m-logo {
+    display: none;
+  }
+  .m-testo {
+    left: 6vw;
+    right: auto;
+    bottom: 9svh;
+    max-width: 34vw;
+  }
+}
+.ingresso .m-foto {
+  animation: entra-manifesto 2s var(--ease-entrata) both;
+}
+.ingresso .m-testo > * {
+  animation: entra-testo 1.1s var(--ease-entrata) 0.5s both;
+}
+.ingresso .m-testo > :nth-child(3) {
+  animation-delay: 0.65s;
+}
+.ingresso .m-testo > :nth-child(4) {
+  animation-delay: 0.8s;
+}
+@keyframes entra-manifesto {
+  from {
+    opacity: 0.3;
+    scale: 1.12;
+  }
+}
+@keyframes entra-testo {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+}
+.in-pausa .m-foto img {
+  animation-play-state: paused;
+}
+.copertine-zona {
+  position: relative;
+  height: clamp(540px, 78svh, 680px);
+  overflow: hidden;
+  background: #4a1021;
+  transition: background-color 0.8s var(--ease-scena);
+}
+.copertine-zona[data-tema=cipria] {
+  background: #dcb3a9;
+}
+.copertine-zona[data-tema=avorio] {
+  background: #efe4d2;
+}
+.copertina {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  color: var(--c-testo);
+  --testo: var(--c-testo);
+  --fondo: var(--c-fondo);
+  --tenue: color-mix(in srgb, var(--c-testo) 68%, transparent);
+  --linea: color-mix(in srgb, var(--c-testo) 26%, transparent);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s var(--ease-scena), visibility 0s 0.5s;
+}
+.copertina.attiva {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s var(--ease-scena) 0.15s, visibility 0s;
+}
+.tema-borgogna {
+  --c-fondo: #4a1021;
+  --c-testo: #f4ece0;
+  --c-parola: #dcb3a9;
+  --c-alone: rgb(220 179 169 / 0.4);
+}
+.tema-cipria {
+  --c-fondo: #dcb3a9;
+  --c-testo: #2a0a14;
+  --c-parola: #4a1021;
+  --c-alone: rgb(255 244 235 / 0.6);
+}
+.tema-avorio {
+  --c-fondo: #efe4d2;
+  --c-testo: #2a0a14;
+  --c-parola: #6a1a2f;
+  --c-alone: rgb(220 179 169 / 0.55);
+}
+.c-alone {
+  position: absolute;
+  left: 50%;
+  top: 44%;
+  width: min(96vw, 560px);
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      closest-side,
+      var(--c-alone),
+      transparent 72%);
+  pointer-events: none;
+}
+.c-parola {
+  position: absolute;
+  left: 50%;
+  bottom: 78px;
+  margin: 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 800;
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+  font-size: clamp(4rem, 21vw, 13rem);
+  line-height: 0.8;
+  letter-spacing: -0.045em;
+  white-space: nowrap;
+  color: var(--c-parola);
+  pointer-events: none;
+  user-select: none;
+  transform: translateX(calc(-50% + 14vw));
+  transition: transform 1.1s var(--ease-entrata);
+}
+.c-parola.contorno {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--c-parola);
+  z-index: 3;
+  transform: translateX(calc(-50% - 14vw));
+}
+.attiva .c-parola {
+  transform: translateX(-50%);
+}
+.c-soggetto {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: calc(var(--testata) + var(--sopra) + 104px);
+  height: 40%;
+  display: block;
+  transform: translateX(-50%) scale(0.86) rotate(5deg);
+  transition: transform 1s var(--ease-entrata);
+}
+.attiva .c-soggetto {
+  transform: translateX(-50%);
+}
+.c-soggetto.scontorno {
+  aspect-ratio: 521 / 859;
+}
+.c-soggetto.scontorno::before {
+  content: "";
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: -3%;
+  height: 12%;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      closest-side,
+      rgb(20 6 10 / 0.55),
+      transparent);
+}
+.c-soggetto.scontorno img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.c-soggetto.arco {
+  aspect-ratio: 4 / 5.2;
+  border-radius: 999px 999px 0 0;
+  overflow: hidden;
+  box-shadow: 0 30px 50px -26px rgb(42 10 20 / 0.6);
+}
+.c-soggetto.arco img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.c-luccichii {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.c-luccichii i {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--g, 22px);
+  aspect-ratio: 1;
+  margin: calc(var(--g, 22px) / -2);
+  background:
+    radial-gradient(
+      closest-side,
+      #fff,
+      rgb(255 255 255 / 0.55) 22%,
+      rgb(255 255 255 / 0) 70%);
+  border-radius: 50%;
+  opacity: 0;
+  animation: luccica 2.6s var(--ease-scena) var(--d, 0s) infinite;
+}
+@keyframes luccica {
+  0%, 62%, 100% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  76% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.c-luccichii i:nth-child(n+5) {
+  display: none;
+}
+.c-satellite,
+.c-timbro {
+  display: none;
+}
+.c-info {
+  position: absolute;
+  z-index: 6;
+  left: var(--bordo);
+  right: var(--bordo);
+  top: calc(var(--testata) + var(--sopra) + 4px);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 12px;
+  align-items: end;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s, transform 0.8s var(--ease-entrata);
+}
+.attiva .c-info {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.3s;
+}
+.c-info .occhiello {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.c-conto {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+.c-nome {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 6.4vw, 2.2rem);
+  line-height: 1.02;
+  margin: 0.15em 0 0;
+}
+.c-prezzo {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  grid-column: 1;
+}
+.c-prezzo small {
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tenue);
+  margin-left: 0.8em;
+}
+.c-vai {
+  grid-column: 2;
+  grid-row: 2 / 4;
+  align-self: end;
+  min-height: 44px;
+  padding: 0 1.3em;
+}
+.giostra-comandi {
+  position: absolute;
+  z-index: 8;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--sotto) + 12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #f4ece0;
+  transition: color 0.6s;
+}
+[data-tema=cipria] .giostra-comandi,
+[data-tema=avorio] .giostra-comandi {
+  color: #2a0a14;
+}
+.giostra-comandi .tondo {
+  width: 44px;
+  height: 44px;
+  border-color: color-mix(in srgb, currentColor 30%, transparent);
+}
+.giostra-comandi svg.pausa,
+.giostra-comandi [aria-pressed=true] svg.via {
+  display: none;
+}
+.giostra-comandi [aria-pressed=true] svg.pausa {
+  display: block;
+}
+.giostra-punti {
+  display: flex;
+  align-items: center;
+}
+.giostra-punti button {
+  width: 34px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+}
+.giostra-punti button::before {
+  content: "";
+  grid-area: 1 / 1;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.3;
+}
+.giostra-punti i {
+  grid-area: 1 / 1;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.giostra-punti [aria-current] i {
+  transform: scaleX(1);
+}
+.gira .giostra-punti [aria-current] i {
+  animation: avanza 6s linear both;
+}
+@keyframes avanza {
+  from {
+    transform: scaleX(0);
+  }
+}
+@media (min-width: 768px) {
+  .copertine-zona {
+    height: clamp(520px, 72svh, 640px);
+  }
+  .c-parola {
+    font-size: clamp(8rem, 17vw, 16rem);
+    bottom: 56px;
+  }
+  .c-parola.contorno {
+    -webkit-text-stroke-width: 2px;
+  }
+  .c-soggetto {
+    top: 44px;
+    height: 68%;
+  }
+  .c-soggetto.arco {
+    height: 64%;
+    top: 52px;
+  }
+  .c-alone {
+    width: min(60vw, 680px);
+  }
+  .c-info {
+    left: 6vw;
+    right: auto;
+    top: 46%;
+    translate: 0 -50%;
+    width: 24vw;
+    display: block;
+  }
+  .c-nome {
+    font-size: clamp(2rem, 3.2vw, 3.2rem);
+    margin: 0.25em 0 0.15em;
+  }
+  .c-vai {
+    margin-top: 18px;
+  }
+  .c-satellite {
+    display: block;
+    position: absolute;
+    z-index: 4;
+    right: 13vw;
+    bottom: 110px;
+    transition: transform 1.2s var(--ease-entrata);
+    transform: translateX(8vw) rotate(-18deg);
+  }
+  .attiva .c-satellite {
+    transform: rotate(-8deg);
+  }
+  .c-satellite img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .c-satellite.scontornato {
+    width: 15vw;
+  }
+  .c-satellite.scontornato img {
+    object-fit: contain;
+  }
+  .c-satellite.cartolina {
+    width: 10.5vw;
+    aspect-ratio: 4 / 5;
+    padding: 6px 6px 26px;
+    background: #fbf6ee;
+    box-shadow: 0 18px 34px -12px rgb(42 10 20 / 0.5);
+  }
+  .attiva .c-satellite.cartolina {
+    transform: rotate(8deg);
+  }
+  .c-satellite.cartolina b {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 7px;
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-align: center;
+    color: #2a0a14;
+  }
+  .c-timbro {
+    display: block;
+    position: absolute;
+    z-index: 5;
+    right: 8vw;
+    top: 34px;
+    width: 112px;
+    aspect-ratio: 1;
+    color: var(--c-testo);
+  }
+  .c-timbro svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    animation: gira 22s linear infinite;
+  }
+  .c-timbro text {
+    font-family: var(--sans);
+    font-size: 10.5px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    fill: currentColor;
+  }
+  .c-timbro circle {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 0.8;
+  }
+  .c-timbro path.stella {
+    fill: currentColor;
+  }
+  .giostra-comandi {
+    justify-content: flex-start;
+    left: 6vw;
+    bottom: 22px;
+  }
+}
+@keyframes gira {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.nastro {
+  position: relative;
+  z-index: 1;
+  padding: 5svh 0;
+  background: var(--borgogna);
+  color: var(--cipria);
+  overflow: hidden;
+  display: grid;
+  gap: 0.6svh;
+}
+.nastro-riga {
+  display: flex;
+  width: max-content;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(3rem, 9.5vw, 9rem);
+  line-height: 1.02;
+  white-space: nowrap;
+  will-change: transform;
+  animation: nastro 38s linear infinite;
+}
+.nastro-riga.contro {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--cipria);
+  animation-direction: reverse;
+  animation-duration: 46s;
+}
+.nastro-riga span {
+  padding-right: 0.3em;
+}
+.nastro-riga i {
+  font-style: normal;
+  font-size: 0.45em;
+  vertical-align: 0.35em;
+  margin: 0 0.5em;
+  color: var(--champagne);
+  -webkit-text-stroke: 0;
+}
+@keyframes nastro {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.in-pausa .nastro-riga,
+.in-pausa .lugo-parola {
+  animation-play-state: paused;
+}
+.rella-zona {
+  position: relative;
+  background: var(--cipria);
+  color: var(--nero);
+  --testo: var(--nero);
+  --fondo: var(--cipria);
+  --tenue: rgb(29 25 26 / 0.62);
+  --linea: rgb(29 25 26 / 0.22);
+  padding: 9svh 0 7svh;
+  overflow: hidden;
+}
+.binario-testa {
+  padding: 0 var(--bordo);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+}
+.binario-testa h2 {
+  font-size: clamp(2.4rem, 10vw, 5.4rem);
+  font-weight: 600;
+}
+.rella-comandi {
+  display: flex;
+  gap: 8px;
+}
+.rella-comandi .tondo {
+  background: rgb(244 236 224 / 0.5);
+}
+.rella-comandi svg.pausa,
+.rella-comandi [aria-pressed=true] svg.via {
+  display: none;
+}
+.rella-comandi [aria-pressed=true] svg.pausa {
+  display: block;
+}
+.binario {
+  position: relative;
+  overflow: hidden;
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.binario.trascina {
+  cursor: grabbing;
+}
+.asta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 26px;
+  height: 3px;
+  background: linear-gradient(#8a6f45, #5c4a2e);
+  box-shadow: 0 6px 14px rgb(0 0 0 / 0.18);
+}
+.rella {
+  margin: 0;
+  padding: 28px 0 40px;
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  width: max-content;
+  will-change: transform;
+}
+.gruccia {
+  position: relative;
+  flex: none;
+  width: clamp(190px, 54vw, 310px);
+  margin-right: clamp(22px, 5vw, 64px);
+  padding-top: 58px;
+}
+.appendino {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 58px;
+  color: #5c4a2e;
+  pointer-events: none;
+}
+.appendino svg {
+  position: absolute;
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  overflow: visible;
+}
+.appendino .gancio {
+  left: 50%;
+  top: -14px;
+  width: 28px;
+  height: 44px;
+  margin-left: -14px;
+}
+.appendino .spalle {
+  left: 0;
+  top: 29px;
+  width: 100%;
+  height: 29px;
+}
+.gruccia a {
+  display: block;
+  text-decoration: none;
+  -webkit-user-drag: none;
+}
+.gruccia-numero {
+  position: absolute;
+  right: -0.12em;
+  top: 46px;
+  z-index: 2;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(3rem, 8vw, 5.4rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.2px var(--borgogna);
+  pointer-events: none;
+}
+.gruccia-foto {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--cipria-chiaro);
+  box-shadow: 0 34px 50px -28px rgb(74 16 33 / 0.6);
+}
+.gruccia-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  transition: transform var(--t-lunga) var(--ease-entrata);
+}
+.gruccia a:hover img {
+  transform: scale(1.06);
+}
+.gruccia h3 {
+  font-size: 1.4rem;
+  margin-top: 12px;
+}
+.gruccia b {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.05rem;
+}
+.gruccia small {
+  font-size: 0.64rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--tenue);
+}
+.rella-piede {
+  padding: 0 var(--bordo);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.rella-piede p {
+  color: var(--tenue);
+  font-size: 0.86rem;
+}
+.statico .binario {
+  overflow-x: auto;
+  cursor: auto;
+}
+.look-zona {
+  position: relative;
+  background: var(--avorio);
+  color: var(--nero);
+  --testo: var(--nero);
+  --fondo: var(--avorio);
+  --tenue: rgb(29 25 26 / 0.64);
+  --linea: rgb(29 25 26 / 0.2);
+  --accento: var(--borgogna);
+  padding: 9svh var(--bordo);
+}
+.look-testa {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.look-testa h2 {
+  font-size: clamp(2.2rem, 9vw, 4.6rem);
+  font-weight: 600;
+  margin-top: 0.15em;
+}
+.look-intro {
+  color: var(--tenue);
+  margin-top: 8px;
+  max-width: 34ch;
+}
+.pellicola {
+  position: relative;
+  flex: none;
+  width: 84px;
+  aspect-ratio: 4 / 5;
+  padding: 4px 4px 16px;
+  background: #fbf6ee;
+  box-shadow: 0 14px 26px -12px rgb(42 10 20 / 0.5);
+  transform: rotate(4deg);
+}
+.pellicola div {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--cipria-chiaro);
+}
+.pellicola img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+}
+.pellicola img.ora {
+  opacity: 1;
+  animation: scatto 0.5s steps(3, end);
+}
+@keyframes scatto {
+  from {
+    transform: scale(1.12) rotate(-2deg);
+    filter: brightness(1.5);
+  }
+}
+.pellicola b {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3px;
+  text-align: center;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 0;
+  color: #2a0a14;
+}
+.pellicola b::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #b3122d;
+  animation: lampeggia 1s steps(2, start) infinite;
+}
+@keyframes lampeggia {
+  to {
+    opacity: 0;
+  }
+}
+.statico .pellicola img:first-child {
+  opacity: 1;
+}
+.statico .c-luccichii {
+  display: none;
+}
+.look-griglia {
+  display: grid;
+  gap: 18px;
+}
+.look {
+  display: grid;
+  gap: 14px;
+  padding: 12px;
+  background: #fbf6ee;
+  border: 2px solid var(--borgogna);
+  border-radius: 18px;
+}
+.look-foto {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.look-foto a {
+  display: block;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--cipria-chiaro);
+  border-radius: 10px;
+}
+.look-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--t-lunga) var(--ease-entrata);
+}
+.look-foto a:hover img {
+  transform: scale(1.05);
+}
+.look-piu {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 36px;
+  height: 36px;
+  margin: -18px 0 0 -18px;
+  border-radius: 50%;
+  background: var(--borgogna);
+  color: var(--avorio);
+  display: grid;
+  place-items: center;
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  line-height: 1;
+  box-shadow: 0 0 0 4px #fbf6ee;
+}
+.look-testo {
+  padding: 0 4px 4px;
+}
+.look-testo h3 {
+  font-size: clamp(1.6rem, 6vw, 2.2rem);
+  margin: 0.15em 0 0.2em;
+}
+.look-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.look-lista li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--linea);
+}
+.look-lista a {
+  text-decoration: none;
+}
+.look-lista a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.look-piede {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.look-totale {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--serif);
+  font-size: 1.6rem;
+}
+.look-totale small {
+  font-family: var(--sans);
+  font-size: 0.66rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tenue);
+}
+@media (min-width: 768px) {
+  .look-zona {
+    padding: 11svh 6vw;
+  }
+  .pellicola {
+    width: 120px;
+    padding: 5px 5px 20px;
+  }
+  .look-griglia {
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+  }
+  .look {
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    gap: 22px;
+    padding: 16px;
+  }
+}
+.terzi {
+  position: relative;
+  display: grid;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  height: 96svh;
+  background: var(--borgogna-notte);
+  color: var(--avorio);
+  --testo: var(--avorio);
+  --fondo: var(--borgogna-notte);
+  --tenue: rgb(244 236 224 / 0.74);
+}
+.terzo {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 14px var(--bordo);
+  text-decoration: none;
+  isolation: isolate;
+}
+.terzo img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 28%;
+  transition: transform 1.4s var(--ease-entrata);
+}
+.terzo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      90deg,
+      rgb(42 10 20 / 0.86),
+      rgb(74 16 33 / 0.5) 60%,
+      rgb(74 16 33 / 0.3));
+  transition: opacity var(--t-media);
+}
+.terzo + .terzo {
+  border-top: 1px solid rgb(244 236 224 / 0.25);
+}
+.terzo-numero {
+  font-size: 0.66rem;
+  letter-spacing: 0.26em;
+  color: var(--tenue);
+}
+.terzo h3 {
+  font-size: clamp(2.4rem, 11vw, 4.4rem);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 0.95;
+  margin: 0.05em 0 0.1em;
+}
+.terzo p {
+  color: var(--tenue);
+  font-size: 0.9rem;
+  max-width: 30ch;
+}
+.terzo-vai {
+  margin-top: 8px;
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.terzo-vai::after {
+  content: " \2192";
+}
+.terzo:hover img,
+.terzo:focus-visible img {
+  transform: scale(1.07);
+}
+.terzo:hover::before {
+  opacity: 0.72;
+}
+@media (min-width: 768px) {
+  .terzi {
+    grid-template-rows: none;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    height: 100svh;
+  }
+  .terzo {
+    padding: 0 2.4vw 9svh;
+  }
+  .terzo::before {
+    background:
+      linear-gradient(
+        0deg,
+        rgb(42 10 20 / 0.9),
+        rgb(74 16 33 / 0.42) 55%,
+        rgb(42 10 20 / 0.5));
+  }
+  .terzo + .terzo {
+    border-top: 0;
+    border-left: 1px solid rgb(244 236 224 / 0.25);
+  }
+  .terzo h3 {
+    font-size: clamp(2.6rem, 4.6vw, 5.4rem);
+  }
+}
+.stacco {
+  height: clamp(56px, 11svh, 120px);
+  background: var(--avorio);
+}
+.lugo-zona {
+  position: relative;
+  overflow: hidden;
+  background: var(--borgogna);
+  color: var(--avorio);
+  --testo: var(--avorio);
+  --tenue: rgb(244 236 224 / 0.72);
+  padding: 10svh 0 9svh;
+}
+.lugo-parola {
+  margin: 0;
+  width: max-content;
+  white-space: nowrap;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(7rem, 30vw, 24rem);
+  line-height: 0.86;
+  letter-spacing: -0.04em;
+  color: var(--cipria);
+  will-change: transform;
+  animation: nastro 30s linear infinite;
+}
+.lugo-testo {
+  padding: 4svh var(--bordo) 0;
+}
+.lugo-testo h2 {
+  font-size: clamp(2.4rem, 9.6vw, 5.6rem);
+  margin-top: 0.3em;
+  max-width: 12ch;
+}
+@media (min-width: 768px) {
+  .lugo-testo {
+    padding-inline: 6vw;
+  }
+}
+.boutique {
+  position: relative;
+  background: var(--avorio);
+  color: var(--nero);
+  --testo: var(--nero);
+  --fondo: var(--avorio);
+  --tenue: rgb(29 25 26 / 0.64);
+  --linea: rgb(29 25 26 / 0.2);
+  --accento: var(--borgogna);
+  padding: 12svh var(--bordo);
+  display: grid;
+  gap: 56px;
+}
+.boutique h2 {
+  font-size: clamp(2.2rem, 8vw, 4rem);
+  margin: 0.3em 0 0.5em;
+}
+.boutique p {
+  color: var(--tenue);
+  max-width: 46ch;
+}
+.recapiti {
+  margin: 0 0 26px;
+  display: grid;
+  gap: 14px;
+}
+.recapiti div {
+  display: grid;
+  grid-template-columns: 7.5em 1fr;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--linea);
+}
+.recapiti dt {
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--tenue);
+  padding-top: 0.3em;
+}
+.recapiti dd {
+  margin: 0;
+}
+.boutique-azioni {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.mappa {
+  min-height: 240px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--cipria-chiaro);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 24px;
+}
+@media (min-width: 900px) {
+  .boutique {
+    grid-template-columns: 1fr 1fr;
+    padding: 16svh 6vw;
+    gap: 6vw;
+  }
+  .mappa {
+    grid-column: 1 / -1;
+    min-height: 320px;
+  }
+}
+.compare {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity var(--t-media) var(--ease-entrata), transform var(--t-lunga) var(--ease-entrata);
+}
+.compare.visto {
+  opacity: 1;
+  transform: none;
+}
+.statico .scena {
+  height: auto;
+}
+.statico .fermo {
+  position: relative;
+  height: auto;
+  min-height: 0;
+}
+.statico .compare {
+  opacity: 1;
+  transform: none;
+}
+.statico .c-timbro svg {
+  animation: none;
+}
+.in-pausa .c-timbro svg,
+.in-pausa .c-luccichii i,
+.in-pausa.pellicola b::before {
+  animation-play-state: paused;
+}
+.statico .nastro-riga,
+.statico .lugo-parola {
+  animation: none;
+}
+.copertina[inert] .c-timbro svg,
+.copertina[inert] .c-luccichii i {
+  animation: none;
+}
+.statico .capitoli {
+  display: none;
+}
+.statico .m-foto img,
+.statico .giostra-punti i {
+  animation: none;
+}
+@media (max-width: 767px) {
+  .capitoli {
+    display: none;
+  }
+  .copertine-zona {
+    height: clamp(540px, 76svh, 640px);
+  }
+  .c-soggetto {
+    top: calc(var(--testata) + var(--sopra) + 86px);
+    height: 54%;
+  }
+  .c-soggetto.arco {
+    height: 52%;
+  }
+  .c-parola {
+    font-size: clamp(4.6rem, 25vw, 8rem);
+    bottom: 84px;
+  }
+  .c-alone {
+    top: 50%;
+    width: 118vw;
+  }
+  .c-nome {
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+  }
+  .terzi {
+    height: auto;
+    grid-template-rows: none;
+  }
+  .terzo {
+    min-height: 30svh;
+    justify-content: center;
+    padding: 20px 44% 20px var(--bordo);
+    background: var(--borgogna-notte);
+  }
+  .terzo img {
+    left: 46%;
+    width: 54%;
+    object-position: 50% 22%;
+  }
+  .terzo::before {
+    background:
+      linear-gradient(
+        90deg,
+        #2a0a14 46%,
+        rgb(42 10 20 / 0.35) 70%,
+        transparent);
+  }
+  .terzo:nth-child(2) {
+    background: #3a0f1c;
+  }
+  .terzo:nth-child(2)::before {
+    background:
+      linear-gradient(
+        90deg,
+        #3a0f1c 46%,
+        rgb(58 15 28 / 0.35) 70%,
+        transparent);
+  }
+  .terzo h3 {
+    font-size: clamp(2.1rem, 9.5vw, 3rem);
+  }
+  .terzo p {
+    font-size: 0.86rem;
+  }
+  .gruccia {
+    width: 62vw;
+    margin-right: 18px;
+  }
+  .rella-zona {
+    padding: 7svh 0 6svh;
+  }
+  .boutique {
+    padding: 9svh var(--bordo);
+    gap: 40px;
+  }
+  .recapiti div {
+    grid-template-columns: 6em 1fr;
+  }
+  .mappa {
+    min-height: 150px;
+  }
+  .lugo-zona {
+    padding: 7svh 0;
+  }
+}
+</style>
+</head>
+<body>
+<script>document.body.className="pagina-home";</script>
+    <a class="salta" href="#contenuto">Salta al contenuto</a>
+
+    <!-- Intro: meno di 3 secondi, saltabile -->
+    <div class="intro" id="intro" hidden>
+      <i class="intro-anta" aria-hidden="true"></i><i class="intro-anta" aria-hidden="true"></i>
+      <div class="intro-centro">
+        <p class="intro-sopra">Boutique · Lugo (RA)</p>
+        <img class="intro-logo" src="assets/site/logo-oro.webp" alt="Intimi Segreti" width="943" height="512" fetchpriority="high" />
+        <span class="intro-linea" aria-hidden="true"></span>
+        <p class="intro-sotto">Intimo · Abbigliamento · Borse</p>
+      </div>
+      <button class="intro-salta" type="button">Salta</button>
+    </div>
+
+    <nav class="capitoli" aria-label="Capitoli della pagina"></nav>
+
+    <main id="contenuto">
+      <h1 class="sr-only">Intimi Segreti, boutique a Lugo</h1>
+
+      <!-- 1 — Apertura: l'immagine della boutique -->
+      <section class="apertura-zona" id="vetrina" data-tono="scuro" data-capitolo="Intimi Segreti">
+        <div class="manifesto" data-apertura></div>
+      </section>
+
+      <!-- 1b — In copertina: i capi in evidenza, in formato compatto -->
+      <section class="copertine-zona" id="copertina" data-tono="scuro" data-tema="borgogna" data-capitolo="In copertina" aria-roledescription="giostra" aria-label="In copertina">
+        <div class="giostra" data-copertine></div>
+        <div class="giostra-comandi">
+          <button class="tondo" type="button" data-giostra-prima aria-label="Capo precedente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6" /></svg></button>
+          <div class="giostra-punti" data-giostra-punti></div>
+          <button class="tondo" type="button" data-giostra-dopo aria-label="Capo successivo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6" /></svg></button>
+          <button class="tondo" type="button" data-giostra-pausa aria-pressed="false" aria-label="Ferma il cambio automatico"><svg class="via" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12" /></svg><svg class="pausa" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l9 6-9 6z" /></svg></button>
+        </div>
+        <p class="sr-only" aria-live="polite" data-giostra-annuncio></p>
+      </section>
+
+      <!-- 2 — Nastro: scorre da solo -->
+      <div class="nastro" aria-hidden="true" data-tono="scuro" data-loop>
+        <div class="nastro-riga"><span data-nastro></span><span data-nastro></span></div>
+        <div class="nastro-riga contro"><span data-nastro></span><span data-nastro></span></div>
+      </div>
+
+      <!-- 3 — La rella: scorre piano da sola, si può trascinare, fermare e comandare -->
+      <section class="rella-zona" id="binario" data-tono="chiaro" data-capitolo="In vetrina" aria-label="In vetrina adesso">
+        <div class="binario-testa">
+          <div>
+            <p class="occhiello">In vetrina adesso</p>
+            <h2>Sfoglia la <em>rella.</em></h2>
+          </div>
+          <div class="rella-comandi">
+            <button class="tondo" type="button" data-rella-prima aria-label="Capi precedenti"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6" /></svg></button>
+            <button class="tondo" type="button" data-rella-pausa aria-pressed="false" aria-label="Ferma lo scorrimento"><svg class="via" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12" /></svg><svg class="pausa" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l9 6-9 6z" /></svg></button>
+            <button class="tondo" type="button" data-rella-dopo aria-label="Capi successivi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6" /></svg></button>
+          </div>
+        </div>
+        <div class="binario" data-binario>
+          <div class="asta" aria-hidden="true"></div>
+          <ul class="rella" data-rella></ul>
+        </div>
+        <div class="rella-piede">
+          <p data-rella-conto></p>
+          <a class="bottone pieno" href="vetrina.html">Entra nella Vetrina Digitale</a>
+        </div>
+      </section>
+
+      <!-- 4 — I look: capi che si portano insieme -->
+      <section class="look-zona" id="look" data-tono="chiaro" data-capitolo="I look">
+        <header class="look-testa">
+          <div>
+            <p class="occhiello">Già abbinati</p>
+            <h2>Due capi, <em>un look.</em></h2>
+            <p class="look-intro">Abbinamenti pronti: i due capi, i prezzi e il totale.</p>
+          </div>
+          <div class="pellicola" data-pellicola aria-hidden="true"></div>
+        </header>
+        <div class="look-griglia" data-look></div>
+      </section>
+
+      <!-- 5 — Le collezioni: la pagina divisa in tre -->
+      <section class="terzi" id="collezioni" data-tono="scuro" data-capitolo="Le collezioni" aria-label="Le collezioni" data-terzi></section>
+
+      <!-- stacco: una fascia vuota che separa le collezioni dalla chiusura -->
+      <div class="stacco" aria-hidden="true" data-tono="chiaro"></div>
+
+      <!-- 6 — Verso la boutique -->
+      <section class="lugo-zona" id="mondo" data-tono="scuro" data-capitolo="La boutique" data-loop>
+        <p class="lugo-parola" aria-hidden="true">Lugo · Lugo · Lugo · Lugo · Lugo · Lugo · </p>
+        <div class="lugo-testo">
+          <p class="occhiello">Dal sito al negozio</p>
+          <h2>Il resto si prova <em>di persona.</em></h2>
+        </div>
+      </section>
+
+      <section class="boutique" id="boutique" data-tono="chiaro">
+        <div class="boutique-colonna">
+          <p class="occhiello">La Boutique</p>
+          <h2>Dietro il bancone</h2>
+          <div data-chi-siamo></div>
+        </div>
+        <div class="boutique-colonna" id="contatti">
+          <p class="occhiello">Vieni a trovarci</p>
+          <h2>A Lugo, <em>di persona.</em></h2>
+          <dl class="recapiti" data-recapiti></dl>
+          <div class="boutique-azioni">
+            <button class="bottone pieno" type="button" data-magnetico data-appuntamento>Chiedi un appuntamento</button>
+            <a class="bottone" href="vetrina.html" data-magnetico>Vetrina Digitale</a>
+          </div>
+          <p class="scheda-nota" data-nota-appuntamento></p>
+        </div>
+        <div class="mappa" data-mappa></div>
+      </section>
+    </main>
+
+    <noscript><p style="position:relative;z-index:5;padding:24px">Per l'esperienza completa serve JavaScript. Puoi comunque <a href="vetrina.html">aprire la Vetrina Digitale</a>.</p></noscript>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>(() => {
+  var __create = Object.create;
+  var __defProp = Object.defineProperty;
+  var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+  var __getOwnPropNames = Object.getOwnPropertyNames;
+  var __getProtoOf = Object.getPrototypeOf;
+  var __hasOwnProp = Object.prototype.hasOwnProperty;
+  var __esm = (fn, res, err) => function __init() {
+    if (err) throw err[0];
+    try {
+      return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
+    } catch (e) {
+      throw err = [e], e;
+    }
+  };
+  var __commonJS = (cb, mod) => function __require() {
+    try {
+      return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+    } catch (e) {
+      throw mod = 0, e;
+    }
+  };
+  var __copyProps = (to, from, except, desc) => {
+    if (from && typeof from === "object" || typeof from === "function") {
+      for (let key of __getOwnPropNames(from))
+        if (!__hasOwnProp.call(to, key) && key !== except)
+          __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+    }
+    return to;
+  };
+  var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+    // If the importer is in node compatibility mode or this is not an ESM
+    // file that has been converted to a CommonJS file using a Babel-
+    // compatible transform (i.e. "__esModule" has not been set), then set
+    // "default" to the CommonJS "module.exports" for node compatibility.
+    isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+    mod
+  ));
+
+  // <define:import.meta.env>
+  var init_define_import_meta_env = __esm({
+    "<define:import.meta.env>"() {
+    }
+  });
+
+  // glob/gsap.js
+  var require_gsap = __commonJS({
+    "glob/gsap.js"(exports, module) {
+      init_define_import_meta_env();
+      module.exports = { gsap: window.gsap, default: window.gsap };
+    }
+  });
+
+  // ../../../../../home/claude/intimi-segreti/src/pages/home.js
+  init_define_import_meta_env();
+
+  // ../../../../../home/claude/intimi-segreti/src/core/cornice.js
+  init_define_import_meta_env();
+  var import_gsap = __toESM(require_gsap(), 1);
+
+  // ../../../../../home/claude/intimi-segreti/src/data/site.json
+  var site_default = {
+    _nota: "Dati della boutique. Tutto ci\xF2 che \xE8 null \xE8 IN ATTESA del cliente: il sito mostra un avviso al posto del dato, non inventa nulla. Vedi DATI-MANCANTI.md.",
+    nome: "Intimi Segreti",
+    luogo: "Lugo (RA)",
+    url: null,
+    whatsapp: null,
+    telefono: null,
+    email: null,
+    indirizzo: null,
+    orari: null,
+    mappaEmbed: null,
+    mappaLink: null,
+    chiSiamo: null,
+    titolare: null,
+    partitaIva: null,
+    social: {
+      facebook: "https://www.facebook.com/intimisegretilugo/",
+      instagram: null
+    }
+  };
+
+  // ../../../../../home/claude/intimi-segreti/src/motion/tokens.js
+  init_define_import_meta_env();
+  var EASE = {
+    entrata: "expo.out",
+    // elementi che arrivano
+    uscita: "power3.in",
+    // elementi che lasciano la scena
+    scena: "power2.inOut",
+    // cambi di scena, camera, luci
+    molla: "back.out(1.6)"
+    // conferme e piccoli feedback
+  };
+  var DUR = { micro: 0.25, breve: 0.5, media: 0.9, lunga: 1.4 };
+  var riduciMovimento = () => typeof matchMedia === "function" && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ../../../../../home/claude/intimi-segreti/src/core/memoria.js
+  init_define_import_meta_env();
+  function crea(nomeArea) {
+    const riserva = /* @__PURE__ */ new Map();
+    let area = null;
+    try {
+      area = window[nomeArea];
+      const k = "__is_prova__";
+      area.setItem(k, "1");
+      area.removeItem(k);
+    } catch {
+      area = null;
+    }
+    return {
+      leggi(chiave, predefinito = null) {
+        try {
+          const v = area ? area.getItem(chiave) : riserva.get(chiave);
+          return v == null ? predefinito : JSON.parse(v);
+        } catch {
+          return predefinito;
+        }
+      },
+      scrivi(chiave, valore) {
+        const v = JSON.stringify(valore);
+        riserva.set(chiave, v);
+        try {
+          if (area) area.setItem(chiave, v);
+        } catch {
+        }
+      }
+    };
+  }
+  var locale = crea("localStorage");
+  var sessione = crea("sessionStorage");
+  var CHIAVE = "is:preferiti";
+  var ascoltatori = /* @__PURE__ */ new Set();
+  var preferiti = new Set(locale.leggi(CHIAVE, []));
+  var Preferiti = {
+    tutti: () => [...preferiti],
+    ha: (id) => preferiti.has(id),
+    quanti: () => preferiti.size,
+    alterna(id) {
+      if (preferiti.has(id)) preferiti.delete(id);
+      else preferiti.add(id);
+      locale.scrivi(CHIAVE, [...preferiti]);
+      ascoltatori.forEach((f) => f(id, preferiti.has(id)));
+      return preferiti.has(id);
+    },
+    ascolta(f) {
+      ascoltatori.add(f);
+      return () => ascoltatori.delete(f);
+    }
+  };
+  window.addEventListener("storage", (e) => {
+    if (e.key !== CHIAVE) return;
+    preferiti = new Set(locale.leggi(CHIAVE, []));
+    ascoltatori.forEach((f) => f(null, false));
+  });
+
+  // ../../../../../home/claude/intimi-segreti/src/core/catalogo.js
+  init_define_import_meta_env();
+
+  // ../../../../../home/claude/intimi-segreti/src/data/products.json
+  var products_default = {
+    _nota: "UNICO file da modificare per aggiornare il catalogo. Vedi README.md. Prezzi e articoli forniti dalla boutique (ottobre 2026): da ricontrollare prima della pubblicazione.",
+    copertine: [
+      {
+        manifesto: "manifesto",
+        tema: "borgogna",
+        frase: "Intimo, abbigliamento e borse a Lugo."
+      },
+      {
+        prodotto: "secchiello-borchie",
+        parola: "Segreti",
+        tema: "borgogna",
+        scontorno: "eroe-secchiello",
+        satellite: {
+          prodotto: "pochette-occhielli",
+          scontorno: "eroe-pochette"
+        }
+      },
+      {
+        prodotto: "giacchina-mimetica",
+        parola: "Mimetica",
+        tema: "cipria",
+        satellite: {
+          prodotto: "pantalone-mimetico"
+        }
+      },
+      {
+        prodotto: "pullover-bottoni",
+        parola: "Maglia",
+        tema: "avorio",
+        satellite: {
+          prodotto: "jeans-ampio"
+        }
+      }
+    ],
+    look: [
+      {
+        id: "tuta-mimetica",
+        nome: "La tuta mimetica",
+        capi: [
+          "giacchina-mimetica",
+          "pantalone-mimetico"
+        ]
+      },
+      {
+        id: "maglia-denim",
+        nome: "Maglia e denim",
+        capi: [
+          "pullover-bottoni",
+          "jeans-ampio"
+        ]
+      }
+    ],
+    categorie: [
+      {
+        id: "abbigliamento",
+        nome: "Abbigliamento",
+        atmosfera: {
+          fondo: "#ead9c2",
+          luce: "#fff4e2",
+          testo: "#221a1b"
+        },
+        frase: "Tute, maglie e denim da portare tutti i giorni."
+      },
+      {
+        id: "borse",
+        nome: "Borse",
+        atmosfera: {
+          fondo: "#d9b8ae",
+          luce: "#ffe9dc",
+          testo: "#221a1b"
+        },
+        frase: "Borchie, catene e pelle: il pezzo che fa l'outfit."
+      },
+      {
+        id: "intimo",
+        nome: "Intimo",
+        atmosfera: {
+          fondo: "#3a0f1c",
+          luce: "#f3d9d2",
+          testo: "#f6efe6"
+        },
+        frase: "La selezione di intimo arriva in vetrina a breve. Intanto, chiedi in boutique."
+      }
+    ],
+    prodotti: [
+      {
+        id: "secchiello-borchie",
+        nome: "Secchiello con borchie",
+        marchio: null,
+        prezzo: 225,
+        categoria: "borse",
+        sottocategoria: "Secchielli",
+        descrizione: "Borsa a secchiello nera con borchie e strass multicolore, nappa frontale, manico corto e tracolla a catena.",
+        dettagli: [
+          "Borchie e strass",
+          "Chiusura a coulisse",
+          "Tracolla a catena"
+        ],
+        tinta: "#e7cfc8",
+        aggiunto: "2026-10-09",
+        regalo: true,
+        demo: false,
+        varianti: [
+          {
+            id: "nero",
+            nome: "Nero",
+            hex: "#1d191a",
+            immagine: "secchiello-borchie--nero"
+          }
+        ],
+        taglie: [
+          "Unica"
+        ]
+      },
+      {
+        id: "giacchina-mimetica",
+        nome: "Giacchina mimetica",
+        marchio: "Susy Mix",
+        prezzo: 79.9,
+        categoria: "abbigliamento",
+        sottocategoria: "Tute",
+        descrizione: "Felpa bomber con zip sul fronte in fantasia mimetica e bande laterali. 94% poliestere, 6% elastan.",
+        dettagli: [
+          "Zip frontale",
+          "Bande laterali",
+          "Si abbina al pantalone"
+        ],
+        tinta: "#d8d6d6",
+        aggiunto: "2026-10-08",
+        regalo: false,
+        demo: false,
+        varianti: [
+          {
+            id: "mimetico",
+            nome: "Mimetico",
+            hex: "#3a2f27",
+            immagine: "giacchina-mimetica--mimetico"
+          }
+        ],
+        taglie: []
+      },
+      {
+        id: "pantalone-mimetico",
+        nome: "Pantalone mimetico",
+        marchio: "Susy Mix",
+        prezzo: 69.9,
+        categoria: "abbigliamento",
+        sottocategoria: "Tute",
+        descrizione: "Pantalone ampio in fantasia mimetica con bande laterali ed elastico in vita. Completa la giacchina.",
+        dettagli: [
+          "Gamba ampia",
+          "Elastico in vita",
+          "Bande laterali"
+        ],
+        tinta: "#d8d6d6",
+        aggiunto: "2026-10-07",
+        regalo: false,
+        demo: false,
+        varianti: [
+          {
+            id: "mimetico",
+            nome: "Mimetico",
+            hex: "#3a2f27",
+            immagine: "pantalone-mimetico--mimetico"
+          }
+        ],
+        taglie: []
+      },
+      {
+        id: "pochette-occhielli",
+        nome: "Pochette con occhielli",
+        marchio: "La Carrie",
+        prezzo: 155,
+        categoria: "borse",
+        sottocategoria: "Tracolle",
+        descrizione: "Pochette nera in pelle martellata con bordo intrecciato, occhielli in metallo e tracolla a catena.",
+        dettagli: [
+          "Pelle martellata",
+          "Occhielli in metallo",
+          "Tracolla a catena"
+        ],
+        tinta: "#d9b8ae",
+        aggiunto: "2026-10-06",
+        regalo: true,
+        demo: false,
+        varianti: [
+          {
+            id: "nero",
+            nome: "Nero",
+            hex: "#1d191a",
+            immagine: "pochette-occhielli--nero"
+          }
+        ],
+        taglie: [
+          "Unica"
+        ]
+      },
+      {
+        id: "pullover-bottoni",
+        nome: "Pullover con bottoni",
+        marchio: null,
+        prezzo: 69,
+        categoria: "abbigliamento",
+        sottocategoria: "Maglieria",
+        descrizione: "Pullover corto con scollo a V, bottoni in madreperla e maniche ampie con polso a costine.",
+        dettagli: [
+          "Scollo a V",
+          "Bottoni in madreperla",
+          "Maniche ampie"
+        ],
+        tinta: "#d9cdbf",
+        aggiunto: "2026-10-05",
+        regalo: false,
+        demo: false,
+        varianti: [
+          {
+            id: "marrone",
+            nome: "Marrone",
+            hex: "#4a3a34",
+            immagine: "pullover-bottoni--marrone"
+          }
+        ],
+        taglie: []
+      },
+      {
+        id: "jeans-ampio",
+        nome: "Jeans ampio",
+        marchio: null,
+        prezzo: 59,
+        categoria: "abbigliamento",
+        sottocategoria: "Denim",
+        descrizione: "Jeans scuro a gamba ampia, con risvolto al fondo.",
+        dettagli: [
+          "Gamba ampia",
+          "Lavaggio scuro"
+        ],
+        tinta: "#d9cdbf",
+        aggiunto: "2026-10-04",
+        regalo: false,
+        demo: false,
+        varianti: [
+          {
+            id: "denim",
+            nome: "Denim scuro",
+            hex: "#1f2c4a",
+            immagine: "jeans-ampio--denim"
+          }
+        ],
+        taglie: []
+      },
+      {
+        id: "tshirt-red-roses",
+        nome: "T-shirt Red Roses",
+        marchio: "Liu Jo",
+        prezzo: 69,
+        categoria: "abbigliamento",
+        sottocategoria: "T-shirt",
+        descrizione: "T-shirt bianca a maniche corte con stampa di rose e scritta sul davanti.",
+        dettagli: [
+          "Stampa frontale",
+          "Maniche corte",
+          "Vestibilit\xE0 morbida"
+        ],
+        tinta: "#e6e3de",
+        aggiunto: "2026-10-09",
+        regalo: false,
+        demo: false,
+        varianti: [
+          {
+            id: "bianco",
+            nome: "Bianco",
+            hex: "#f2efe9",
+            immagine: "tshirt-red-roses--bianco"
+          }
+        ],
+        taglie: []
+      },
+      {
+        id: "tote-ecopelliccia",
+        nome: "Tote in ecopelliccia",
+        marchio: "Liu Jo",
+        prezzo: null,
+        categoria: "borse",
+        sottocategoria: "Shopping",
+        descrizione: "Borsa tote in ecopelliccia marrone con scritta logo, doppio manico, chiusura a zip e tracolla removibile. Circa 30 \xD7 42 \xD7 21 cm.",
+        dettagli: [
+          "Ecopelliccia",
+          "Chiusura a zip",
+          "Tracolla removibile"
+        ],
+        tinta: "#d9c3a0",
+        aggiunto: "2026-10-09",
+        regalo: true,
+        demo: false,
+        varianti: [
+          {
+            id: "marrone",
+            nome: "Marrone",
+            hex: "#3d2a1e",
+            immagine: "tote-ecopelliccia--marrone"
+          }
+        ],
+        taglie: [
+          "Unica"
+        ]
+      },
+      {
+        id: "camicia-floreale",
+        nome: "Camicia floreale",
+        marchio: "Susy Mix",
+        prezzo: null,
+        categoria: "abbigliamento",
+        sottocategoria: "Camicie",
+        descrizione: "Camicia leggera in fantasia floreale, con maniche ampie e bottoni in madreperla.",
+        dettagli: [
+          "Fantasia floreale",
+          "Maniche ampie",
+          "Tessuto leggero"
+        ],
+        tinta: "#e9e4dc",
+        aggiunto: "2026-10-08",
+        regalo: false,
+        demo: false,
+        varianti: [
+          {
+            id: "fantasia",
+            nome: "Fantasia floreale",
+            hex: "#b89aa6",
+            immagine: "camicia-floreale--fantasia"
+          }
+        ],
+        taglie: []
+      },
+      {
+        id: "tshirt-maniche-pizzo",
+        nome: "T-shirt con maniche in pizzo",
+        marchio: null,
+        prezzo: null,
+        categoria: "abbigliamento",
+        sottocategoria: "T-shirt",
+        descrizione: "T-shirt ampia color antracite con maniche lunghe in pizzo a contrasto.",
+        dettagli: [
+          "Maniche in pizzo",
+          "Vestibilit\xE0 ampia"
+        ],
+        tinta: "#dcd9d6",
+        aggiunto: "2026-10-08",
+        regalo: false,
+        demo: false,
+        varianti: [
+          {
+            id: "antracite",
+            nome: "Antracite",
+            hex: "#2e3136",
+            immagine: "tshirt-maniche-pizzo--antracite"
+          }
+        ],
+        taglie: []
+      }
+    ]
+  };
+
+  // ../../../../../home/claude/intimi-segreti/src/core/catalogo.js
+  var QUANTE_NOVITA = 4;
+  var ordinati = [...products_default.prodotti].sort((a, b) => String(b.aggiunto || "").localeCompare(String(a.aggiunto || "")));
+  ordinati.forEach((p, i) => {
+    p.novita = i < QUANTE_NOVITA && !!p.aggiunto;
+  });
+  var prodotti = ordinati;
+  var categorie = products_default.categorie;
+  var copertine = products_default.copertine || [];
+  var look = products_default.look || [];
+  var perId = (id) => prodotti.find((p) => p.id === id) || null;
+  var categoria = (id) => categorie.find((c) => c.id === id) || null;
+  var nomeCategoria = (id) => {
+    var _a;
+    return ((_a = categoria(id)) == null ? void 0 : _a.nome) || "";
+  };
+  var prezzo = (p) => p.prezzo == null ? "Prezzo in boutique" : `${Number(p.prezzo).toLocaleString("it-IT", { minimumFractionDigits: Number.isInteger(p.prezzo) ? 0 : 2, maximumFractionDigits: 2 })} \u20AC`;
+  var FILTRI = [
+    { id: "tutti", nome: "Tutto" },
+    ...categorie.filter((c) => prodotti.some((p) => p.categoria === c.id)).map((c) => ({ id: c.id, nome: c.nome })),
+    { id: "regalo", nome: "Idee regalo" },
+    { id: "preferiti", nome: "Preferiti" }
+  ];
+  function filtra(filtro) {
+    if (filtro === "regalo") return prodotti.filter((p) => p.regalo);
+    if (filtro === "preferiti") return prodotti.filter((p) => Preferiti.ha(p.id));
+    if (categoria(filtro)) return prodotti.filter((p) => p.categoria === filtro);
+    return prodotti;
+  }
+  var BASE = "assets/products/";
+  var UNICA = typeof window !== "undefined" && !!window.IS_FOTO_UNICA;
+  var src = (nome, misura = 1200, est = "webp") => UNICA ? `${BASE}${nome}.webp` : `${BASE}${nome}${misura === 1200 ? "" : `-${misura}`}.${est}`;
+  function figura(v, alt, { sizes = "100vw", pronta = false, classe = "" } = {}) {
+    if (UNICA) return `<picture><img class="${classe}" src="${src(v.immagine)}" alt="${alt.replace(/"/g, "&quot;")}" width="1200" height="1500" ${pronta ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" draggable="false"></picture>`;
+    const set = (est) => `${src(v.immagine, 600, est)} 600w, ${src(v.immagine, 1200, est)} 1200w`;
+    return `<picture>
+    <source type="image/avif" srcset="${set("avif")}" sizes="${sizes}">
+    <source type="image/webp" srcset="${set("webp")}" sizes="${sizes}">
+    <img class="${classe}" src="${src(v.immagine, 600)}" alt="${alt.replace(/"/g, "&quot;")}" width="1200" height="1500"
+      ${pronta ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" draggable="false">
+  </picture>`;
+  }
+
+  // ../../../../../home/claude/intimi-segreti/src/core/contatto.js
+  init_define_import_meta_env();
+
+  // ../../../../../home/claude/intimi-segreti/src/core/avviso.js
+  init_define_import_meta_env();
+  var nodo = null;
+  var timer = 0;
+  function avvisa(testo, durata = 3200) {
+    if (!nodo) {
+      nodo = document.createElement("div");
+      nodo.className = "avviso";
+      nodo.setAttribute("role", "status");
+      nodo.setAttribute("aria-live", "polite");
+      document.body.appendChild(nodo);
+    }
+    nodo.textContent = testo;
+    requestAnimationFrame(() => nodo.classList.add("visibile"));
+    clearTimeout(timer);
+    timer = setTimeout(() => nodo.classList.remove("visibile"), durata);
+  }
+
+  // ../../../../../home/claude/intimi-segreti/src/core/contatto.js
+  var haWhatsApp = () => !!site_default.whatsapp;
+  var etichettaRichiesta = () => haWhatsApp() ? "Chiedi in boutique" : "Copia la richiesta";
+  var notaRichiesta = () => haWhatsApp() ? "Si apre WhatsApp con il messaggio gi\xE0 scritto." : "Il numero WhatsApp della boutique non \xE8 ancora stato inserito: il messaggio viene copiato, puoi incollarlo dove preferisci.";
+  function messaggioLista(ids) {
+    const righe = ids.map(perId).filter(Boolean).map((p) => `\u2022 ${p.nome}`);
+    return `Buongiorno, vorrei informazioni su questi capi visti nella Vetrina Digitale:
+${righe.join("\n")}`;
+  }
+  var messaggioAppuntamento = () => "Buongiorno, vorrei fissare un appuntamento in boutique per una consulenza o una prova. Quando sarebbe possibile?";
+  async function copia(testo) {
+    try {
+      await navigator.clipboard.writeText(testo);
+      return true;
+    } catch {
+      const t = document.createElement("textarea");
+      t.value = testo;
+      t.setAttribute("readonly", "");
+      t.style.cssText = "position:fixed;opacity:0";
+      document.body.appendChild(t);
+      t.select();
+      let ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch {
+        ok = false;
+      }
+      t.remove();
+      return ok;
+    }
+  }
+  async function inviaRichiesta(testo) {
+    if (haWhatsApp()) {
+      const numero = String(site_default.whatsapp).replace(/\D/g, "");
+      window.open(`https://wa.me/${numero}?text=${encodeURIComponent(testo)}`, "_blank", "noopener");
+      return;
+    }
+    const ok = await copia(testo);
+    avvisa(ok ? "Richiesta copiata. Incollala nel messaggio alla boutique." : "Non \xE8 stato possibile copiare il testo.");
+  }
+
+  // ../../../../../home/claude/intimi-segreti/src/core/icone.js
+  init_define_import_meta_env();
+  var svg = (d, classe = "") => `<svg class="${classe}" viewBox="0 0 24 24" aria-hidden="true">${d}</svg>`;
+  var ICONE = {
+    cuore: svg('<path d="M12 20s-7-4.4-7-9.6A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.4C19 15.600 12 20 12 20Z"/>', "cuore"),
+    condividi: svg('<path d="M12 15V4m0 0L8 8m4-4 4 4M5 13v6h14v-6"/>'),
+    chiudi: svg('<path d="m6 6 12 12M18 6 6 18"/>'),
+    prima: svg('<path d="m14 6-6 6 6 6"/>'),
+    dopo: svg('<path d="m10 6 6 6-6 6"/>'),
+    griglia: svg('<path d="M5 5h6v6H5zM13 5h6v6h-6zM5 13h6v6H5zM13 13h6v6h-6z"/>'),
+    vetrina: svg('<path d="M7 4h10v16H7zM3 7h2v10H3zM19 7h2v10h-2z"/>'),
+    ruota: svg('<path d="M4 12c0-2.200 3.600-4 8-4s8 1.800 8 4-3.600 4-8 4m0 0 2.500-2.500M12 16l2.500 2.500"/>')
+  };
+
+  // ../../../../../home/claude/intimi-segreti/src/core/indietro.js
+  init_define_import_meta_env();
+  var BORDO = 28;
+  var SOGLIA = 96;
+  var MASSIMO = 120;
+  var GESTI_PROPRI = "#copertina, [data-binario], .palco, .banco, .filtri, .voci, input, textarea, select, [data-gesto-proprio]";
+  function destinazione() {
+    const chiudi = (sel) => () => {
+      var _a;
+      return (_a = document.querySelector(sel)) == null ? void 0 : _a.click();
+    };
+    if (document.querySelector(".pannello:not([hidden])")) return chiudi(".pannello:not([hidden]) [data-chiudi-pannello]");
+    const dialogo = document.querySelector("dialog[open]");
+    if (dialogo) return () => (dialogo.querySelector("[data-chiudi]") || { click: () => dialogo.close() }).click();
+    if (document.documentElement.classList.contains("menu-aperto")) return chiudi("[data-chiudi-menu]");
+    let interno = false;
+    try {
+      interno = !!document.referrer && new URL(document.referrer).origin === location.origin;
+    } catch {
+    }
+    if (interno && history.length > 1) return () => history.back();
+    if (!document.body.classList.contains("pagina-home")) return chiudi(".testata .marchio");
+    return null;
+  }
+  function montaIndietro() {
+    if (!("ontouchstart" in window) && !navigator.maxTouchPoints) return;
+    const segno = document.createElement("div");
+    segno.className = "indietro";
+    segno.setAttribute("aria-hidden", "true");
+    segno.innerHTML = '<svg viewBox="0 0 24 24"><path d="m14 6-6 6 6 6" /></svg>';
+    document.body.append(segno);
+    let inizio = null;
+    let preso = false;
+    let azione = null;
+    let pronto = false;
+    const mostra = (dx) => {
+      const d = Math.min(MASSIMO, dx * 0.7);
+      segno.style.transform = `translate3d(${d}px, -50%, 0) scale(${0.7 + Math.min(1, dx / SOGLIA) * 0.3})`;
+      segno.style.opacity = String(Math.min(1, dx / 40));
+      const ora = dx >= SOGLIA;
+      if (ora !== pronto) {
+        pronto = ora;
+        segno.classList.toggle("pronto", ora);
+        if (ora && navigator.vibrate) navigator.vibrate(8);
+      }
+    };
+    const nascondi = () => {
+      segno.classList.remove("pronto");
+      segno.style.transform = "";
+      segno.style.opacity = "";
+      pronto = false;
+    };
+    document.addEventListener("touchstart", (e) => {
+      var _a, _b;
+      inizio = null;
+      preso = false;
+      if (e.touches.length !== 1) return;
+      const t = e.touches[0];
+      const bordo = t.clientX <= BORDO;
+      if (!bordo && ((_b = (_a = e.target).closest) == null ? void 0 : _b.call(_a, GESTI_PROPRI))) return;
+      azione = destinazione();
+      if (!azione) return;
+      inizio = { x: t.clientX, y: t.clientY, t: performance.now(), bordo };
+    }, { passive: true });
+    document.addEventListener("touchmove", (e) => {
+      if (!inizio) return;
+      const t = e.touches[0];
+      const dx = t.clientX - inizio.x;
+      const dy = t.clientY - inizio.y;
+      if (!preso) {
+        if (Math.abs(dx) < 10 && Math.abs(dy) < 10) return;
+        if (dx > 0 && dx > Math.abs(dy) * (inizio.bordo ? 1 : 1.6)) {
+          preso = true;
+          const sopra = document.querySelector("dialog[open]") || document.body;
+          if (segno.parentNode !== sopra) sopra.append(segno);
+          segno.style.top = `${t.clientY}px`;
+          segno.classList.add("attivo");
+        } else {
+          inizio = null;
+          return;
+        }
+      }
+      if (e.cancelable) e.preventDefault();
+      mostra(Math.max(0, dx));
+    }, { passive: false });
+    const fine = (e) => {
+      if (!inizio || !preso) {
+        inizio = null;
+        return;
+      }
+      const t = e.changedTouches[0];
+      const dx = t.clientX - inizio.x;
+      const veloce = dx > 50 && dx / (performance.now() - inizio.t) > 0.6;
+      inizio = null;
+      preso = false;
+      segno.classList.remove("attivo");
+      if (e.type === "touchend" && (dx >= SOGLIA || veloce)) {
+        segno.classList.add("via");
+        setTimeout(() => {
+          segno.classList.remove("via");
+          nascondi();
+        }, 320);
+        azione();
+      } else nascondi();
+    };
+    document.addEventListener("touchend", fine, { passive: true });
+    document.addEventListener("touchcancel", fine, { passive: true });
+    window.addEventListener("pageshow", () => {
+      segno.classList.remove("attivo", "via");
+      nascondi();
+    });
+  }
+
+  // ../../../../../home/claude/intimi-segreti/src/core/cornice.js
+  var VOCI = [
+    { href: "index.html", testo: "La vetrina", nota: "Home" },
+    { href: "vetrina.html", testo: "Vetrina Digitale", nota: "Catalogo" },
+    { href: "vetrina.html?categoria=regalo", testo: "Idee regalo", nota: "Selezione" },
+    { href: "index.html#boutique", testo: "La Boutique", nota: "Lugo" },
+    { href: "index.html#contatti", testo: "Contatti", nota: "Vieni a trovarci" }
+  ];
+  var social = () => Object.entries(site_default.social || {}).filter(([, url]) => !!url).map(([nome, url]) => `<a href="${url}" target="_blank" rel="noopener">${nome[0].toUpperCase()}${nome.slice(1)}</a>`).join("");
+  function montaTestata() {
+    const t = document.createElement("header");
+    t.className = "testata";
+    t.innerHTML = `
+    <a class="marchio" href="index.html" aria-label="${site_default.nome}, torna alla home"><span class="logo" aria-hidden="true"></span></a>
+    <div class="testata-azioni">
+      <button class="tondo conta-preferiti" type="button" data-apri-preferiti aria-label="I tuoi preferiti">${ICONE.cuore}<b aria-hidden="true"></b></button>
+      <button class="apri-menu" type="button" aria-expanded="false" aria-controls="menu">Menu <i aria-hidden="true"></i></button>
+    </div>`;
+    document.body.prepend(t);
+    return t;
+  }
+  function montaMenu(apriBtn) {
+    const m = document.createElement("nav");
+    m.className = "menu";
+    m.id = "menu";
+    m.setAttribute("aria-label", "Menu principale");
+    m.innerHTML = `
+    <div class="menu-testa"><span class="marchio"><span class="logo" role="img" aria-label="${site_default.nome}"></span></span>
+      <button class="tondo" type="button" data-chiudi-menu aria-label="Chiudi il menu">${ICONE.chiudi}</button></div>
+    <ul class="menu-voci">${VOCI.map((v) => `<li><a href="${v.href}">${v.testo} <small>${v.nota}</small></a></li>`).join("")}</ul>
+    <div class="menu-piede"><span>${site_default.luogo}</span>${social()}<a href="privacy.html">Privacy e cookie</a></div>`;
+    document.body.appendChild(m);
+    const voci = m.querySelectorAll(".menu-voci a");
+    let tl = null;
+    let aperto = false;
+    function imposta(stato) {
+      if (stato === aperto) return;
+      aperto = stato;
+      apriBtn.setAttribute("aria-expanded", String(stato));
+      document.documentElement.classList.toggle("menu-aperto", stato);
+      window.dispatchEvent(new CustomEvent("is:blocco-scroll", { detail: stato }));
+      if (tl) tl.kill();
+      const d = riduciMovimento() ? 0.01 : DUR.media;
+      if (stato) {
+        m.classList.add("aperto");
+        m.inert = false;
+        tl = import_gsap.gsap.timeline();
+        tl.fromTo(m, { clipPath: "inset(0% 0% 100% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: d, ease: EASE.scena }).fromTo(voci, { yPercent: 110, rotate: 4, opacity: 0 }, { yPercent: 0, rotate: 0, opacity: 1, duration: d, ease: EASE.entrata, stagger: 0.06 }, d * 0.35).fromTo(m.querySelector(".menu-piede"), { opacity: 0 }, { opacity: 1, duration: DUR.breve }, d * 0.8);
+        m.querySelector("[data-chiudi-menu]").focus({ preventScroll: true });
+      } else {
+        tl = import_gsap.gsap.timeline({ onComplete: () => m.classList.remove("aperto") });
+        tl.to(m, { clipPath: "inset(100% 0% 0% 0%)", duration: d * 0.8, ease: EASE.scena });
+        m.inert = true;
+        apriBtn.focus({ preventScroll: true });
+      }
+    }
+    m.inert = true;
+    apriBtn.addEventListener("click", () => imposta(true));
+    m.querySelector("[data-chiudi-menu]").addEventListener("click", () => imposta(false));
+    m.addEventListener("click", (e) => {
+      if (e.target.closest("a")) imposta(false);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && aperto) imposta(false);
+    });
+  }
+  function montaPiede() {
+    if (document.querySelector(".piede") || document.body.dataset.senzaPiede != null) return;
+    const p = document.createElement("footer");
+    p.className = "piede";
+    const anno = (/* @__PURE__ */ new Date()).getFullYear();
+    p.innerHTML = `
+    <span class="marchio"><img class="logo-oro" src="assets/site/logo-oro.webp" alt="${site_default.nome}" width="943" height="512" loading="lazy"></span>
+    <div class="piede-righe">
+      <span>${site_default.luogo}</span>
+      ${site_default.indirizzo ? `<span>${site_default.indirizzo}</span>` : ""}
+      ${site_default.telefono ? `<a href="tel:${String(site_default.telefono).replace(/\s/g, "")}">${site_default.telefono}</a>` : ""}
+      ${social()}
+      <a href="vetrina.html">Vetrina Digitale</a>
+      <a href="privacy.html">Privacy e cookie</a>
+    </div>
+    <div class="piede-righe"><span>\xA9 ${anno} ${site_default.nome}${site_default.partitaIva ? ` \xB7 P. IVA ${site_default.partitaIva}` : ""}</span>
+      <span>Le immagini dei capi sono dimostrative finch\xE9 non vengono sostituite dagli scatti della boutique.</span></div>`;
+    document.body.appendChild(p);
+  }
+  function montaPreferiti() {
+    const d = document.createElement("dialog");
+    d.className = "foglio";
+    d.setAttribute("aria-labelledby", "titolo-preferiti");
+    d.innerHTML = `
+    <button class="tondo foglio-chiudi" type="button" data-chiudi aria-label="Chiudi">${ICONE.chiudi}</button>
+    <div class="foglio-maniglia" aria-hidden="true"></div>
+    <div class="foglio-corpo scheda">
+      <p class="occhiello">La tua selezione</p>
+      <h2 id="titolo-preferiti">Preferiti</h2>
+      <div data-contenuto></div>
+    </div>`;
+    document.body.appendChild(d);
+    const corpo = d.querySelector("[data-contenuto]");
+    function disegna() {
+      const ids = Preferiti.tutti().filter(perId);
+      document.querySelectorAll(".conta-preferiti b").forEach((b) => b.textContent = ids.length ? String(ids.length) : "");
+      if (!d.open) return;
+      if (!ids.length) {
+        corpo.innerHTML = `<p class="scheda-descr">Non hai ancora salvato nessun capo. Tocca il cuore su un prodotto della Vetrina Digitale per ritrovarlo qui.</p>
+        <div class="scheda-azioni"><a class="bottone pieno" href="vetrina.html">Vai alla Vetrina Digitale</a></div>`;
+        return;
+      }
+      corpo.innerHTML = `<ul class="lista-preferiti">${ids.map((id) => {
+        const p = perId(id);
+        return `<li><img src="${src(p.varianti[0].immagine, 600)}" alt="" loading="lazy" width="64" height="80">
+          <div><a href="vetrina.html?prodotto=${p.id}">${p.nome}</a><small>${nomeCategoria(p.categoria)}</small></div>
+          <button class="tondo" type="button" data-togli="${p.id}" aria-label="Togli ${p.nome} dai preferiti">${ICONE.chiudi}</button></li>`;
+      }).join("")}</ul>
+      <div class="scheda-azioni"><button class="bottone pieno" type="button" data-invia>${haTesto()}</button></div>
+      <p class="scheda-nota">${notaRichiesta()}</p>`;
+    }
+    const haTesto = () => etichettaRichiesta() === "Chiedi in boutique" ? "Invia la lista alla boutique" : "Copia la lista";
+    d.addEventListener("click", (e) => {
+      if (e.target === d || e.target.closest("[data-chiudi]")) d.close();
+      const togli = e.target.closest("[data-togli]");
+      if (togli) Preferiti.alterna(togli.dataset.togli);
+      if (e.target.closest("[data-invia]")) inviaRichiesta(messaggioLista(Preferiti.tutti()));
+    });
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest("[data-apri-preferiti]")) return;
+      d.showModal();
+      disegna();
+    });
+    Preferiti.ascolta(disegna);
+    disegna();
+  }
+  function montaCursore() {
+    if (!matchMedia("(hover: hover) and (pointer: fine)").matches || riduciMovimento()) return;
+    const c = document.createElement("div");
+    c.className = "cursore";
+    c.setAttribute("aria-hidden", "true");
+    c.innerHTML = "<span></span>";
+    document.body.appendChild(c);
+    document.documentElement.classList.add("ha-cursore");
+    const etichetta = c.firstElementChild;
+    const x = import_gsap.gsap.quickTo(c, "x", { duration: 0.35, ease: "power3.out" });
+    const y = import_gsap.gsap.quickTo(c, "y", { duration: 0.35, ease: "power3.out" });
+    const TESTI = { trascina: "Trascina", apri: "Apri" };
+    window.addEventListener("pointermove", (e) => {
+      if (e.pointerType !== "mouse") return;
+      x(e.clientX);
+      y(e.clientY);
+      const zona = e.target.closest ? e.target.closest("[data-cursore]") : null;
+      const tipo = zona ? zona.dataset.cursore : "";
+      const interattivo = !tipo && e.target.closest && e.target.closest("a, button, input, label");
+      c.classList.toggle("trascina", tipo === "trascina");
+      c.classList.toggle("apri", tipo === "apri");
+      c.classList.toggle("attivo", !!interattivo);
+      etichetta.textContent = TESTI[tipo] || "";
+    }, { passive: true });
+    document.querySelectorAll("[data-magnetico]").forEach((el) => {
+      const mx = import_gsap.gsap.quickTo(el, "x", { duration: 0.4, ease: "power3.out" });
+      const my = import_gsap.gsap.quickTo(el, "y", { duration: 0.4, ease: "power3.out" });
+      el.addEventListener("pointermove", (e) => {
+        const r = el.getBoundingClientRect();
+        mx((e.clientX - r.left - r.width / 2) * 0.3);
+        my((e.clientY - r.top - r.height / 2) * 0.3);
+      });
+      el.addEventListener("pointerleave", () => {
+        mx(0);
+        my(0);
+      });
+    });
+  }
+  function montaPassaggio() {
+    const nativo = "CSSViewTransitionRule" in window;
+    if (nativo || riduciMovimento()) return;
+    const s = document.createElement("div");
+    s.className = "sipario";
+    s.setAttribute("aria-hidden", "true");
+    s.innerHTML = "<i></i><i></i>";
+    document.body.appendChild(s);
+    const ante = s.querySelectorAll("i");
+    if (sessione.leggi("is:porta")) {
+      sessione.scrivi("is:porta", false);
+      import_gsap.gsap.set(s, { visibility: "visible" });
+      import_gsap.gsap.fromTo(ante, { scaleX: 1 }, { scaleX: 0, duration: DUR.media, ease: EASE.scena, onComplete: () => import_gsap.gsap.set(s, { visibility: "hidden" }) });
+    }
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest ? e.target.closest("a[href]") : null;
+      if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      if (a.target === "_blank" || a.hasAttribute("download")) return;
+      const url = new URL(a.href, location.href);
+      if (url.origin !== location.origin || url.pathname === location.pathname) return;
+      e.preventDefault();
+      sessione.scrivi("is:porta", true);
+      import_gsap.gsap.set(s, { visibility: "visible" });
+      import_gsap.gsap.fromTo(ante, { scaleX: 0 }, { scaleX: 1, duration: DUR.breve, ease: EASE.scena, onComplete: () => location.href = url.href });
+    });
+    window.addEventListener("pageshow", (e) => {
+      if (e.persisted) import_gsap.gsap.set(ante, { scaleX: 0 });
+    });
+  }
+  function montaScorrimentoTestata(t) {
+    let ultimo = scrollY;
+    let attesa = 0;
+    const aggiorna = () => {
+      attesa = 0;
+      const y = Math.max(0, scrollY);
+      const bloccata = document.documentElement.classList.contains("menu-aperto") || document.body.classList.contains("in-vetrina");
+      t.classList.toggle("velata", y > 24 && !bloccata);
+      if (!bloccata && Math.abs(y - ultimo) > 6) {
+        t.classList.toggle("nascosta", y > ultimo && y > 220 && !t.contains(document.activeElement));
+        ultimo = y;
+      }
+      if (bloccata) t.classList.remove("nascosta");
+    };
+    addEventListener("scroll", () => {
+      if (!attesa) attesa = requestAnimationFrame(aggiorna);
+    }, { passive: true });
+    addEventListener("is:blocco-scroll", aggiorna);
+    aggiorna();
+  }
+  function montaCornice() {
+    const testata = montaTestata();
+    montaScorrimentoTestata(testata);
+    montaIndietro();
+    montaMenu(testata.querySelector(".apri-menu"));
+    montaPiede();
+    montaPreferiti();
+    montaCursore();
+    montaPassaggio();
+    return { testata };
+  }
+
+  // ../../../../../home/claude/intimi-segreti/src/core/qualita.js
+  init_define_import_meta_env();
+  var memo = null;
+  function livelloQualita() {
+    if (memo) return memo;
+    const forzato = new URLSearchParams(location.search).get("qualita");
+    if (["completo", "ridotto", "essenziale"].includes(forzato)) return memo = forzato;
+    const conn = navigator.connection || {};
+    const memoria = navigator.deviceMemory || 4;
+    const core = navigator.hardwareConcurrency || 4;
+    const mobile = matchMedia("(pointer: coarse)").matches || innerWidth < 768;
+    if (riduciMovimento() || conn.saveData || memoria <= 2 || core <= 2) memo = "essenziale";
+    else if (mobile || memoria <= 4 || core <= 4) memo = "ridotto";
+    else memo = "completo";
+    return memo;
+  }
+
+  // ../../../../../home/claude/intimi-segreti/src/pages/home.js
+  var html = document.documentElement;
+  var statico = riduciMovimento();
+  html.classList.add(`livello-${livelloQualita()}`);
+  if (statico) html.classList.add("statico");
+  var $ = (s, r = document) => r.querySelector(s);
+  var $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  var due = (n) => String(n).padStart(2, "0");
+  var euro = (n) => prezzo({ prezzo: Math.round(n * 100) / 100 });
+  var SITO = "assets/site/";
+  montaCornice();
+  var timbro = (testo, id) => `<div class="c-timbro" aria-hidden="true"><svg viewBox="0 0 120 120">
+  <defs><path id="giro-${id}" d="M60 60 m-46 0 a46 46 0 1 1 92 0 a46 46 0 1 1 -92 0"/></defs>
+  <circle cx="60" cy="60" r="58"/><circle cx="60" cy="60" r="33"/>
+  <text><textPath href="#giro-${id}" textLength="282">${testo}</textPath></text>
+  <path class="stella" d="M60 46 63.500 56.500 74 60 63.500 63.500 60 74 56.500 63.500 46 60 56.500 56.500Z"/></svg></div>`;
+  var LUCCICHII = [[30, 58, 26, 0], [62, 66, 20, 0.5], [44, 80, 30, 1.1], [74, 84, 22, 1.6], [22, 78, 18, 2], [52, 54, 16, 0.8], [36, 92, 24, 1.4]];
+  function costruisciApertura() {
+    const m = copertine.find((c) => c.manifesto);
+    const box = $("[data-apertura]");
+    if (!m) {
+      box.closest("section").hidden = true;
+      return;
+    }
+    box.innerHTML = `
+    <picture class="m-foto">
+      <source media="(max-width: 767px)" srcset="${SITO}${m.manifesto}-verticale.webp">
+      <img src="${SITO}${m.manifesto}.webp" alt="${site_default.nome}: immagine di copertina" fetchpriority="high" decoding="async" draggable="false">
+    </picture>
+    <div class="m-velo" aria-hidden="true"></div>
+    <div class="m-testo">
+      <img class="m-logo" src="${SITO}logo-oro.webp" alt="" width="943" height="512">
+      <p class="occhiello">Boutique \xB7 ${site_default.luogo}</p>
+      <p class="m-frase">${m.frase || ""}</p>
+      <div class="m-azioni"><a class="bottone pieno" href="vetrina.html">Vetrina Digitale</a><a class="bottone" href="index.html#copertina">In copertina</a></div>
+    </div>`;
+  }
+  function costruisciCopertine() {
+    const valide = copertine.map((c) => ({ ...c, p: c.prodotto ? perId(c.prodotto) : null })).filter((c) => c.p);
+    $("[data-copertine]").innerHTML = valide.map((c, i) => {
+      const { p } = c;
+      const v = p.varianti[0];
+      const sat = c.satellite ? perId(c.satellite.prodotto) : null;
+      const link = `vetrina.html?prodotto=${p.id}`;
+      const soggetto = c.scontorno ? `<a class="c-soggetto scontorno" href="${link}" data-cursore="apri" aria-label="${p.nome}: apri la scheda"><img src="${SITO}${c.scontorno}.webp" alt="${p.nome}" loading="lazy" decoding="async" draggable="false"><span class="c-luccichii" aria-hidden="true">${LUCCICHII.map(([x, y, g, d]) => `<i style="--x:${x}%;--y:${y}%;--g:${g}px;--d:${d}s"></i>`).join("")}</span></a>` : `<a class="c-soggetto arco" href="${link}" data-cursore="apri" aria-label="${p.nome}: apri la scheda"><img src="${src(v.immagine)}" alt="${p.nome}" loading="lazy" decoding="async" draggable="false"></a>`;
+      const satellite = !sat ? "" : c.satellite.scontorno ? `<a class="c-satellite scontornato" href="vetrina.html?prodotto=${sat.id}" aria-label="${sat.nome}, ${prezzo(sat)}"><img src="${SITO}${c.satellite.scontorno}.webp" alt="" loading="lazy" draggable="false"></a>` : `<a class="c-satellite cartolina" href="vetrina.html?prodotto=${sat.id}" aria-label="${sat.nome}, ${prezzo(sat)}"><img src="${src(sat.varianti[0].immagine, 600)}" alt="" loading="lazy" draggable="false"><b>${sat.nome} \xB7 ${prezzo(sat)}</b></a>`;
+      return `<article class="copertina tema-${c.tema}${i ? "" : " attiva"}" data-tema="${c.tema}" aria-roledescription="scheda" aria-label="${i + 1} di ${valide.length}: ${p.nome}"${i ? " inert" : ""}>
+        <div class="c-alone"></div>
+        <p class="c-parola" aria-hidden="true">${c.parola}</p>
+        ${soggetto}
+        <p class="c-parola contorno" aria-hidden="true">${c.parola}</p>
+        ${satellite}
+        ${timbro(`${p.novita ? "Novit\xE0 in vetrina" : "In vetrina"} \xB7 ${site_default.luogo} \xB7 `, i)}
+        <div class="c-info">
+          <p class="occhiello"><span class="c-conto">${due(i + 1)} / ${due(valide.length)}</span>${p.marchio || nomeCategoria(p.categoria)}</p>
+          <h2 class="c-nome">${p.nome}</h2>
+          <p class="c-prezzo">${prezzo(p)}<small>${p.sottocategoria || ""}</small></p>
+          <a class="bottone pieno c-vai" href="${link}">Scopri</a>
+        </div>
+      </article>`;
+    }).join("");
+    $("[data-giostra-punti]").innerHTML = valide.map((c, i) => `<button type="button" data-vai="${i}" aria-label="Mostra ${c.p.nome}"${i ? "" : ' aria-current="true"'}><i></i></button>`).join("");
+    return $$(".copertina");
+  }
+  function montaGiostra() {
+    const zona = $("#copertina");
+    const punti = $$("[data-vai]", zona);
+    const pausaBtn = $("[data-giostra-pausa]");
+    const n = pagine.length;
+    if (n < 2) {
+      $(".giostra-comandi").hidden = true;
+      return () => {
+      };
+    }
+    const DURATA = 6e3;
+    let attuale = 0;
+    let timer2 = 0;
+    let inPausa = statico;
+    let sopra = false;
+    let visibile = false;
+    let dito = null;
+    const riparti = () => {
+      clearTimeout(timer2);
+      const gira = !inPausa && !sopra && visibile;
+      zona.classList.toggle("gira", gira);
+      if (!gira) return;
+      const barra = punti[attuale].firstElementChild;
+      barra.style.animation = "none";
+      void barra.offsetWidth;
+      barra.style.animation = "";
+      timer2 = setTimeout(() => mostra(attuale + 1), DURATA);
+    };
+    function mostra(i, daUtente = false) {
+      attuale = (i + n) % n;
+      pagine.forEach((el, k) => {
+        el.classList.toggle("attiva", k === attuale);
+        el.inert = k !== attuale;
+      });
+      punti.forEach((b, k) => k === attuale ? b.setAttribute("aria-current", "true") : b.removeAttribute("aria-current"));
+      zona.dataset.tema = pagine[attuale].dataset.tema;
+      tono(zona, pagine[attuale].dataset.tema === "borgogna" ? "scuro" : "chiaro");
+      if (daUtente) $("[data-giostra-annuncio]").textContent = pagine[attuale].getAttribute("aria-label");
+      riparti();
+    }
+    zona.addEventListener("click", (e) => {
+      const b = e.target.closest("[data-vai], [data-giostra-prima], [data-giostra-dopo]");
+      if (!b) return;
+      if (b.dataset.vai != null) mostra(Number(b.dataset.vai), true);
+      else mostra(attuale + (b.hasAttribute("data-giostra-dopo") ? 1 : -1), true);
+    });
+    pausaBtn.setAttribute("aria-pressed", String(inPausa));
+    pausaBtn.addEventListener("click", () => {
+      inPausa = !inPausa;
+      pausaBtn.setAttribute("aria-pressed", String(inPausa));
+      pausaBtn.setAttribute("aria-label", inPausa ? "Riprendi il cambio automatico" : "Ferma il cambio automatico");
+      riparti();
+    });
+    const entra = () => {
+      sopra = true;
+      riparti();
+    };
+    const esce = () => {
+      sopra = false;
+      riparti();
+    };
+    zona.addEventListener("pointerenter", (e) => e.pointerType === "mouse" && entra());
+    zona.addEventListener("pointerleave", (e) => e.pointerType === "mouse" && esce());
+    zona.addEventListener("focusin", (e) => e.target.matches(":focus-visible") && entra());
+    zona.addEventListener("focusout", esce);
+    zona.addEventListener("touchstart", (e) => {
+      dito = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    }, { passive: true });
+    zona.addEventListener("touchend", (e) => {
+      if (!dito) return;
+      const dx = e.changedTouches[0].clientX - dito.x;
+      const dy = e.changedTouches[0].clientY - dito.y;
+      dito = null;
+      if (Math.abs(dx) > 44 && Math.abs(dx) > Math.abs(dy) * 1.4) mostra(attuale + (dx < 0 ? 1 : -1), true);
+    }, { passive: true });
+    zona.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") mostra(attuale + 1, true);
+      else if (e.key === "ArrowLeft") mostra(attuale - 1, true);
+    });
+    let inVista = false;
+    const aggiornaVista = () => {
+      visibile = inVista && !document.hidden;
+      riparti();
+    };
+    const occhio = new IntersectionObserver(([v]) => {
+      inVista = v.isIntersecting;
+      aggiornaVista();
+    }, { threshold: 0.35 });
+    occhio.observe(zona);
+    document.addEventListener("visibilitychange", aggiornaVista);
+    mostra(0);
+    return () => {
+      clearTimeout(timer2);
+      occhio.disconnect();
+      document.removeEventListener("visibilitychange", aggiornaVista);
+    };
+  }
+  function costruisciNastro() {
+    const voci = [...categorie.map((c) => c.nome), site_default.luogo.replace(/\s*\(.*\)/, ""), "Vetrina Digitale"];
+    const riga = voci.map((v) => `${v}<i>\u2726</i>`).join("");
+    $$("[data-nastro]").forEach((s) => s.innerHTML = riga.repeat(2));
+  }
+  var APPENDINO = '<span class="appendino" aria-hidden="true"><svg class="gancio" viewBox="0 0 28 44"><path d="M14 44V22a9 9 0 1 0-9-9"/></svg><svg class="spalle" viewBox="0 0 100 29" preserveAspectRatio="none"><path vector-effect="non-scaling-stroke" d="M50 1 2 27h96Z"/></svg></span>';
+  function costruisciRella() {
+    const capo = (p, i, copia2) => `<li class="gruccia"${copia2 ? ' aria-hidden="true"' : ""}>${APPENDINO}<span class="gruccia-numero" aria-hidden="true">${due(i + 1)}</span><a href="vetrina.html?prodotto=${p.id}"${copia2 ? ' tabindex="-1"' : ""} draggable="false">
+        <div class="gruccia-foto">${figura(p.varianti[0], copia2 ? "" : p.nome, { sizes: "(min-width: 768px) 310px, 54vw" })}</div>
+        <h3>${p.nome}</h3><b>${prezzo(p)}</b><small>${p.marchio || nomeCategoria(p.categoria)}${p.novita ? " \xB7 Novit\xE0" : ""}</small></a></li>`;
+    $("[data-rella]").innerHTML = prodotti.map((p, i) => capo(p, i, false)).join("") + (statico ? "" : prodotti.map((p, i) => capo(p, i, true)).join(""));
+    $("[data-rella-conto]").textContent = `${prodotti.length} capi in vetrina \xB7 scorre da sola, trascinala per sfogliare`;
+  }
+  function montaRella() {
+    const binario = $("[data-binario]");
+    const rella = $("[data-rella]");
+    const pausaBtn = $("[data-rella-pausa]");
+    if (statico) {
+      $(".rella-comandi").hidden = true;
+      return () => {
+      };
+    }
+    const VELOCITA = 26;
+    let x = 0;
+    let meta = null;
+    let giro = 1;
+    let passo = 1;
+    let inPausa = false;
+    let sopra = false;
+    let visibile = false;
+    let presa = null;
+    let trascinato = false;
+    let id = 0;
+    let ultimo = 0;
+    const misura = () => {
+      giro = rella.scrollWidth / 2;
+      const g = rella.querySelector(".gruccia");
+      passo = g ? g.getBoundingClientRect().width + parseFloat(getComputedStyle(g).marginRight) : 300;
+    };
+    const disegna = () => {
+      x = (x % giro + giro) % giro;
+      rella.style.transform = `translate3d(${-x.toFixed(1)}px, 0, 0)`;
+    };
+    const gira = (ora) => {
+      id = requestAnimationFrame(gira);
+      const dt = Math.min(64, ora - ultimo);
+      ultimo = ora;
+      if (presa) return;
+      if (meta != null) {
+        const d = meta - x;
+        if (Math.abs(d) < 0.6) {
+          x = meta;
+          meta = null;
+        } else x += d * 0.12;
+      } else if (!inPausa && !sopra) x += VELOCITA * dt / 1e3;
+      else return;
+      disegna();
+    };
+    const avvia2 = () => {
+      if (id || !visibile) return;
+      ultimo = performance.now();
+      id = requestAnimationFrame(gira);
+    };
+    const ferma = () => {
+      cancelAnimationFrame(id);
+      id = 0;
+    };
+    const giu = (e) => {
+      if (e.pointerType === "mouse" && e.button !== 0) return;
+      presa = { x0: e.clientX, y0: e.clientY, inizio: x, id: e.pointerId, deciso: false };
+      trascinato = false;
+      meta = null;
+    };
+    const muovi = (e) => {
+      if (!presa || e.pointerId !== presa.id) return;
+      const dx = e.clientX - presa.x0;
+      if (!presa.deciso) {
+        if (Math.abs(dx) < 6) return;
+        if (Math.abs(e.clientY - presa.y0) > Math.abs(dx)) {
+          presa = null;
+          return;
+        }
+        presa.deciso = true;
+        trascinato = true;
+        binario.classList.add("trascina");
+        try {
+          binario.setPointerCapture(e.pointerId);
+        } catch {
+        }
+      }
+      x = presa.inizio - dx;
+      disegna();
+    };
+    const su = () => {
+      presa = null;
+      binario.classList.remove("trascina");
+    };
+    const clic = (e) => {
+      if (trascinato) {
+        e.preventDefault();
+        e.stopPropagation();
+        trascinato = false;
+      }
+    };
+    const sposta = (verso) => {
+      const base = meta != null ? meta : x;
+      meta = Math.round(base / passo) * passo + verso * passo;
+      if (meta < 0) {
+        x += giro;
+        meta += giro;
+      }
+      if (meta > giro * 2 - 1) {
+        x -= giro;
+        meta -= giro;
+      }
+    };
+    const alternaPausa = () => {
+      inPausa = !inPausa;
+      pausaBtn.setAttribute("aria-pressed", String(inPausa));
+      pausaBtn.setAttribute("aria-label", inPausa ? "Riprendi lo scorrimento" : "Ferma lo scorrimento");
+    };
+    const entra = () => sopra = true;
+    const esce = () => sopra = false;
+    binario.addEventListener("pointerdown", giu);
+    binario.addEventListener("pointermove", muovi);
+    binario.addEventListener("pointerup", su);
+    binario.addEventListener("pointercancel", su);
+    binario.addEventListener("click", clic, true);
+    binario.addEventListener("pointerenter", (e) => e.pointerType === "mouse" && entra());
+    binario.addEventListener("pointerleave", (e) => e.pointerType === "mouse" && esce());
+    binario.addEventListener("focusin", (e) => e.target.matches(":focus-visible") && entra());
+    binario.addEventListener("focusout", esce);
+    $("[data-rella-prima]").addEventListener("click", () => sposta(-1));
+    $("[data-rella-dopo]").addEventListener("click", () => sposta(1));
+    pausaBtn.addEventListener("click", alternaPausa);
+    window.addEventListener("resize", misura);
+    const occhio = new IntersectionObserver(([v]) => {
+      visibile = v.isIntersecting;
+      if (visibile) {
+        misura();
+        avvia2();
+      } else ferma();
+    });
+    occhio.observe(binario);
+    misura();
+    return () => {
+      ferma();
+      occhio.disconnect();
+      window.removeEventListener("resize", misura);
+    };
+  }
+  function costruisciLook() {
+    $("[data-look]").innerHTML = look.map((l, i) => {
+      const capi = l.capi.map(perId).filter(Boolean);
+      if (capi.length < 2) return "";
+      const [a, b] = capi;
+      const totale = capi.reduce((s, c) => s + (c.prezzo || 0), 0);
+      return `<article class="look compare">
+        <div class="look-foto">
+          <a href="vetrina.html?prodotto=${a.id}" aria-label="${a.nome}, ${prezzo(a)}"><img src="${src(a.varianti[0].immagine, 600)}" alt="${a.nome}" loading="lazy" width="600" height="750"></a>
+          <span class="look-piu" aria-hidden="true">+</span>
+          <a href="vetrina.html?prodotto=${b.id}" aria-label="${b.nome}, ${prezzo(b)}"><img src="${src(b.varianti[0].immagine, 600)}" alt="${b.nome}" loading="lazy" width="600" height="750"></a>
+        </div>
+        <div class="look-testo">
+          <p class="occhiello">Look ${due(i + 1)}${a.marchio ? ` \xB7 ${a.marchio}` : ""}</p>
+          <h3>${l.nome}</h3>
+          <ul class="look-lista">${capi.map((c) => `<li><a href="vetrina.html?prodotto=${c.id}">${c.nome}</a><span>${prezzo(c)}</span></li>`).join("")}</ul>
+          <div class="look-piede">
+            <p class="look-totale"><small>Insieme</small><span>${euro(totale)}</span></p>
+            <button class="bottone pieno piccolo" type="button" data-look-chiedi="${l.id}">${etichettaRichiesta()}</button>
+          </div>
+        </div>
+      </article>`;
+    }).join("");
+    $("[data-look]").addEventListener("click", (e) => {
+      const b = e.target.closest("[data-look-chiedi]");
+      if (!b) return;
+      const l = look.find((x) => x.id === b.dataset.lookChiedi);
+      const capi = l.capi.map(perId).filter(Boolean);
+      inviaRichiesta(`Buongiorno, vorrei informazioni sul look \xAB${l.nome}\xBB visto sul sito:
+${capi.map((c) => `\u2022 ${c.nome} (${prezzo(c)})`).join("\n")}`);
+    });
+  }
+  function montaPellicola() {
+    const box = $("[data-pellicola]");
+    if (!box) return () => {
+    };
+    box.innerHTML = `<div>${prodotti.map((p, i2) => `<img src="${src(p.varianti[0].immagine, 600)}" alt="" loading="lazy"${i2 ? "" : ' class="ora"'}>`).join("")}</div><b>In boutique adesso</b>`;
+    const foto = $$("img", box);
+    let i = 0;
+    let timer2 = 0;
+    const scatta = () => {
+      foto[i].classList.remove("ora");
+      i = (i + 1) % foto.length;
+      foto[i].classList.add("ora");
+    };
+    const occhio = new IntersectionObserver(([v]) => {
+      clearInterval(timer2);
+      if (v.isIntersecting && !statico) timer2 = setInterval(scatta, 520);
+    });
+    occhio.observe(box);
+    return () => {
+      clearInterval(timer2);
+      occhio.disconnect();
+    };
+  }
+  function costruisciTerzi() {
+    $("[data-terzi]").innerHTML = categorie.map((c, i) => {
+      const p = filtra(c.id)[0];
+      const foto = p ? src(p.varianti[0].immagine) : `${SITO}manifesto-verticale.webp`;
+      return `<a class="terzo" href="${p ? `vetrina.html?categoria=${c.id}` : "/#contatti"}">
+        <img src="${foto}" alt="" loading="lazy" width="1200" height="1500">
+        <span class="terzo-numero">${due(i + 1)} / ${due(categorie.length)}</span>
+        <h3>${c.nome}</h3>
+        <p>${c.frase}</p>
+        <span class="terzo-vai">${p ? `Guarda ${c.nome.toLowerCase()}` : "Contatta la boutique"}</span>
+      </a>`;
+    }).join("");
+  }
+  function riempiBoutique() {
+    const attesa = (cosa) => `<span class="in-attesa">${cosa}: da inserire</span>`;
+    $("[data-chi-siamo]").innerHTML = site_default.chiSiamo ? `<p>${site_default.chiSiamo}</p>` : `<p>${site_default.nome} \xE8 una boutique di ${site_default.luogo}.</p><p style="margin-top:14px">${attesa("Presentazione di chi vi accoglie")}</p>`;
+    const righe = [
+      ["Indirizzo", site_default.indirizzo ? site_default.mappaLink ? `<a href="${site_default.mappaLink}" target="_blank" rel="noopener">${site_default.indirizzo}</a>` : site_default.indirizzo : attesa("Indirizzo")],
+      ["Orari", site_default.orari || attesa("Orari")],
+      ["Telefono", site_default.telefono || attesa("Telefono")],
+      ["WhatsApp", site_default.whatsapp ? `<a href="https://wa.me/${String(site_default.whatsapp).replace(/\D/g, "")}" target="_blank" rel="noopener">Scrivici</a>` : attesa("Numero WhatsApp")],
+      ["Social", Object.entries(site_default.social || {}).filter(([, u]) => u).map(([n, u]) => `<a href="${u}" target="_blank" rel="noopener">${n[0].toUpperCase()}${n.slice(1)}</a>`).join(" \xB7 ")]
+    ];
+    $("[data-recapiti]").innerHTML = righe.map(([t, v]) => `<div><dt>${t}</dt><dd>${v}</dd></div>`).join("");
+    const btn = $("[data-appuntamento]");
+    btn.textContent = site_default.whatsapp ? "Chiedi un appuntamento" : "Copia la richiesta di appuntamento";
+    btn.addEventListener("click", () => inviaRichiesta(messaggioAppuntamento()));
+    $("[data-nota-appuntamento]").textContent = `Consulenza o prova su appuntamento: la boutique conferma giorno e ora. ${notaRichiesta()}`;
+    const mappa = $("[data-mappa]");
+    if (site_default.mappaLink) mappa.innerHTML = `<div><p>${site_default.indirizzo || site_default.luogo}</p><p style="margin-top:14px"><a class="bottone" href="${site_default.mappaLink}" target="_blank" rel="noopener">Apri la mappa</a></p></div>`;
+    else mappa.innerHTML = `<div>${attesa("Mappa e indicazioni")}</div>`;
+    $$(".boutique-colonna > *, .mappa").forEach((el) => el.classList.add("compare"));
+  }
+  costruisciApertura();
+  var pagine = costruisciCopertine();
+  costruisciNastro();
+  costruisciRella();
+  costruisciLook();
+  var fermaPellicola = montaPellicola();
+  costruisciTerzi();
+  var fermaRella = montaRella();
+  riempiBoutique();
+  var sezioneInAlto = null;
+  function tono(sezione, valore) {
+    if (sezione && valore && sezione.dataset.tono !== valore) sezione.dataset.tono = valore;
+    const t = sezioneInAlto ? sezioneInAlto.dataset.tono : "scuro";
+    if (html.dataset.tonoPagina !== t) html.dataset.tonoPagina = t;
+  }
+  function montaTono() {
+    const piede = $(".piede");
+    if (piede) piede.dataset.tono = "scuro";
+    const occhio = new IntersectionObserver((voci) => {
+      voci.forEach((v) => {
+        if (v.isIntersecting) sezioneInAlto = v.target;
+      });
+      tono();
+    }, { rootMargin: "-28px 0px -96% 0px" });
+    $$("[data-tono]").forEach((el) => occhio.observe(el));
+    return occhio;
+  }
+  function vaiA(bersaglio, immediato = false) {
+    const el = typeof bersaglio === "string" ? $(bersaglio) : bersaglio;
+    if (!el) return;
+    window.scrollTo({ top: el.getBoundingClientRect().top + scrollY + 1, behavior: statico || immediato ? "auto" : "smooth" });
+  }
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest ? e.target.closest('a[href*="#"]') : null;
+    if (!a) return;
+    const url = new URL(a.href, location.href);
+    if (url.pathname !== location.pathname || url.hash.length < 2 || !$(url.hash)) return;
+    e.preventDefault();
+    history.replaceState(null, "", url.hash);
+    vaiA(url.hash);
+  });
+  function montaCapitoli() {
+    const nav = $(".capitoli");
+    const sezioni = $$("[data-capitolo]");
+    nav.innerHTML = sezioni.map((s, i) => `<button type="button" data-i="${i}" aria-label="Vai a: ${s.dataset.capitolo}"><span>${s.dataset.capitolo}</span></button>`).join("");
+    const bottoni = $$("button", nav);
+    nav.addEventListener("click", (e) => {
+      const b = e.target.closest("button");
+      if (b) vaiA(sezioni[Number(b.dataset.i)]);
+    });
+    const occhio = new IntersectionObserver((voci) => {
+      voci.forEach((v) => {
+        if (!v.isIntersecting) return;
+        const i = sezioni.indexOf(v.target);
+        bottoni.forEach((b, k) => b.setAttribute("aria-current", String(k === i)));
+      });
+    }, { rootMargin: "-50% 0px -50% 0px" });
+    sezioni.forEach((s) => occhio.observe(s));
+    return occhio;
+  }
+  function montaComparse() {
+    const occhio = new IntersectionObserver((voci) => {
+      voci.forEach((v) => {
+        if (!v.isIntersecting) return;
+        v.target.classList.add("visto");
+        occhio.unobserve(v.target);
+      });
+    }, { rootMargin: "0px 0px -8% 0px" });
+    $$(".compare").forEach((el) => occhio.observe(el));
+    return occhio;
+  }
+  var fermaGiostra = () => {
+  };
+  var osservatori = [];
+  function intro(poi) {
+    const el = $("#intro");
+    let daDentro = false;
+    try {
+      daDentro = !!document.referrer && new URL(document.referrer).origin === location.origin && new URL(document.referrer).pathname !== location.pathname;
+    } catch {
+      daDentro = false;
+    }
+    if (!el || daDentro || location.hash) return poi();
+    el.hidden = false;
+    html.classList.add("intro-in-corso");
+    let aperta = false;
+    const apri = () => {
+      if (aperta) return;
+      aperta = true;
+      clearTimeout(attesa);
+      window.removeEventListener("keydown", apri);
+      el.classList.add("apri");
+      html.classList.remove("intro-in-corso");
+      poi();
+      setTimeout(() => el.hidden = true, 1050);
+    };
+    const attesa = setTimeout(apri, 1700);
+    el.addEventListener("click", apri);
+    window.addEventListener("keydown", apri);
+    return void 0;
+  }
+  function avvia() {
+    if (statico) {
+      $$(".compare").forEach((el) => el.classList.add("visto"));
+      osservatori.push(montaTono());
+      fermaGiostra = montaGiostra();
+      return;
+    }
+    intro(() => {
+      html.classList.add("ingresso");
+      setTimeout(() => html.classList.remove("ingresso"), 2600);
+    });
+    osservatori.push(montaCapitoli(), montaComparse(), montaTono());
+    fermaGiostra = montaGiostra();
+    const pausa = new IntersectionObserver((voci) => voci.forEach((v) => v.target.classList.toggle("in-pausa", !v.isIntersecting)));
+    $$("#vetrina, #copertina, [data-pellicola], [data-loop]").forEach((el) => pausa.observe(el));
+    osservatori.push(pausa);
+    if (location.hash && $(location.hash)) requestAnimationFrame(() => vaiA(location.hash, true));
+  }
+  avvia();
+  window.addEventListener("pagehide", (e) => {
+    if (e.persisted) return;
+    osservatori.forEach((o) => o.disconnect());
+    fermaPellicola();
+    fermaGiostra();
+    fermaRella();
+  });
+})();
+</script>
+</body>
+</html>
