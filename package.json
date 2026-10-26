@@ -1,0 +1,20 @@
+{
+  "name": "intimi-segreti",
+  "private": true,
+  "version": "3.0.0",
+  "type": "module",
+  "description": "Intimi Segreti — boutique digitale (Lugo, RA)",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node tools/post-build.mjs",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fontsource-variable/fraunces": "^5.1.0",
+    "@fontsource/jost": "^5.1.0",
+    "gsap": "^3.12.5"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}

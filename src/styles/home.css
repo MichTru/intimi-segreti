@@ -1,0 +1,341 @@
+/* ============================================================
+   HOME — lo scroll è la cinepresa
+   Il motore in src/motion/scena.js scrive poche variabili CSS su ogni
+   sezione (--p avanzamento, --in/--out/--l per le copertine, --v velocità);
+   tutto il movimento è calcolato qui sotto a partire da quelle.
+   ============================================================ */
+.pagina-home { background: var(--borgogna); }
+/* testata e capitoli cambiano colore secondo la sezione che hanno sotto (data-tono), senza fusioni costose */
+.pagina-home .testata, .capitoli { color: var(--avorio); transition: color 0.35s, transform 0.32s cubic-bezier(0.2, 0.7, 0.2, 1), background-color 0.25s; }
+[data-tono-pagina='chiaro'] .pagina-home .testata, [data-tono-pagina='chiaro'] .capitoli { color: var(--nero); }
+
+main { position: relative; z-index: 3; }
+.scena { position: relative; --p: 0; }
+.fermo { position: sticky; top: 0; height: 100svh; overflow: hidden; }
+
+/* ---------- Capitoli ---------- */
+.capitoli { position: fixed; z-index: 30; right: max(10px, env(safe-area-inset-right)); top: 50%; translate: 0 -50%; display: grid; gap: 2px; }
+.capitoli button { position: relative; width: 44px; height: 30px; display: grid; place-items: center end; padding-right: 8px; }
+.capitoli button::before { content: ''; width: 14px; height: 1px; background: currentColor; opacity: 0.5; transition: width var(--t-breve) var(--ease-entrata), opacity var(--t-micro); }
+.capitoli button[aria-current='true']::before { width: 28px; opacity: 1; }
+.capitoli button span { position: absolute; right: 48px; white-space: nowrap; font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0; transform: translateX(8px); transition: opacity var(--t-micro), transform var(--t-breve) var(--ease-entrata); pointer-events: none; }
+.capitoli button:hover span, .capitoli button:focus-visible span { opacity: 1; transform: none; }
+@media (max-width: 767px) { .capitoli { right: 0; } .capitoli button { width: 30px; } .capitoli button span { display: none; } }
+
+/* ============================================================
+   INTRO — il nome si compone, poi le due ante si aprono sulla copertina
+   ============================================================ */
+.intro { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; color: var(--avorio); }
+.intro-anta { position: absolute; top: 0; bottom: 0; width: 50.5%; background: #2a0a14; transition: transform 1s var(--ease-scena); }
+.intro-anta:nth-child(1) { left: 0; box-shadow: inset -1px 0 0 rgb(220 179 169 / 0.25); }
+.intro-anta:nth-child(2) { right: 0; }
+.intro-centro { position: relative; text-align: center; padding: 0 var(--bordo); transition: transform 0.9s var(--ease-scena), opacity 0.5s; }
+/* il logo si scrive da sinistra a destra, il cuore per ultimo */
+.intro-logo { display: block; width: min(74vw, 520px); height: auto; margin: 10px auto 4px; animation: intro-logo 1.25s var(--ease-scena) 0.1s both; }
+@keyframes intro-logo { from { clip-path: inset(0 100% 0 0); transform: translateX(-3%); } to { clip-path: inset(0 0 0 0); } }
+.intro-sopra, .intro-sotto { font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgb(244 236 224 / 0.7); animation: entra-testo 0.8s var(--ease-entrata) 0.7s both; }
+.intro-sotto { animation-delay: 0.95s; }
+.intro-linea { display: block; width: min(60vw, 420px); height: 1px; margin: 14px auto; background: var(--champagne); transform-origin: left; animation: intro-linea 1.1s var(--ease-scena) 0.55s both; }
+@keyframes intro-linea { from { transform: scaleX(0); } }
+.intro-salta { position: absolute; left: 50%; bottom: calc(var(--sotto) + 26px); translate: -50% 0; min-height: 44px; padding: 0 1.4em; font-size: 0.68rem; letter-spacing: 0.26em; text-transform: uppercase; color: rgb(244 236 224 / 0.6); transition: opacity 0.3s; }
+.intro.apri { pointer-events: none; }
+.intro.apri .intro-anta:nth-child(1) { transform: translateX(-101%); }
+.intro.apri .intro-anta:nth-child(2) { transform: translateX(101%); }
+.intro.apri .intro-centro { transform: scale(1.5); opacity: 0; }
+.intro.apri .intro-salta { opacity: 0; }
+.intro-in-corso { overflow: hidden; }
+
+/* ============================================================
+   1 — APERTURA: l'immagine della boutique, a tutto schermo
+   ============================================================ */
+.apertura-zona { position: relative; height: 100svh; min-height: 520px; overflow: hidden; background: var(--borgogna-notte); color: var(--avorio); --testo: var(--avorio); --fondo: var(--borgogna); --tenue: rgb(244 236 224 / 0.74); }
+.manifesto { position: absolute; inset: 0; }
+.m-foto { position: absolute; inset: 0; display: block; }
+.m-foto img { width: 100%; height: 100%; object-fit: cover; object-position: 62% 30%; transform-origin: 70% 40%; animation: respiro 26s ease-in-out infinite alternate; will-change: transform; }
+@keyframes respiro { from { transform: scale(1.03); } to { transform: scale(1.13); } }
+.m-velo { position: absolute; inset: 0; background: linear-gradient(180deg, rgb(42 10 20 / 0.5), transparent 26%, transparent 52%, rgb(42 10 20 / 0.82)); pointer-events: none; }
+.m-testo { position: absolute; left: var(--bordo); right: var(--bordo); bottom: calc(var(--sotto) + 26px); }
+.m-logo { display: block; width: min(56vw, 260px); height: auto; margin: 0 0 18px -4px; }
+.m-frase { font-family: var(--serif); font-size: clamp(1.7rem, 7.4vw, 3rem); line-height: 1.05; margin: 0.3em 0 0.7em; max-width: 12em; }
+.m-azioni { display: flex; flex-wrap: wrap; gap: 8px; }
+.m-azioni .bottone { min-height: 46px; }
+@media (min-width: 768px) {
+  .m-foto img { object-position: 50% 30%; }
+  .m-velo { background: linear-gradient(180deg, rgb(42 10 20 / 0.35), transparent 22%, transparent 60%, rgb(42 10 20 / 0.7)); }
+  .m-logo { display: none; } /* su schermo largo il logo è già dentro l'immagine */
+  .m-testo { left: 6vw; right: auto; bottom: 9svh; max-width: 34vw; }
+}
+.ingresso .m-foto { animation: entra-manifesto 2s var(--ease-entrata) both; }
+.ingresso .m-testo > * { animation: entra-testo 1.1s var(--ease-entrata) 0.5s both; }
+.ingresso .m-testo > :nth-child(3) { animation-delay: 0.65s; }
+.ingresso .m-testo > :nth-child(4) { animation-delay: 0.8s; }
+@keyframes entra-manifesto { from { opacity: 0.3; scale: 1.12; } }
+@keyframes entra-testo { from { opacity: 0; transform: translateY(22px); } }
+.in-pausa .m-foto img { animation-play-state: paused; }
+
+/* ============================================================
+   1b — IN COPERTINA: una giostra compatta, non più a tutto schermo.
+   Un capo alla volta; cambia da sola e si comanda.
+   ============================================================ */
+.copertine-zona { position: relative; height: clamp(540px, 78svh, 680px); overflow: hidden; background: #4a1021; transition: background-color 0.8s var(--ease-scena); }
+.copertine-zona[data-tema='cipria'] { background: #dcb3a9; }
+.copertine-zona[data-tema='avorio'] { background: #efe4d2; }
+.copertina { position: absolute; inset: 0; overflow: hidden; color: var(--c-testo); --testo: var(--c-testo); --fondo: var(--c-fondo); --tenue: color-mix(in srgb, var(--c-testo) 68%, transparent); --linea: color-mix(in srgb, var(--c-testo) 26%, transparent); opacity: 0; visibility: hidden; transition: opacity 0.5s var(--ease-scena), visibility 0s 0.5s; }
+.copertina.attiva { opacity: 1; visibility: visible; transition: opacity 0.6s var(--ease-scena) 0.15s, visibility 0s; }
+.tema-borgogna { --c-fondo: #4a1021; --c-testo: #f4ece0; --c-parola: #dcb3a9; --c-alone: rgb(220 179 169 / 0.4); }
+.tema-cipria { --c-fondo: #dcb3a9; --c-testo: #2a0a14; --c-parola: #4a1021; --c-alone: rgb(255 244 235 / 0.6); }
+.tema-avorio { --c-fondo: #efe4d2; --c-testo: #2a0a14; --c-parola: #6a1a2f; --c-alone: rgb(220 179 169 / 0.55); }
+
+.c-alone { position: absolute; left: 50%; top: 44%; width: min(96vw, 560px); aspect-ratio: 1; translate: -50% -50%; border-radius: 50%; background: radial-gradient(closest-side, var(--c-alone), transparent 72%); pointer-events: none; }
+/* la parola: piena dietro al capo, solo contorno davanti */
+.c-parola { position: absolute; left: 50%; bottom: 78px; margin: 0; font-family: var(--serif); font-style: italic; font-weight: 800; font-variation-settings: 'SOFT' 100, 'WONK' 1; font-size: clamp(4rem, 21vw, 13rem); line-height: 0.8; letter-spacing: -0.045em; white-space: nowrap; color: var(--c-parola); pointer-events: none; user-select: none; transform: translateX(calc(-50% + 14vw)); transition: transform 1.1s var(--ease-entrata); }
+.c-parola.contorno { color: transparent; -webkit-text-stroke: 1.5px var(--c-parola); z-index: 3; transform: translateX(calc(-50% - 14vw)); }
+.attiva .c-parola { transform: translateX(-50%); }
+/* il capo: grande quanto serve per vederlo, non di più */
+.c-soggetto { position: absolute; z-index: 2; left: 50%; top: calc(var(--testata) + var(--sopra) + 104px); height: 40%; display: block; transform: translateX(-50%) scale(0.86) rotate(5deg); transition: transform 1s var(--ease-entrata); }
+.attiva .c-soggetto { transform: translateX(-50%); }
+.c-soggetto.scontorno { aspect-ratio: 521 / 859; }
+.c-soggetto.scontorno::before { content: ''; position: absolute; left: 6%; right: 6%; bottom: -3%; height: 12%; border-radius: 50%; background: radial-gradient(closest-side, rgb(20 6 10 / 0.55), transparent); }
+.c-soggetto.scontorno img { position: relative; width: 100%; height: 100%; object-fit: contain; }
+.c-soggetto.arco { aspect-ratio: 4 / 5.2; border-radius: 999px 999px 0 0; overflow: hidden; box-shadow: 0 30px 50px -26px rgb(42 10 20 / 0.6); }
+.c-soggetto.arco img { width: 100%; height: 100%; object-fit: cover; }
+.c-luccichii { position: absolute; inset: 0; pointer-events: none; }
+.c-luccichii i { position: absolute; left: var(--x); top: var(--y); width: var(--g, 22px); aspect-ratio: 1; margin: calc(var(--g, 22px) / -2); background: radial-gradient(closest-side, #fff, rgb(255 255 255 / 0.55) 22%, rgb(255 255 255 / 0) 70%); border-radius: 50%; opacity: 0; animation: luccica 2.6s var(--ease-scena) var(--d, 0s) infinite; }
+@keyframes luccica { 0%, 62%, 100% { opacity: 0; transform: scale(0.2); } 76% { opacity: 1; transform: scale(1); } }
+.c-luccichii i:nth-child(n + 5) { display: none; }
+.c-satellite, .c-timbro { display: none; }
+.c-info { position: absolute; z-index: 6; left: var(--bordo); right: var(--bordo); top: calc(var(--testata) + var(--sopra) + 4px); display: grid; grid-template-columns: 1fr auto; column-gap: 12px; align-items: end; opacity: 0; transform: translateY(14px); transition: opacity 0.5s, transform 0.8s var(--ease-entrata); }
+.attiva .c-info { opacity: 1; transform: none; transition-delay: 0.3s; }
+.c-info .occhiello { grid-column: 1 / -1; display: flex; align-items: center; gap: 10px; }
+.c-conto { font-family: var(--serif); font-size: 0.95rem; letter-spacing: 0.04em; font-variant-numeric: tabular-nums; }
+.c-nome { font-family: var(--serif); font-weight: 400; font-size: clamp(1.5rem, 6.4vw, 2.2rem); line-height: 1.02; margin: 0.15em 0 0; }
+.c-prezzo { font-family: var(--serif); font-size: 1.15rem; grid-column: 1; }
+.c-prezzo small { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--tenue); margin-left: 0.8em; }
+.c-vai { grid-column: 2; grid-row: 2 / 4; align-self: end; min-height: 44px; padding: 0 1.3em; }
+
+.giostra-comandi { position: absolute; z-index: 8; left: 0; right: 0; bottom: calc(var(--sotto) + 12px); display: flex; align-items: center; justify-content: center; gap: 6px; color: #f4ece0; transition: color 0.6s; }
+[data-tema='cipria'] .giostra-comandi, [data-tema='avorio'] .giostra-comandi { color: #2a0a14; }
+.giostra-comandi .tondo { width: 44px; height: 44px; border-color: color-mix(in srgb, currentColor 30%, transparent); }
+.giostra-comandi svg.pausa, .giostra-comandi [aria-pressed='true'] svg.via { display: none; }
+.giostra-comandi [aria-pressed='true'] svg.pausa { display: block; }
+.giostra-punti { display: flex; align-items: center; }
+.giostra-punti button { width: 34px; height: 44px; display: grid; place-items: center; }
+.giostra-punti button::before { content: ''; grid-area: 1 / 1; width: 22px; height: 2px; background: currentColor; opacity: 0.3; }
+.giostra-punti i { grid-area: 1 / 1; width: 22px; height: 2px; background: currentColor; transform: scaleX(0); transform-origin: left; }
+.giostra-punti [aria-current] i { transform: scaleX(1); }
+.gira .giostra-punti [aria-current] i { animation: avanza 6s linear both; }
+@keyframes avanza { from { transform: scaleX(0); } }
+
+@media (min-width: 768px) {
+  .copertine-zona { height: clamp(520px, 72svh, 640px); }
+  .c-parola { font-size: clamp(8rem, 17vw, 16rem); bottom: 56px; }
+  .c-parola.contorno { -webkit-text-stroke-width: 2px; }
+  .c-soggetto { top: 44px; height: 68%; }
+  .c-soggetto.arco { height: 64%; top: 52px; }
+  .c-alone { width: min(60vw, 680px); }
+  .c-info { left: 6vw; right: auto; top: 46%; translate: 0 -50%; width: 24vw; display: block; }
+  .c-nome { font-size: clamp(2rem, 3.2vw, 3.2rem); margin: 0.25em 0 0.15em; }
+  .c-vai { margin-top: 18px; }
+  .c-satellite { display: block; position: absolute; z-index: 4; right: 13vw; bottom: 110px; transition: transform 1.2s var(--ease-entrata); transform: translateX(8vw) rotate(-18deg); }
+  .attiva .c-satellite { transform: rotate(-8deg); }
+  .c-satellite img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .c-satellite.scontornato { width: 15vw; }
+  .c-satellite.scontornato img { object-fit: contain; }
+  .c-satellite.cartolina { width: 10.5vw; aspect-ratio: 4 / 5; padding: 6px 6px 26px; background: #fbf6ee; box-shadow: 0 18px 34px -12px rgb(42 10 20 / 0.5); }
+  .attiva .c-satellite.cartolina { transform: rotate(8deg); }
+  .c-satellite.cartolina b { position: absolute; left: 0; right: 0; bottom: 7px; font-family: var(--sans); font-weight: 400; font-size: 0.6rem; letter-spacing: 0.1em; text-align: center; color: #2a0a14; }
+  .c-timbro { display: block; position: absolute; z-index: 5; right: 8vw; top: 34px; width: 112px; aspect-ratio: 1; color: var(--c-testo); }
+  .c-timbro svg { width: 100%; height: 100%; overflow: visible; animation: gira 22s linear infinite; }
+  .c-timbro text { font-family: var(--sans); font-size: 10.5px; letter-spacing: 0.24em; text-transform: uppercase; fill: currentColor; }
+  .c-timbro circle { fill: none; stroke: currentColor; stroke-width: 0.8; }
+  .c-timbro path.stella { fill: currentColor; }
+  .giostra-comandi { justify-content: flex-start; left: 6vw; bottom: 22px; }
+}
+@keyframes gira { to { transform: rotate(360deg); } }
+
+/* ============================================================
+   2 — NASTRO: scorre da solo, come un'insegna
+   ============================================================ */
+.nastro { position: relative; z-index: 1; padding: 5svh 0; background: var(--borgogna); color: var(--cipria); overflow: hidden; display: grid; gap: 0.6svh; }
+.nastro-riga { display: flex; width: max-content; font-family: var(--serif); font-style: italic; font-weight: 700; font-size: clamp(3rem, 9.5vw, 9rem); line-height: 1.02; white-space: nowrap; will-change: transform; animation: nastro 38s linear infinite; }
+.nastro-riga.contro { color: transparent; -webkit-text-stroke: 1.5px var(--cipria); animation-direction: reverse; animation-duration: 46s; }
+.nastro-riga span { padding-right: 0.3em; }
+.nastro-riga i { font-style: normal; font-size: 0.45em; vertical-align: 0.35em; margin: 0 0.5em; color: var(--champagne); -webkit-text-stroke: 0; }
+@keyframes nastro { to { transform: translateX(-50%); } }
+.in-pausa .nastro-riga, .in-pausa .lugo-parola { animation-play-state: paused; }
+
+/* ============================================================
+   3 — LA RELLA: scorre piano da sola; si trascina, si ferma, si comanda
+   ============================================================ */
+.rella-zona { position: relative; background: var(--cipria); color: var(--nero); --testo: var(--nero); --fondo: var(--cipria); --tenue: rgb(29 25 26 / 0.62); --linea: rgb(29 25 26 / 0.22); padding: 9svh 0 7svh; overflow: hidden; }
+.binario-testa { padding: 0 var(--bordo); display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 26px; }
+.binario-testa h2 { font-size: clamp(2.4rem, 10vw, 5.4rem); font-weight: 600; }
+.rella-comandi { display: flex; gap: 8px; }
+.rella-comandi .tondo { background: rgb(244 236 224 / 0.5); }
+.rella-comandi svg.pausa, .rella-comandi [aria-pressed='true'] svg.via { display: none; }
+.rella-comandi [aria-pressed='true'] svg.pausa { display: block; }
+.binario { position: relative; overflow: hidden; touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none; }
+.binario.trascina { cursor: grabbing; }
+.asta { position: absolute; left: 0; right: 0; top: 26px; height: 3px; background: linear-gradient(#8a6f45, #5c4a2e); box-shadow: 0 6px 14px rgb(0 0 0 / 0.18); }
+.rella { margin: 0; padding: 28px 0 40px; list-style: none; display: flex; align-items: flex-start; width: max-content; will-change: transform; }
+.gruccia { position: relative; flex: none; width: clamp(190px, 54vw, 310px); margin-right: clamp(22px, 5vw, 64px); padding-top: 58px; }
+/* la gruccia è un disegno unico: gancio che abbraccia l'asta + spalle fino ai lati del capo */
+.appendino { position: absolute; left: 0; right: 0; top: 0; height: 58px; color: #5c4a2e; pointer-events: none; }
+.appendino svg { position: absolute; display: block; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+.appendino .gancio { left: 50%; top: -14px; width: 28px; height: 44px; margin-left: -14px; }
+.appendino .spalle { left: 0; top: 29px; width: 100%; height: 29px; }
+.gruccia a { display: block; text-decoration: none; -webkit-user-drag: none; }
+.gruccia-numero { position: absolute; right: -0.12em; top: 46px; z-index: 2; font-family: var(--serif); font-style: italic; font-weight: 700; font-size: clamp(3rem, 8vw, 5.4rem); line-height: 1; color: transparent; -webkit-text-stroke: 1.2px var(--borgogna); pointer-events: none; }
+.gruccia-foto { aspect-ratio: 4 / 5; overflow: hidden; background: var(--cipria-chiaro); box-shadow: 0 34px 50px -28px rgb(74 16 33 / 0.6); }
+.gruccia-foto img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; transition: transform var(--t-lunga) var(--ease-entrata); }
+.gruccia a:hover img { transform: scale(1.06); }
+.gruccia h3 { font-size: 1.4rem; margin-top: 12px; }
+.gruccia b { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.05rem; }
+.gruccia small { font-size: 0.64rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--tenue); }
+.rella-piede { padding: 0 var(--bordo); display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.rella-piede p { color: var(--tenue); font-size: 0.86rem; }
+/* senza movimento: una normale striscia da scorrere col dito */
+.statico .binario { overflow-x: auto; cursor: auto; }
+
+/* ============================================================
+   4 — I LOOK: due schede compatte, una accanto all'altra
+   ============================================================ */
+.look-zona { position: relative; background: var(--avorio); color: var(--nero); --testo: var(--nero); --fondo: var(--avorio); --tenue: rgb(29 25 26 / 0.64); --linea: rgb(29 25 26 / 0.2); --accento: var(--borgogna); padding: 9svh var(--bordo); }
+.look-testa { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 28px; }
+.look-testa h2 { font-size: clamp(2.2rem, 9vw, 4.6rem); font-weight: 600; margin-top: 0.15em; }
+.look-intro { color: var(--tenue); margin-top: 8px; max-width: 34ch; }
+/* pellicola: le foto dei capi scattano una dopo l'altra, come una gif */
+.pellicola { position: relative; flex: none; width: 84px; aspect-ratio: 4 / 5; padding: 4px 4px 16px; background: #fbf6ee; box-shadow: 0 14px 26px -12px rgb(42 10 20 / 0.5); transform: rotate(4deg); }
+.pellicola div { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--cipria-chiaro); }
+.pellicola img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; }
+.pellicola img.ora { opacity: 1; animation: scatto 0.5s steps(3, end); }
+@keyframes scatto { from { transform: scale(1.12) rotate(-2deg); filter: brightness(1.5); } }
+.pellicola b { position: absolute; left: 0; right: 0; bottom: 3px; text-align: center; font-family: var(--sans); font-weight: 400; font-size: 0; color: #2a0a14; }
+.pellicola b::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #b3122d; animation: lampeggia 1s steps(2, start) infinite; }
+@keyframes lampeggia { to { opacity: 0; } }
+.statico .pellicola img:first-child { opacity: 1; }
+.statico .c-luccichii { display: none; }
+
+.look-griglia { display: grid; gap: 18px; }
+.look { display: grid; gap: 14px; padding: 12px; background: #fbf6ee; border: 2px solid var(--borgogna); border-radius: 18px; }
+.look-foto { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.look-foto a { display: block; aspect-ratio: 4 / 5; overflow: hidden; background: var(--cipria-chiaro); border-radius: 10px; }
+.look-foto img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--t-lunga) var(--ease-entrata); }
+.look-foto a:hover img { transform: scale(1.05); }
+.look-piu { position: absolute; left: 50%; top: 50%; width: 36px; height: 36px; margin: -18px 0 0 -18px; border-radius: 50%; background: var(--borgogna); color: var(--avorio); display: grid; place-items: center; font-family: var(--serif); font-size: 1.4rem; line-height: 1; box-shadow: 0 0 0 4px #fbf6ee; }
+.look-testo { padding: 0 4px 4px; }
+.look-testo h3 { font-size: clamp(1.6rem, 6vw, 2.2rem); margin: 0.15em 0 0.2em; }
+.look-lista { list-style: none; margin: 0; padding: 0; }
+.look-lista li { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--linea); }
+.look-lista a { text-decoration: none; }
+.look-lista a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.look-piede { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+.look-totale { display: flex; align-items: baseline; gap: 10px; font-family: var(--serif); font-size: 1.6rem; }
+.look-totale small { font-family: var(--sans); font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--tenue); }
+@media (min-width: 768px) {
+  .look-zona { padding: 11svh 6vw; }
+  .pellicola { width: 120px; padding: 5px 5px 20px; }
+  .look-griglia { grid-template-columns: 1fr 1fr; gap: 26px; }
+  .look { grid-template-columns: 1.1fr 1fr; align-items: center; gap: 22px; padding: 16px; }
+}
+
+/* ============================================================
+   5 — LE COLLEZIONI: la pagina divisa in tre
+   ============================================================ */
+.terzi { position: relative; display: grid; grid-template-rows: repeat(3, minmax(0, 1fr)); height: 96svh; background: var(--borgogna-notte); color: var(--avorio); --testo: var(--avorio); --fondo: var(--borgogna-notte); --tenue: rgb(244 236 224 / 0.74); }
+.terzo { position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; padding: 14px var(--bordo); text-decoration: none; isolation: isolate; }
+.terzo img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; transition: transform 1.4s var(--ease-entrata); }
+.terzo::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgb(42 10 20 / 0.86), rgb(74 16 33 / 0.5) 60%, rgb(74 16 33 / 0.3)); transition: opacity var(--t-media); }
+.terzo + .terzo { border-top: 1px solid rgb(244 236 224 / 0.25); }
+.terzo-numero { font-size: 0.66rem; letter-spacing: 0.26em; color: var(--tenue); }
+.terzo h3 { font-size: clamp(2.4rem, 11vw, 4.4rem); font-style: italic; font-weight: 600; line-height: 0.95; margin: 0.05em 0 0.1em; }
+.terzo p { color: var(--tenue); font-size: 0.9rem; max-width: 30ch; }
+.terzo-vai { margin-top: 8px; font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; }
+.terzo-vai::after { content: ' →'; }
+.terzo:hover img, .terzo:focus-visible img { transform: scale(1.07); }
+.terzo:hover::before { opacity: 0.72; }
+@media (min-width: 768px) {
+  .terzi { grid-template-rows: none; grid-template-columns: repeat(3, minmax(0, 1fr)); height: 100svh; }
+  .terzo { padding: 0 2.4vw 9svh; }
+  .terzo::before { background: linear-gradient(0deg, rgb(42 10 20 / 0.9), rgb(74 16 33 / 0.42) 55%, rgb(42 10 20 / 0.5)); }
+  .terzo + .terzo { border-top: 0; border-left: 1px solid rgb(244 236 224 / 0.25); }
+  .terzo h3 { font-size: clamp(2.6rem, 4.6vw, 5.4rem); }
+}
+
+/* stacco: spazio vuoto in avorio, così le collezioni finiscono e "Lugo" comincia da capo */
+.stacco { height: clamp(56px, 11svh, 120px); background: var(--avorio); }
+
+/* ============================================================
+   6 — VERSO LA BOUTIQUE
+   ============================================================ */
+/* fondo borgogna e scritta cipria; lo stacco in avorio qui sopra lo separa dalle collezioni */
+.lugo-zona { position: relative; overflow: hidden; background: var(--borgogna); color: var(--avorio); --testo: var(--avorio); --tenue: rgb(244 236 224 / 0.72); padding: 10svh 0 9svh; }
+.lugo-parola { margin: 0; width: max-content; white-space: nowrap; font-family: var(--serif); font-style: italic; font-weight: 800; font-size: clamp(7rem, 30vw, 24rem); line-height: 0.86; letter-spacing: -0.04em; color: var(--cipria); will-change: transform; animation: nastro 30s linear infinite; }
+.lugo-testo { padding: 4svh var(--bordo) 0; }
+.lugo-testo h2 { font-size: clamp(2.4rem, 9.6vw, 5.6rem); margin-top: 0.3em; max-width: 12ch; }
+@media (min-width: 768px) { .lugo-testo { padding-inline: 6vw; } }
+
+.boutique { position: relative; background: var(--avorio); color: var(--nero); --testo: var(--nero); --fondo: var(--avorio); --tenue: rgb(29 25 26 / 0.64); --linea: rgb(29 25 26 / 0.2); --accento: var(--borgogna); padding: 12svh var(--bordo); display: grid; gap: 56px; }
+.boutique h2 { font-size: clamp(2.2rem, 8vw, 4rem); margin: 0.3em 0 0.5em; }
+.boutique p { color: var(--tenue); max-width: 46ch; }
+.recapiti { margin: 0 0 26px; display: grid; gap: 14px; }
+.recapiti div { display: grid; grid-template-columns: 7.5em 1fr; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--linea); }
+.recapiti dt { font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--tenue); padding-top: 0.3em; }
+.recapiti dd { margin: 0; }
+.boutique-azioni { display: flex; flex-wrap: wrap; gap: 12px; }
+.mappa { min-height: 240px; border-radius: 18px; overflow: hidden; background: var(--cipria-chiaro); display: grid; place-items: center; text-align: center; padding: 24px; }
+@media (min-width: 900px) { .boutique { grid-template-columns: 1fr 1fr; padding: 16svh 6vw; gap: 6vw; } .mappa { grid-column: 1 / -1; min-height: 320px; } }
+
+/* comparsa dei blocchi in flusso normale */
+.compare { opacity: 0; transform: translateY(34px); transition: opacity var(--t-media) var(--ease-entrata), transform var(--t-lunga) var(--ease-entrata); }
+.compare.visto { opacity: 1; transform: none; }
+
+/* ---------- Versione statica: movimento ridotto ---------- */
+.statico .scena { height: auto; }
+.statico .fermo { position: relative; height: auto; min-height: 0; }
+.statico .compare { opacity: 1; transform: none; }
+.statico .c-timbro svg { animation: none; }
+
+
+/* le animazioni continue si fermano quando la loro sezione non è sullo schermo */
+.in-pausa .c-timbro svg, .in-pausa .c-luccichii i, .in-pausa.pellicola b::before { animation-play-state: paused; }
+.statico .nastro-riga, .statico .lugo-parola { animation: none; }
+.copertina[inert] .c-timbro svg, .copertina[inert] .c-luccichii i { animation: none; }
+.statico .capitoli { display: none; }
+.statico .m-foto img, .statico .giostra-punti i { animation: none; }
+
+/* ============================================================
+   TELEFONO: rifiniture di composizione (sotto i 768px)
+   ============================================================ */
+@media (max-width: 767px) {
+  /* i trattini dei capitoli a bordo schermo qui disturbano: si naviga scorrendo */
+  .capitoli { display: none; }
+
+  /* copertine: capo più grande, parola che gli passa dietro e davanti come su computer */
+  .copertine-zona { height: clamp(540px, 76svh, 640px); }
+  .c-soggetto { top: calc(var(--testata) + var(--sopra) + 86px); height: 54%; }
+  .c-soggetto.arco { height: 52%; }
+  .c-parola { font-size: clamp(4.6rem, 25vw, 8rem); bottom: 84px; }
+  .c-alone { top: 50%; width: 118vw; }
+  .c-nome { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+
+  /* collezioni: testo su fondo pieno a sinistra, foto a destra; niente scritte sopra i volti */
+  .terzi { height: auto; grid-template-rows: none; }
+  .terzo { min-height: 30svh; justify-content: center; padding: 20px 44% 20px var(--bordo); background: var(--borgogna-notte); }
+  .terzo img { left: 46%; width: 54%; object-position: 50% 22%; }
+  .terzo::before { background: linear-gradient(90deg, #2a0a14 46%, rgb(42 10 20 / 0.35) 70%, transparent); }
+  .terzo:nth-child(2) { background: #3a0f1c; }
+  .terzo:nth-child(2)::before { background: linear-gradient(90deg, #3a0f1c 46%, rgb(58 15 28 / 0.35) 70%, transparent); }
+  .terzo h3 { font-size: clamp(2.1rem, 9.5vw, 3rem); }
+  .terzo p { font-size: 0.86rem; }
+
+  /* rella: un capo intero più l'inizio del successivo, così si capisce che continua */
+  .gruccia { width: 62vw; margin-right: 18px; }
+  .rella-zona { padding: 7svh 0 6svh; }
+
+  /* contatti: righe più asciutte */
+  .boutique { padding: 9svh var(--bordo); gap: 40px; }
+  .recapiti div { grid-template-columns: 6em 1fr; }
+  .mappa { min-height: 150px; }
+  .lugo-zona { padding: 7svh 0; }
+}

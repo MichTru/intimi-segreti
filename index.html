@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Intimi Segreti — Boutique a Lugo (RA)</title>
+    <meta name="description" content="Intimi Segreti, boutique di intimo, abbigliamento e accessori a Lugo (RA). Entra nella Vetrina Digitale e sfoglia i capi come davanti alla vetrina." />
+    <meta name="theme-color" content="#4a1021" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:site_name" content="Intimi Segreti" />
+    <meta property="og:title" content="Intimi Segreti — Boutique a Lugo" />
+    <meta property="og:description" content="La vetrina prende vita: intimo, abbigliamento e accessori da sfogliare." />
+    <meta property="og:image" content="/assets/site/og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- dati-strutturati -->
+    <link rel="preload" as="image" href="/assets/site/logo-oro.webp" />
+    <link rel="preload" as="image" href="/assets/site/manifesto.webp" media="(min-width: 768px)" />
+    <link rel="preload" as="image" href="/assets/site/manifesto-verticale.webp" media="(max-width: 767px)" />
+    <script type="module" src="/src/pages/home.js"></script>
+  </head>
+  <body class="pagina-home">
+    <a class="salta" href="#contenuto">Salta al contenuto</a>
+
+    <!-- Intro: meno di 3 secondi, saltabile -->
+    <div class="intro" id="intro" hidden>
+      <i class="intro-anta" aria-hidden="true"></i><i class="intro-anta" aria-hidden="true"></i>
+      <div class="intro-centro">
+        <p class="intro-sopra">Boutique · Lugo (RA)</p>
+        <img class="intro-logo" src="/assets/site/logo-oro.webp" alt="Intimi Segreti" width="943" height="512" fetchpriority="high" />
+        <span class="intro-linea" aria-hidden="true"></span>
+        <p class="intro-sotto">Intimo · Abbigliamento · Borse</p>
+      </div>
+      <button class="intro-salta" type="button">Salta</button>
+    </div>
+
+    <nav class="capitoli" aria-label="Capitoli della pagina"></nav>
+
+    <main id="contenuto">
+      <h1 class="sr-only">Intimi Segreti, boutique a Lugo</h1>
+
+      <!-- 1 — Apertura: l'immagine della boutique -->
+      <section class="apertura-zona" id="vetrina" data-tono="scuro" data-capitolo="Intimi Segreti">
+        <div class="manifesto" data-apertura></div>
+      </section>
+
+      <!-- 1b — In copertina: i capi in evidenza, in formato compatto -->
+      <section class="copertine-zona" id="copertina" data-tono="scuro" data-tema="borgogna" data-capitolo="In copertina" aria-roledescription="giostra" aria-label="In copertina">
+        <div class="giostra" data-copertine></div>
+        <div class="giostra-comandi">
+          <button class="tondo" type="button" data-giostra-prima aria-label="Capo precedente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6" /></svg></button>
+          <div class="giostra-punti" data-giostra-punti></div>
+          <button class="tondo" type="button" data-giostra-dopo aria-label="Capo successivo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6" /></svg></button>
+          <button class="tondo" type="button" data-giostra-pausa aria-pressed="false" aria-label="Ferma il cambio automatico"><svg class="via" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12" /></svg><svg class="pausa" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l9 6-9 6z" /></svg></button>
+        </div>
+        <p class="sr-only" aria-live="polite" data-giostra-annuncio></p>
+      </section>
+
+      <!-- 2 — Nastro: scorre da solo -->
+      <div class="nastro" aria-hidden="true" data-tono="scuro" data-loop>
+        <div class="nastro-riga"><span data-nastro></span><span data-nastro></span></div>
+        <div class="nastro-riga contro"><span data-nastro></span><span data-nastro></span></div>
+      </div>
+
+      <!-- 3 — La rella: scorre piano da sola, si può trascinare, fermare e comandare -->
+      <section class="rella-zona" id="binario" data-tono="chiaro" data-capitolo="In vetrina" aria-label="In vetrina adesso">
+        <div class="binario-testa">
+          <div>
+            <p class="occhiello">In vetrina adesso</p>
+            <h2>Sfoglia la <em>rella.</em></h2>
+          </div>
+          <div class="rella-comandi">
+            <button class="tondo" type="button" data-rella-prima aria-label="Capi precedenti"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6" /></svg></button>
+            <button class="tondo" type="button" data-rella-pausa aria-pressed="false" aria-label="Ferma lo scorrimento"><svg class="via" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12" /></svg><svg class="pausa" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l9 6-9 6z" /></svg></button>
+            <button class="tondo" type="button" data-rella-dopo aria-label="Capi successivi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6" /></svg></button>
+          </div>
+        </div>
+        <div class="binario" data-binario>
+          <div class="asta" aria-hidden="true"></div>
+          <ul class="rella" data-rella></ul>
+        </div>
+        <div class="rella-piede">
+          <p data-rella-conto></p>
+          <a class="bottone pieno" href="/vetrina/">Entra nella Vetrina Digitale</a>
+        </div>
+      </section>
+
+      <!-- 4 — I look: capi che si portano insieme -->
+      <section class="look-zona" id="look" data-tono="chiaro" data-capitolo="I look">
+        <header class="look-testa">
+          <div>
+            <p class="occhiello">Già abbinati</p>
+            <h2>Due capi, <em>un look.</em></h2>
+            <p class="look-intro">Abbinamenti pronti: i due capi, i prezzi e il totale.</p>
+          </div>
+          <div class="pellicola" data-pellicola aria-hidden="true"></div>
+        </header>
+        <div class="look-griglia" data-look></div>
+      </section>
+
+      <!-- 5 — Le collezioni: la pagina divisa in tre -->
+      <section class="terzi" id="collezioni" data-tono="scuro" data-capitolo="Le collezioni" aria-label="Le collezioni" data-terzi></section>
+
+      <!-- stacco: una fascia vuota che separa le collezioni dalla chiusura -->
+      <div class="stacco" aria-hidden="true" data-tono="chiaro"></div>
+
+      <!-- 6 — Verso la boutique -->
+      <section class="lugo-zona" id="mondo" data-tono="scuro" data-capitolo="La boutique" data-loop>
+        <p class="lugo-parola" aria-hidden="true">Lugo · Lugo · Lugo · Lugo · Lugo · Lugo · </p>
+        <div class="lugo-testo">
+          <p class="occhiello">Dal sito al negozio</p>
+          <h2>Il resto si prova <em>di persona.</em></h2>
+        </div>
+      </section>
+
+      <section class="boutique" id="boutique" data-tono="chiaro">
+        <div class="boutique-colonna">
+          <p class="occhiello">La Boutique</p>
+          <h2>Dietro il bancone</h2>
+          <div data-chi-siamo></div>
+        </div>
+        <div class="boutique-colonna" id="contatti">
+          <p class="occhiello">Vieni a trovarci</p>
+          <h2>A Lugo, <em>di persona.</em></h2>
+          <dl class="recapiti" data-recapiti></dl>
+          <div class="boutique-azioni">
+            <button class="bottone pieno" type="button" data-magnetico data-appuntamento>Chiedi un appuntamento</button>
+            <a class="bottone" href="/vetrina/" data-magnetico>Vetrina Digitale</a>
+          </div>
+          <p class="scheda-nota" data-nota-appuntamento></p>
+        </div>
+        <div class="mappa" data-mappa></div>
+      </section>
+    </main>
+
+    <noscript><p style="position:relative;z-index:5;padding:24px">Per l'esperienza completa serve JavaScript. Puoi comunque <a href="/vetrina/">aprire la Vetrina Digitale</a>.</p></noscript>
+  </body>
+</html>

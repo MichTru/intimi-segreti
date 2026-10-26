@@ -1,0 +1,20 @@
+{
+  "_nota": "Dati della boutique. Tutto ciò che è null è IN ATTESA del cliente: il sito mostra un avviso al posto del dato, non inventa nulla. Vedi DATI-MANCANTI.md.",
+  "nome": "Intimi Segreti",
+  "luogo": "Lugo (RA)",
+  "url": null,
+  "whatsapp": null,
+  "telefono": null,
+  "email": null,
+  "indirizzo": null,
+  "orari": null,
+  "mappaEmbed": null,
+  "mappaLink": null,
+  "chiSiamo": null,
+  "titolare": null,
+  "partitaIva": null,
+  "social": {
+    "facebook": "https://www.facebook.com/intimisegretilugo/",
+    "instagram": null
+  }
+}

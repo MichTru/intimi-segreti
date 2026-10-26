@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Vetrina Digitale — Intimi Segreti, Lugo</title>
+    <meta name="description" content="Sfoglia i capi di Intimi Segreti come davanti alla vetrina: uno alla volta con uno swipe, oppure tutti insieme in griglia." />
+    <meta name="theme-color" content="#2a0a14" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:site_name" content="Intimi Segreti" />
+    <meta property="og:title" content="Vetrina Digitale — Intimi Segreti" />
+    <meta property="og:description" content="Intimo, abbigliamento e accessori da sfogliare con uno swipe." />
+    <meta property="og:image" content="/assets/site/og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="module" src="/src/pages/vetrina.js"></script>
+  </head>
+  <body class="pagina-vetrina" data-senza-piede>
+    <a class="salta" href="#contenuto">Salta al contenuto</a>
+    <main id="contenuto">
+      <h1 class="sr-only">Vetrina Digitale</h1>
+
+      <!-- Modalità Vetrina: un prodotto alla volta -->
+      <section class="palco" id="palco" role="group" aria-roledescription="carosello" aria-label="Vetrina: un prodotto alla volta. Usa le frecce per sfogliare." tabindex="0" data-cursore="trascina" hidden>
+        <div class="palco-cornice" aria-hidden="true"></div>
+        <div class="palco-luce" aria-hidden="true"></div>
+        <div class="capi" data-capi></div>
+        <div class="pedana" aria-hidden="true"></div>
+        <div class="palco-buio" aria-hidden="true"></div>
+        <div class="didascalia">
+          <div>
+            <p class="occhiello" data-categoria></p>
+            <h2 class="didascalia-nome" data-nome></h2>
+            <button class="bottone piccolo" type="button" data-apri>Scopri il capo</button>
+          </div>
+          <div class="giro">
+            <button class="tondo" type="button" data-prima aria-label="Prodotto precedente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6" /></svg></button>
+            <p class="contatore" aria-hidden="true"><b data-numero>01</b><span data-totale>/ 01</span></p>
+            <button class="tondo" type="button" data-dopo aria-label="Prodotto successivo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6" /></svg></button>
+          </div>
+        </div>
+        <p class="suggerimento" data-suggerimento hidden>Scorri di lato per sfogliare · tocca per i dettagli</p>
+        <div class="vuoto" data-vuoto hidden></div>
+      </section>
+
+      <!-- Modalità Griglia -->
+      <section class="griglia-zona" id="griglia" aria-label="Catalogo in griglia" hidden>
+        <header class="griglia-testa">
+          <p class="occhiello">Vetrina Digitale</p>
+          <p class="griglia-titolo" data-titolo-griglia>Tutto</p>
+          <div class="attivi" data-attivi hidden></div>
+        </header>
+        <ul class="griglia" data-griglia></ul>
+      </section>
+
+      <!-- Comandi: sempre nella metà bassa dello schermo -->
+      <div class="banco">
+        <button class="apri-pannello" type="button" data-apri-pannello aria-haspopup="dialog" aria-label="Filtri"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10" /><circle cx="16" cy="7" r="2" /><circle cx="8" cy="17" r="2" /></svg><span>Filtri</span><b></b></button>
+        <nav class="filtri" aria-label="Filtra per categoria" data-filtri></nav>
+        <div class="vista" role="group" aria-label="Modalità di visualizzazione">
+          <button type="button" data-vista="vetrina" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10v16H7zM3 7h2v10H3zM19 7h2v10h-2z" /></svg><span>Vetrina</span></button>
+          <button type="button" data-vista="griglia" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h6v6H5zM13 5h6v6h-6zM5 13h6v6H5zM13 13h6v6h-6z" /></svg><span>Griglia</span></button>
+        </div>
+      </div>
+      <p class="sr-only" id="annuncio" aria-live="polite" aria-atomic="true"></p>
+    </main>
+    <noscript><p style="padding:96px 24px">La Vetrina Digitale ha bisogno di JavaScript per mostrare il catalogo.</p></noscript>
+  </body>
+</html>

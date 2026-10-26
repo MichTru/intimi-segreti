@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+# Sitemap: generata da tools/post-build.mjs quando "url" è impostato in src/data/site.json

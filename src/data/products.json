@@ -1,0 +1,362 @@
+{
+  "_nota": "UNICO file da modificare per aggiornare il catalogo. Vedi README.md. Prezzi e articoli forniti dalla boutique (ottobre 2026): da ricontrollare prima della pubblicazione.",
+  "copertine": [
+    {
+      "manifesto": "manifesto",
+      "tema": "borgogna",
+      "frase": "Intimo, abbigliamento e borse a Lugo."
+    },
+    {
+      "prodotto": "secchiello-borchie",
+      "parola": "Segreti",
+      "tema": "borgogna",
+      "scontorno": "eroe-secchiello",
+      "satellite": {
+        "prodotto": "pochette-occhielli",
+        "scontorno": "eroe-pochette"
+      }
+    },
+    {
+      "prodotto": "giacchina-mimetica",
+      "parola": "Mimetica",
+      "tema": "cipria",
+      "satellite": {
+        "prodotto": "pantalone-mimetico"
+      }
+    },
+    {
+      "prodotto": "pullover-bottoni",
+      "parola": "Maglia",
+      "tema": "avorio",
+      "satellite": {
+        "prodotto": "jeans-ampio"
+      }
+    }
+  ],
+  "look": [
+    {
+      "id": "tuta-mimetica",
+      "nome": "La tuta mimetica",
+      "capi": [
+        "giacchina-mimetica",
+        "pantalone-mimetico"
+      ]
+    },
+    {
+      "id": "maglia-denim",
+      "nome": "Maglia e denim",
+      "capi": [
+        "pullover-bottoni",
+        "jeans-ampio"
+      ]
+    }
+  ],
+  "categorie": [
+    {
+      "id": "abbigliamento",
+      "nome": "Abbigliamento",
+      "atmosfera": {
+        "fondo": "#ead9c2",
+        "luce": "#fff4e2",
+        "testo": "#221a1b"
+      },
+      "frase": "Tute, maglie e denim da portare tutti i giorni."
+    },
+    {
+      "id": "borse",
+      "nome": "Borse",
+      "atmosfera": {
+        "fondo": "#d9b8ae",
+        "luce": "#ffe9dc",
+        "testo": "#221a1b"
+      },
+      "frase": "Borchie, catene e pelle: il pezzo che fa l'outfit."
+    },
+    {
+      "id": "intimo",
+      "nome": "Intimo",
+      "atmosfera": {
+        "fondo": "#3a0f1c",
+        "luce": "#f3d9d2",
+        "testo": "#f6efe6"
+      },
+      "frase": "La selezione di intimo arriva in vetrina a breve. Intanto, chiedi in boutique."
+    }
+  ],
+  "prodotti": [
+    {
+      "id": "secchiello-borchie",
+      "nome": "Secchiello con borchie",
+      "marchio": null,
+      "prezzo": 225,
+      "categoria": "borse",
+      "sottocategoria": "Secchielli",
+      "descrizione": "Borsa a secchiello nera con borchie e strass multicolore, nappa frontale, manico corto e tracolla a catena.",
+      "dettagli": [
+        "Borchie e strass",
+        "Chiusura a coulisse",
+        "Tracolla a catena"
+      ],
+      "tinta": "#e7cfc8",
+      "aggiunto": "2026-10-09",
+      "regalo": true,
+      "demo": false,
+      "varianti": [
+        {
+          "id": "nero",
+          "nome": "Nero",
+          "hex": "#1d191a",
+          "immagine": "secchiello-borchie--nero"
+        }
+      ],
+      "taglie": [
+        "Unica"
+      ]
+    },
+    {
+      "id": "giacchina-mimetica",
+      "nome": "Giacchina mimetica",
+      "marchio": "Susy Mix",
+      "prezzo": 79.9,
+      "categoria": "abbigliamento",
+      "sottocategoria": "Tute",
+      "descrizione": "Felpa bomber con zip sul fronte in fantasia mimetica e bande laterali. 94% poliestere, 6% elastan.",
+      "dettagli": [
+        "Zip frontale",
+        "Bande laterali",
+        "Si abbina al pantalone"
+      ],
+      "tinta": "#d8d6d6",
+      "aggiunto": "2026-10-08",
+      "regalo": false,
+      "demo": false,
+      "varianti": [
+        {
+          "id": "mimetico",
+          "nome": "Mimetico",
+          "hex": "#3a2f27",
+          "immagine": "giacchina-mimetica--mimetico"
+        }
+      ],
+      "taglie": []
+    },
+    {
+      "id": "pantalone-mimetico",
+      "nome": "Pantalone mimetico",
+      "marchio": "Susy Mix",
+      "prezzo": 69.9,
+      "categoria": "abbigliamento",
+      "sottocategoria": "Tute",
+      "descrizione": "Pantalone ampio in fantasia mimetica con bande laterali ed elastico in vita. Completa la giacchina.",
+      "dettagli": [
+        "Gamba ampia",
+        "Elastico in vita",
+        "Bande laterali"
+      ],
+      "tinta": "#d8d6d6",
+      "aggiunto": "2026-10-07",
+      "regalo": false,
+      "demo": false,
+      "varianti": [
+        {
+          "id": "mimetico",
+          "nome": "Mimetico",
+          "hex": "#3a2f27",
+          "immagine": "pantalone-mimetico--mimetico"
+        }
+      ],
+      "taglie": []
+    },
+    {
+      "id": "pochette-occhielli",
+      "nome": "Pochette con occhielli",
+      "marchio": "La Carrie",
+      "prezzo": 155,
+      "categoria": "borse",
+      "sottocategoria": "Tracolle",
+      "descrizione": "Pochette nera in pelle martellata con bordo intrecciato, occhielli in metallo e tracolla a catena.",
+      "dettagli": [
+        "Pelle martellata",
+        "Occhielli in metallo",
+        "Tracolla a catena"
+      ],
+      "tinta": "#d9b8ae",
+      "aggiunto": "2026-10-06",
+      "regalo": true,
+      "demo": false,
+      "varianti": [
+        {
+          "id": "nero",
+          "nome": "Nero",
+          "hex": "#1d191a",
+          "immagine": "pochette-occhielli--nero"
+        }
+      ],
+      "taglie": [
+        "Unica"
+      ]
+    },
+    {
+      "id": "pullover-bottoni",
+      "nome": "Pullover con bottoni",
+      "marchio": null,
+      "prezzo": 69,
+      "categoria": "abbigliamento",
+      "sottocategoria": "Maglieria",
+      "descrizione": "Pullover corto con scollo a V, bottoni in madreperla e maniche ampie con polso a costine.",
+      "dettagli": [
+        "Scollo a V",
+        "Bottoni in madreperla",
+        "Maniche ampie"
+      ],
+      "tinta": "#d9cdbf",
+      "aggiunto": "2026-10-05",
+      "regalo": false,
+      "demo": false,
+      "varianti": [
+        {
+          "id": "marrone",
+          "nome": "Marrone",
+          "hex": "#4a3a34",
+          "immagine": "pullover-bottoni--marrone"
+        }
+      ],
+      "taglie": []
+    },
+    {
+      "id": "jeans-ampio",
+      "nome": "Jeans ampio",
+      "marchio": null,
+      "prezzo": 59,
+      "categoria": "abbigliamento",
+      "sottocategoria": "Denim",
+      "descrizione": "Jeans scuro a gamba ampia, con risvolto al fondo.",
+      "dettagli": [
+        "Gamba ampia",
+        "Lavaggio scuro"
+      ],
+      "tinta": "#d9cdbf",
+      "aggiunto": "2026-10-04",
+      "regalo": false,
+      "demo": false,
+      "varianti": [
+        {
+          "id": "denim",
+          "nome": "Denim scuro",
+          "hex": "#1f2c4a",
+          "immagine": "jeans-ampio--denim"
+        }
+      ],
+      "taglie": []
+    },
+    {
+      "id": "tshirt-red-roses",
+      "nome": "T-shirt Red Roses",
+      "marchio": "Liu Jo",
+      "prezzo": 69,
+      "categoria": "abbigliamento",
+      "sottocategoria": "T-shirt",
+      "descrizione": "T-shirt bianca a maniche corte con stampa di rose e scritta sul davanti.",
+      "dettagli": [
+        "Stampa frontale",
+        "Maniche corte",
+        "Vestibilità morbida"
+      ],
+      "tinta": "#e6e3de",
+      "aggiunto": "2026-10-09",
+      "regalo": false,
+      "demo": false,
+      "varianti": [
+        {
+          "id": "bianco",
+          "nome": "Bianco",
+          "hex": "#f2efe9",
+          "immagine": "tshirt-red-roses--bianco"
+        }
+      ],
+      "taglie": []
+    },
+    {
+      "id": "tote-ecopelliccia",
+      "nome": "Tote in ecopelliccia",
+      "marchio": "Liu Jo",
+      "prezzo": null,
+      "categoria": "borse",
+      "sottocategoria": "Shopping",
+      "descrizione": "Borsa tote in ecopelliccia marrone con scritta logo, doppio manico, chiusura a zip e tracolla removibile. Circa 30 × 42 × 21 cm.",
+      "dettagli": [
+        "Ecopelliccia",
+        "Chiusura a zip",
+        "Tracolla removibile"
+      ],
+      "tinta": "#d9c3a0",
+      "aggiunto": "2026-10-09",
+      "regalo": true,
+      "demo": false,
+      "varianti": [
+        {
+          "id": "marrone",
+          "nome": "Marrone",
+          "hex": "#3d2a1e",
+          "immagine": "tote-ecopelliccia--marrone"
+        }
+      ],
+      "taglie": [
+        "Unica"
+      ]
+    },
+    {
+      "id": "camicia-floreale",
+      "nome": "Camicia floreale",
+      "marchio": "Susy Mix",
+      "prezzo": null,
+      "categoria": "abbigliamento",
+      "sottocategoria": "Camicie",
+      "descrizione": "Camicia leggera in fantasia floreale, con maniche ampie e bottoni in madreperla.",
+      "dettagli": [
+        "Fantasia floreale",
+        "Maniche ampie",
+        "Tessuto leggero"
+      ],
+      "tinta": "#e9e4dc",
+      "aggiunto": "2026-10-08",
+      "regalo": false,
+      "demo": false,
+      "varianti": [
+        {
+          "id": "fantasia",
+          "nome": "Fantasia floreale",
+          "hex": "#b89aa6",
+          "immagine": "camicia-floreale--fantasia"
+        }
+      ],
+      "taglie": []
+    },
+    {
+      "id": "tshirt-maniche-pizzo",
+      "nome": "T-shirt con maniche in pizzo",
+      "marchio": null,
+      "prezzo": null,
+      "categoria": "abbigliamento",
+      "sottocategoria": "T-shirt",
+      "descrizione": "T-shirt ampia color antracite con maniche lunghe in pizzo a contrasto.",
+      "dettagli": [
+        "Maniche in pizzo",
+        "Vestibilità ampia"
+      ],
+      "tinta": "#dcd9d6",
+      "aggiunto": "2026-10-08",
+      "regalo": false,
+      "demo": false,
+      "varianti": [
+        {
+          "id": "antracite",
+          "nome": "Antracite",
+          "hex": "#2e3136",
+          "immagine": "tshirt-maniche-pizzo--antracite"
+        }
+      ],
+      "taglie": []
+    }
+  ]
+}

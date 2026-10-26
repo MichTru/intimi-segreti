@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Pagina non trovata — Intimi Segreti</title>
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#2a0a14" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script type="module" src="/src/pages/semplice.js"></script>
+    <style>
+      .errore { min-height: 100svh; display: grid; place-content: center; justify-items: center; gap: 22px; text-align: center; padding: 96px 20px; }
+      .errore h1 { font-style: italic; font-size: clamp(3rem, 14vw, 8rem); }
+      .errore p { max-width: 30ch; opacity: 0.7; }
+      .errore div { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    </style>
+  </head>
+  <body data-senza-piede>
+    <a class="salta" href="#contenuto">Salta al contenuto</a>
+    <main id="contenuto" class="errore">
+      <p class="occhiello">Errore 404</p>
+      <h1>Vetrina spenta.</h1>
+      <p>Questa pagina non esiste o è stata spostata. Le luci sono accese da un'altra parte.</p>
+      <div><a class="bottone pieno" href="/">Torna alla vetrina</a><a class="bottone" href="/vetrina/">Vetrina Digitale</a></div>
+    </main>
+  </body>
+</html>
