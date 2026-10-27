@@ -110,7 +110,7 @@ function montaPiede() {
       <a href="/privacy/">Privacy e cookie</a>
     </div>
     <div class="piede-righe"><span>© ${anno} ${sito.nome}${sito.partitaIva ? ` · P. IVA ${sito.partitaIva}` : ''}</span>
-      <span>Le immagini dei capi sono dimostrative finché non vengono sostituite dagli scatti della boutique.</span></div>`;
+      <span>Alcune immagini sono generate con IA.</span></div>`;
   document.body.appendChild(p);
 }
 
@@ -123,7 +123,6 @@ function montaPreferiti() {
     <button class="tondo foglio-chiudi" type="button" data-chiudi aria-label="Chiudi">${ICONE.chiudi}</button>
     <div class="foglio-maniglia" aria-hidden="true"></div>
     <div class="foglio-corpo scheda">
-      <p class="occhiello">La tua selezione</p>
       <h2 id="titolo-preferiti">Preferiti</h2>
       <div data-contenuto></div>
     </div>`;
@@ -148,7 +147,7 @@ function montaPreferiti() {
       })
       .join('')}</ul>
       <div class="scheda-azioni"><button class="bottone pieno" type="button" data-invia>${haTesto()}</button></div>
-      <p class="scheda-nota">${notaRichiesta()}</p>`;
+`;
   }
   const haTesto = () => (etichettaRichiesta() === 'Chiedi in boutique' ? 'Invia la lista alla boutique' : 'Copia la lista');
 

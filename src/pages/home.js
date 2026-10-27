@@ -78,7 +78,7 @@ function costruisciCopertine() {
         ${satellite}
         ${timbro(`${p.novita ? 'Novità in vetrina' : 'In vetrina'} · ${sito.luogo} · `, i)}
         <div class="c-info">
-          <p class="occhiello"><span class="c-conto">${due(i + 1)} / ${due(valide.length)}</span>${p.marchio || nomeCategoria(p.categoria)}</p>
+          <p class="occhiello">${p.marchio || nomeCategoria(p.categoria)}</p>
           <h2 class="c-nome">${p.nome}</h2>
           <p class="c-prezzo">${prezzo(p)}<small>${p.sottocategoria || ''}</small></p>
           <a class="bottone pieno c-vai" href="${link}">Scopri</a>
@@ -186,12 +186,11 @@ function costruisciNastro() {
 const APPENDINO = '<span class="appendino" aria-hidden="true"><svg class="gancio" viewBox="0 0 28 44"><path d="M14 44V22a9 9 0 1 0-9-9"/></svg><svg class="spalle" viewBox="0 0 100 29" preserveAspectRatio="none"><path vector-effect="non-scaling-stroke" d="M50 1 2 27h96Z"/></svg></span>';
 
 function costruisciRella() {
-  const capo = (p, i, copia) => `<li class="gruccia"${copia ? ' aria-hidden="true"' : ''}>${APPENDINO}<span class="gruccia-numero" aria-hidden="true">${due(i + 1)}</span><a href="/vetrina/?prodotto=${p.id}"${copia ? ' tabindex="-1"' : ''} draggable="false">
+  const capo = (p, i, copia) => `<li class="gruccia"${copia ? ' aria-hidden="true"' : ''}>${APPENDINO}<a href="/vetrina/?prodotto=${p.id}"${copia ? ' tabindex="-1"' : ''} draggable="false">
         <div class="gruccia-foto">${figura(p.varianti[0], copia ? '' : p.nome, { sizes: '(min-width: 768px) 310px, 54vw' })}</div>
         <h3>${p.nome}</h3><b>${prezzo(p)}</b><small>${p.marchio || nomeCategoria(p.categoria)}${p.novita ? ' · Novità' : ''}</small></a></li>`;
   // la serie è scritta due volte: quando la prima esce, la seconda è già al suo posto
   $('[data-rella]').innerHTML = prodotti.map((p, i) => capo(p, i, false)).join('') + (statico ? '' : prodotti.map((p, i) => capo(p, i, true)).join(''));
-  $('[data-rella-conto]').textContent = `${prodotti.length} capi in vetrina · scorre da sola, trascinala per sfogliare`;
 }
 
 // La rella va avanti piano da sola. Si ferma se ci passi sopra, la tocchi o
@@ -329,7 +328,7 @@ function costruisciLook() {
           <a href="/vetrina/?prodotto=${b.id}" aria-label="${b.nome}, ${prezzo(b)}"><img src="${src(b.varianti[0].immagine, 600)}" alt="${b.nome}" loading="lazy" width="600" height="750"></a>
         </div>
         <div class="look-testo">
-          <p class="occhiello">Look ${due(i + 1)}${a.marchio ? ` · ${a.marchio}` : ''}</p>
+          ${a.marchio ? `<p class="occhiello">${a.marchio}</p>` : ''}
           <h3>${l.nome}</h3>
           <ul class="look-lista">${capi.map((c) => `<li><a href="/vetrina/?prodotto=${c.id}">${c.nome}</a><span>${prezzo(c)}</span></li>`).join('')}</ul>
           <div class="look-piede">
@@ -381,7 +380,7 @@ function costruisciTerzi() {
       const foto = p ? src(p.varianti[0].immagine) : `${SITO}manifesto-verticale.webp`; // senza capi: l'immagine della boutique
       return `<a class="terzo" href="${p ? `/vetrina/?categoria=${c.id}` : '/#contatti'}">
         <img src="${foto}" alt="" loading="lazy" width="1200" height="1500">
-        <span class="terzo-numero">${due(i + 1)} / ${due(categorie.length)}</span>
+        
         <h3>${c.nome}</h3>
         <p>${c.frase}</p>
         <span class="terzo-vai">${p ? `Guarda ${c.nome.toLowerCase()}` : 'Contatta la boutique'}</span>
@@ -394,22 +393,21 @@ function riempiBoutique() {
   const attesa = (cosa) => `<span class="in-attesa">${cosa}: da inserire</span>`;
   $('[data-chi-siamo]').innerHTML = sito.chiSiamo
     ? `<p>${sito.chiSiamo}</p>`
-    : `<p>${sito.nome} è una boutique di ${sito.luogo}.</p><p style="margin-top:14px">${attesa('Presentazione di chi vi accoglie')}</p>`;
+    : `<p>Abbigliamento, accessori e moda mare a Lugo. Novità ogni settimana, e spediamo in tutta Italia.</p>`;
   const righe = [
-    ['Indirizzo', sito.indirizzo ? (sito.mappaLink ? `<a href="${sito.mappaLink}" target="_blank" rel="noopener">${sito.indirizzo}</a>` : sito.indirizzo) : attesa('Indirizzo')],
-    ['Orari', sito.orari || attesa('Orari')],
-    ['Telefono', sito.telefono || attesa('Telefono')],
-    ['WhatsApp', sito.whatsapp ? `<a href="https://wa.me/${String(sito.whatsapp).replace(/\D/g, '')}" target="_blank" rel="noopener">Scrivici</a>` : attesa('Numero WhatsApp')],
+    ['Indirizzo', sito.indirizzo && (sito.mappaLink ? `<a href="${sito.mappaLink}" target="_blank" rel="noopener">${sito.indirizzo}</a>` : sito.indirizzo)],
+    ['Orari', sito.orari],
+    ['Telefono', sito.telefono],
+    ['WhatsApp', sito.whatsapp && `<a href="https://wa.me/${String(sito.whatsapp).replace(/\D/g, '')}" target="_blank" rel="noopener">${sito.whatsapp}</a>`],
     ['Social', Object.entries(sito.social || {}).filter(([, u]) => u).map(([n, u]) => `<a href="${u}" target="_blank" rel="noopener">${n[0].toUpperCase()}${n.slice(1)}</a>`).join(' · ')],
   ];
-  $('[data-recapiti]').innerHTML = righe.map(([t, v]) => `<div><dt>${t}</dt><dd>${v}</dd></div>`).join('');
+  $('[data-recapiti]').innerHTML = righe.filter(([, v]) => v).map(([t, v]) => `<div><dt>${t}</dt><dd>${v}</dd></div>`).join('');
   const btn = $('[data-appuntamento]');
   btn.textContent = sito.whatsapp ? 'Chiedi un appuntamento' : 'Copia la richiesta di appuntamento';
   btn.addEventListener('click', () => inviaRichiesta(messaggioAppuntamento()));
-  $('[data-nota-appuntamento]').textContent = `Consulenza o prova su appuntamento: la boutique conferma giorno e ora. ${notaRichiesta()}`;
   const mappa = $('[data-mappa]');
   if (sito.mappaLink) mappa.innerHTML = `<div><p>${sito.indirizzo || sito.luogo}</p><p style="margin-top:14px"><a class="bottone" href="${sito.mappaLink}" target="_blank" rel="noopener">Apri la mappa</a></p></div>`;
-  else mappa.innerHTML = `<div>${attesa('Mappa e indicazioni')}</div>`;
+  else mappa.hidden = true;
   $$('.boutique-colonna > *, .mappa').forEach((el) => el.classList.add('compare'));
 }
 
@@ -466,6 +464,7 @@ document.addEventListener('click', (e) => {
 
 function montaCapitoli() {
   const nav = $('.capitoli');
+  if (!nav) return () => {};
   const sezioni = $$('[data-capitolo]');
   nav.innerHTML = sezioni.map((s, i) => `<button type="button" data-i="${i}" aria-label="Vai a: ${s.dataset.capitolo}"><span>${s.dataset.capitolo}</span></button>`).join('');
   const bottoni = $$('button', nav);

@@ -41,7 +41,7 @@ export function creaScheda({ alCambio = () => {} } = {}) {
         <button class="tondo" type="button" data-cuore aria-pressed="${Preferiti.ha(p.id)}" aria-label="Aggiungi ai preferiti">${ICONE.cuore}</button>
         <button class="tondo" type="button" data-condividi aria-label="Condividi questo prodotto">${ICONE.condividi}</button>
       </div>
-      <p class="scheda-nota">${notaRichiesta()} <button type="button" data-prova style="text-decoration:underline;text-underline-offset:3px">Chiedi un appuntamento per provarlo</button>.</p>`;
+      <p class="scheda-nota"><button type="button" data-prova style="text-decoration:underline;text-underline-offset:3px">Prenota una prova in boutique</button></p>`;
   }
 
   corpo.addEventListener('change', (e) => {

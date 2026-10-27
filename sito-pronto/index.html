@@ -2571,7 +2571,6 @@ main {
       <button class="intro-salta" type="button">Salta</button>
     </div>
 
-    <nav class="capitoli" aria-label="Capitoli della pagina"></nav>
 
     <main id="contenuto">
       <h1 class="sr-only">Intimi Segreti, boutique a Lugo</h1>
@@ -2603,7 +2602,6 @@ main {
       <section class="rella-zona" id="binario" data-tono="chiaro" data-capitolo="In vetrina" aria-label="In vetrina adesso">
         <div class="binario-testa">
           <div>
-            <p class="occhiello">In vetrina adesso</p>
             <h2>Sfoglia la <em>rella.</em></h2>
           </div>
           <div class="rella-comandi">
@@ -2617,7 +2615,6 @@ main {
           <ul class="rella" data-rella></ul>
         </div>
         <div class="rella-piede">
-          <p data-rella-conto></p>
           <a class="bottone pieno" href="vetrina.html">Entra nella Vetrina Digitale</a>
         </div>
       </section>
@@ -2626,9 +2623,7 @@ main {
       <section class="look-zona" id="look" data-tono="chiaro" data-capitolo="I look">
         <header class="look-testa">
           <div>
-            <p class="occhiello">Già abbinati</p>
             <h2>Due capi, <em>un look.</em></h2>
-            <p class="look-intro">Abbinamenti pronti: i due capi, i prezzi e il totale.</p>
           </div>
           <div class="pellicola" data-pellicola aria-hidden="true"></div>
         </header>
@@ -2645,7 +2640,6 @@ main {
       <section class="lugo-zona" id="mondo" data-tono="scuro" data-capitolo="La boutique" data-loop>
         <p class="lugo-parola" aria-hidden="true">Lugo · Lugo · Lugo · Lugo · Lugo · Lugo · </p>
         <div class="lugo-testo">
-          <p class="occhiello">Dal sito al negozio</p>
           <h2>Il resto si prova <em>di persona.</em></h2>
         </div>
       </section>
@@ -2664,7 +2658,6 @@ main {
             <button class="bottone pieno" type="button" data-magnetico data-appuntamento>Chiedi un appuntamento</button>
             <a class="bottone" href="vetrina.html" data-magnetico>Vetrina Digitale</a>
           </div>
-          <p class="scheda-nota" data-nota-appuntamento></p>
         </div>
         <div class="mappa" data-mappa></div>
       </section>
@@ -2740,19 +2733,19 @@ main {
     nome: "Intimi Segreti",
     luogo: "Lugo (RA)",
     url: null,
-    whatsapp: null,
+    whatsapp: "+39 339 841 2774",
     telefono: null,
     email: null,
-    indirizzo: null,
+    indirizzo: "Via Baracca 55, Lugo (RA)",
     orari: null,
     mappaEmbed: null,
-    mappaLink: null,
+    mappaLink: "https://www.google.com/maps/search/?api=1&query=Intimi+Segreti+Via+Baracca+55+Lugo",
     chiSiamo: null,
     titolare: null,
     partitaIva: null,
     social: {
       facebook: "https://www.facebook.com/intimisegretilugo/",
-      instagram: null
+      instagram: "https://www.instagram.com/intimi_segretilugo2/"
     }
   };
 
@@ -3264,7 +3257,6 @@ main {
   // ../../../../../home/claude/intimi-segreti/src/core/contatto.js
   var haWhatsApp = () => !!site_default.whatsapp;
   var etichettaRichiesta = () => haWhatsApp() ? "Chiedi in boutique" : "Copia la richiesta";
-  var notaRichiesta = () => haWhatsApp() ? "Si apre WhatsApp con il messaggio gi\xE0 scritto." : "Il numero WhatsApp della boutique non \xE8 ancora stato inserito: il messaggio viene copiato, puoi incollarlo dove preferisci.";
   function messaggioLista(ids) {
     const righe = ids.map(perId).filter(Boolean).map((p) => `\u2022 ${p.nome}`);
     return `Buongiorno, vorrei informazioni su questi capi visti nella Vetrina Digitale:
@@ -3511,7 +3503,7 @@ ${righe.join("\n")}`;
       <a href="privacy.html">Privacy e cookie</a>
     </div>
     <div class="piede-righe"><span>\xA9 ${anno} ${site_default.nome}${site_default.partitaIva ? ` \xB7 P. IVA ${site_default.partitaIva}` : ""}</span>
-      <span>Le immagini dei capi sono dimostrative finch\xE9 non vengono sostituite dagli scatti della boutique.</span></div>`;
+      <span>Alcune immagini sono generate con IA.</span></div>`;
     document.body.appendChild(p);
   }
   function montaPreferiti() {
@@ -3522,7 +3514,6 @@ ${righe.join("\n")}`;
     <button class="tondo foglio-chiudi" type="button" data-chiudi aria-label="Chiudi">${ICONE.chiudi}</button>
     <div class="foglio-maniglia" aria-hidden="true"></div>
     <div class="foglio-corpo scheda">
-      <p class="occhiello">La tua selezione</p>
       <h2 id="titolo-preferiti">Preferiti</h2>
       <div data-contenuto></div>
     </div>`;
@@ -3544,7 +3535,7 @@ ${righe.join("\n")}`;
           <button class="tondo" type="button" data-togli="${p.id}" aria-label="Togli ${p.nome} dai preferiti">${ICONE.chiudi}</button></li>`;
       }).join("")}</ul>
       <div class="scheda-azioni"><button class="bottone pieno" type="button" data-invia>${haTesto()}</button></div>
-      <p class="scheda-nota">${notaRichiesta()}</p>`;
+`;
     }
     const haTesto = () => etichettaRichiesta() === "Chiedi in boutique" ? "Invia la lista alla boutique" : "Copia la lista";
     d.addEventListener("click", (e) => {
@@ -3684,7 +3675,6 @@ ${righe.join("\n")}`;
   if (statico) html.classList.add("statico");
   var $ = (s, r = document) => r.querySelector(s);
   var $$ = (s, r = document) => [...r.querySelectorAll(s)];
-  var due = (n) => String(n).padStart(2, "0");
   var euro = (n) => prezzo({ prezzo: Math.round(n * 100) / 100 });
   var SITO = "assets/site/";
   montaCornice();
@@ -3731,7 +3721,7 @@ ${righe.join("\n")}`;
         ${satellite}
         ${timbro(`${p.novita ? "Novit\xE0 in vetrina" : "In vetrina"} \xB7 ${site_default.luogo} \xB7 `, i)}
         <div class="c-info">
-          <p class="occhiello"><span class="c-conto">${due(i + 1)} / ${due(valide.length)}</span>${p.marchio || nomeCategoria(p.categoria)}</p>
+          <p class="occhiello">${p.marchio || nomeCategoria(p.categoria)}</p>
           <h2 class="c-nome">${p.nome}</h2>
           <p class="c-prezzo">${prezzo(p)}<small>${p.sottocategoria || ""}</small></p>
           <a class="bottone pieno c-vai" href="${link}">Scopri</a>
@@ -3845,11 +3835,10 @@ ${righe.join("\n")}`;
   }
   var APPENDINO = '<span class="appendino" aria-hidden="true"><svg class="gancio" viewBox="0 0 28 44"><path d="M14 44V22a9 9 0 1 0-9-9"/></svg><svg class="spalle" viewBox="0 0 100 29" preserveAspectRatio="none"><path vector-effect="non-scaling-stroke" d="M50 1 2 27h96Z"/></svg></span>';
   function costruisciRella() {
-    const capo = (p, i, copia2) => `<li class="gruccia"${copia2 ? ' aria-hidden="true"' : ""}>${APPENDINO}<span class="gruccia-numero" aria-hidden="true">${due(i + 1)}</span><a href="vetrina.html?prodotto=${p.id}"${copia2 ? ' tabindex="-1"' : ""} draggable="false">
+    const capo = (p, i, copia2) => `<li class="gruccia"${copia2 ? ' aria-hidden="true"' : ""}>${APPENDINO}<a href="vetrina.html?prodotto=${p.id}"${copia2 ? ' tabindex="-1"' : ""} draggable="false">
         <div class="gruccia-foto">${figura(p.varianti[0], copia2 ? "" : p.nome, { sizes: "(min-width: 768px) 310px, 54vw" })}</div>
         <h3>${p.nome}</h3><b>${prezzo(p)}</b><small>${p.marchio || nomeCategoria(p.categoria)}${p.novita ? " \xB7 Novit\xE0" : ""}</small></a></li>`;
     $("[data-rella]").innerHTML = prodotti.map((p, i) => capo(p, i, false)).join("") + (statico ? "" : prodotti.map((p, i) => capo(p, i, true)).join(""));
-    $("[data-rella-conto]").textContent = `${prodotti.length} capi in vetrina \xB7 scorre da sola, trascinala per sfogliare`;
   }
   function montaRella() {
     const binario = $("[data-binario]");
@@ -4002,7 +3991,7 @@ ${righe.join("\n")}`;
           <a href="vetrina.html?prodotto=${b.id}" aria-label="${b.nome}, ${prezzo(b)}"><img src="${src(b.varianti[0].immagine, 600)}" alt="${b.nome}" loading="lazy" width="600" height="750"></a>
         </div>
         <div class="look-testo">
-          <p class="occhiello">Look ${due(i + 1)}${a.marchio ? ` \xB7 ${a.marchio}` : ""}</p>
+          ${a.marchio ? `<p class="occhiello">${a.marchio}</p>` : ""}
           <h3>${l.nome}</h3>
           <ul class="look-lista">${capi.map((c) => `<li><a href="vetrina.html?prodotto=${c.id}">${c.nome}</a><span>${prezzo(c)}</span></li>`).join("")}</ul>
           <div class="look-piede">
@@ -4050,7 +4039,7 @@ ${capi.map((c) => `\u2022 ${c.nome} (${prezzo(c)})`).join("\n")}`);
       const foto = p ? src(p.varianti[0].immagine) : `${SITO}manifesto-verticale.webp`;
       return `<a class="terzo" href="${p ? `vetrina.html?categoria=${c.id}` : "/#contatti"}">
         <img src="${foto}" alt="" loading="lazy" width="1200" height="1500">
-        <span class="terzo-numero">${due(i + 1)} / ${due(categorie.length)}</span>
+        
         <h3>${c.nome}</h3>
         <p>${c.frase}</p>
         <span class="terzo-vai">${p ? `Guarda ${c.nome.toLowerCase()}` : "Contatta la boutique"}</span>
@@ -4059,22 +4048,21 @@ ${capi.map((c) => `\u2022 ${c.nome} (${prezzo(c)})`).join("\n")}`);
   }
   function riempiBoutique() {
     const attesa = (cosa) => `<span class="in-attesa">${cosa}: da inserire</span>`;
-    $("[data-chi-siamo]").innerHTML = site_default.chiSiamo ? `<p>${site_default.chiSiamo}</p>` : `<p>${site_default.nome} \xE8 una boutique di ${site_default.luogo}.</p><p style="margin-top:14px">${attesa("Presentazione di chi vi accoglie")}</p>`;
+    $("[data-chi-siamo]").innerHTML = site_default.chiSiamo ? `<p>${site_default.chiSiamo}</p>` : `<p>Abbigliamento, accessori e moda mare a Lugo. Novit\xE0 ogni settimana, e spediamo in tutta Italia.</p>`;
     const righe = [
-      ["Indirizzo", site_default.indirizzo ? site_default.mappaLink ? `<a href="${site_default.mappaLink}" target="_blank" rel="noopener">${site_default.indirizzo}</a>` : site_default.indirizzo : attesa("Indirizzo")],
-      ["Orari", site_default.orari || attesa("Orari")],
-      ["Telefono", site_default.telefono || attesa("Telefono")],
-      ["WhatsApp", site_default.whatsapp ? `<a href="https://wa.me/${String(site_default.whatsapp).replace(/\D/g, "")}" target="_blank" rel="noopener">Scrivici</a>` : attesa("Numero WhatsApp")],
+      ["Indirizzo", site_default.indirizzo && (site_default.mappaLink ? `<a href="${site_default.mappaLink}" target="_blank" rel="noopener">${site_default.indirizzo}</a>` : site_default.indirizzo)],
+      ["Orari", site_default.orari],
+      ["Telefono", site_default.telefono],
+      ["WhatsApp", site_default.whatsapp && `<a href="https://wa.me/${String(site_default.whatsapp).replace(/\D/g, "")}" target="_blank" rel="noopener">${site_default.whatsapp}</a>`],
       ["Social", Object.entries(site_default.social || {}).filter(([, u]) => u).map(([n, u]) => `<a href="${u}" target="_blank" rel="noopener">${n[0].toUpperCase()}${n.slice(1)}</a>`).join(" \xB7 ")]
     ];
-    $("[data-recapiti]").innerHTML = righe.map(([t, v]) => `<div><dt>${t}</dt><dd>${v}</dd></div>`).join("");
+    $("[data-recapiti]").innerHTML = righe.filter(([, v]) => v).map(([t, v]) => `<div><dt>${t}</dt><dd>${v}</dd></div>`).join("");
     const btn = $("[data-appuntamento]");
     btn.textContent = site_default.whatsapp ? "Chiedi un appuntamento" : "Copia la richiesta di appuntamento";
     btn.addEventListener("click", () => inviaRichiesta(messaggioAppuntamento()));
-    $("[data-nota-appuntamento]").textContent = `Consulenza o prova su appuntamento: la boutique conferma giorno e ora. ${notaRichiesta()}`;
     const mappa = $("[data-mappa]");
     if (site_default.mappaLink) mappa.innerHTML = `<div><p>${site_default.indirizzo || site_default.luogo}</p><p style="margin-top:14px"><a class="bottone" href="${site_default.mappaLink}" target="_blank" rel="noopener">Apri la mappa</a></p></div>`;
-    else mappa.innerHTML = `<div>${attesa("Mappa e indicazioni")}</div>`;
+    else mappa.hidden = true;
     $$(".boutique-colonna > *, .mappa").forEach((el) => el.classList.add("compare"));
   }
   costruisciApertura();
@@ -4120,6 +4108,8 @@ ${capi.map((c) => `\u2022 ${c.nome} (${prezzo(c)})`).join("\n")}`);
   });
   function montaCapitoli() {
     const nav = $(".capitoli");
+    if (!nav) return () => {
+    };
     const sezioni = $$("[data-capitolo]");
     nav.innerHTML = sezioni.map((s, i) => `<button type="button" data-i="${i}" aria-label="Vai a: ${s.dataset.capitolo}"><span>${s.dataset.capitolo}</span></button>`).join("");
     const bottoni = $$("button", nav);

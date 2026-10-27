@@ -36,7 +36,7 @@ const elCategoria = $('[data-categoria]');
 const elNumero = $('[data-numero]');
 const elTotale = $('[data-totale]');
 const elVuoto = $('[data-vuoto]');
-const suggerimento = $('[data-suggerimento]');
+const suggerimento = $('[data-suggerimento]') || { hidden: true };
 
 // ------------------------------------------------------------------
 // Stato
@@ -144,7 +144,6 @@ function allestisci() {
   if (vuota) {
     elVuoto.innerHTML = `${messaggioVuoto()}`;
   }
-  elTotale.textContent = `/ ${due(stato.lista.length)}`;
 }
 
 // Disegna la vetrina per una posizione continua: profondità, rotazione,
@@ -191,10 +190,8 @@ function aggiornaDidascalia(verso = 1, anima = true) {
   if (!p) return;
   elCategoria.textContent = [p.marchio || nomeCategoria(p.categoria), prezzo(p)].filter(Boolean).join(' · ');
   const lettere = riscrivi(elNome, p.nome);
-  elNumero.textContent = due(stato.indice + 1);
   if (anima && !statico) {
     gsap.fromTo(lettere, { yPercent: 110 * verso, rotate: 6 * verso }, { yPercent: 0, rotate: 0, duration: DUR.media, ease: EASE.entrata, stagger: 0.012, overwrite: true });
-    gsap.fromTo(elNumero, { yPercent: 60 * verso, autoAlpha: 0 }, { yPercent: 0, autoAlpha: 1, duration: DUR.breve, ease: EASE.entrata, overwrite: true });
     gsap.fromTo(elCategoria, { autoAlpha: 0 }, { autoAlpha: 1, duration: DUR.breve, overwrite: true });
   }
   capi.forEach((c, i) => {
@@ -413,8 +410,8 @@ function disegnaPannello() {
   $('[data-pannello-corpo]').innerHTML = `<fieldset class="gruppo"><legend>Ordina per</legend><div class="voci">${ORDINI.map((o) => `<button type="button" class="voce" data-ordine="${o.id}" aria-pressed="${o.id === stato.ordine}">${o.nome}</button>`).join('')}</div></fieldset>`
     + gruppi.map((g) => `<fieldset class="gruppo"><legend>${g.nome}${stato.scelte[g.id].length ? ` <b>${stato.scelte[g.id].length}</b>` : ''}</legend><div class="voci">${g.voci.map((o) => {
       const scelta = stato.scelte[g.id].includes(o.v);
-      return `<button type="button" class="voce" data-gruppo="${g.id}" data-voce="${o.v}" aria-pressed="${scelta}"${!o.n && !scelta ? ' disabled' : ''}>${o.hex ? `<i style="--c:${o.hex}"></i>` : ''}${o.v}<small>${o.n}</small></button>`;
-    }).join('')}</div>${g.id === 'taglie' && mancanti ? `<p class="gruppo-nota">Taglie da inserire per ${mancanti} ${mancanti === 1 ? 'capo' : 'capi'}: chiedi in boutique.</p>` : ''}</fieldset>`).join('');
+      return `<button type="button" class="voce" data-gruppo="${g.id}" data-voce="${o.v}" aria-pressed="${scelta}"${!o.n && !scelta ? ' disabled' : ''}>${o.hex ? `<i style="--c:${o.hex}"></i>` : ''}${o.v}</button>`;
+    }).join('')}</div></fieldset>`).join('');
   const n = stato.lista.length;
   $('[data-pannello-mostra]').textContent = n === 1 ? 'Mostra 1 capo' : `Mostra ${n} capi`;
   $('[data-azzera]', pannello).disabled = !quanteScelte(stato.scelte) && stato.ordine === 'novita';
@@ -455,7 +452,7 @@ function disegnaAttivi() {
   const box = $('[data-attivi]');
   const voci = GRUPPI.flatMap((g) => stato.scelte[g.id].map((v) => `<button type="button" data-gruppo="${g.id}" data-voce="${v}" aria-label="Togli il filtro ${v}">${v}<span aria-hidden="true">×</span></button>`));
   box.hidden = !voci.length;
-  box.innerHTML = `<span>${stato.lista.length} ${stato.lista.length === 1 ? 'capo' : 'capi'}</span>${voci.join('')}`;
+  box.innerHTML = voci.join('');
 }
 
 document.addEventListener('click', (e) => {

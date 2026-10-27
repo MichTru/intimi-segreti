@@ -3,18 +3,18 @@
   "nome": "Intimi Segreti",
   "luogo": "Lugo (RA)",
   "url": null,
-  "whatsapp": null,
+  "whatsapp": "+39 339 841 2774",
   "telefono": null,
   "email": null,
-  "indirizzo": null,
+  "indirizzo": "Via Baracca 55, Lugo (RA)",
   "orari": null,
   "mappaEmbed": null,
-  "mappaLink": null,
+  "mappaLink": "https://www.google.com/maps/search/?api=1&query=Intimi+Segreti+Via+Baracca+55+Lugo",
   "chiSiamo": null,
   "titolare": null,
   "partitaIva": null,
   "social": {
     "facebook": "https://www.facebook.com/intimisegretilugo/",
-    "instagram": null
+    "instagram": "https://www.instagram.com/intimi_segretilugo2/"
   }
 }
