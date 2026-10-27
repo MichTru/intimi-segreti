@@ -1123,19 +1123,19 @@ summary,
     nome: "Intimi Segreti",
     luogo: "Lugo (RA)",
     url: null,
-    whatsapp: null,
+    whatsapp: "+39 339 841 2774",
     telefono: null,
     email: null,
-    indirizzo: null,
+    indirizzo: "Via Baracca 55, Lugo (RA)",
     orari: null,
     mappaEmbed: null,
-    mappaLink: null,
+    mappaLink: "https://www.google.com/maps/search/?api=1&query=Intimi+Segreti+Via+Baracca+55+Lugo",
     chiSiamo: null,
     titolare: null,
     partitaIva: null,
     social: {
       facebook: "https://www.facebook.com/intimisegretilugo/",
-      instagram: null
+      instagram: "https://www.instagram.com/intimi_segretilugo2/"
     }
   };
 
@@ -1630,7 +1630,6 @@ summary,
   // ../../../../../home/claude/intimi-segreti/src/core/contatto.js
   var haWhatsApp = () => !!site_default.whatsapp;
   var etichettaRichiesta = () => haWhatsApp() ? "Chiedi in boutique" : "Copia la richiesta";
-  var notaRichiesta = () => haWhatsApp() ? "Si apre WhatsApp con il messaggio gi\xE0 scritto." : "Il numero WhatsApp della boutique non \xE8 ancora stato inserito: il messaggio viene copiato, puoi incollarlo dove preferisci.";
   function messaggioLista(ids) {
     const righe = ids.map(perId).filter(Boolean).map((p) => `\u2022 ${p.nome}`);
     return `Buongiorno, vorrei informazioni su questi capi visti nella Vetrina Digitale:
@@ -1876,7 +1875,7 @@ ${righe.join("\n")}`;
       <a href="privacy.html">Privacy e cookie</a>
     </div>
     <div class="piede-righe"><span>\xA9 ${anno} ${site_default.nome}${site_default.partitaIva ? ` \xB7 P. IVA ${site_default.partitaIva}` : ""}</span>
-      <span>Le immagini dei capi sono dimostrative finch\xE9 non vengono sostituite dagli scatti della boutique.</span></div>`;
+      <span>Alcune immagini sono generate con IA.</span></div>`;
     document.body.appendChild(p);
   }
   function montaPreferiti() {
@@ -1887,7 +1886,6 @@ ${righe.join("\n")}`;
     <button class="tondo foglio-chiudi" type="button" data-chiudi aria-label="Chiudi">${ICONE.chiudi}</button>
     <div class="foglio-maniglia" aria-hidden="true"></div>
     <div class="foglio-corpo scheda">
-      <p class="occhiello">La tua selezione</p>
       <h2 id="titolo-preferiti">Preferiti</h2>
       <div data-contenuto></div>
     </div>`;
@@ -1909,7 +1907,7 @@ ${righe.join("\n")}`;
           <button class="tondo" type="button" data-togli="${p.id}" aria-label="Togli ${p.nome} dai preferiti">${ICONE.chiudi}</button></li>`;
       }).join("")}</ul>
       <div class="scheda-azioni"><button class="bottone pieno" type="button" data-invia>${haTesto()}</button></div>
-      <p class="scheda-nota">${notaRichiesta()}</p>`;
+`;
     }
     const haTesto = () => etichettaRichiesta() === "Chiedi in boutique" ? "Invia la lista alla boutique" : "Copia la lista";
     d.addEventListener("click", (e) => {

@@ -1797,11 +1797,9 @@ summary,
           </div>
           <div class="giro">
             <button class="tondo" type="button" data-prima aria-label="Prodotto precedente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6" /></svg></button>
-            <p class="contatore" aria-hidden="true"><b data-numero>01</b><span data-totale>/ 01</span></p>
             <button class="tondo" type="button" data-dopo aria-label="Prodotto successivo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6" /></svg></button>
           </div>
         </div>
-        <p class="suggerimento" data-suggerimento hidden>Scorri di lato per sfogliare · tocca per i dettagli</p>
         <div class="vuoto" data-vuoto hidden></div>
       </section>
 
@@ -1898,19 +1896,19 @@ summary,
     nome: "Intimi Segreti",
     luogo: "Lugo (RA)",
     url: null,
-    whatsapp: null,
+    whatsapp: "+39 339 841 2774",
     telefono: null,
     email: null,
-    indirizzo: null,
+    indirizzo: "Via Baracca 55, Lugo (RA)",
     orari: null,
     mappaEmbed: null,
-    mappaLink: null,
+    mappaLink: "https://www.google.com/maps/search/?api=1&query=Intimi+Segreti+Via+Baracca+55+Lugo",
     chiSiamo: null,
     titolare: null,
     partitaIva: null,
     social: {
       facebook: "https://www.facebook.com/intimisegretilugo/",
-      instagram: null
+      instagram: "https://www.instagram.com/intimi_segretilugo2/"
     }
   };
 
@@ -2465,7 +2463,6 @@ summary,
   // ../../../../../home/claude/intimi-segreti/src/core/contatto.js
   var haWhatsApp = () => !!site_default.whatsapp;
   var etichettaRichiesta = () => haWhatsApp() ? "Chiedi in boutique" : "Copia la richiesta";
-  var notaRichiesta = () => haWhatsApp() ? "Si apre WhatsApp con il messaggio gi\xE0 scritto." : "Il numero WhatsApp della boutique non \xE8 ancora stato inserito: il messaggio viene copiato, puoi incollarlo dove preferisci.";
   var origine = () => site_default.url || location.origin;
   var linkProdotto = (p, v) => `${new URL("vetrina.html", location.href).href.split("?")[0]}?prodotto=${p.id}${v ? `&colore=${v.id}` : ""}`;
   var linkCondivisione = (p) => define_import_meta_env_default && define_import_meta_env_default.DEV ? linkProdotto(p) : linkProdotto(p);
@@ -2732,7 +2729,7 @@ ${righe.join("\n")}`;
       <a href="privacy.html">Privacy e cookie</a>
     </div>
     <div class="piede-righe"><span>\xA9 ${anno} ${site_default.nome}${site_default.partitaIva ? ` \xB7 P. IVA ${site_default.partitaIva}` : ""}</span>
-      <span>Le immagini dei capi sono dimostrative finch\xE9 non vengono sostituite dagli scatti della boutique.</span></div>`;
+      <span>Alcune immagini sono generate con IA.</span></div>`;
     document.body.appendChild(p);
   }
   function montaPreferiti() {
@@ -2743,7 +2740,6 @@ ${righe.join("\n")}`;
     <button class="tondo foglio-chiudi" type="button" data-chiudi aria-label="Chiudi">${ICONE.chiudi}</button>
     <div class="foglio-maniglia" aria-hidden="true"></div>
     <div class="foglio-corpo scheda">
-      <p class="occhiello">La tua selezione</p>
       <h2 id="titolo-preferiti">Preferiti</h2>
       <div data-contenuto></div>
     </div>`;
@@ -2765,7 +2761,7 @@ ${righe.join("\n")}`;
           <button class="tondo" type="button" data-togli="${p.id}" aria-label="Togli ${p.nome} dai preferiti">${ICONE.chiudi}</button></li>`;
       }).join("")}</ul>
       <div class="scheda-azioni"><button class="bottone pieno" type="button" data-invia>${haTesto()}</button></div>
-      <p class="scheda-nota">${notaRichiesta()}</p>`;
+`;
     }
     const haTesto = () => etichettaRichiesta() === "Chiedi in boutique" ? "Invia la lista alla boutique" : "Copia la lista";
     d.addEventListener("click", (e) => {
@@ -2971,7 +2967,7 @@ ${righe.join("\n")}`;
         <button class="tondo" type="button" data-cuore aria-pressed="${Preferiti.ha(p.id)}" aria-label="Aggiungi ai preferiti">${ICONE.cuore}</button>
         <button class="tondo" type="button" data-condividi aria-label="Condividi questo prodotto">${ICONE.condividi}</button>
       </div>
-      <p class="scheda-nota">${notaRichiesta()} <button type="button" data-prova style="text-decoration:underline;text-underline-offset:3px">Chiedi un appuntamento per provarlo</button>.</p>`;
+      <p class="scheda-nota"><button type="button" data-prova style="text-decoration:underline;text-underline-offset:3px">Prenota una prova in boutique</button></p>`;
     }
     corpo2.addEventListener("change", (e) => {
       if (e.target.name !== "colore") return;
@@ -3057,7 +3053,6 @@ ${righe.join("\n")}`;
   html.classList.add(`livello-${livello}`);
   var $ = (s, r = document) => r.querySelector(s);
   var $$ = (s, r = document) => [...r.querySelectorAll(s)];
-  var due = (n) => String(n).padStart(2, "0");
   montaCornice();
   var palco = $("#palco");
   var capiBox = $("[data-capi]");
@@ -3070,7 +3065,7 @@ ${righe.join("\n")}`;
   var elNumero = $("[data-numero]");
   var elTotale = $("[data-totale]");
   var elVuoto = $("[data-vuoto]");
-  var suggerimento = $("[data-suggerimento]");
+  var suggerimento = $("[data-suggerimento]") || { hidden: true };
   var stato = {
     vista: "vetrina",
     filtro: "tutti",
@@ -3159,7 +3154,6 @@ ${righe.join("\n")}`;
     if (vuota) {
       elVuoto.innerHTML = `${messaggioVuoto()}`;
     }
-    elTotale.textContent = `/ ${due(stato.lista.length)}`;
   }
   function disegna() {
     const n = capi.length;
@@ -3200,10 +3194,8 @@ ${righe.join("\n")}`;
     if (!p) return;
     elCategoria.textContent = [p.marchio || nomeCategoria(p.categoria), prezzo(p)].filter(Boolean).join(" \xB7 ");
     const lettere = riscrivi(elNome, p.nome);
-    elNumero.textContent = due(stato.indice + 1);
     if (anima && !statico) {
       import_gsap2.gsap.fromTo(lettere, { yPercent: 110 * verso, rotate: 6 * verso }, { yPercent: 0, rotate: 0, duration: DUR.media, ease: EASE.entrata, stagger: 0.012, overwrite: true });
-      import_gsap2.gsap.fromTo(elNumero, { yPercent: 60 * verso, autoAlpha: 0 }, { yPercent: 0, autoAlpha: 1, duration: DUR.breve, ease: EASE.entrata, overwrite: true });
       import_gsap2.gsap.fromTo(elCategoria, { autoAlpha: 0 }, { autoAlpha: 1, duration: DUR.breve, overwrite: true });
     }
     capi.forEach((c, i) => {
@@ -3388,8 +3380,8 @@ ${righe.join("\n")}`;
     const mancanti = senzaTaglia(base);
     $("[data-pannello-corpo]").innerHTML = `<fieldset class="gruppo"><legend>Ordina per</legend><div class="voci">${ORDINI.map((o) => `<button type="button" class="voce" data-ordine="${o.id}" aria-pressed="${o.id === stato.ordine}">${o.nome}</button>`).join("")}</div></fieldset>` + gruppi.map((g) => `<fieldset class="gruppo"><legend>${g.nome}${stato.scelte[g.id].length ? ` <b>${stato.scelte[g.id].length}</b>` : ""}</legend><div class="voci">${g.voci.map((o) => {
       const scelta = stato.scelte[g.id].includes(o.v);
-      return `<button type="button" class="voce" data-gruppo="${g.id}" data-voce="${o.v}" aria-pressed="${scelta}"${!o.n && !scelta ? " disabled" : ""}>${o.hex ? `<i style="--c:${o.hex}"></i>` : ""}${o.v}<small>${o.n}</small></button>`;
-    }).join("")}</div>${g.id === "taglie" && mancanti ? `<p class="gruppo-nota">Taglie da inserire per ${mancanti} ${mancanti === 1 ? "capo" : "capi"}: chiedi in boutique.</p>` : ""}</fieldset>`).join("");
+      return `<button type="button" class="voce" data-gruppo="${g.id}" data-voce="${o.v}" aria-pressed="${scelta}"${!o.n && !scelta ? " disabled" : ""}>${o.hex ? `<i style="--c:${o.hex}"></i>` : ""}${o.v}</button>`;
+    }).join("")}</div></fieldset>`).join("");
     const n = stato.lista.length;
     $("[data-pannello-mostra]").textContent = n === 1 ? "Mostra 1 capo" : `Mostra ${n} capi`;
     $("[data-azzera]", pannello).disabled = !quanteScelte(stato.scelte) && stato.ordine === "novita";
@@ -3427,7 +3419,7 @@ ${righe.join("\n")}`;
     const box = $("[data-attivi]");
     const voci = GRUPPI.flatMap((g) => stato.scelte[g.id].map((v) => `<button type="button" data-gruppo="${g.id}" data-voce="${v}" aria-label="Togli il filtro ${v}">${v}<span aria-hidden="true">\xD7</span></button>`));
     box.hidden = !voci.length;
-    box.innerHTML = `<span>${stato.lista.length} ${stato.lista.length === 1 ? "capo" : "capi"}</span>${voci.join("")}`;
+    box.innerHTML = voci.join("");
   }
   document.addEventListener("click", (e) => {
     const t = e.target;
