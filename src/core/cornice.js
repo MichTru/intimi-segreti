@@ -154,7 +154,7 @@ function montaPreferiti() {
       })
       .join('')}</ul>
       <p class="camerino-totale"><small>Totale</small><span>${testoTotale(capi)}</span></p>
-      <div class="scheda-azioni"><button class="bottone pieno" type="button" data-invia>Mettimeli da parte</button></div>
+      <div class="scheda-azioni"><button class="bottone pieno" type="button" data-invia>Invia alla boutique</button></div>
       <button class="scheda-prova" type="button" data-prova>Prenota la prova in boutique <span aria-hidden="true">→</span></button>`;
   }
 

@@ -39,10 +39,10 @@ const riga = (p, idVariante) => {
 };
 
 export const messaggioDaParte = (p, v) =>
-  `Buongiorno, potete mettermi da parte questo capo visto sul sito?\n${riga(p, v && v.id)}\n${linkProdotto(p, v)}`;
+  `Buongiorno, ho visto questo capo sul sito: è disponibile?\n${riga(p, v && v.id)}\n${linkProdotto(p, v)}`;
 
-export const messaggioInsieme = (ids, titolo = 'questi capi visti sul sito') =>
-  `Buongiorno, potete mettermi da parte ${titolo}?\n${ids.map(perId).filter(Boolean).map((p) => riga(p)).join('\n')}`;
+export const messaggioInsieme = (ids) =>
+  `Buongiorno, nel mio camerino sul sito ho scelto questi capi. Sono disponibili?\n${ids.map(perId).filter(Boolean).map((p) => riga(p)).join('\n')}`;
 
 export const messaggioNovita = () => 'Buongiorno, vorrei ricevere su WhatsApp le novità della boutique.';
 

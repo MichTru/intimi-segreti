@@ -3,7 +3,7 @@
 // soli, il resto entra una volta quando arriva sullo schermo. Tutto ciò che si
 // muove da solo si può fermare.
 import { montaCornice } from '../core/cornice.js';
-import { Taglie, unica, testoTotale, messaggioInsieme, messaggioNovita, messaggioBuono } from '../core/atelier.js';
+import { testoTotale, messaggioNovita, messaggioBuono } from '../core/atelier.js';
 import { Preferiti } from '../core/memoria.js';
 import { avvisa } from '../core/avviso.js';
 import '../styles/home.css';
@@ -335,8 +335,7 @@ function costruisciLookbook() {
           <ul class="pl-capi">${l.capi.map((c) => `<li><a href="/vetrina/?prodotto=${c.id}">${c.nome}</a><span>${prezzo(c)}</span></li>`).join('')}</ul>
           <p class="pl-totale"><small>Insieme</small><span>${testoTotale(l.capi)}</span></p>
           <div class="pl-azioni">
-            <button class="bottone pieno piccolo" type="button" data-look-parte="${l.id}">Mettimeli da parte</button>
-            <button class="bottone piccolo" type="button" data-look-camerino="${l.id}">Nel camerino</button>
+            <button class="bottone pieno piccolo" type="button" data-look-camerino="${l.id}">Aggiungi al camerino</button>
           </div>
         </div>
       </article>`;
@@ -346,19 +345,10 @@ function costruisciLookbook() {
   const capiDi = (id) => validi.find((l) => l.id === id).capi;
   const nelCamerino = (capi) => capi.forEach((p) => !Preferiti.ha(p.id) && Preferiti.alterna(p.id));
   pista.addEventListener('click', (e) => {
-    const parte = e.target.closest('[data-look-parte]');
     const cam = e.target.closest('[data-look-camerino]');
-    if (cam) {
-      nelCamerino(capiDi(cam.dataset.lookCamerino));
-      avvisa('Look aggiunto al camerino.', 1800);
-    }
-    if (!parte) return;
-    const l = validi.find((x) => x.id === parte.dataset.lookParte);
-    if (l.capi.every((p) => unica(p) || Taglie.di(p.id))) return inviaRichiesta(messaggioInsieme(l.capi.map((p) => p.id), `il look «${l.nome}» visto sul sito`));
-    // manca qualche taglia: il look va nel camerino, dove si scelgono
-    nelCamerino(l.capi);
-    avvisa('Scegli le taglie nel camerino.', 2200);
-    $('[data-apri-preferiti]').click();
+    if (!cam) return;
+    nelCamerino(capiDi(cam.dataset.lookCamerino));
+    $('[data-apri-preferiti]').click(); // nel camerino si scelgono le taglie
   });
 }
 

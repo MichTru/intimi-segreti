@@ -4,8 +4,8 @@
 // e la foto che si allarga dalla vetrina alla scheda.
 import { nomeCategoria, variante, figura, prezzo, prodotti, look, perId, src } from './catalogo.js';
 import { Preferiti } from './memoria.js';
-import { condividi, inviaRichiesta } from './contatto.js';
-import { Taglie, taglieDi, unica, messaggioDaParte, apriProva, richiama } from './atelier.js';
+import { condividi } from './contatto.js';
+import { Taglie, taglieDi, unica, apriProva, richiama } from './atelier.js';
 import { ICONE } from './icone.js';
 import { avvisa } from './avviso.js';
 import { riduciMovimento } from '../motion/tokens.js';
@@ -60,8 +60,7 @@ export function creaScheda({ alCambio = () => {} } = {}) {
           .join('')}</div>
       </fieldset>`}
       <div class="scheda-azioni">
-        <button class="bottone pieno" type="button" data-da-parte>Mettimelo da parte</button>
-        <button class="tondo" type="button" data-cuore aria-pressed="${Preferiti.ha(p.id)}" aria-label="Aggiungi al camerino">${ICONE.cuore}</button>
+        <button class="bottone pieno" type="button" data-camerino>${Preferiti.ha(p.id) ? 'Nel camerino · apri' : 'Aggiungi al camerino'}</button>
         <button class="tondo" type="button" data-condividi aria-label="Condividi questo prodotto">${ICONE.condividi}</button>
       </div>
       <button class="scheda-prova" type="button" data-prova>Prenota la prova in boutique <span aria-hidden="true">→</span></button>
@@ -140,9 +139,18 @@ export function creaScheda({ alCambio = () => {} } = {}) {
   d.addEventListener('click', (e) => {
     if (e.target === d || e.target.closest('[data-chiudi]')) return d.close();
     if (e.target.closest('[data-foto]')) return apriZoom();
-    if (e.target.closest('[data-da-parte]')) {
+    const cam = e.target.closest('[data-camerino]');
+    if (cam) {
+      if (Preferiti.ha(prodotto.id)) {
+        d.close();
+        document.querySelector('[data-apri-preferiti]').click();
+        return undefined;
+      }
       if (!unica(prodotto) && !Taglie.di(prodotto.id)) return richiama(corpo.querySelector('[data-taglie]'), 'Scegli la tua taglia.');
-      return inviaRichiesta(messaggioDaParte(prodotto, scelta));
+      Preferiti.alterna(prodotto.id);
+      cam.textContent = 'Nel camerino · apri';
+      avvisa('Aggiunto al camerino.', 1800);
+      return undefined;
     }
     if (e.target.closest('[data-prova]')) return apriProva([prodotto.id]);
     if (e.target.closest('[data-condividi]')) return condividi(prodotto, scelta);
@@ -151,12 +159,6 @@ export function creaScheda({ alCambio = () => {} } = {}) {
       const p = perId(abbina.dataset.abbina);
       if (p) api.apri(p, null, { da: abbina.querySelector('img') });
       return undefined;
-    }
-    const cuore = e.target.closest('[data-cuore]');
-    if (cuore) {
-      const ora = Preferiti.alterna(prodotto.id);
-      cuore.setAttribute('aria-pressed', String(ora));
-      avvisa(ora ? 'Aggiunto al camerino.' : 'Tolto dal camerino.', 1800);
     }
     return undefined;
   });

@@ -294,11 +294,6 @@ function fineGesto(e) {
     return;
   }
   if (e.type === 'pointercancel') return;
-  if (gesto.asse === 'y' && dy < -60) {
-    nascondiSuggerimento();
-    apriScheda(corrente()); // swipe verso l'alto: apre la scheda
-    return;
-  }
   if (!gesto.asse && durata < 400 && gesto.suCapo) {
     nascondiSuggerimento();
     apriScheda(corrente()); // tocco sul prodotto

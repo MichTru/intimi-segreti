@@ -46,7 +46,6 @@
   .giro .tondo { width: 44px; height: 44px; }
   .didascalia { flex-direction: column; align-items: stretch; gap: 6px; }
   .giro { justify-content: space-between; order: -1; }
-  .didascalia .bottone { display: none; } /* su mobile: tocca il capo o scorri verso l'alto */
   .didascalia-nome { margin-bottom: 0; }
 }
 @media (min-width: 768px) {
