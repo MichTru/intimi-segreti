@@ -81,6 +81,16 @@
       "frase": "Borchie, catene e pelle: il pezzo che fa l'outfit."
     },
     {
+      "id": "mare",
+      "nome": "Moda mare",
+      "atmosfera": {
+        "fondo": "#cfe3e6",
+        "luce": "#fffaf0",
+        "testo": "#14323f"
+      },
+      "frase": "Costumi, parei e borse per la spiaggia."
+    },
+    {
       "id": "intimo",
       "nome": "Intimo",
       "atmosfera": {
@@ -365,6 +375,114 @@
         }
       ],
       "taglie": []
+    },
+    {
+      "id": "bikini-triangolo",
+      "nome": "Bikini a triangolo",
+      "marchio": null,
+      "prezzo": null,
+      "categoria": "mare",
+      "sottocategoria": "Bikini",
+      "descrizione": "Bikini a triangolo con lacci al collo e ai fianchi.",
+      "dettagli": [
+        "Lacci regolabili",
+        "Slip con laccetti"
+      ],
+      "tinta": "#e9dcc4",
+      "aggiunto": "2026-09-20",
+      "regalo": false,
+      "demo": true,
+      "varianti": [
+        {
+          "id": "corallo",
+          "nome": "Corallo",
+          "hex": "#d9694f",
+          "immagine": "bikini-triangolo--corallo"
+        }
+      ],
+      "taglie": []
+    },
+    {
+      "id": "costume-intero",
+      "nome": "Costume intero",
+      "marchio": null,
+      "prezzo": null,
+      "categoria": "mare",
+      "sottocategoria": "Costumi interi",
+      "descrizione": "Costume intero con scollo a V e anello in vita.",
+      "dettagli": [
+        "Scollo a V",
+        "Anello dorato"
+      ],
+      "tinta": "#cfe0e3",
+      "aggiunto": "2026-09-20",
+      "regalo": false,
+      "demo": true,
+      "varianti": [
+        {
+          "id": "blu-mare",
+          "nome": "Blu mare",
+          "hex": "#1f4f6b",
+          "immagine": "costume-intero--blu-mare"
+        }
+      ],
+      "taglie": []
+    },
+    {
+      "id": "pareo-righe",
+      "nome": "Pareo a righe",
+      "marchio": null,
+      "prezzo": null,
+      "categoria": "mare",
+      "sottocategoria": "Parei",
+      "descrizione": "Pareo leggero a righe, da annodare in vita o al collo.",
+      "dettagli": [
+        "Tessuto leggero",
+        "Righe azzurre"
+      ],
+      "tinta": "#dbe9ea",
+      "aggiunto": "2026-09-20",
+      "regalo": false,
+      "demo": true,
+      "varianti": [
+        {
+          "id": "azzurro",
+          "nome": "Righe azzurre",
+          "hex": "#5b9fb4",
+          "immagine": "pareo-righe--azzurro"
+        }
+      ],
+      "taglie": [
+        "Unica"
+      ]
+    },
+    {
+      "id": "borsa-paglia",
+      "nome": "Borsa da mare in paglia",
+      "marchio": null,
+      "prezzo": null,
+      "categoria": "mare",
+      "sottocategoria": "Borse da mare",
+      "descrizione": "Borsa in paglia con manici doppi e nastro blu.",
+      "dettagli": [
+        "Paglia intrecciata",
+        "Nastro blu"
+      ],
+      "tinta": "#eadfc8",
+      "aggiunto": "2026-09-20",
+      "regalo": false,
+      "demo": true,
+      "varianti": [
+        {
+          "id": "naturale",
+          "nome": "Naturale",
+          "hex": "#d9b97c",
+          "immagine": "borsa-paglia--naturale"
+        }
+      ],
+      "taglie": [
+        "Unica"
+      ]
     }
   ]
 }

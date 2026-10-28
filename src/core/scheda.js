@@ -14,7 +14,8 @@ import { riduciMovimento } from '../motion/tokens.js';
 function abbinamenti(p) {
   const l = look.find((x) => x.capi.includes(p.id));
   const dalLook = l ? l.capi.filter((id) => id !== p.id).map(perId).filter(Boolean) : [];
-  const altri = prodotti.filter((x) => x.id !== p.id && x.categoria !== p.categoria && !dalLook.includes(x));
+  // il mare si abbina con il mare; il resto con l'altra categoria
+  const altri = prodotti.filter((x) => x.id !== p.id && !dalLook.includes(x) && (p.categoria === 'mare' ? x.categoria === 'mare' : x.categoria !== p.categoria && x.categoria !== 'mare'));
   return [...dalLook, ...altri].slice(0, 3);
 }
 

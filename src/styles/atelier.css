@@ -147,3 +147,33 @@ html.allarga::view-transition-old(foto-capo), html.allarga::view-transition-new(
 .buono-zona > * { min-width: 0; }
 .buono-campi input { width: 100%; min-width: 0; }
 @media (max-width: 480px) { .buono-modulo .taglia.larga span { min-width: 0; padding: 0 1.05em; } }
+
+/* ---------- Moda mare: la stagione chiara ---------- */
+.mare-zona { --mare: #2f6f8d; --mare-notte: #14323f; --sabbia: #f2e6d0; --corallo: #d9694f; position: relative; overflow: hidden; padding: 0 0 12svh; background: linear-gradient(#f8f1e4 0, var(--sabbia) 60%, #ead9bb 100%); color: var(--mare-notte); --testo: var(--mare-notte); --fondo: var(--sabbia); --tenue: rgb(20 50 63 / 0.62); --linea: rgb(20 50 63 / 0.2); --accento: var(--mare); }
+.mare-cielo { position: relative; height: clamp(150px, 26vw, 260px); background: linear-gradient(#fbf6ec, #f4ead8); }
+.mare-sole { position: absolute; right: 12%; top: 18%; width: clamp(56px, 9vw, 110px); aspect-ratio: 1; border-radius: 50%; background: #f1c56d; animation: sole 9s ease-in-out infinite; }
+@keyframes sole { 50% { transform: translateY(8px) scale(1.04); } }
+.mare-onda { position: absolute; left: 0; bottom: 0; width: 200%; height: 100%; animation: onda 26s linear infinite; }
+.onda-1 { fill: #8cc0cc; opacity: 0.8; }
+.onda-2 { fill: #4f8fa8; opacity: 0.85; animation-duration: 19s; animation-direction: reverse; }
+.onda-3 { fill: var(--sabbia); animation-duration: 14s; }
+@keyframes onda { to { transform: translateX(-50%); } }
+.mare-testa { padding: 2svh var(--bordo) 30px; }
+.mare-testa .occhiello { color: var(--mare); }
+.mare-testa h2 { font-size: clamp(2.6rem, 10vw, 5.6rem); margin-top: 0.2em; }
+.mare-testa h2 em { color: var(--corallo); }
+.mare-capi { list-style: none; margin: 0; padding: 10px var(--bordo) 26px; display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.mare-capi::-webkit-scrollbar { display: none; }
+.mare-capi li { flex: none; width: 62vw; scroll-snap-align: start; transform: rotate(var(--g)); transition: transform var(--t-breve) var(--ease-molla); }
+.mare-capi li:hover { transform: rotate(0deg) translateY(-6px); }
+.mare-capi a { display: grid; gap: 4px; padding: 8px 8px 14px; background: #fffdf8; text-decoration: none; box-shadow: 0 16px 26px -16px rgb(20 50 63 / 0.45); }
+.mare-capi img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.mare-capi span { font-family: var(--serif); font-size: 1.2rem; margin-top: 8px; }
+.mare-capi small { color: var(--tenue); }
+.mare-piede { padding: 8px var(--bordo) 0; }
+@media (min-width: 900px) {
+  .mare-capi { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; overflow: visible; padding-inline: 6vw; }
+  .mare-capi li { width: auto; }
+  .mare-testa, .mare-piede { padding-inline: 6vw; }
+}
+@media (prefers-reduced-motion: reduce) { .mare-onda, .mare-sole { animation: none; } }

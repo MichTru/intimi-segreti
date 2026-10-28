@@ -370,6 +370,21 @@ function montaLookbook() {
   return () => pista.removeEventListener('scroll', aggiorna);
 }
 
+// Moda mare: una sezione chiara che si accende con "stagioneMare" in site.json.
+function costruisciMare() {
+  const zona = $('[data-mare]');
+  const capi = filtra('mare');
+  if (!sito.stagioneMare || !capi.length) {
+    zona.hidden = true;
+    return;
+  }
+  $('[data-mare-capi]').innerHTML = capi
+    .map((p, i) => `<li style="--g:${i % 2 ? 3 : -3}deg"><a href="/vetrina/?prodotto=${p.id}">
+      <img src="${src(p.varianti[0].immagine, 600)}" alt="${p.nome}" loading="lazy" width="600" height="750">
+      <span>${p.nome}</span><small>${prezzo(p)}</small></a></li>`)
+    .join('');
+}
+
 // Buono regalo: la carta si aggiorna mentre si sceglie e si inclina seguendo il dito.
 function montaBuono() {
   const modulo = $('[data-buono]');
@@ -437,6 +452,7 @@ function montaPellicola() {
 // Le collezioni: tre pannelli affiancati (uno sopra l'altro su telefono).
 function costruisciTerzi() {
   $('[data-terzi]').innerHTML = categorie
+    .filter((c) => c.id !== 'mare') // il mare ha la sua sezione
     .map((c, i) => {
       const p = filtra(c.id)[0];
       const foto = p ? src(p.varianti[0].immagine) : `${SITO}manifesto-verticale.webp`; // senza capi: l'immagine della boutique
@@ -478,6 +494,7 @@ const pagine = costruisciCopertine();
 costruisciNastro();
 costruisciRella();
 costruisciLookbook();
+costruisciMare();
 montaBuono();
 $('[data-novita]').addEventListener('click', () => inviaRichiesta(messaggioNovita()));
 const fermaPellicola = montaPellicola();
