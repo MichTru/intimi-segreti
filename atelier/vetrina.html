@@ -1412,7 +1412,7 @@ html.allarga::view-transition-new(foto-capo) {
 }
 .lookbook {
   position: relative;
-  height: calc(var(--n, 3) * 100svh);
+  padding: 12svh 0 9svh;
   background: var(--borgogna-notte);
   color: var(--avorio);
   --testo: var(--avorio);
@@ -1421,38 +1421,52 @@ html.allarga::view-transition-new(foto-capo) {
   --linea: rgb(244 236 224 / 0.22);
   --accento: var(--champagne);
 }
-.lookbook-palco {
-  position: sticky;
-  top: 0;
-  height: 100svh;
-  overflow: hidden;
+.lookbook-testa {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 var(--bordo);
+  margin-bottom: 26px;
 }
-.lookbook-titolo {
-  position: absolute;
-  z-index: 3;
-  left: var(--bordo);
-  top: calc(var(--sopra) + var(--testata) + 6px);
-  color: var(--champagne);
+.lookbook-testa h2 {
+  font-size: clamp(2.4rem, 9vw, 4.6rem);
+}
+.lookbook-testa h2 em {
+  color: var(--cipria);
+}
+.lookbook-frecce {
+  display: none;
+  gap: 10px;
 }
 .lookbook-pista {
   display: flex;
-  height: 100%;
-  width: calc(var(--n, 3) * 100vw);
-  will-change: transform;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--bordo);
+  padding: 0 var(--bordo) 6px;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+.lookbook-pista::-webkit-scrollbar {
+  display: none;
 }
 .pagina-look {
-  --q: 0;
   position: relative;
   flex: none;
-  width: 100vw;
-  height: 100%;
+  width: 86vw;
+  scroll-snap-align: start;
   display: grid;
-  grid-template-rows: 56svh 1fr;
+  grid-template-rows: auto auto;
+  border-radius: 16px;
   overflow: hidden;
+  background: var(--velluto);
 }
 .pl-foto {
   position: relative;
   display: block;
+  aspect-ratio: 4 / 4.4;
   overflow: hidden;
   background: var(--borgogna);
 }
@@ -1461,26 +1475,23 @@ html.allarga::view-transition-new(foto-capo) {
   height: 100%;
   object-fit: cover;
   object-position: 50% 25%;
-  transform: scale(1.12) translateX(calc(var(--q) * 7%));
+  transition: transform var(--t-lunga) var(--ease-entrata);
 }
-.pl-foto::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(transparent 55%, rgb(42 10 20 / 0.55));
+.pl-foto:hover img {
+  transform: scale(1.04);
 }
 .pl-foto2 {
   position: absolute;
   z-index: 2;
-  right: var(--bordo);
-  top: calc(56svh - 30vw);
-  width: 34vw;
+  right: 14px;
+  top: calc(86vw * 1.1 - 34vw);
+  width: 30vw;
   aspect-ratio: 4 / 5;
-  padding: 5px;
+  padding: 4px;
   background: var(--avorio);
   border-radius: 4px;
-  transform: translateX(calc(var(--q) * -28vw)) rotate(calc(4deg + var(--q) * 6deg));
-  box-shadow: 0 18px 30px -14px rgb(0 0 0 / 0.7);
+  transform: rotate(4deg);
+  box-shadow: 0 14px 24px -12px rgb(0 0 0 / 0.7);
 }
 .pl-foto2 img {
   width: 100%;
@@ -1488,17 +1499,14 @@ html.allarga::view-transition-new(foto-capo) {
   object-fit: cover;
 }
 .pl-testo {
-  position: relative;
-  padding: 18px var(--bordo) calc(var(--sotto) + 52px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding: 18px 18px 20px;
+  display: grid;
   gap: 12px;
-  transform: translateX(calc(var(--q) * -12vw));
 }
 .pl-testo h3 {
-  font-size: clamp(2.3rem, 10vw, 6.4rem);
+  font-size: clamp(2rem, 8vw, 3.4rem);
   font-weight: 350;
+  padding-right: 30vw;
 }
 .pl-testo h3 em {
   color: var(--cipria);
@@ -1509,7 +1517,6 @@ html.allarga::view-transition-new(foto-capo) {
   padding: 0;
   display: grid;
   gap: 4px;
-  max-width: 30rem;
 }
 .pl-capi li {
   display: flex;
@@ -1528,7 +1535,6 @@ html.allarga::view-transition-new(foto-capo) {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  max-width: 30rem;
   padding-top: 8px;
   border-top: 1px solid var(--linea);
 }
@@ -1540,8 +1546,9 @@ html.allarga::view-transition-new(foto-capo) {
 }
 .pl-totale span {
   font-family: var(--serif);
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: var(--champagne);
+  text-align: right;
 }
 .pl-azioni {
   display: flex;
@@ -1549,11 +1556,8 @@ html.allarga::view-transition-new(foto-capo) {
   flex-wrap: wrap;
 }
 .lookbook-barra {
-  position: absolute;
-  z-index: 3;
-  left: var(--bordo);
-  right: var(--bordo);
-  bottom: calc(var(--sotto) + 22px);
+  position: relative;
+  margin: 22px var(--bordo) 0;
   height: 2px;
   background: var(--linea);
 }
@@ -1562,51 +1566,43 @@ html.allarga::view-transition-new(foto-capo) {
   inset: 0;
   background: var(--champagne);
   transform-origin: left;
-  transform: scaleX(0);
+  transform: scaleX(0.33);
+  transition: transform 0.2s linear;
 }
 @media (min-width: 900px) {
+  .lookbook-frecce {
+    display: flex;
+  }
   .pagina-look {
+    width: min(1080px, 78vw);
     grid-template-rows: none;
-    grid-template-columns: 1.08fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    height: min(78svh, 640px);
+  }
+  .pl-foto {
+    aspect-ratio: auto;
+    height: 100%;
   }
   .pl-foto2 {
     right: auto;
-    left: 41vw;
+    left: calc(50% - 9vw);
     top: auto;
-    bottom: 10svh;
-    width: 15vw;
-    padding: 7px;
-    transform: translateX(calc(var(--q) * -20vw)) rotate(calc(-5deg + var(--q) * 8deg));
+    bottom: 7%;
+    width: min(13vw, 180px);
+    padding: 6px;
+    transform: rotate(-5deg);
   }
   .pl-testo {
-    padding: 0 6vw 0 9vw;
-    gap: 18px;
+    padding: 0 48px 0 calc(min(13vw, 180px) * 0.5 + 40px);
+    align-content: center;
+    gap: 16px;
+  }
+  .pl-testo h3 {
+    padding-right: 0;
+    font-size: clamp(2.6rem, 4.6vw, 4.6rem);
   }
   .pl-capi li {
     font-size: 1rem;
-  }
-  .pl-totale span {
-    font-size: 1.9rem;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .lookbook {
-    height: auto;
-  }
-  .lookbook-palco {
-    position: static;
-    height: auto;
-  }
-  .lookbook-pista {
-    flex-direction: column;
-    width: 100%;
-    transform: none !important;
-  }
-  .pagina-look {
-    height: 100svh;
-  }
-  .lookbook-barra {
-    display: none;
   }
 }
 .buono-zona {
@@ -3334,7 +3330,7 @@ html.allarga::view-transition-new(foto-capo) {
   var testoTotale = (capi2) => {
     const { somma, mancano } = totale(capi2);
     if (!somma) return "Prezzi in boutique";
-    return mancano ? `${euro(somma)} + ${mancano === 1 ? "un capo" : `${mancano} capi`} in boutique` : euro(somma);
+    return mancano ? `Da ${euro(somma)}` : euro(somma);
   };
   var riga = (p, idVariante) => {
     const v = variante(p, idVariante);

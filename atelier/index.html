@@ -1421,7 +1421,7 @@ html.allarga::view-transition-new(foto-capo) {
 }
 .lookbook {
   position: relative;
-  height: calc(var(--n, 3) * 100svh);
+  padding: 12svh 0 9svh;
   background: var(--borgogna-notte);
   color: var(--avorio);
   --testo: var(--avorio);
@@ -1430,38 +1430,52 @@ html.allarga::view-transition-new(foto-capo) {
   --linea: rgb(244 236 224 / 0.22);
   --accento: var(--champagne);
 }
-.lookbook-palco {
-  position: sticky;
-  top: 0;
-  height: 100svh;
-  overflow: hidden;
+.lookbook-testa {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 var(--bordo);
+  margin-bottom: 26px;
 }
-.lookbook-titolo {
-  position: absolute;
-  z-index: 3;
-  left: var(--bordo);
-  top: calc(var(--sopra) + var(--testata) + 6px);
-  color: var(--champagne);
+.lookbook-testa h2 {
+  font-size: clamp(2.4rem, 9vw, 4.6rem);
+}
+.lookbook-testa h2 em {
+  color: var(--cipria);
+}
+.lookbook-frecce {
+  display: none;
+  gap: 10px;
 }
 .lookbook-pista {
   display: flex;
-  height: 100%;
-  width: calc(var(--n, 3) * 100vw);
-  will-change: transform;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--bordo);
+  padding: 0 var(--bordo) 6px;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+.lookbook-pista::-webkit-scrollbar {
+  display: none;
 }
 .pagina-look {
-  --q: 0;
   position: relative;
   flex: none;
-  width: 100vw;
-  height: 100%;
+  width: 86vw;
+  scroll-snap-align: start;
   display: grid;
-  grid-template-rows: 56svh 1fr;
+  grid-template-rows: auto auto;
+  border-radius: 16px;
   overflow: hidden;
+  background: var(--velluto);
 }
 .pl-foto {
   position: relative;
   display: block;
+  aspect-ratio: 4 / 4.4;
   overflow: hidden;
   background: var(--borgogna);
 }
@@ -1470,26 +1484,23 @@ html.allarga::view-transition-new(foto-capo) {
   height: 100%;
   object-fit: cover;
   object-position: 50% 25%;
-  transform: scale(1.12) translateX(calc(var(--q) * 7%));
+  transition: transform var(--t-lunga) var(--ease-entrata);
 }
-.pl-foto::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(transparent 55%, rgb(42 10 20 / 0.55));
+.pl-foto:hover img {
+  transform: scale(1.04);
 }
 .pl-foto2 {
   position: absolute;
   z-index: 2;
-  right: var(--bordo);
-  top: calc(56svh - 30vw);
-  width: 34vw;
+  right: 14px;
+  top: calc(86vw * 1.1 - 34vw);
+  width: 30vw;
   aspect-ratio: 4 / 5;
-  padding: 5px;
+  padding: 4px;
   background: var(--avorio);
   border-radius: 4px;
-  transform: translateX(calc(var(--q) * -28vw)) rotate(calc(4deg + var(--q) * 6deg));
-  box-shadow: 0 18px 30px -14px rgb(0 0 0 / 0.7);
+  transform: rotate(4deg);
+  box-shadow: 0 14px 24px -12px rgb(0 0 0 / 0.7);
 }
 .pl-foto2 img {
   width: 100%;
@@ -1497,17 +1508,14 @@ html.allarga::view-transition-new(foto-capo) {
   object-fit: cover;
 }
 .pl-testo {
-  position: relative;
-  padding: 18px var(--bordo) calc(var(--sotto) + 52px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding: 18px 18px 20px;
+  display: grid;
   gap: 12px;
-  transform: translateX(calc(var(--q) * -12vw));
 }
 .pl-testo h3 {
-  font-size: clamp(2.3rem, 10vw, 6.4rem);
+  font-size: clamp(2rem, 8vw, 3.4rem);
   font-weight: 350;
+  padding-right: 30vw;
 }
 .pl-testo h3 em {
   color: var(--cipria);
@@ -1518,7 +1526,6 @@ html.allarga::view-transition-new(foto-capo) {
   padding: 0;
   display: grid;
   gap: 4px;
-  max-width: 30rem;
 }
 .pl-capi li {
   display: flex;
@@ -1537,7 +1544,6 @@ html.allarga::view-transition-new(foto-capo) {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  max-width: 30rem;
   padding-top: 8px;
   border-top: 1px solid var(--linea);
 }
@@ -1549,8 +1555,9 @@ html.allarga::view-transition-new(foto-capo) {
 }
 .pl-totale span {
   font-family: var(--serif);
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: var(--champagne);
+  text-align: right;
 }
 .pl-azioni {
   display: flex;
@@ -1558,11 +1565,8 @@ html.allarga::view-transition-new(foto-capo) {
   flex-wrap: wrap;
 }
 .lookbook-barra {
-  position: absolute;
-  z-index: 3;
-  left: var(--bordo);
-  right: var(--bordo);
-  bottom: calc(var(--sotto) + 22px);
+  position: relative;
+  margin: 22px var(--bordo) 0;
   height: 2px;
   background: var(--linea);
 }
@@ -1571,51 +1575,43 @@ html.allarga::view-transition-new(foto-capo) {
   inset: 0;
   background: var(--champagne);
   transform-origin: left;
-  transform: scaleX(0);
+  transform: scaleX(0.33);
+  transition: transform 0.2s linear;
 }
 @media (min-width: 900px) {
+  .lookbook-frecce {
+    display: flex;
+  }
   .pagina-look {
+    width: min(1080px, 78vw);
     grid-template-rows: none;
-    grid-template-columns: 1.08fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    height: min(78svh, 640px);
+  }
+  .pl-foto {
+    aspect-ratio: auto;
+    height: 100%;
   }
   .pl-foto2 {
     right: auto;
-    left: 41vw;
+    left: calc(50% - 9vw);
     top: auto;
-    bottom: 10svh;
-    width: 15vw;
-    padding: 7px;
-    transform: translateX(calc(var(--q) * -20vw)) rotate(calc(-5deg + var(--q) * 8deg));
+    bottom: 7%;
+    width: min(13vw, 180px);
+    padding: 6px;
+    transform: rotate(-5deg);
   }
   .pl-testo {
-    padding: 0 6vw 0 9vw;
-    gap: 18px;
+    padding: 0 48px 0 calc(min(13vw, 180px) * 0.5 + 40px);
+    align-content: center;
+    gap: 16px;
+  }
+  .pl-testo h3 {
+    padding-right: 0;
+    font-size: clamp(2.6rem, 4.6vw, 4.6rem);
   }
   .pl-capi li {
     font-size: 1rem;
-  }
-  .pl-totale span {
-    font-size: 1.9rem;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .lookbook {
-    height: auto;
-  }
-  .lookbook-palco {
-    position: static;
-    height: auto;
-  }
-  .lookbook-pista {
-    flex-direction: column;
-    width: 100%;
-    transform: none !important;
-  }
-  .pagina-look {
-    height: 100svh;
-  }
-  .lookbook-barra {
-    display: none;
   }
 }
 .buono-zona {
@@ -3420,13 +3416,17 @@ main {
         </div>
       </section>
 
-      <!-- 4 — Lookbook: i look scorrono come le pagine di una rivista -->
-      <section class="lookbook" id="look" data-tono="scuro" data-capitolo="Lookbook" aria-roledescription="lookbook" aria-label="Lookbook">
-        <div class="lookbook-palco">
-          <p class="lookbook-titolo occhiello" aria-hidden="true">Lookbook</p>
-          <div class="lookbook-pista" data-lookbook></div>
-          <div class="lookbook-barra" aria-hidden="true"><i data-lookbook-barra></i></div>
-        </div>
+      <!-- 4 — Lookbook: i look si sfogliano con uno swipe -->
+      <section class="lookbook" id="look" data-tono="scuro" data-capitolo="Lookbook" aria-label="Lookbook">
+        <header class="lookbook-testa">
+          <h2>Due capi, <em>un look.</em></h2>
+          <div class="lookbook-frecce">
+            <button class="tondo" type="button" data-lookbook-prima aria-label="Look precedente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6" /></svg></button>
+            <button class="tondo" type="button" data-lookbook-dopo aria-label="Look successivo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6" /></svg></button>
+          </div>
+        </header>
+        <div class="lookbook-pista" data-lookbook data-cursore="trascina"></div>
+        <div class="lookbook-barra" aria-hidden="true"><i data-lookbook-barra></i></div>
       </section>
 
       <!-- 5 — Le collezioni: la pagina divisa in tre -->
@@ -4164,7 +4164,7 @@ main {
   var testoTotale = (capi) => {
     const { somma, mancano } = totale(capi);
     if (!somma) return "Prezzi in boutique";
-    return mancano ? `${euro(somma)} + ${mancano === 1 ? "un capo" : `${mancano} capi`} in boutique` : euro(somma);
+    return mancano ? `Da ${euro(somma)}` : euro(somma);
   };
   var riga = (p, idVariante) => {
     const v = variante(p, idVariante);
@@ -4967,7 +4967,6 @@ Va bene?`);
         </div>
       </article>`;
     }).join("");
-    $("#look").style.setProperty("--n", String(validi.length));
     const capiDi = (id) => validi.find((l) => l.id === id).capi;
     const nelCamerino = (capi) => capi.forEach((p) => !Preferiti.ha(p.id) && Preferiti.alterna(p.id));
     pista.addEventListener("click", (e) => {
@@ -4986,45 +4985,22 @@ Va bene?`);
     });
   }
   function montaLookbook() {
-    const zona = $("#look");
     const pista = $("[data-lookbook]");
     const barra = $("[data-lookbook-barra]");
     const pagine2 = $$(".pagina-look", pista);
-    const n = pagine2.length;
-    if (!n || statico) return () => {
+    if (!pagine2.length) return () => {
     };
-    let alto = 0;
-    let altezza = 0;
-    let frame = 0;
-    const misura = () => {
-      const r = zona.getBoundingClientRect();
-      alto = r.top + scrollY;
-      altezza = r.height - innerHeight;
+    const passo = () => pagine2[0].getBoundingClientRect().width + 14;
+    const aggiorna = () => {
+      const max = pista.scrollWidth - pista.clientWidth;
+      const p = max > 0 ? pista.scrollLeft / max : 1;
+      barra.style.transform = `scaleX(${(1 + p * (pagine2.length - 1)) / pagine2.length})`;
     };
-    const disegna = () => {
-      frame = 0;
-      const p = Math.min(1, Math.max(0, (scrollY - alto) / Math.max(1, altezza)));
-      const pos = p * (n - 1);
-      pista.style.transform = `translate3d(${-pos * 100}vw,0,0)`;
-      barra.style.transform = `scaleX(${(pos + 1) / n})`;
-      pagine2.forEach((el, i) => el.style.setProperty("--q", String(Math.max(-1, Math.min(1, pos - i)).toFixed(4))));
-    };
-    const chiedi = () => {
-      if (!frame) frame = requestAnimationFrame(disegna);
-    };
-    const ridimensiona = () => {
-      misura();
-      disegna();
-    };
-    addEventListener("scroll", chiedi, { passive: true });
-    addEventListener("resize", ridimensiona);
-    misura();
-    disegna();
-    setTimeout(ridimensiona, 800);
-    return () => {
-      removeEventListener("scroll", chiedi);
-      removeEventListener("resize", ridimensiona);
-    };
+    pista.addEventListener("scroll", aggiorna, { passive: true });
+    $("[data-lookbook-prima]").addEventListener("click", () => pista.scrollBy({ left: -passo(), behavior: "smooth" }));
+    $("[data-lookbook-dopo]").addEventListener("click", () => pista.scrollBy({ left: passo(), behavior: "smooth" }));
+    aggiorna();
+    return () => pista.removeEventListener("scroll", aggiorna);
   }
   function montaBuono() {
     const modulo = $("[data-buono]");
