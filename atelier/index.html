@@ -1808,6 +1808,155 @@ html.allarga::view-transition-new(foto-capo) {
     padding: 0 1.05em;
   }
 }
+.mare-zona {
+  --mare: #2f6f8d;
+  --mare-notte: #14323f;
+  --sabbia: #f2e6d0;
+  --corallo: #d9694f;
+  position: relative;
+  overflow: hidden;
+  padding: 0 0 12svh;
+  background:
+    linear-gradient(
+      #f8f1e4 0,
+      var(--sabbia) 60%,
+      #ead9bb 100%);
+  color: var(--mare-notte);
+  --testo: var(--mare-notte);
+  --fondo: var(--sabbia);
+  --tenue: rgb(20 50 63 / 0.62);
+  --linea: rgb(20 50 63 / 0.2);
+  --accento: var(--mare);
+}
+.mare-cielo {
+  position: relative;
+  height: clamp(150px, 26vw, 260px);
+  background: linear-gradient(#fbf6ec, #f4ead8);
+}
+.mare-sole {
+  position: absolute;
+  right: 12%;
+  top: 18%;
+  width: clamp(56px, 9vw, 110px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #f1c56d;
+  animation: sole 9s ease-in-out infinite;
+}
+@keyframes sole {
+  50% {
+    transform: translateY(8px) scale(1.04);
+  }
+}
+.mare-onda {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 200%;
+  height: 100%;
+  animation: onda 26s linear infinite;
+}
+.onda-1 {
+  fill: #8cc0cc;
+  opacity: 0.8;
+}
+.onda-2 {
+  fill: #4f8fa8;
+  opacity: 0.85;
+  animation-duration: 19s;
+  animation-direction: reverse;
+}
+.onda-3 {
+  fill: var(--sabbia);
+  animation-duration: 14s;
+}
+@keyframes onda {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.mare-testa {
+  padding: 2svh var(--bordo) 30px;
+}
+.mare-testa .occhiello {
+  color: var(--mare);
+}
+.mare-testa h2 {
+  font-size: clamp(2.6rem, 10vw, 5.6rem);
+  margin-top: 0.2em;
+}
+.mare-testa h2 em {
+  color: var(--corallo);
+}
+.mare-capi {
+  list-style: none;
+  margin: 0;
+  padding: 10px var(--bordo) 26px;
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.mare-capi::-webkit-scrollbar {
+  display: none;
+}
+.mare-capi li {
+  flex: none;
+  width: 62vw;
+  scroll-snap-align: start;
+  transform: rotate(var(--g));
+  transition: transform var(--t-breve) var(--ease-molla);
+}
+.mare-capi li:hover {
+  transform: rotate(0deg) translateY(-6px);
+}
+.mare-capi a {
+  display: grid;
+  gap: 4px;
+  padding: 8px 8px 14px;
+  background: #fffdf8;
+  text-decoration: none;
+  box-shadow: 0 16px 26px -16px rgb(20 50 63 / 0.45);
+}
+.mare-capi img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+.mare-capi span {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  margin-top: 8px;
+}
+.mare-capi small {
+  color: var(--tenue);
+}
+.mare-piede {
+  padding: 8px var(--bordo) 0;
+}
+@media (min-width: 900px) {
+  .mare-capi {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    overflow: visible;
+    padding-inline: 6vw;
+  }
+  .mare-capi li {
+    width: auto;
+  }
+  .mare-testa,
+  .mare-piede {
+    padding-inline: 6vw;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mare-onda,
+  .mare-sole {
+    animation: none;
+  }
+}
 
 /* ../../../../../home/claude/intimi-plus/src/styles/home.css */
 .pagina-home {
@@ -3429,6 +3578,22 @@ main {
         <div class="lookbook-barra" aria-hidden="true"><i data-lookbook-barra></i></div>
       </section>
 
+      <!-- Moda mare: la stagione chiara, in contrasto con il velluto -->
+      <section class="mare-zona" id="mare" data-tono="chiaro" data-capitolo="Moda mare" data-mare>
+        <div class="mare-cielo" aria-hidden="true">
+          <i class="mare-sole"></i>
+          <svg class="mare-onda onda-1" viewBox="0 0 2880 200" preserveAspectRatio="none"><path d="M0 70 C 120 44 360 96 480 70 C 600 44 840 96 960 70 C 1080 44 1320 96 1440 70 C 1560 44 1800 96 1920 70 C 2040 44 2280 96 2400 70 C 2520 44 2760 96 2880 70 V 200 H 0 Z"/></svg>
+          <svg class="mare-onda onda-2" viewBox="0 0 2880 200" preserveAspectRatio="none"><path d="M0 110 C 90 90 270 130 360 110 C 450 90 630 130 720 110 C 810 90 990 130 1080 110 C 1170 90 1350 130 1440 110 C 1530 90 1710 130 1800 110 C 1890 90 2070 130 2160 110 C 2250 90 2430 130 2520 110 C 2610 90 2790 130 2880 110 V 200 H 0 Z"/></svg>
+          <svg class="mare-onda onda-3" viewBox="0 0 2880 200" preserveAspectRatio="none"><path d="M0 150 C 72 136 216 164 288 150 C 360 136 504 164 576 150 C 648 136 792 164 864 150 C 936 136 1080 164 1152 150 C 1224 136 1368 164 1440 150 C 1512 136 1656 164 1728 150 C 1800 136 1944 164 2016 150 C 2088 136 2232 164 2304 150 C 2376 136 2520 164 2592 150 C 2664 136 2808 164 2880 150 V 200 H 0 Z"/></svg>
+        </div>
+        <div class="mare-testa">
+          <p class="occhiello">Moda mare</p>
+          <h2>Il mare <em>entra in boutique.</em></h2>
+        </div>
+        <ul class="mare-capi" data-mare-capi></ul>
+        <div class="mare-piede"><a class="bottone pieno" href="vetrina.html?categoria=mare" data-magnetico>Scopri la moda mare</a></div>
+      </section>
+
       <!-- 5 — Le collezioni: la pagina divisa in tre -->
       <section class="terzi" id="collezioni" data-tono="scuro" data-capitolo="Le collezioni" aria-label="Le collezioni" data-terzi></section>
 
@@ -3575,7 +3740,8 @@ main {
     social: {
       facebook: "https://www.facebook.com/intimisegretilugo/",
       instagram: "https://www.instagram.com/intimi_segretilugo2/"
-    }
+    },
+    stagioneMare: true
   };
 
   // ../../../../../home/claude/intimi-plus/src/motion/tokens.js
@@ -3737,6 +3903,16 @@ main {
           testo: "#221a1b"
         },
         frase: "Borchie, catene e pelle: il pezzo che fa l'outfit."
+      },
+      {
+        id: "mare",
+        nome: "Moda mare",
+        atmosfera: {
+          fondo: "#cfe3e6",
+          luce: "#fffaf0",
+          testo: "#14323f"
+        },
+        frase: "Costumi, parei e borse per la spiaggia."
       },
       {
         id: "intimo",
@@ -4023,6 +4199,114 @@ main {
           }
         ],
         taglie: []
+      },
+      {
+        id: "bikini-triangolo",
+        nome: "Bikini a triangolo",
+        marchio: null,
+        prezzo: null,
+        categoria: "mare",
+        sottocategoria: "Bikini",
+        descrizione: "Bikini a triangolo con lacci al collo e ai fianchi.",
+        dettagli: [
+          "Lacci regolabili",
+          "Slip con laccetti"
+        ],
+        tinta: "#e9dcc4",
+        aggiunto: "2026-09-20",
+        regalo: false,
+        demo: true,
+        varianti: [
+          {
+            id: "corallo",
+            nome: "Corallo",
+            hex: "#d9694f",
+            immagine: "bikini-triangolo--corallo"
+          }
+        ],
+        taglie: []
+      },
+      {
+        id: "costume-intero",
+        nome: "Costume intero",
+        marchio: null,
+        prezzo: null,
+        categoria: "mare",
+        sottocategoria: "Costumi interi",
+        descrizione: "Costume intero con scollo a V e anello in vita.",
+        dettagli: [
+          "Scollo a V",
+          "Anello dorato"
+        ],
+        tinta: "#cfe0e3",
+        aggiunto: "2026-09-20",
+        regalo: false,
+        demo: true,
+        varianti: [
+          {
+            id: "blu-mare",
+            nome: "Blu mare",
+            hex: "#1f4f6b",
+            immagine: "costume-intero--blu-mare"
+          }
+        ],
+        taglie: []
+      },
+      {
+        id: "pareo-righe",
+        nome: "Pareo a righe",
+        marchio: null,
+        prezzo: null,
+        categoria: "mare",
+        sottocategoria: "Parei",
+        descrizione: "Pareo leggero a righe, da annodare in vita o al collo.",
+        dettagli: [
+          "Tessuto leggero",
+          "Righe azzurre"
+        ],
+        tinta: "#dbe9ea",
+        aggiunto: "2026-09-20",
+        regalo: false,
+        demo: true,
+        varianti: [
+          {
+            id: "azzurro",
+            nome: "Righe azzurre",
+            hex: "#5b9fb4",
+            immagine: "pareo-righe--azzurro"
+          }
+        ],
+        taglie: [
+          "Unica"
+        ]
+      },
+      {
+        id: "borsa-paglia",
+        nome: "Borsa da mare in paglia",
+        marchio: null,
+        prezzo: null,
+        categoria: "mare",
+        sottocategoria: "Borse da mare",
+        descrizione: "Borsa in paglia con manici doppi e nastro blu.",
+        dettagli: [
+          "Paglia intrecciata",
+          "Nastro blu"
+        ],
+        tinta: "#eadfc8",
+        aggiunto: "2026-09-20",
+        regalo: false,
+        demo: true,
+        varianti: [
+          {
+            id: "naturale",
+            nome: "Naturale",
+            hex: "#d9b97c",
+            immagine: "borsa-paglia--naturale"
+          }
+        ],
+        taglie: [
+          "Unica"
+        ]
       }
     ]
   };
@@ -4993,6 +5277,17 @@ Va bene?`);
     aggiorna();
     return () => pista.removeEventListener("scroll", aggiorna);
   }
+  function costruisciMare() {
+    const zona = $("[data-mare]");
+    const capi = filtra("mare");
+    if (!site_default.stagioneMare || !capi.length) {
+      zona.hidden = true;
+      return;
+    }
+    $("[data-mare-capi]").innerHTML = capi.map((p, i) => `<li style="--g:${i % 2 ? 3 : -3}deg"><a href="vetrina.html?prodotto=${p.id}">
+      <img src="${src(p.varianti[0].immagine, 600)}" alt="${p.nome}" loading="lazy" width="600" height="750">
+      <span>${p.nome}</span><small>${prezzo(p)}</small></a></li>`).join("");
+  }
   function montaBuono() {
     const modulo = $("[data-buono]");
     const scena = $("[data-buono-scena]");
@@ -5057,7 +5352,7 @@ Va bene?`);
     };
   }
   function costruisciTerzi() {
-    $("[data-terzi]").innerHTML = categorie.map((c, i) => {
+    $("[data-terzi]").innerHTML = categorie.filter((c) => c.id !== "mare").map((c, i) => {
       const p = filtra(c.id)[0];
       const foto = p ? src(p.varianti[0].immagine) : `${SITO}manifesto-verticale.webp`;
       return `<a class="terzo" href="${p ? `vetrina.html?categoria=${c.id}` : "/#contatti"}">
@@ -5093,6 +5388,7 @@ Va bene?`);
   costruisciNastro();
   costruisciRella();
   costruisciLookbook();
+  costruisciMare();
   montaBuono();
   $("[data-novita]").addEventListener("click", () => inviaRichiesta(messaggioNovita()));
   var fermaPellicola = montaPellicola();
