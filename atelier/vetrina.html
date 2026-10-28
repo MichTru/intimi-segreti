@@ -1,0 +1,4667 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="robots" content="noindex"><script>window.IS_FOTO_UNICA=true</script><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Vetrina Digitale</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Jost:wght@300;400&display=swap">
+<style>:root{color-scheme:dark}
+/* vuoto.css */
+/* ../../../../../home/claude/intimi-plus/src/styles/base.css */
+:root {
+  --borgogna: #4a1021;
+  --borgogna-notte: #2a0a14;
+  --borgogna-vivo: #6a1a2f;
+  --cipria: #dcb3a9;
+  --cipria-chiaro: #ecd5cd;
+  --avorio: #f4ece0;
+  --champagne: #d9c3a0;
+  --nero: #1d191a;
+  --fondo: var(--borgogna);
+  --testo: var(--avorio);
+  --tenue: color-mix(in srgb, var(--testo) 62%, transparent);
+  --linea: color-mix(in srgb, var(--testo) 22%, transparent);
+  --accento: var(--champagne);
+  --serif:
+    "Fraunces",
+    "Fraunces Variable",
+    "Cormorant Garamond",
+    "Didot",
+    "Bodoni MT",
+    "Iowan Old Style",
+    Georgia,
+    serif;
+  --sans:
+    "Jost",
+    "Avenir Next",
+    "Helvetica Neue",
+    system-ui,
+    sans-serif;
+  --ease-entrata: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-uscita: cubic-bezier(0.55, 0, 0.9, 0.3);
+  --ease-scena: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-molla: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --t-micro: 0.25s;
+  --t-breve: 0.5s;
+  --t-media: 0.9s;
+  --t-lunga: 1.4s;
+  --bordo: max(16px, env(safe-area-inset-left));
+  --sotto: env(safe-area-inset-bottom, 0px);
+  --sopra: env(safe-area-inset-top, 0px);
+  --testata: 64px;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+[hidden] {
+  display: none !important;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: clip;
+}
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--testo);
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+  min-height: 100svh;
+}
+img,
+picture,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+img {
+  height: auto;
+}
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+a {
+  color: inherit;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 350;
+  font-variation-settings: "SOFT" 100;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+em {
+  font-style: italic;
+}
+:focus-visible {
+  outline: 2px solid var(--accento);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+::selection {
+  background: var(--cipria);
+  color: var(--nero);
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.salta {
+  position: fixed;
+  left: var(--bordo);
+  top: -80px;
+  z-index: 100;
+  background: var(--avorio);
+  color: var(--nero);
+  padding: 10px 16px;
+  transition: top var(--t-micro) var(--ease-entrata);
+}
+.salta:focus {
+  top: calc(var(--sopra) + 10px);
+}
+.occhiello {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--tenue);
+}
+.car {
+  display: inline-block;
+  will-change: transform;
+}
+.parola {
+  display: inline-block;
+  white-space: nowrap;
+}
+.bottone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  min-height: 52px;
+  padding: 0 1.6em;
+  border: 1px solid var(--testo);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    background-color var(--t-micro) var(--ease-entrata),
+    color var(--t-micro) var(--ease-entrata),
+    transform var(--t-micro) var(--ease-molla);
+}
+.bottone:hover {
+  background: var(--testo);
+  color: var(--fondo);
+}
+.bottone:active {
+  transform: scale(0.97);
+}
+.bottone.pieno {
+  background: var(--testo);
+  color: var(--fondo);
+}
+.bottone.pieno:hover {
+  background: transparent;
+  color: var(--testo);
+}
+.bottone.piccolo {
+  min-height: 44px;
+  padding: 0 1.1em;
+  font-size: 0.7rem;
+}
+.tondo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--linea);
+  display: inline-grid;
+  place-items: center;
+  transition:
+    background-color var(--t-micro),
+    border-color var(--t-micro),
+    transform var(--t-micro) var(--ease-molla);
+}
+.tondo:hover {
+  border-color: var(--testo);
+}
+.tondo:active {
+  transform: scale(0.92);
+}
+.tondo svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+}
+.tondo[aria-pressed=true] svg.cuore {
+  fill: currentColor;
+}
+.testata {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 40;
+  height: calc(var(--testata) + var(--sopra));
+  padding: var(--sopra) var(--bordo) 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+  mix-blend-mode: normal;
+}
+.testata > * {
+  pointer-events: auto;
+}
+.marchio {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.35rem;
+  text-decoration: none;
+  letter-spacing: 0;
+}
+.testata-azioni {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.conta-preferiti {
+  position: relative;
+}
+.conta-preferiti b {
+  position: absolute;
+  top: 4px;
+  right: 2px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 9px;
+  background: #6a1a2f;
+  color: #f4ece0;
+  font-size: 0.62rem;
+  font-weight: 500;
+  line-height: 17px;
+  text-align: center;
+}
+.conta-preferiti b:empty {
+  display: none;
+}
+.apri-menu {
+  height: 48px;
+  padding: 0 4px 0 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+.apri-menu i {
+  width: 26px;
+  height: 9px;
+  border-block: 1px solid currentColor;
+  transition: height var(--t-micro) var(--ease-entrata);
+}
+.apri-menu:hover i {
+  height: 3px;
+}
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: var(--borgogna);
+  color: var(--avorio);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: calc(var(--sopra) + 12px) var(--bordo) calc(var(--sotto) + 22px);
+  clip-path: inset(0 0 100% 0);
+  visibility: hidden;
+  overflow: auto;
+}
+.menu.aperto {
+  visibility: visible;
+}
+.menu-testa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+}
+.menu-voci {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-self: center;
+  display: grid;
+  gap: 0.1em;
+}
+.menu-voci a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5em;
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 11vw, 5.6rem);
+  line-height: 1.08;
+  text-decoration: none;
+  transition: transform var(--t-breve) var(--ease-entrata), color var(--t-micro);
+}
+.menu-voci a:hover {
+  transform: translateX(0.25em);
+  color: var(--cipria);
+  font-style: italic;
+}
+.menu-voci small {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--cipria);
+}
+.menu-piede {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  font-size: 0.82rem;
+  color: color-mix(in srgb, var(--avorio) 70%, transparent);
+}
+.avviso {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--sotto) + 96px);
+  z-index: 90;
+  translate: -50% 0;
+  max-width: min(92vw, 420px);
+  padding: 12px 18px;
+  border-radius: 14px;
+  background: var(--avorio);
+  color: var(--nero);
+  font-size: 0.88rem;
+  text-align: center;
+  box-shadow: 0 12px 40px rgb(0 0 0 / 0.3);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity var(--t-micro), transform var(--t-breve) var(--ease-entrata);
+  pointer-events: none;
+}
+.avviso.visibile {
+  opacity: 1;
+  transform: none;
+}
+.in-attesa {
+  display: inline-block;
+  padding: 0.35em 0.8em;
+  border: 1px dashed var(--linea);
+  border-radius: 8px;
+  font-size: 0.84rem;
+  color: var(--tenue);
+}
+.etichetta-demo {
+  display: inline-block;
+  padding: 0.2em 0.7em;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--tenue);
+}
+dialog.foglio {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 70;
+  width: 100%;
+  max-width: none;
+  max-height: 92dvh;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--avorio);
+  color: var(--nero);
+  border-radius: 22px 22px 0 0;
+  overflow: hidden;
+  --testo: var(--nero);
+  --fondo: var(--avorio);
+  --tenue: rgb(29 25 26 / 0.62);
+  --linea: rgb(29 25 26 / 0.18);
+  --accento: var(--borgogna);
+  transform: translateY(100%);
+  transition:
+    transform var(--t-media) var(--ease-entrata),
+    overlay var(--t-media) allow-discrete,
+    display var(--t-media) allow-discrete;
+}
+dialog.foglio[open] {
+  transform: none;
+  display: flex;
+  flex-direction: column;
+}
+@starting-style {
+  dialog.foglio[open] {
+    transform: translateY(100%);
+  }
+}
+dialog.foglio::backdrop {
+  background: rgb(20 6 10 / 0.55);
+  backdrop-filter: blur(6px);
+}
+.foglio-maniglia {
+  flex: none;
+  width: 100%;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  touch-action: none;
+  cursor: grab;
+}
+.foglio-maniglia::before {
+  content: "";
+  width: 44px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgb(29 25 26 / 0.25);
+}
+.foglio-corpo {
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 0 var(--bordo) calc(var(--sotto) + 20px);
+  -webkit-overflow-scrolling: touch;
+}
+.foglio-chiudi {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  background: rgb(244 236 224 / 0.85);
+}
+@media (min-width: 900px) {
+  .scheda-foto {
+    max-height: 52dvh;
+  }
+  dialog.foglio {
+    inset: 0 0 0 auto;
+    width: min(520px, 46vw);
+    height: 100dvh;
+    max-height: none;
+    border-radius: 0;
+    transform: translateX(100%);
+  }
+  @starting-style {
+    dialog.foglio[open] {
+      transform: translateX(100%);
+    }
+  }
+  .foglio-maniglia {
+    display: none;
+  }
+  .foglio-corpo {
+    padding-top: 28px;
+  }
+  dialog.foglio.largo {
+    inset: 0;
+    width: 100%;
+  }
+}
+.scheda-foto {
+  position: relative;
+  margin: 0 calc(var(--bordo) * -1) 18px;
+  aspect-ratio: 4 / 3.6;
+  max-height: 36dvh;
+  width: calc(100% + var(--bordo) * 2);
+  overflow: hidden;
+  background: var(--cipria-chiaro);
+}
+.scheda-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 35%;
+  transition: opacity var(--t-breve);
+}
+.scheda-foto .etichetta-demo {
+  position: absolute;
+  left: var(--bordo);
+  bottom: 12px;
+  background: rgb(244 236 224 / 0.8);
+}
+.scheda h2 {
+  font-size: clamp(2rem, 7vw, 2.8rem);
+  margin: 6px 0 12px;
+}
+.scheda-descr {
+  color: var(--tenue);
+  max-width: 46ch;
+}
+.scheda-dettagli {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.scheda-dettagli li {
+  padding: 0.35em 0.9em;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+.varianti {
+  margin: 22px 0 0;
+  padding: 0;
+  border: 0;
+}
+.varianti legend {
+  padding: 0;
+  margin-bottom: 10px;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tenue);
+}
+.varianti legend b {
+  font-weight: 400;
+  color: var(--testo);
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-size: 0.92rem;
+  margin-left: 0.5em;
+}
+.campioni {
+  display: flex;
+  gap: 12px;
+}
+.campione {
+  position: relative;
+  width: 44px;
+  height: 44px;
+}
+.campione input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+.campione span {
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  background: var(--c);
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.15);
+  transition: transform var(--t-micro) var(--ease-molla);
+}
+.campione::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  transition: border-color var(--t-micro);
+}
+.campione:has(input:checked)::after {
+  border-color: var(--nero);
+}
+.campione:has(input:checked) span {
+  transform: scale(0.86);
+}
+.campione:has(input:focus-visible)::after {
+  outline: 2px solid var(--borgogna);
+  outline-offset: 2px;
+}
+.scheda-azioni {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 26px calc(var(--bordo) * -1) 0;
+  padding: 14px var(--bordo) 4px;
+  background: linear-gradient(transparent, var(--avorio) 28%);
+}
+.scheda-azioni .bottone {
+  flex: 1;
+}
+.scheda-nota {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--tenue);
+}
+.lista-preferiti {
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.lista-preferiti li {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: 14px;
+  align-items: center;
+}
+.lista-preferiti img {
+  width: 64px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.lista-preferiti a {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  text-decoration: none;
+}
+.lista-preferiti small {
+  display: block;
+  color: var(--tenue);
+}
+.cursore {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 95;
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+  border-radius: 50%;
+  background: var(--avorio);
+  mix-blend-mode: difference;
+  pointer-events: none;
+  display: none;
+}
+.cursore span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--nero);
+  opacity: 0;
+  white-space: nowrap;
+}
+.cursore.trascina,
+.cursore.apri {
+  width: 84px;
+  height: 84px;
+  margin: -42px 0 0 -42px;
+  mix-blend-mode: normal;
+}
+.cursore.trascina span,
+.cursore.apri span {
+  opacity: 1;
+}
+.cursore.attivo {
+  width: 44px;
+  height: 44px;
+  margin: -22px 0 0 -22px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .ha-cursore .cursore {
+    display: block;
+    transition:
+      width var(--t-micro) var(--ease-entrata),
+      height var(--t-micro) var(--ease-entrata),
+      margin var(--t-micro) var(--ease-entrata);
+  }
+}
+@view-transition {
+  navigation: auto;
+}
+::view-transition-old(root) {
+  animation: porta-esce var(--t-media) var(--ease-scena) both;
+}
+::view-transition-new(root) {
+  animation: porta-entra var(--t-media) var(--ease-scena) both;
+}
+@keyframes porta-esce {
+  to {
+    transform: scale(1.35);
+    opacity: 0;
+    filter: blur(8px);
+  }
+}
+@keyframes porta-entra {
+  from {
+    transform: scale(0.86);
+    opacity: 0;
+    clip-path: inset(0 50% 0 50%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+.sipario {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  pointer-events: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  visibility: hidden;
+}
+.sipario i {
+  background: var(--borgogna);
+  transform: scaleX(0);
+}
+.sipario i:first-child {
+  transform-origin: left;
+}
+.sipario i:last-child {
+  transform-origin: right;
+}
+.piede {
+  position: relative;
+  z-index: 3;
+  padding: 56px var(--bordo) calc(var(--sotto) + 40px);
+  background: var(--borgogna-notte);
+  color: var(--avorio);
+  --testo: var(--avorio);
+  --tenue: rgb(244 236 224 / 0.6);
+  --linea: rgb(244 236 224 / 0.2);
+  display: grid;
+  gap: 28px;
+}
+.piede .marchio {
+  font-size: clamp(2.4rem, 9vw, 4.6rem);
+}
+.piede-righe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  font-size: 0.86rem;
+  color: var(--tenue);
+}
+.piede-righe a {
+  text-underline-offset: 4px;
+}
+.pagina-testo {
+  max-width: 68ch;
+  margin: 0 auto;
+  padding: calc(var(--testata) + var(--sopra) + 48px) var(--bordo) 80px;
+}
+.pagina-testo h1 {
+  font-size: clamp(2.6rem, 9vw, 4.4rem);
+  margin-bottom: 0.5em;
+}
+.pagina-testo h2 {
+  font-size: 1.7rem;
+  margin: 2em 0 0.5em;
+}
+.pagina-testo p,
+.pagina-testo li {
+  color: var(--tenue);
+  margin-bottom: 0.9em;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
+.scheda-foto picture {
+  position: absolute;
+  inset: 0;
+}
+.visore {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: 78svh;
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      120% 90% at 30% 20%,
+      #f7efe4,
+      #e2d2c0);
+  color: var(--nero);
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.visore canvas {
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+.visore.trascinando canvas {
+  cursor: grabbing;
+}
+.visore-scheda {
+  margin-top: 14px;
+  aspect-ratio: 1;
+}
+.visore .etichetta-demo {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  background: rgb(244 236 224 / 0.8);
+  color: rgb(29 25 26 / 0.7);
+  border-color: rgb(29 25 26 / 0.2);
+}
+.punto {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 44px;
+  height: 44px;
+  margin: -22px 0 0 -22px;
+  display: grid;
+  place-items: center;
+  transition: opacity var(--t-micro);
+}
+.punto::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--avorio);
+  box-shadow: 0 0 0 1px rgb(29 25 26 / 0.5), 0 0 0 7px rgb(244 236 224 / 0.35);
+  transition: transform var(--t-micro) var(--ease-molla);
+}
+.punto:hover::before,
+.punto[aria-pressed=true]::before {
+  transform: scale(1.35);
+  background: var(--borgogna);
+}
+.punto.dietro {
+  opacity: 0.15;
+  pointer-events: none;
+}
+.visore-nota {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 66px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: rgb(244 236 224 / 0.92);
+  font-size: 0.9rem;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--t-micro), transform var(--t-breve) var(--ease-entrata);
+  pointer-events: none;
+}
+.visore-nota.visibile {
+  opacity: 1;
+  transform: none;
+}
+.visore-nota b {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.15rem;
+}
+.visore-barra {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  --testo: var(--nero);
+  --linea: rgb(29 25 26 / 0.25);
+}
+.visore-barra .campioni {
+  gap: 4px;
+}
+.visore-zoom {
+  display: flex;
+  gap: 8px;
+}
+.visore-zoom .tondo {
+  width: 44px;
+  height: 44px;
+  background: rgb(244 236 224 / 0.8);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+.scheda-prezzo {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  margin: -4px 0 12px;
+}
+.scheda-prezzo span {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--tenue);
+  margin-left: 0.8em;
+}
+.logo {
+  display: block;
+  height: 44px;
+  aspect-ratio: 943 / 512;
+  background: currentColor;
+  -webkit-mask: url(assets/site/logo.png) center / contain no-repeat;
+  mask: url(assets/site/logo.png) center / contain no-repeat;
+}
+.testata .marchio {
+  display: block;
+  padding: 4px 0;
+}
+.logo-oro {
+  display: block;
+  width: min(72vw, 380px);
+  height: auto;
+}
+.testata {
+  transition:
+    transform 0.32s cubic-bezier(0.2, 0.7, 0.2, 1),
+    background-color 0.25s,
+    box-shadow 0.25s;
+}
+.testata.velata {
+  background: rgb(42 10 20 / 0.94);
+  color: var(--avorio);
+  box-shadow: 0 1px 0 rgb(244 236 224 / 0.08);
+}
+[data-tono-pagina=chiaro] .testata.velata,
+.pagina-vetrina.chiaro .testata.velata {
+  background: rgb(244 236 224 / 0.95);
+  color: var(--nero);
+  box-shadow: 0 1px 0 rgb(29 25 26 / 0.08);
+}
+.testata.nascosta {
+  transform: translateY(-100%);
+}
+@media (min-width: 900px) {
+  .testata.nascosta {
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .testata {
+    transition: none;
+  }
+}
+.indietro {
+  position: fixed;
+  left: -46px;
+  top: 50%;
+  z-index: 95;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--avorio);
+  color: var(--borgogna);
+  box-shadow: 0 8px 24px rgb(20 6 10 / 0.28);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(0, -50%, 0) scale(0.7);
+  transition:
+    transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 0.2s,
+    background-color 0.15s,
+    color 0.15s;
+}
+.indietro.attivo {
+  transition: background-color 0.15s, color 0.15s;
+}
+.indietro svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.indietro.pronto {
+  background: var(--borgogna);
+  color: var(--avorio);
+}
+.indietro.via {
+  opacity: 0 !important;
+  transform: translate3d(150px, -50%, 0) scale(1) !important;
+}
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+a,
+button,
+label,
+summary,
+[role=button] {
+  touch-action: manipulation;
+}
+
+/* ../../../../../home/claude/intimi-plus/src/styles/atelier.css */
+:root {
+  --velluto:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    radial-gradient(
+      120% 80% at 25% 15%,
+      rgb(255 190 205 / 0.16),
+      transparent 55%),
+    radial-gradient(
+      90% 70% at 85% 95%,
+      rgb(0 0 0 / 0.45),
+      transparent 60%),
+    radial-gradient(
+      70% 50% at 70% 40%,
+      rgb(150 40 70 / 0.35),
+      transparent 70%),
+    linear-gradient(
+      160deg,
+      #5c1529,
+      #3b0c19 60%,
+      #2a0812);
+}
+button.scheda-foto {
+  display: block;
+  padding: 0;
+  border: 0;
+  cursor: zoom-in;
+  text-align: left;
+}
+.scheda-foto picture,
+.scheda-foto img {
+  width: 100%;
+  height: 100%;
+}
+.lente {
+  position: absolute;
+  right: var(--bordo);
+  bottom: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgb(244 236 224 / 0.86);
+  color: var(--nero);
+}
+.lente svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+}
+.nuovo {
+  font-weight: 500;
+  color: var(--borgogna);
+}
+.scelta-taglie,
+.scelta-giorni {
+  margin: 22px 0 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+.scelta-taglie legend,
+.scelta-giorni legend {
+  padding: 0;
+  margin-bottom: 10px;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tenue);
+}
+.taglie {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.taglia {
+  position: relative;
+}
+.taglia input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  margin: 0;
+  cursor: pointer;
+}
+.taglia span {
+  display: grid;
+  place-items: center;
+  min-width: 48px;
+  height: 44px;
+  padding: 0 0.9em;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  transition:
+    background var(--t-micro),
+    color var(--t-micro),
+    border-color var(--t-micro);
+}
+.taglia.larga span {
+  min-width: 92px;
+}
+.taglia input:checked + span {
+  background: var(--testo);
+  color: var(--fondo);
+  border-color: var(--testo);
+}
+.taglia input:focus-visible + span {
+  outline: 2px solid var(--accento);
+  outline-offset: 2px;
+}
+.richiamo {
+  animation: richiamo 0.5s var(--ease-molla);
+}
+@keyframes richiamo {
+  20%, 60% {
+    transform: translateX(-6px);
+  }
+  40%, 80% {
+    transform: translateX(6px);
+  }
+}
+.scheda-prova {
+  display: inline-flex;
+  gap: 0.5em;
+  margin-top: 12px;
+  font-size: 0.86rem;
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: var(--testo);
+}
+.abbina {
+  margin-top: 30px;
+  padding-top: 18px;
+  border-top: 1px solid var(--linea);
+}
+.abbina ul {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.abbina button {
+  display: grid;
+  gap: 4px;
+  text-align: left;
+  width: 100%;
+}
+.abbina img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 8px;
+  background: var(--cipria-chiaro);
+  transition: transform var(--t-breve) var(--ease-entrata);
+}
+.abbina button:hover img {
+  transform: scale(1.03);
+}
+.abbina span {
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: 1.15;
+}
+.abbina small {
+  color: var(--tenue);
+  font-size: 0.78rem;
+}
+.zoom {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  background: #140508;
+  overflow: hidden;
+  cursor: zoom-out;
+  touch-action: none;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.zoom.vivo {
+  opacity: 1;
+}
+.zoom img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform-origin: var(--ox, 50%) var(--oy, 40%);
+  transform: scale(1);
+  transition: transform 0.45s var(--ease-entrata);
+}
+.zoom.vivo img {
+  transform: scale(2.4);
+}
+.zoom .tondo {
+  position: absolute;
+  top: calc(var(--sopra) + 12px);
+  right: 12px;
+  background: rgb(244 236 224 / 0.9);
+  color: var(--nero);
+}
+dialog.foglio.diretto {
+  transition: none !important;
+}
+html.allarga::view-transition-old(root) {
+  animation: allarga-via 0.3s ease both;
+}
+html.allarga::view-transition-new(root) {
+  animation: allarga-entra 0.4s ease both;
+}
+html.allarga::view-transition-group(foto-capo) {
+  animation-duration: 0.62s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+html.allarga::view-transition-old(foto-capo),
+html.allarga::view-transition-new(foto-capo) {
+  height: 100%;
+  object-fit: cover;
+}
+@keyframes allarga-via {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes allarga-entra {
+  from {
+    opacity: 0;
+  }
+}
+.camerino h2 {
+  font-size: clamp(2.2rem, 8vw, 3rem);
+  margin: 6px 0 18px;
+}
+.lista-camerino {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+.lista-camerino li {
+  display: grid;
+  grid-template-columns: 72px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--linea);
+}
+.lista-camerino img {
+  width: 72px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: var(--cipria-chiaro);
+}
+.lista-camerino li > div > a {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  line-height: 1.1;
+  text-decoration: none;
+}
+.lista-camerino small {
+  display: block;
+  color: var(--tenue);
+  margin-top: 2px;
+}
+.mini-taglia select {
+  margin-top: 8px;
+  font: inherit;
+  font-size: 0.86rem;
+  color: inherit;
+  background: transparent;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  padding: 0.45em 2em 0.45em 0.9em;
+  appearance: none;
+  background-image:
+    linear-gradient(
+      45deg,
+      transparent 50%,
+      currentColor 50%),
+    linear-gradient(
+      135deg,
+      currentColor 50%,
+      transparent 50%);
+  background-position: calc(100% - 15px) 55%, calc(100% - 10px) 55%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
+.camerino-totale {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 18px;
+}
+.camerino-totale small {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tenue);
+}
+.camerino-totale span {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+}
+.prova h2 {
+  font-size: clamp(2.2rem, 8vw, 3rem);
+  margin: 6px 0 4px;
+}
+.giorni {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 2px 2px 6px;
+  margin: 0 calc(var(--bordo) * -1);
+  padding-inline: var(--bordo);
+  scrollbar-width: none;
+}
+.giorno {
+  position: relative;
+  flex: none;
+}
+.giorno input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  margin: 0;
+  cursor: pointer;
+}
+.giorno span {
+  display: grid;
+  justify-items: center;
+  width: 62px;
+  padding: 10px 0;
+  border: 1px solid var(--linea);
+  border-radius: 14px;
+  transition: background var(--t-micro), color var(--t-micro);
+}
+.giorno b {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.1;
+}
+.giorno small {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.giorno input:checked + span {
+  background: var(--testo);
+  color: var(--fondo);
+  border-color: var(--testo);
+}
+.giorno input:focus-visible + span {
+  outline: 2px solid var(--accento);
+  outline-offset: 2px;
+}
+.prova-capi {
+  margin-top: 22px;
+}
+.prova-capi ul {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.prova-capi li {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.prova-capi img {
+  width: 44px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.lookbook {
+  position: relative;
+  height: calc(var(--n, 3) * 100svh);
+  background: var(--borgogna-notte);
+  color: var(--avorio);
+  --testo: var(--avorio);
+  --fondo: var(--borgogna-notte);
+  --tenue: rgb(244 236 224 / 0.62);
+  --linea: rgb(244 236 224 / 0.22);
+  --accento: var(--champagne);
+}
+.lookbook-palco {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+}
+.lookbook-titolo {
+  position: absolute;
+  z-index: 3;
+  left: var(--bordo);
+  top: calc(var(--sopra) + var(--testata) + 6px);
+  color: var(--champagne);
+}
+.lookbook-pista {
+  display: flex;
+  height: 100%;
+  width: calc(var(--n, 3) * 100vw);
+  will-change: transform;
+}
+.pagina-look {
+  --q: 0;
+  position: relative;
+  flex: none;
+  width: 100vw;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 56svh 1fr;
+  overflow: hidden;
+}
+.pl-foto {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: var(--borgogna);
+}
+.pl-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 25%;
+  transform: scale(1.12) translateX(calc(var(--q) * 7%));
+}
+.pl-foto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 55%, rgb(42 10 20 / 0.55));
+}
+.pl-foto2 {
+  position: absolute;
+  z-index: 2;
+  right: var(--bordo);
+  top: calc(56svh - 30vw);
+  width: 34vw;
+  aspect-ratio: 4 / 5;
+  padding: 5px;
+  background: var(--avorio);
+  border-radius: 4px;
+  transform: translateX(calc(var(--q) * -28vw)) rotate(calc(4deg + var(--q) * 6deg));
+  box-shadow: 0 18px 30px -14px rgb(0 0 0 / 0.7);
+}
+.pl-foto2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pl-testo {
+  position: relative;
+  padding: 18px var(--bordo) calc(var(--sotto) + 52px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  transform: translateX(calc(var(--q) * -12vw));
+}
+.pl-testo h3 {
+  font-size: clamp(2.3rem, 10vw, 6.4rem);
+  font-weight: 350;
+}
+.pl-testo h3 em {
+  color: var(--cipria);
+}
+.pl-capi {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+  max-width: 30rem;
+}
+.pl-capi li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.92rem;
+}
+.pl-capi a {
+  text-decoration: none;
+}
+.pl-capi span {
+  color: var(--tenue);
+  white-space: nowrap;
+}
+.pl-totale {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  max-width: 30rem;
+  padding-top: 8px;
+  border-top: 1px solid var(--linea);
+}
+.pl-totale small {
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--tenue);
+}
+.pl-totale span {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--champagne);
+}
+.pl-azioni {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.lookbook-barra {
+  position: absolute;
+  z-index: 3;
+  left: var(--bordo);
+  right: var(--bordo);
+  bottom: calc(var(--sotto) + 22px);
+  height: 2px;
+  background: var(--linea);
+}
+.lookbook-barra i {
+  position: absolute;
+  inset: 0;
+  background: var(--champagne);
+  transform-origin: left;
+  transform: scaleX(0);
+}
+@media (min-width: 900px) {
+  .pagina-look {
+    grid-template-rows: none;
+    grid-template-columns: 1.08fr 1fr;
+  }
+  .pl-foto2 {
+    right: auto;
+    left: 41vw;
+    top: auto;
+    bottom: 10svh;
+    width: 15vw;
+    padding: 7px;
+    transform: translateX(calc(var(--q) * -20vw)) rotate(calc(-5deg + var(--q) * 8deg));
+  }
+  .pl-testo {
+    padding: 0 6vw 0 9vw;
+    gap: 18px;
+  }
+  .pl-capi li {
+    font-size: 1rem;
+  }
+  .pl-totale span {
+    font-size: 1.9rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lookbook {
+    height: auto;
+  }
+  .lookbook-palco {
+    position: static;
+    height: auto;
+  }
+  .lookbook-pista {
+    flex-direction: column;
+    width: 100%;
+    transform: none !important;
+  }
+  .pagina-look {
+    height: 100svh;
+  }
+  .lookbook-barra {
+    display: none;
+  }
+}
+.buono-zona {
+  position: relative;
+  display: grid;
+  gap: 36px;
+  padding: 14svh var(--bordo);
+  background:
+    radial-gradient(
+      80% 60% at 20% 30%,
+      rgb(106 26 47 / 0.55),
+      transparent 70%),
+    var(--borgogna-notte);
+  color: var(--avorio);
+  --testo: var(--avorio);
+  --fondo: var(--borgogna-notte);
+  --tenue: rgb(244 236 224 / 0.62);
+  --linea: rgb(244 236 224 / 0.26);
+  --accento: var(--champagne);
+  overflow: hidden;
+}
+.buono-scena {
+  display: grid;
+  place-items: center;
+  perspective: 1100px;
+  min-height: 44svh;
+  touch-action: pan-y;
+}
+.buono-carta {
+  --rx: 0deg;
+  --ry: 0deg;
+  position: relative;
+  width: min(440px, 86vw);
+  aspect-ratio: 1.58;
+  border-radius: 18px;
+  padding: 22px;
+  overflow: hidden;
+  background: var(--velluto);
+  color: var(--avorio);
+  box-shadow: 0 40px 60px -28px rgb(0 0 0 / 0.75), inset 0 0 0 1px rgb(217 195 160 / 0.35);
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transform-style: preserve-3d;
+  transition: transform 0.8s var(--ease-entrata);
+  animation: ondeggia 7s ease-in-out infinite;
+}
+.buono-carta::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgb(217 195 160 / 0.4);
+  border-radius: 12px;
+  pointer-events: none;
+}
+.buono-carta.tenuta {
+  animation: none;
+  transition: transform 0.12s linear;
+}
+.buono-riflesso {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at var(--gx, 28%) var(--gy, 18%),
+      rgb(255 236 214 / 0.3),
+      transparent 42%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.buono-logo {
+  position: relative;
+  width: 36%;
+}
+.buono-cifra {
+  position: absolute;
+  right: 24px;
+  top: 16px;
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 9vw, 3.4rem);
+  line-height: 1;
+  color: var(--champagne);
+}
+.buono-righe {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 46px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.4em;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 4.6vw, 1.5rem);
+}
+.buono-etichetta {
+  position: absolute;
+  left: 24px;
+  bottom: 22px;
+  font-size: 0.64rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--champagne);
+}
+.buono-carta.battito .buono-cifra {
+  animation: battito 0.45s var(--ease-molla);
+}
+@keyframes battito {
+  40% {
+    transform: scale(1.12);
+  }
+}
+@keyframes ondeggia {
+  0%, 100% {
+    transform: rotateX(4deg) rotateY(-9deg);
+  }
+  50% {
+    transform: rotateX(-3deg) rotateY(9deg);
+  }
+}
+.buono-modulo {
+  display: grid;
+  gap: 4px;
+  align-content: center;
+  max-width: 34rem;
+}
+.buono-modulo h2 {
+  font-size: clamp(2.4rem, 9vw, 4.4rem);
+  margin: 8px 0 6px;
+}
+.buono-modulo h2 em {
+  color: var(--cipria);
+}
+.buono-campi {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 22px 0 26px;
+}
+.buono-campi label {
+  display: grid;
+  gap: 4px;
+}
+.buono-campi span {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tenue);
+}
+.buono-campi input {
+  font: inherit;
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  color: var(--avorio);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--linea);
+  padding: 6px 0;
+  border-radius: 0;
+}
+.buono-campi input::placeholder {
+  color: rgb(244 236 224 / 0.3);
+}
+.buono-campi input:focus {
+  outline: none;
+  border-color: var(--champagne);
+}
+@media (min-width: 900px) {
+  .buono-zona {
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    padding: 16svh 6vw;
+  }
+  .buono-modulo {
+    order: -1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .buono-carta {
+    animation: none;
+  }
+}
+.rella-piede .bottone + .bottone {
+  margin-left: 0;
+}
+.buono-zona > * {
+  min-width: 0;
+}
+.buono-campi input {
+  width: 100%;
+  min-width: 0;
+}
+@media (max-width: 480px) {
+  .buono-modulo .taglia.larga span {
+    min-width: 0;
+    padding: 0 1.05em;
+  }
+}
+
+/* ../../../../../home/claude/intimi-plus/src/styles/vetrina.css */
+.pagina-vetrina {
+  --tinta: #e9dcc6;
+  background: var(--tinta);
+  transition: color var(--t-breve);
+}
+.pagina-vetrina.chiaro {
+  --testo: var(--nero);
+  --tenue: rgb(29 25 26 / 0.62);
+  --linea: rgb(29 25 26 / 0.22);
+  --accento: var(--borgogna);
+}
+.pagina-vetrina.scuro {
+  --testo: var(--avorio);
+  --tenue: rgb(244 236 224 / 0.66);
+  --linea: rgb(244 236 224 / 0.24);
+  --accento: var(--champagne);
+}
+.pagina-vetrina.in-vetrina {
+  overflow: hidden;
+  height: 100dvh;
+  overscroll-behavior: none;
+}
+.pagina-vetrina.in-griglia {
+  --tinta: var(--avorio);
+}
+.palco {
+  position: fixed;
+  inset: 0;
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--tinta);
+  perspective: 1300px;
+  perspective-origin: 50% 44%;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  overscroll-behavior: none;
+}
+.palco[hidden] {
+  display: none;
+}
+.palco:focus-visible {
+  outline-offset: -4px;
+}
+.palco-cornice {
+  position: absolute;
+  inset: calc(var(--testata) + var(--sopra) - 6px) 10px calc(var(--sotto) + 78px);
+  border: 1px solid var(--linea);
+  border-radius: 4px;
+  pointer-events: none;
+}
+.palco-cornice::before,
+.palco-cornice::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--linea);
+}
+.palco-cornice::before {
+  left: 7px;
+}
+.palco-cornice::after {
+  right: 7px;
+}
+.palco-luce {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 150vmax;
+  height: 78%;
+  translate: -50% 0;
+  pointer-events: none;
+  background:
+    conic-gradient(
+      from 180deg at 50% 0%,
+      transparent 150deg,
+      rgb(255 246 232 / 0.34) 172deg,
+      rgb(255 246 232 / 0.5) 180deg,
+      rgb(255 246 232 / 0.34) 188deg,
+      transparent 210deg);
+  mix-blend-mode: soft-light;
+}
+.palco-buio {
+  position: absolute;
+  inset: 0;
+  background: #14060a;
+  opacity: 0;
+  pointer-events: none;
+}
+.capi {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+.capo {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--testata) + var(--sopra) + 2svh);
+  height: min(56svh, 104vw);
+  aspect-ratio: 4 / 5;
+  margin-left: calc(min(56svh, 104vw) * -0.4);
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+.capo[hidden] {
+  display: none;
+}
+.capo-foto {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 999px 999px 0 0;
+  box-shadow: 0 40px 60px -34px rgb(20 6 10 / 0.55);
+  transition: filter var(--t-breve) var(--ease-scena);
+  background: rgb(255 255 255 / 0.2);
+}
+.capo-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+.capo.di-lato .capo-foto {
+  filter: blur(5px) brightness(0.82);
+}
+.livello-essenziale .capo.di-lato .capo-foto {
+  filter: brightness(0.8);
+}
+.capo .etichetta-demo {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  translate: -50% 0;
+  background: rgb(244 236 224 / 0.78);
+  color: rgb(29 25 26 / 0.7);
+  border-color: transparent;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity var(--t-breve);
+}
+.capo.corrente .etichetta-demo {
+  opacity: 1;
+}
+.capo .segno-novita {
+  position: absolute;
+  right: 6%;
+  top: 16%;
+  padding: 0.3em 0.8em;
+  border-radius: 999px;
+  background: var(--borgogna);
+  color: var(--avorio);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity var(--t-breve);
+}
+.capo.corrente .segno-novita {
+  opacity: 1;
+}
+.pedana {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--testata) + var(--sopra) + 2svh + min(56svh, 104vw));
+  width: min(78vw, 560px);
+  height: 26px;
+  translate: -50% -2px;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      closest-side,
+      rgb(20 6 10 / 0.34),
+      transparent);
+  pointer-events: none;
+}
+.didascalia {
+  position: absolute;
+  left: var(--bordo);
+  right: var(--bordo);
+  bottom: calc(var(--sotto) + 92px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px;
+  color: var(--testo);
+  pointer-events: none;
+}
+.didascalia > * {
+  pointer-events: auto;
+}
+.didascalia-nome {
+  font-size: clamp(1.9rem, 8.4vw, 4.4rem);
+  margin: 0.12em 0 0.3em;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+  max-width: 11em;
+}
+.giro {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+}
+.contatore {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  min-width: 4.2em;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  color: var(--tenue);
+}
+.contatore b {
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--testo);
+  display: inline-block;
+  margin-right: 0.2em;
+}
+.suggerimento {
+  position: absolute;
+  left: 50%;
+  top: 44%;
+  translate: -50% 0;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgb(20 6 10 / 0.72);
+  color: var(--avorio);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.suggerimento[hidden] {
+  display: none;
+}
+.vuoto {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 18px;
+  text-align: center;
+  padding: 0 var(--bordo);
+  color: var(--testo);
+}
+.vuoto[hidden] {
+  display: none;
+}
+.vuoto p {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  max-width: 18ch;
+}
+@media (max-width: 767px) {
+  .giro .tondo {
+    width: 44px;
+    height: 44px;
+  }
+  .didascalia {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+  .giro {
+    justify-content: space-between;
+    order: -1;
+  }
+  .didascalia .bottone {
+    display: none;
+  }
+  .didascalia-nome {
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 768px) {
+  .capo {
+    height: min(66svh, 60vw);
+    margin-left: calc(min(66svh, 60vw) * -0.4);
+    top: calc(var(--testata) + 3svh);
+  }
+  .pedana {
+    top: calc(var(--testata) + 3svh + min(66svh, 60vw));
+  }
+  .didascalia {
+    left: 5vw;
+    right: 5vw;
+    bottom: calc(var(--sotto) + 96px);
+  }
+}
+.banco {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 35;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0 calc(var(--sotto) + 12px) var(--bordo);
+  color: var(--testo);
+  background: linear-gradient(transparent, color-mix(in srgb, var(--tinta) 88%, transparent) 42%);
+}
+.filtri {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 2px 16px 2px 0;
+  -webkit-mask-image:
+    linear-gradient(
+      90deg,
+      #000 calc(100% - 28px),
+      transparent);
+  mask-image:
+    linear-gradient(
+      90deg,
+      #000 calc(100% - 28px),
+      transparent);
+  overscroll-behavior-x: contain;
+}
+.filtri::-webkit-scrollbar {
+  display: none;
+}
+.filtri button {
+  flex: none;
+  min-height: 44px;
+  padding: 0 1.1em;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition:
+    background-color var(--t-micro),
+    color var(--t-micro),
+    border-color var(--t-micro);
+}
+.filtri button[aria-pressed=true] {
+  background: var(--testo);
+  color: var(--tinta);
+  border-color: var(--testo);
+}
+.vista {
+  flex: none;
+  display: flex;
+  margin-right: var(--bordo);
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  padding: 3px;
+  background: color-mix(in srgb, var(--tinta) 70%, transparent);
+}
+.vista button {
+  min-width: 44px;
+  height: 38px;
+  padding: 0 12px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background-color var(--t-micro), color var(--t-micro);
+}
+.vista button svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+}
+.vista button[aria-pressed=true] {
+  background: var(--testo);
+  color: var(--tinta);
+}
+@media (max-width: 767px) {
+  .vista button span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+}
+.griglia-zona {
+  padding: calc(var(--testata) + var(--sopra) + 18px) var(--bordo) calc(var(--sotto) + 110px);
+  min-height: 100dvh;
+  color: var(--testo);
+}
+.griglia-zona[hidden] {
+  display: none;
+}
+.griglia-titolo {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(2.6rem, 11vw, 5rem);
+  line-height: 1;
+  margin: 0.1em 0 0.5em;
+}
+.griglia {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px 12px;
+}
+.cella {
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+.cella-foto {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--cipria-chiaro);
+}
+.cella-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--t-lunga) var(--ease-entrata), opacity var(--t-breve);
+}
+.cella:hover img {
+  transform: scale(1.04);
+}
+.cella-foto .segno-novita {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  padding: 0.3em 0.7em;
+  border-radius: 999px;
+  background: var(--borgogna);
+  color: var(--avorio);
+  font-size: 0.56rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.cella-foto .cuoricino {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  width: 18px;
+  height: 18px;
+  fill: var(--borgogna);
+}
+.cella h3 {
+  font-size: 1.25rem;
+  margin-top: 10px;
+  line-height: 1.1;
+}
+.cella small {
+  display: block;
+  font-size: 0.64rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tenue);
+  margin-top: 3px;
+}
+.cella-colori {
+  display: flex;
+  gap: 5px;
+  margin-top: 8px;
+}
+.cella-colori i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--c);
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.14);
+}
+@media (min-width: 768px) {
+  .griglia {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 22px;
+  }
+  .griglia-zona {
+    padding-inline: 5vw;
+  }
+}
+@media (min-width: 1200px) {
+  .griglia {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.volo {
+  position: fixed;
+  z-index: 34;
+  margin: 0;
+  object-fit: cover;
+  pointer-events: none;
+  will-change: transform, border-radius;
+}
+.apri-pannello {
+  position: relative;
+  flex: none;
+  min-height: 44px;
+  padding: 0 1em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  background: var(--testo);
+  color: var(--tinta);
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.apri-pannello svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+.apri-pannello b {
+  display: none;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--tinta);
+  color: var(--testo);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 20px;
+  text-align: center;
+}
+.apri-pannello.attivo b {
+  display: block;
+}
+.attivi {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: -0.6em 0 1.6em;
+}
+.attivi[hidden] {
+  display: none;
+}
+.attivi > span {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--tenue);
+  margin-right: 4px;
+}
+.attivi button {
+  min-height: 36px;
+  padding: 0 0.9em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  background: var(--borgogna);
+  color: var(--avorio);
+  font-size: 0.78rem;
+}
+.attivi button span {
+  font-size: 1.1rem;
+  line-height: 1;
+  opacity: 0.8;
+}
+.griglia-vuota {
+  display: grid;
+  justify-items: start;
+  gap: 16px;
+}
+.pannello {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  --testo: var(--nero);
+  --fondo: var(--avorio);
+  --tenue: rgb(29 25 26 / 0.62);
+  --linea: rgb(29 25 26 / 0.18);
+  color: var(--nero);
+}
+.pannello[hidden] {
+  display: none;
+}
+.pannello-velo {
+  position: absolute;
+  inset: 0;
+  background: rgb(20 6 10 / 0.5);
+  opacity: 0;
+  transition: opacity 0.28s;
+}
+.pannello-foglio {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 86dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: var(--avorio);
+  border-radius: 22px 22px 0 0;
+  transform: translateY(100%);
+  transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1);
+  outline: none;
+}
+.pannello.aperto .pannello-velo {
+  opacity: 1;
+}
+.pannello.aperto .pannello-foglio {
+  transform: none;
+}
+.pannello-testa {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px var(--bordo) 8px 20px;
+}
+.pannello-testa h2 {
+  font-size: 1.9rem;
+  font-style: italic;
+  margin: 0;
+}
+.pannello-corpo {
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 0 20px 8px;
+}
+.gruppo {
+  border: 0;
+  border-top: 1px solid var(--linea);
+  margin: 0;
+  padding: 16px 0 18px;
+  min-width: 0;
+}
+.gruppo legend {
+  float: left;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 12px;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--tenue);
+}
+.gruppo legend b {
+  display: inline-block;
+  min-width: 18px;
+  margin-left: 6px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--borgogna);
+  color: var(--avorio);
+  font-weight: 500;
+  letter-spacing: 0;
+  text-align: center;
+}
+.voci {
+  clear: both;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.voce {
+  min-height: 44px;
+  padding: 0 1em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  font-size: 0.88rem;
+  transition:
+    background-color 0.15s,
+    color 0.15s,
+    border-color 0.15s;
+}
+.voce i {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--c);
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.18), 0 0 0 1px rgb(255 255 255 / 0.5);
+}
+.voce small {
+  font-size: 0.72rem;
+  color: var(--tenue);
+}
+.voce[aria-pressed=true] {
+  background: var(--borgogna);
+  border-color: var(--borgogna);
+  color: var(--avorio);
+}
+.voce[aria-pressed=true] small {
+  color: rgb(244 236 224 / 0.75);
+}
+.voce:disabled {
+  opacity: 0.36;
+}
+.gruppo-nota {
+  clear: both;
+  margin: 12px 0 0;
+  font-size: 0.8rem;
+  color: var(--tenue);
+}
+.pannello-piede {
+  display: flex;
+  gap: 10px;
+  padding: 12px 20px calc(var(--sotto) + 14px);
+  border-top: 1px solid var(--linea);
+  background: var(--avorio);
+}
+.pannello-piede .bottone {
+  min-height: 50px;
+}
+.pannello-piede .bottone.pieno {
+  flex: 1;
+  background: var(--borgogna);
+  border-color: var(--borgogna);
+  color: var(--avorio);
+}
+.pannello-piede .bottone:disabled {
+  opacity: 0.4;
+}
+@media (min-width: 768px) {
+  .pannello-foglio {
+    left: auto;
+    top: 0;
+    width: min(440px, 92vw);
+    max-height: none;
+    border-radius: 0;
+    transform: translateX(100%);
+  }
+  .apri-pannello {
+    margin-left: calc(5vw - var(--bordo));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pannello-velo,
+  .pannello-foglio {
+    transition: none;
+  }
+}
+</style></head><body class="pagina-vetrina" data-senza-piede>
+    <a class="salta" href="#contenuto">Salta al contenuto</a>
+    <main id="contenuto">
+      <h1 class="sr-only">Vetrina Digitale</h1>
+
+      <!-- Modalità Vetrina: un prodotto alla volta -->
+      <section class="palco" id="palco" role="group" aria-roledescription="carosello" aria-label="Vetrina: un prodotto alla volta. Usa le frecce per sfogliare." tabindex="0" data-cursore="trascina" hidden>
+        <div class="palco-cornice" aria-hidden="true"></div>
+        <div class="palco-luce" aria-hidden="true"></div>
+        <div class="capi" data-capi></div>
+        <div class="pedana" aria-hidden="true"></div>
+        <div class="palco-buio" aria-hidden="true"></div>
+        <div class="didascalia">
+          <div>
+            <p class="occhiello" data-categoria></p>
+            <h2 class="didascalia-nome" data-nome></h2>
+            <button class="bottone piccolo" type="button" data-apri>Scopri il capo</button>
+          </div>
+          <div class="giro">
+            <button class="tondo" type="button" data-prima aria-label="Prodotto precedente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6" /></svg></button>
+            <button class="tondo" type="button" data-dopo aria-label="Prodotto successivo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6" /></svg></button>
+          </div>
+        </div>
+        <div class="vuoto" data-vuoto hidden></div>
+      </section>
+
+      <!-- Modalità Griglia -->
+      <section class="griglia-zona" id="griglia" aria-label="Catalogo in griglia" hidden>
+        <header class="griglia-testa">
+          <p class="occhiello">Vetrina Digitale</p>
+          <p class="griglia-titolo" data-titolo-griglia>Tutto</p>
+          <div class="attivi" data-attivi hidden></div>
+        </header>
+        <ul class="griglia" data-griglia></ul>
+      </section>
+
+      <!-- Comandi: sempre nella metà bassa dello schermo -->
+      <div class="banco">
+        <button class="apri-pannello" type="button" data-apri-pannello aria-haspopup="dialog" aria-label="Filtri"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10" /><circle cx="16" cy="7" r="2" /><circle cx="8" cy="17" r="2" /></svg><span>Filtri</span><b></b></button>
+        <nav class="filtri" aria-label="Filtra per categoria" data-filtri></nav>
+        <div class="vista" role="group" aria-label="Modalità di visualizzazione">
+          <button type="button" data-vista="vetrina" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10v16H7zM3 7h2v10H3zM19 7h2v10h-2z" /></svg><span>Vetrina</span></button>
+          <button type="button" data-vista="griglia" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h6v6H5zM13 5h6v6h-6zM5 13h6v6H5zM13 13h6v6h-6z" /></svg><span>Griglia</span></button>
+        </div>
+      </div>
+      <p class="sr-only" id="annuncio" aria-live="polite" aria-atomic="true"></p>
+    </main>
+    <noscript><p style="padding:96px 24px">La Vetrina Digitale ha bisogno di JavaScript per mostrare il catalogo.</p></noscript>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>(() => {
+  var __create = Object.create;
+  var __defProp = Object.defineProperty;
+  var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+  var __getOwnPropNames = Object.getOwnPropertyNames;
+  var __getProtoOf = Object.getPrototypeOf;
+  var __hasOwnProp = Object.prototype.hasOwnProperty;
+  var __esm = (fn, res, err) => function __init() {
+    if (err) throw err[0];
+    try {
+      return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
+    } catch (e) {
+      throw err = [e], e;
+    }
+  };
+  var __commonJS = (cb, mod) => function __require() {
+    try {
+      return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+    } catch (e) {
+      throw mod = 0, e;
+    }
+  };
+  var __copyProps = (to, from, except, desc) => {
+    if (from && typeof from === "object" || typeof from === "function") {
+      for (let key of __getOwnPropNames(from))
+        if (!__hasOwnProp.call(to, key) && key !== except)
+          __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+    }
+    return to;
+  };
+  var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+    // If the importer is in node compatibility mode or this is not an ESM
+    // file that has been converted to a CommonJS file using a Babel-
+    // compatible transform (i.e. "__esModule" has not been set), then set
+    // "default" to the CommonJS "module.exports" for node compatibility.
+    isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+    mod
+  ));
+
+  // <define:import.meta.env>
+  var define_import_meta_env_default;
+  var init_define_import_meta_env = __esm({
+    "<define:import.meta.env>"() {
+      define_import_meta_env_default = { DEV: false };
+    }
+  });
+
+  // glob/gsap.js
+  var require_gsap = __commonJS({
+    "glob/gsap.js"(exports, module) {
+      init_define_import_meta_env();
+      module.exports = { gsap: window.gsap, default: window.gsap };
+    }
+  });
+
+  // ../../../../../home/claude/intimi-plus/src/pages/vetrina.js
+  init_define_import_meta_env();
+
+  // ../../../../../home/claude/intimi-plus/src/core/cornice.js
+  init_define_import_meta_env();
+  var import_gsap = __toESM(require_gsap(), 1);
+
+  // ../../../../../home/claude/intimi-plus/src/data/site.json
+  var site_default = {
+    _nota: "Dati della boutique. Tutto ci\xF2 che \xE8 null \xE8 IN ATTESA del cliente: il sito mostra un avviso al posto del dato, non inventa nulla. Vedi DATI-MANCANTI.md.",
+    nome: "Intimi Segreti",
+    luogo: "Lugo (RA)",
+    url: null,
+    whatsapp: "+39 339 841 2774",
+    telefono: null,
+    email: null,
+    indirizzo: "Via Baracca 55, Lugo (RA)",
+    orari: null,
+    mappaEmbed: null,
+    mappaLink: "https://www.google.com/maps/search/?api=1&query=Intimi+Segreti+Via+Baracca+55+Lugo",
+    chiSiamo: null,
+    titolare: null,
+    partitaIva: null,
+    social: {
+      facebook: "https://www.facebook.com/intimisegretilugo/",
+      instagram: "https://www.instagram.com/intimi_segretilugo2/"
+    }
+  };
+
+  // ../../../../../home/claude/intimi-plus/src/motion/tokens.js
+  init_define_import_meta_env();
+  var EASE = {
+    entrata: "expo.out",
+    // elementi che arrivano
+    uscita: "power3.in",
+    // elementi che lasciano la scena
+    scena: "power2.inOut",
+    // cambi di scena, camera, luci
+    molla: "back.out(1.6)"
+    // conferme e piccoli feedback
+  };
+  var DUR = { micro: 0.25, breve: 0.5, media: 0.9, lunga: 1.4 };
+  var riduciMovimento = () => typeof matchMedia === "function" && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ../../../../../home/claude/intimi-plus/src/core/memoria.js
+  init_define_import_meta_env();
+  function crea(nomeArea) {
+    const riserva = /* @__PURE__ */ new Map();
+    let area = null;
+    try {
+      area = window[nomeArea];
+      const k = "__is_prova__";
+      area.setItem(k, "1");
+      area.removeItem(k);
+    } catch {
+      area = null;
+    }
+    return {
+      leggi(chiave, predefinito = null) {
+        try {
+          const v = area ? area.getItem(chiave) : riserva.get(chiave);
+          return v == null ? predefinito : JSON.parse(v);
+        } catch {
+          return predefinito;
+        }
+      },
+      scrivi(chiave, valore) {
+        const v = JSON.stringify(valore);
+        riserva.set(chiave, v);
+        try {
+          if (area) area.setItem(chiave, v);
+        } catch {
+        }
+      }
+    };
+  }
+  var locale = crea("localStorage");
+  var sessione = crea("sessionStorage");
+  var CHIAVE = "is:preferiti";
+  var ascoltatori = /* @__PURE__ */ new Set();
+  var preferiti = new Set(locale.leggi(CHIAVE, []));
+  var Preferiti = {
+    tutti: () => [...preferiti],
+    ha: (id) => preferiti.has(id),
+    quanti: () => preferiti.size,
+    alterna(id) {
+      if (preferiti.has(id)) preferiti.delete(id);
+      else preferiti.add(id);
+      locale.scrivi(CHIAVE, [...preferiti]);
+      ascoltatori.forEach((f) => f(id, preferiti.has(id)));
+      return preferiti.has(id);
+    },
+    ascolta(f) {
+      ascoltatori.add(f);
+      return () => ascoltatori.delete(f);
+    }
+  };
+  window.addEventListener("storage", (e) => {
+    if (e.key !== CHIAVE) return;
+    preferiti = new Set(locale.leggi(CHIAVE, []));
+    ascoltatori.forEach((f) => f(null, false));
+  });
+
+  // ../../../../../home/claude/intimi-plus/src/core/catalogo.js
+  init_define_import_meta_env();
+
+  // ../../../../../home/claude/intimi-plus/src/data/products.json
+  var products_default = {
+    _nota: "UNICO file da modificare per aggiornare il catalogo. Vedi README.md. Prezzi e articoli forniti dalla boutique (ottobre 2026): da ricontrollare prima della pubblicazione.",
+    copertine: [
+      {
+        manifesto: "manifesto",
+        tema: "borgogna",
+        frase: "Intimo, abbigliamento e borse a Lugo."
+      },
+      {
+        prodotto: "secchiello-borchie",
+        parola: "Segreti",
+        tema: "borgogna",
+        scontorno: "eroe-secchiello",
+        satellite: {
+          prodotto: "pochette-occhielli",
+          scontorno: "eroe-pochette"
+        }
+      },
+      {
+        prodotto: "giacchina-mimetica",
+        parola: "Mimetica",
+        tema: "cipria",
+        satellite: {
+          prodotto: "pantalone-mimetico"
+        }
+      },
+      {
+        prodotto: "pullover-bottoni",
+        parola: "Maglia",
+        tema: "avorio",
+        satellite: {
+          prodotto: "jeans-ampio"
+        }
+      }
+    ],
+    look: [
+      {
+        id: "tuta-mimetica",
+        nome: "La tuta mimetica",
+        capi: [
+          "giacchina-mimetica",
+          "pantalone-mimetico"
+        ]
+      },
+      {
+        id: "maglia-denim",
+        nome: "Maglia e denim",
+        capi: [
+          "pullover-bottoni",
+          "jeans-ampio"
+        ]
+      },
+      {
+        id: "rose-pelliccia",
+        nome: "Rose e pelliccia",
+        capi: [
+          "tshirt-red-roses",
+          "tote-ecopelliccia"
+        ]
+      }
+    ],
+    categorie: [
+      {
+        id: "abbigliamento",
+        nome: "Abbigliamento",
+        atmosfera: {
+          fondo: "#ead9c2",
+          luce: "#fff4e2",
+          testo: "#221a1b"
+        },
+        frase: "Tute, maglie e denim da portare tutti i giorni."
+      },
+      {
+        id: "borse",
+        nome: "Borse",
+        atmosfera: {
+          fondo: "#d9b8ae",
+          luce: "#ffe9dc",
+          testo: "#221a1b"
+        },
+        frase: "Borchie, catene e pelle: il pezzo che fa l'outfit."
+      },
+      {
+        id: "intimo",
+        nome: "Intimo",
+        atmosfera: {
+          fondo: "#3a0f1c",
+          luce: "#f3d9d2",
+          testo: "#f6efe6"
+        },
+        frase: "La selezione di intimo arriva in vetrina a breve. Intanto, chiedi in boutique."
+      }
+    ],
+    prodotti: [
+      {
+        id: "secchiello-borchie",
+        nome: "Secchiello con borchie",
+        marchio: null,
+        prezzo: 225,
+        categoria: "borse",
+        sottocategoria: "Secchielli",
+        descrizione: "Borsa a secchiello nera con borchie e strass multicolore, nappa frontale, manico corto e tracolla a catena.",
+        dettagli: [
+          "Borchie e strass",
+          "Chiusura a coulisse",
+          "Tracolla a catena"
+        ],
+        tinta: "#e7cfc8",
+        aggiunto: "2026-10-09",
+        regalo: true,
+        demo: false,
+        varianti: [
+          {
+            id: "nero",
+            nome: "Nero",
+            hex: "#1d191a",
+            immagine: "secchiello-borchie--nero"
+          }
+        ],
+        taglie: [
+          "Unica"
+        ]
+      },
+      {
+        id: "giacchina-mimetica",
+        nome: "Giacchina mimetica",
+        marchio: "Susy Mix",
+        prezzo: 79.9,
+        categoria: "abbigliamento",
+        sottocategoria: "Tute",
+        descrizione: "Felpa bomber con zip sul fronte in fantasia mimetica e bande laterali. 94% poliestere, 6% elastan.",
+        dettagli: [
+          "Zip frontale",
+          "Bande laterali",
+          "Si abbina al pantalone"
+        ],
+        tinta: "#d8d6d6",
+        aggiunto: "2026-10-08",
+        regalo: false,
+        demo: false,
+        varianti: [
+          {
+            id: "mimetico",
+            nome: "Mimetico",
+            hex: "#3a2f27",
+            immagine: "giacchina-mimetica--mimetico"
+          }
+        ],
+        taglie: []
+      },
+      {
+        id: "pantalone-mimetico",
+        nome: "Pantalone mimetico",
+        marchio: "Susy Mix",
+        prezzo: 69.9,
+        categoria: "abbigliamento",
+        sottocategoria: "Tute",
+        descrizione: "Pantalone ampio in fantasia mimetica con bande laterali ed elastico in vita. Completa la giacchina.",
+        dettagli: [
+          "Gamba ampia",
+          "Elastico in vita",
+          "Bande laterali"
+        ],
+        tinta: "#d8d6d6",
+        aggiunto: "2026-10-07",
+        regalo: false,
+        demo: false,
+        varianti: [
+          {
+            id: "mimetico",
+            nome: "Mimetico",
+            hex: "#3a2f27",
+            immagine: "pantalone-mimetico--mimetico"
+          }
+        ],
+        taglie: []
+      },
+      {
+        id: "pochette-occhielli",
+        nome: "Pochette con occhielli",
+        marchio: "La Carrie",
+        prezzo: 155,
+        categoria: "borse",
+        sottocategoria: "Tracolle",
+        descrizione: "Pochette nera in pelle martellata con bordo intrecciato, occhielli in metallo e tracolla a catena.",
+        dettagli: [
+          "Pelle martellata",
+          "Occhielli in metallo",
+          "Tracolla a catena"
+        ],
+        tinta: "#d9b8ae",
+        aggiunto: "2026-10-06",
+        regalo: true,
+        demo: false,
+        varianti: [
+          {
+            id: "nero",
+            nome: "Nero",
+            hex: "#1d191a",
+            immagine: "pochette-occhielli--nero"
+          }
+        ],
+        taglie: [
+          "Unica"
+        ]
+      },
+      {
+        id: "pullover-bottoni",
+        nome: "Pullover con bottoni",
+        marchio: null,
+        prezzo: 69,
+        categoria: "abbigliamento",
+        sottocategoria: "Maglieria",
+        descrizione: "Pullover corto con scollo a V, bottoni in madreperla e maniche ampie con polso a costine.",
+        dettagli: [
+          "Scollo a V",
+          "Bottoni in madreperla",
+          "Maniche ampie"
+        ],
+        tinta: "#d9cdbf",
+        aggiunto: "2026-10-05",
+        regalo: false,
+        demo: false,
+        varianti: [
+          {
+            id: "marrone",
+            nome: "Marrone",
+            hex: "#4a3a34",
+            immagine: "pullover-bottoni--marrone"
+          }
+        ],
+        taglie: []
+      },
+      {
+        id: "jeans-ampio",
+        nome: "Jeans ampio",
+        marchio: null,
+        prezzo: 59,
+        categoria: "abbigliamento",
+        sottocategoria: "Denim",
+        descrizione: "Jeans scuro a gamba ampia, con risvolto al fondo.",
+        dettagli: [
+          "Gamba ampia",
+          "Lavaggio scuro"
+        ],
+        tinta: "#d9cdbf",
+        aggiunto: "2026-10-04",
+        regalo: false,
+        demo: false,
+        varianti: [
+          {
+            id: "denim",
+            nome: "Denim scuro",
+            hex: "#1f2c4a",
+            immagine: "jeans-ampio--denim"
+          }
+        ],
+        taglie: []
+      },
+      {
+        id: "tshirt-red-roses",
+        nome: "T-shirt Red Roses",
+        marchio: "Liu Jo",
+        prezzo: 69,
+        categoria: "abbigliamento",
+        sottocategoria: "T-shirt",
+        descrizione: "T-shirt bianca a maniche corte con stampa di rose e scritta sul davanti.",
+        dettagli: [
+          "Stampa frontale",
+          "Maniche corte",
+          "Vestibilit\xE0 morbida"
+        ],
+        tinta: "#e6e3de",
+        aggiunto: "2026-10-09",
+        regalo: false,
+        demo: false,
+        varianti: [
+          {
+            id: "bianco",
+            nome: "Bianco",
+            hex: "#f2efe9",
+            immagine: "tshirt-red-roses--bianco"
+          }
+        ],
+        taglie: []
+      },
+      {
+        id: "tote-ecopelliccia",
+        nome: "Tote in ecopelliccia",
+        marchio: "Liu Jo",
+        prezzo: null,
+        categoria: "borse",
+        sottocategoria: "Shopping",
+        descrizione: "Borsa tote in ecopelliccia marrone con scritta logo, doppio manico, chiusura a zip e tracolla removibile. Circa 30 \xD7 42 \xD7 21 cm.",
+        dettagli: [
+          "Ecopelliccia",
+          "Chiusura a zip",
+          "Tracolla removibile"
+        ],
+        tinta: "#d9c3a0",
+        aggiunto: "2026-10-09",
+        regalo: true,
+        demo: false,
+        varianti: [
+          {
+            id: "marrone",
+            nome: "Marrone",
+            hex: "#3d2a1e",
+            immagine: "tote-ecopelliccia--marrone"
+          }
+        ],
+        taglie: [
+          "Unica"
+        ]
+      },
+      {
+        id: "camicia-floreale",
+        nome: "Camicia floreale",
+        marchio: "Susy Mix",
+        prezzo: null,
+        categoria: "abbigliamento",
+        sottocategoria: "Camicie",
+        descrizione: "Camicia leggera in fantasia floreale, con maniche ampie e bottoni in madreperla.",
+        dettagli: [
+          "Fantasia floreale",
+          "Maniche ampie",
+          "Tessuto leggero"
+        ],
+        tinta: "#e9e4dc",
+        aggiunto: "2026-10-08",
+        regalo: false,
+        demo: false,
+        varianti: [
+          {
+            id: "fantasia",
+            nome: "Fantasia floreale",
+            hex: "#b89aa6",
+            immagine: "camicia-floreale--fantasia"
+          }
+        ],
+        taglie: []
+      },
+      {
+        id: "tshirt-maniche-pizzo",
+        nome: "T-shirt con maniche in pizzo",
+        marchio: null,
+        prezzo: null,
+        categoria: "abbigliamento",
+        sottocategoria: "T-shirt",
+        descrizione: "T-shirt ampia color antracite con maniche lunghe in pizzo a contrasto.",
+        dettagli: [
+          "Maniche in pizzo",
+          "Vestibilit\xE0 ampia"
+        ],
+        tinta: "#dcd9d6",
+        aggiunto: "2026-10-08",
+        regalo: false,
+        demo: false,
+        varianti: [
+          {
+            id: "antracite",
+            nome: "Antracite",
+            hex: "#2e3136",
+            immagine: "tshirt-maniche-pizzo--antracite"
+          }
+        ],
+        taglie: []
+      }
+    ]
+  };
+
+  // ../../../../../home/claude/intimi-plus/src/core/catalogo.js
+  var QUANTE_NOVITA = 4;
+  var ordinati = [...products_default.prodotti].sort((a, b) => String(b.aggiunto || "").localeCompare(String(a.aggiunto || "")));
+  ordinati.forEach((p, i) => {
+    p.novita = i < QUANTE_NOVITA && !!p.aggiunto;
+  });
+  var prodotti = ordinati;
+  var categorie = products_default.categorie;
+  var copertine = products_default.copertine || [];
+  var look = products_default.look || [];
+  var perId = (id) => prodotti.find((p) => p.id === id) || null;
+  var categoria = (id) => categorie.find((c) => c.id === id) || null;
+  var nomeCategoria = (id) => {
+    var _a;
+    return ((_a = categoria(id)) == null ? void 0 : _a.nome) || "";
+  };
+  var prezzo = (p) => p.prezzo == null ? "Prezzo in boutique" : `${Number(p.prezzo).toLocaleString("it-IT", { minimumFractionDigits: Number.isInteger(p.prezzo) ? 0 : 2, maximumFractionDigits: 2 })} \u20AC`;
+  var FILTRI = [
+    { id: "tutti", nome: "Tutto" },
+    ...categorie.filter((c) => prodotti.some((p) => p.categoria === c.id)).map((c) => ({ id: c.id, nome: c.nome })),
+    { id: "regalo", nome: "Idee regalo" },
+    { id: "preferiti", nome: "Preferiti" }
+  ];
+  function filtra(filtro) {
+    if (filtro === "regalo") return prodotti.filter((p) => p.regalo);
+    if (filtro === "preferiti") return prodotti.filter((p) => Preferiti.ha(p.id));
+    if (categoria(filtro)) return prodotti.filter((p) => p.categoria === filtro);
+    return prodotti;
+  }
+  var variante = (p, idVariante) => p.varianti.find((v) => v.id === idVariante) || p.varianti[0];
+  var BASE = "assets/products/";
+  var UNICA = typeof window !== "undefined" && !!window.IS_FOTO_UNICA;
+  var src = (nome, misura = 1200, est = "webp") => UNICA ? `${BASE}${nome}.webp` : `${BASE}${nome}${misura === 1200 ? "" : `-${misura}`}.${est}`;
+  function figura(v, alt, { sizes = "100vw", pronta = false, classe = "" } = {}) {
+    if (UNICA) return `<picture><img class="${classe}" src="${src(v.immagine)}" alt="${alt.replace(/"/g, "&quot;")}" width="1200" height="1500" ${pronta ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" draggable="false"></picture>`;
+    const set = (est) => `${src(v.immagine, 600, est)} 600w, ${src(v.immagine, 1200, est)} 1200w`;
+    return `<picture>
+    <source type="image/avif" srcset="${set("avif")}" sizes="${sizes}">
+    <source type="image/webp" srcset="${set("webp")}" sizes="${sizes}">
+    <img class="${classe}" src="${src(v.immagine, 600)}" alt="${alt.replace(/"/g, "&quot;")}" width="1200" height="1500"
+      ${pronta ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" draggable="false">
+  </picture>`;
+  }
+  var fascia = (p) => p.prezzo == null ? "Prezzo in boutique" : p.prezzo <= 70 ? "Fino a 70 \u20AC" : p.prezzo <= 150 ? "Da 70 a 150 \u20AC" : "Oltre 150 \u20AC";
+  var ORDINE_FASCE = ["Fino a 70 \u20AC", "Da 70 a 150 \u20AC", "Oltre 150 \u20AC", "Prezzo in boutique"];
+  var ORDINE_TAGLIE = ["XXS", "XS", "S", "M", "L", "XL", "XXL", "Unica"];
+  var GRUPPI = [
+    { id: "tipi", nome: "Tipo", val: (p) => [p.sottocategoria].filter(Boolean) },
+    { id: "marchi", nome: "Marchio", val: (p) => [p.marchio].filter(Boolean) },
+    { id: "colori", nome: "Colore", val: (p) => p.varianti.map((v) => v.nome) },
+    { id: "taglie", nome: "Taglia", val: (p) => p.taglie || [], ordine: ORDINE_TAGLIE },
+    { id: "prezzi", nome: "Prezzo", val: (p) => [fascia(p)], ordine: ORDINE_FASCE },
+    { id: "extra", nome: "In evidenza", val: (p) => [p.novita && "Novit\xE0", p.regalo && "Idea regalo"].filter(Boolean) }
+  ];
+  var ORDINI = [
+    { id: "novita", nome: "Ultimi arrivi" },
+    { id: "prezzo-su", nome: "Prezzo crescente" },
+    { id: "prezzo-giu", nome: "Prezzo decrescente" },
+    { id: "nome", nome: "Nome A\u2013Z" }
+  ];
+  var scelteVuote = () => Object.fromEntries(GRUPPI.map((g) => [g.id, []]));
+  var quanteScelte = (s) => GRUPPI.reduce((n, g) => n + s[g.id].length, 0);
+  var passa = (p, s, salta) => GRUPPI.every((g) => g.id === salta || !s[g.id].length || g.val(p).some((v) => s[g.id].includes(v)));
+  var raffina = (lista, s) => lista.filter((p) => passa(p, s));
+  function ordina(lista, come) {
+    const l = [...lista];
+    const pz = (p, vuoto) => p.prezzo == null ? vuoto : p.prezzo;
+    if (come === "prezzo-su") l.sort((a, b) => pz(a, Infinity) - pz(b, Infinity));
+    else if (come === "prezzo-giu") l.sort((a, b) => pz(b, -1) - pz(a, -1));
+    else if (come === "nome") l.sort((a, b) => a.nome.localeCompare(b.nome, "it"));
+    return l;
+  }
+  function opzioni(base, s) {
+    return GRUPPI.map((g) => {
+      const voci = [...new Set(base.flatMap((p) => g.val(p)))];
+      if (g.ordine) voci.sort((a, b) => g.ordine.indexOf(a) - g.ordine.indexOf(b));
+      else voci.sort((a, b) => a.localeCompare(b, "it"));
+      const altri = base.filter((p) => passa(p, s, g.id));
+      return { ...g, voci: voci.map((v) => {
+        var _a;
+        return { v, n: altri.filter((p) => g.val(p).includes(v)).length, hex: g.id === "colori" ? (_a = base.flatMap((p) => p.varianti).find((x) => x.nome === v)) == null ? void 0 : _a.hex : null };
+      }) };
+    });
+  }
+  var senzaTaglia = (base) => base.filter((p) => !(p.taglie || []).length).length;
+
+  // ../../../../../home/claude/intimi-plus/src/core/atelier.js
+  init_define_import_meta_env();
+
+  // ../../../../../home/claude/intimi-plus/src/core/contatto.js
+  init_define_import_meta_env();
+
+  // ../../../../../home/claude/intimi-plus/src/core/avviso.js
+  init_define_import_meta_env();
+  var nodo = null;
+  var timer = 0;
+  function avvisa(testo, durata = 3200) {
+    if (!nodo) {
+      nodo = document.createElement("div");
+      nodo.className = "avviso";
+      nodo.setAttribute("role", "status");
+      nodo.setAttribute("aria-live", "polite");
+      document.body.appendChild(nodo);
+    }
+    nodo.textContent = testo;
+    requestAnimationFrame(() => nodo.classList.add("visibile"));
+    clearTimeout(timer);
+    timer = setTimeout(() => nodo.classList.remove("visibile"), durata);
+  }
+
+  // ../../../../../home/claude/intimi-plus/src/core/contatto.js
+  var haWhatsApp = () => !!site_default.whatsapp;
+  var origine = () => site_default.url || location.origin;
+  var linkProdotto = (p, v) => `${new URL("vetrina.html", location.href).href.split("?")[0]}?prodotto=${p.id}${v ? `&colore=${v.id}` : ""}`;
+  var linkCondivisione = (p) => define_import_meta_env_default && define_import_meta_env_default.DEV ? linkProdotto(p) : linkProdotto(p);
+  async function copia(testo) {
+    try {
+      await navigator.clipboard.writeText(testo);
+      return true;
+    } catch {
+      const t = document.createElement("textarea");
+      t.value = testo;
+      t.setAttribute("readonly", "");
+      t.style.cssText = "position:fixed;opacity:0";
+      document.body.appendChild(t);
+      t.select();
+      let ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch {
+        ok = false;
+      }
+      t.remove();
+      return ok;
+    }
+  }
+  async function inviaRichiesta(testo) {
+    if (haWhatsApp()) {
+      const numero = String(site_default.whatsapp).replace(/\D/g, "");
+      window.open(`https://wa.me/${numero}?text=${encodeURIComponent(testo)}`, "_blank", "noopener");
+      return;
+    }
+    const ok = await copia(testo);
+    avvisa(ok ? "Richiesta copiata. Incollala nel messaggio alla boutique." : "Non \xE8 stato possibile copiare il testo.");
+  }
+  async function condividi(p, v) {
+    const dati = { title: `${p.nome} \u2014 ${site_default.nome}`, text: `${p.nome}, ${v.nome}`, url: linkCondivisione(p) };
+    if (navigator.share) {
+      try {
+        await navigator.share(dati);
+        return;
+      } catch (e) {
+        if (e && e.name === "AbortError") return;
+      }
+    }
+    const ok = await copia(dati.url);
+    avvisa(ok ? "Link copiato." : "Non \xE8 stato possibile copiare il link.");
+  }
+
+  // ../../../../../home/claude/intimi-plus/src/core/icone.js
+  init_define_import_meta_env();
+  var svg = (d, classe = "") => `<svg class="${classe}" viewBox="0 0 24 24" aria-hidden="true">${d}</svg>`;
+  var ICONE = {
+    cuore: svg('<path d="M12 20s-7-4.4-7-9.6A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.4C19 15.600 12 20 12 20Z"/>', "cuore"),
+    condividi: svg('<path d="M12 15V4m0 0L8 8m4-4 4 4M5 13v6h14v-6"/>'),
+    chiudi: svg('<path d="m6 6 12 12M18 6 6 18"/>'),
+    prima: svg('<path d="m14 6-6 6 6 6"/>'),
+    dopo: svg('<path d="m10 6 6 6-6 6"/>'),
+    griglia: svg('<path d="M5 5h6v6H5zM13 5h6v6h-6zM5 13h6v6H5zM13 13h6v6h-6z"/>'),
+    vetrina: svg('<path d="M7 4h10v16H7zM3 7h2v10H3zM19 7h2v10h-2z"/>'),
+    ruota: svg('<path d="M4 12c0-2.200 3.600-4 8-4s8 1.800 8 4-3.600 4-8 4m0 0 2.500-2.500M12 16l2.500 2.500"/>')
+  };
+
+  // ../../../../../home/claude/intimi-plus/src/core/atelier.js
+  var TAGLIE = ["XS", "S", "M", "L", "XL"];
+  var unica = (p) => Array.isArray(p.taglie) && p.taglie.length === 1 && p.taglie[0] === "Unica";
+  var taglieDi = (p) => p.taglie && p.taglie.length ? p.taglie : TAGLIE;
+  var K = "is:taglie";
+  var taglie = locale.leggi(K, {});
+  var Taglie = {
+    di: (id) => taglie[id] || null,
+    imposta(id, t) {
+      taglie = { ...taglie, [id]: t };
+      locale.scrivi(K, taglie);
+    }
+  };
+  var euro = (n) => prezzo({ prezzo: Math.round(n * 100) / 100 });
+  function totale(capi2) {
+    const noti = capi2.filter((p) => p.prezzo != null);
+    return { somma: noti.reduce((s, p) => s + p.prezzo, 0), mancano: capi2.length - noti.length };
+  }
+  var testoTotale = (capi2) => {
+    const { somma, mancano } = totale(capi2);
+    if (!somma) return "Prezzi in boutique";
+    return mancano ? `${euro(somma)} + ${mancano === 1 ? "un capo" : `${mancano} capi`} in boutique` : euro(somma);
+  };
+  var riga = (p, idVariante) => {
+    const v = variante(p, idVariante);
+    const t = unica(p) ? null : Taglie.di(p.id);
+    return `\u2022 ${p.nome}${p.varianti.length > 1 ? `, ${v.nome}` : ""}${t ? `, taglia ${t}` : ""} (${prezzo(p)})`;
+  };
+  var messaggioDaParte = (p, v) => `Buongiorno, potete mettermi da parte questo capo visto sul sito?
+${riga(p, v && v.id)}
+${linkProdotto(p, v)}`;
+  var messaggioInsieme = (ids, titolo = "questi capi visti sul sito") => `Buongiorno, potete mettermi da parte ${titolo}?
+${ids.map(perId).filter(Boolean).map((p) => riga(p)).join("\n")}`;
+  var GIORNI = ["domenica", "luned\xEC", "marted\xEC", "mercoled\xEC", "gioved\xEC", "venerd\xEC", "sabato"];
+  var MESI = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"];
+  function prossimiGiorni(n = 8) {
+    const out = [];
+    const d = /* @__PURE__ */ new Date();
+    d.setHours(12, 0, 0, 0);
+    while (out.length < n) {
+      d.setDate(d.getDate() + 1);
+      if (d.getDay() !== 0) out.push(new Date(d));
+    }
+    return out;
+  }
+  var foglioProva = null;
+  function apriProva(ids = []) {
+    if (!foglioProva) foglioProva = creaProva();
+    foglioProva.apri(ids);
+  }
+  function creaProva() {
+    const d = document.createElement("dialog");
+    d.className = "foglio prova";
+    d.setAttribute("aria-labelledby", "prova-titolo");
+    d.innerHTML = `
+    <button class="tondo foglio-chiudi" type="button" data-chiudi aria-label="Chiudi">${ICONE.chiudi}</button>
+    <div class="foglio-maniglia" aria-hidden="true"></div>
+    <div class="foglio-corpo scheda" data-corpo></div>`;
+    document.body.appendChild(d);
+    const corpo2 = d.querySelector("[data-corpo]");
+    let capi2 = [];
+    let giorno = null;
+    let momento = "pomeriggio";
+    function disegna2() {
+      const giorni = prossimiGiorni();
+      corpo2.innerHTML = `
+      <p class="occhiello">In boutique</p>
+      <h2 id="prova-titolo">Prenota <em>la prova.</em></h2>
+      <fieldset class="scelta-giorni"><legend>Il giorno</legend>
+        <div class="giorni">${giorni.map((g, i) => {
+        const id = g.toISOString().slice(0, 10);
+        return `<label class="giorno"><input type="radio" name="giorno" value="${id}" ${(giorno ? giorno === id : i === 0) ? "checked" : ""}>
+              <span><small>${GIORNI[g.getDay()].slice(0, 3)}</small><b>${g.getDate()}</b><small>${MESI[g.getMonth()].slice(0, 3)}</small></span></label>`;
+      }).join("")}</div>
+      </fieldset>
+      <fieldset class="scelta-taglie"><legend>Quando</legend>
+        <div class="taglie">${["mattina", "pomeriggio"].map((m) => `<label class="taglia larga"><input type="radio" name="momento" value="${m}" ${m === momento ? "checked" : ""}><span>${m[0].toUpperCase()}${m.slice(1)}</span></label>`).join("")}</div>
+      </fieldset>
+      ${capi2.length ? `<div class="prova-capi"><p class="occhiello">Da provare</p><ul>${capi2.map(perId).filter(Boolean).map((p) => `<li><img src="${src(p.varianti[0].immagine, 600)}" alt="" width="56" height="70"><span>${p.nome}${!unica(p) && Taglie.di(p.id) ? ` \xB7 ${Taglie.di(p.id)}` : ""}</span></li>`).join("")}</ul></div>` : ""}
+      <div class="scheda-azioni"><button class="bottone pieno" type="button" data-invia>Invia la richiesta</button></div>`;
+      if (!giorno) giorno = giorni[0].toISOString().slice(0, 10);
+    }
+    corpo2.addEventListener("change", (e) => {
+      if (e.target.name === "giorno") giorno = e.target.value;
+      if (e.target.name === "momento") momento = e.target.value;
+    });
+    d.addEventListener("click", (e) => {
+      if (e.target === d || e.target.closest("[data-chiudi]")) return d.close();
+      if (!e.target.closest("[data-invia]")) return void 0;
+      const g = /* @__PURE__ */ new Date(`${giorno}T12:00:00`);
+      const quando = `${GIORNI[g.getDay()]} ${g.getDate()} ${MESI[g.getMonth()]}, ${momento === "mattina" ? "in mattinata" : "nel pomeriggio"}`;
+      const lista = capi2.map(perId).filter(Boolean);
+      inviaRichiesta(`Buongiorno, vorrei prenotare una prova in boutique per ${quando}.${lista.length ? `
+Vorrei provare:
+${lista.map((p) => riga(p)).join("\n")}` : ""}
+Va bene?`);
+      d.close();
+      return void 0;
+    });
+    return {
+      apri(ids) {
+        capi2 = ids;
+        disegna2();
+        if (!d.open) d.showModal();
+      }
+    };
+  }
+  function richiama(el, testo) {
+    avvisa(testo, 2200);
+    if (!el) return;
+    el.classList.remove("richiamo");
+    void el.offsetWidth;
+    el.classList.add("richiamo");
+  }
+
+  // ../../../../../home/claude/intimi-plus/src/core/indietro.js
+  init_define_import_meta_env();
+  var BORDO = 28;
+  var SOGLIA = 96;
+  var MASSIMO = 120;
+  var GESTI_PROPRI = "#copertina, [data-binario], .palco, .banco, .filtri, .voci, input, textarea, select, [data-gesto-proprio]";
+  function destinazione() {
+    const chiudi = (sel) => () => {
+      var _a;
+      return (_a = document.querySelector(sel)) == null ? void 0 : _a.click();
+    };
+    if (document.querySelector(".pannello:not([hidden])")) return chiudi(".pannello:not([hidden]) [data-chiudi-pannello]");
+    const dialogo = document.querySelector("dialog[open]");
+    if (dialogo) return () => (dialogo.querySelector("[data-chiudi]") || { click: () => dialogo.close() }).click();
+    if (document.documentElement.classList.contains("menu-aperto")) return chiudi("[data-chiudi-menu]");
+    let interno = false;
+    try {
+      interno = !!document.referrer && new URL(document.referrer).origin === location.origin;
+    } catch {
+    }
+    if (interno && history.length > 1) return () => history.back();
+    if (!document.body.classList.contains("pagina-home")) return chiudi(".testata .marchio");
+    return null;
+  }
+  function montaIndietro() {
+    if (!("ontouchstart" in window) && !navigator.maxTouchPoints) return;
+    const segno = document.createElement("div");
+    segno.className = "indietro";
+    segno.setAttribute("aria-hidden", "true");
+    segno.innerHTML = '<svg viewBox="0 0 24 24"><path d="m14 6-6 6 6 6" /></svg>';
+    document.body.append(segno);
+    let inizio = null;
+    let preso = false;
+    let azione = null;
+    let pronto = false;
+    const mostra = (dx) => {
+      const d = Math.min(MASSIMO, dx * 0.7);
+      segno.style.transform = `translate3d(${d}px, -50%, 0) scale(${0.7 + Math.min(1, dx / SOGLIA) * 0.3})`;
+      segno.style.opacity = String(Math.min(1, dx / 40));
+      const ora = dx >= SOGLIA;
+      if (ora !== pronto) {
+        pronto = ora;
+        segno.classList.toggle("pronto", ora);
+        if (ora && navigator.vibrate) navigator.vibrate(8);
+      }
+    };
+    const nascondi = () => {
+      segno.classList.remove("pronto");
+      segno.style.transform = "";
+      segno.style.opacity = "";
+      pronto = false;
+    };
+    document.addEventListener("touchstart", (e) => {
+      var _a, _b;
+      inizio = null;
+      preso = false;
+      if (e.touches.length !== 1) return;
+      const t = e.touches[0];
+      const bordo = t.clientX <= BORDO;
+      if (!bordo && ((_b = (_a = e.target).closest) == null ? void 0 : _b.call(_a, GESTI_PROPRI))) return;
+      azione = destinazione();
+      if (!azione) return;
+      inizio = { x: t.clientX, y: t.clientY, t: performance.now(), bordo };
+    }, { passive: true });
+    document.addEventListener("touchmove", (e) => {
+      if (!inizio) return;
+      const t = e.touches[0];
+      const dx = t.clientX - inizio.x;
+      const dy = t.clientY - inizio.y;
+      if (!preso) {
+        if (Math.abs(dx) < 10 && Math.abs(dy) < 10) return;
+        if (dx > 0 && dx > Math.abs(dy) * (inizio.bordo ? 1 : 1.6)) {
+          preso = true;
+          const sopra = document.querySelector("dialog[open]") || document.body;
+          if (segno.parentNode !== sopra) sopra.append(segno);
+          segno.style.top = `${t.clientY}px`;
+          segno.classList.add("attivo");
+        } else {
+          inizio = null;
+          return;
+        }
+      }
+      if (e.cancelable) e.preventDefault();
+      mostra(Math.max(0, dx));
+    }, { passive: false });
+    const fine = (e) => {
+      if (!inizio || !preso) {
+        inizio = null;
+        return;
+      }
+      const t = e.changedTouches[0];
+      const dx = t.clientX - inizio.x;
+      const veloce = dx > 50 && dx / (performance.now() - inizio.t) > 0.6;
+      inizio = null;
+      preso = false;
+      segno.classList.remove("attivo");
+      if (e.type === "touchend" && (dx >= SOGLIA || veloce)) {
+        segno.classList.add("via");
+        setTimeout(() => {
+          segno.classList.remove("via");
+          nascondi();
+        }, 320);
+        azione();
+      } else nascondi();
+    };
+    document.addEventListener("touchend", fine, { passive: true });
+    document.addEventListener("touchcancel", fine, { passive: true });
+    window.addEventListener("pageshow", () => {
+      segno.classList.remove("attivo", "via");
+      nascondi();
+    });
+  }
+
+  // ../../../../../home/claude/intimi-plus/src/core/cornice.js
+  var VOCI = [
+    { href: "index.html", testo: "La vetrina", nota: "Home" },
+    { href: "vetrina.html", testo: "Vetrina Digitale", nota: "Catalogo" },
+    { href: "index.html#look", testo: "Lookbook", nota: "I look" },
+    { href: "index.html#buono", testo: "Buono regalo", nota: "Da regalare" },
+    { href: "index.html#boutique", testo: "La Boutique", nota: "Lugo" },
+    { href: "index.html#contatti", testo: "Contatti", nota: "Vieni a trovarci" }
+  ];
+  var social = () => Object.entries(site_default.social || {}).filter(([, url]) => !!url).map(([nome, url]) => `<a href="${url}" target="_blank" rel="noopener">${nome[0].toUpperCase()}${nome.slice(1)}</a>`).join("");
+  function montaTestata() {
+    const t = document.createElement("header");
+    t.className = "testata";
+    t.innerHTML = `
+    <a class="marchio" href="index.html" aria-label="${site_default.nome}, torna alla home"><span class="logo" aria-hidden="true"></span></a>
+    <div class="testata-azioni">
+      <button class="tondo conta-preferiti" type="button" data-apri-preferiti aria-label="Il tuo camerino">${ICONE.cuore}<b aria-hidden="true"></b></button>
+      <button class="apri-menu" type="button" aria-expanded="false" aria-controls="menu">Menu <i aria-hidden="true"></i></button>
+    </div>`;
+    document.body.prepend(t);
+    return t;
+  }
+  function montaMenu(apriBtn) {
+    const m = document.createElement("nav");
+    m.className = "menu";
+    m.id = "menu";
+    m.setAttribute("aria-label", "Menu principale");
+    m.innerHTML = `
+    <div class="menu-testa"><span class="marchio"><span class="logo" role="img" aria-label="${site_default.nome}"></span></span>
+      <button class="tondo" type="button" data-chiudi-menu aria-label="Chiudi il menu">${ICONE.chiudi}</button></div>
+    <ul class="menu-voci">${VOCI.map((v) => `<li><a href="${v.href}">${v.testo} <small>${v.nota}</small></a></li>`).join("")}</ul>
+    <div class="menu-piede"><span>${site_default.luogo}</span>${social()}<a href="privacy.html">Privacy e cookie</a></div>`;
+    document.body.appendChild(m);
+    const voci = m.querySelectorAll(".menu-voci a");
+    let tl = null;
+    let aperto = false;
+    function imposta(stato2) {
+      if (stato2 === aperto) return;
+      aperto = stato2;
+      apriBtn.setAttribute("aria-expanded", String(stato2));
+      document.documentElement.classList.toggle("menu-aperto", stato2);
+      window.dispatchEvent(new CustomEvent("is:blocco-scroll", { detail: stato2 }));
+      if (tl) tl.kill();
+      const d = riduciMovimento() ? 0.01 : DUR.media;
+      if (stato2) {
+        m.classList.add("aperto");
+        m.inert = false;
+        tl = import_gsap.gsap.timeline();
+        tl.fromTo(m, { clipPath: "inset(0% 0% 100% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: d, ease: EASE.scena }).fromTo(voci, { yPercent: 110, rotate: 4, opacity: 0 }, { yPercent: 0, rotate: 0, opacity: 1, duration: d, ease: EASE.entrata, stagger: 0.06 }, d * 0.35).fromTo(m.querySelector(".menu-piede"), { opacity: 0 }, { opacity: 1, duration: DUR.breve }, d * 0.8);
+        m.querySelector("[data-chiudi-menu]").focus({ preventScroll: true });
+      } else {
+        tl = import_gsap.gsap.timeline({ onComplete: () => m.classList.remove("aperto") });
+        tl.to(m, { clipPath: "inset(100% 0% 0% 0%)", duration: d * 0.8, ease: EASE.scena });
+        m.inert = true;
+        apriBtn.focus({ preventScroll: true });
+      }
+    }
+    m.inert = true;
+    apriBtn.addEventListener("click", () => imposta(true));
+    m.querySelector("[data-chiudi-menu]").addEventListener("click", () => imposta(false));
+    m.addEventListener("click", (e) => {
+      if (e.target.closest("a")) imposta(false);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && aperto) imposta(false);
+    });
+  }
+  function montaPiede() {
+    if (document.querySelector(".piede") || document.body.dataset.senzaPiede != null) return;
+    const p = document.createElement("footer");
+    p.className = "piede";
+    const anno = (/* @__PURE__ */ new Date()).getFullYear();
+    p.innerHTML = `
+    <span class="marchio"><img class="logo-oro" src="assets/site/logo-oro.webp" alt="${site_default.nome}" width="943" height="512" loading="lazy"></span>
+    <div class="piede-righe">
+      <span>${site_default.luogo}</span>
+      ${site_default.indirizzo ? `<span>${site_default.indirizzo}</span>` : ""}
+      ${site_default.telefono ? `<a href="tel:${String(site_default.telefono).replace(/\s/g, "")}">${site_default.telefono}</a>` : ""}
+      ${social()}
+      <a href="vetrina.html">Vetrina Digitale</a>
+      <a href="privacy.html">Privacy e cookie</a>
+    </div>
+    <div class="piede-righe"><span>\xA9 ${anno} ${site_default.nome}${site_default.partitaIva ? ` \xB7 P. IVA ${site_default.partitaIva}` : ""}</span>
+      <span>Alcune immagini sono generate con IA.</span></div>`;
+    document.body.appendChild(p);
+  }
+  function montaPreferiti() {
+    const d = document.createElement("dialog");
+    d.className = "foglio camerino";
+    d.setAttribute("aria-labelledby", "titolo-preferiti");
+    d.innerHTML = `
+    <button class="tondo foglio-chiudi" type="button" data-chiudi aria-label="Chiudi">${ICONE.chiudi}</button>
+    <div class="foglio-maniglia" aria-hidden="true"></div>
+    <div class="foglio-corpo scheda">
+      <p class="occhiello">Intimi Segreti</p>
+      <h2 id="titolo-preferiti">Il tuo <em>camerino.</em></h2>
+      <div data-contenuto></div>
+    </div>`;
+    document.body.appendChild(d);
+    const corpo2 = d.querySelector("[data-contenuto]");
+    function disegna2() {
+      const ids = Preferiti.tutti().filter(perId);
+      document.querySelectorAll(".conta-preferiti b").forEach((b) => b.textContent = ids.length ? String(ids.length) : "");
+      if (!d.open) return;
+      if (!ids.length) {
+        corpo2.innerHTML = `<p class="scheda-descr">Il camerino \xE8 vuoto.</p>
+        <div class="scheda-azioni"><a class="bottone pieno" href="vetrina.html">Vai alla Vetrina Digitale</a></div>`;
+        return;
+      }
+      const capi2 = ids.map(perId);
+      corpo2.innerHTML = `<ul class="lista-camerino">${capi2.map((p) => {
+        const t = Taglie.di(p.id);
+        return `<li><a href="vetrina.html?prodotto=${p.id}"><img src="${src(p.varianti[0].immagine, 600)}" alt="" loading="lazy" width="72" height="90"></a>
+          <div><a href="vetrina.html?prodotto=${p.id}">${p.nome}</a><small>${prezzo(p)}</small>
+            ${unica(p) ? "<small>Taglia unica</small>" : `<label class="mini-taglia"><span class="sr-only">Taglia per ${p.nome}</span><select data-taglia="${p.id}">
+              <option value="">Taglia</option>${taglieDi(p).map((x) => `<option ${x === t ? "selected" : ""}>${x}</option>`).join("")}</select></label>`}</div>
+          <button class="tondo" type="button" data-togli="${p.id}" aria-label="Togli ${p.nome} dal camerino">${ICONE.chiudi}</button></li>`;
+      }).join("")}</ul>
+      <p class="camerino-totale"><small>Totale</small><span>${testoTotale(capi2)}</span></p>
+      <div class="scheda-azioni"><button class="bottone pieno" type="button" data-invia>Mettimeli da parte</button></div>
+      <button class="scheda-prova" type="button" data-prova>Prenota la prova in boutique <span aria-hidden="true">\u2192</span></button>`;
+    }
+    d.addEventListener("change", (e) => {
+      const s = e.target.closest("[data-taglia]");
+      if (s) Taglie.imposta(s.dataset.taglia, s.value || null);
+    });
+    d.addEventListener("click", (e) => {
+      if (e.target === d || e.target.closest("[data-chiudi]")) d.close();
+      const togli = e.target.closest("[data-togli]");
+      if (togli) Preferiti.alterna(togli.dataset.togli);
+      if (e.target.closest("[data-invia]")) {
+        const ids = Preferiti.tutti().filter(perId);
+        const manca = ids.map(perId).find((p) => !unica(p) && !Taglie.di(p.id));
+        if (manca) return richiama(d.querySelector(`[data-taglia="${manca.id}"]`), `Scegli la taglia per ${manca.nome}.`);
+        inviaRichiesta(messaggioInsieme(ids));
+      }
+      if (e.target.closest("[data-prova]")) {
+        d.close();
+        apriProva(Preferiti.tutti().filter(perId));
+      }
+      return void 0;
+    });
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest("[data-apri-preferiti]")) return;
+      d.showModal();
+      disegna2();
+    });
+    Preferiti.ascolta(disegna2);
+    disegna2();
+  }
+  function montaCursore() {
+    if (!matchMedia("(hover: hover) and (pointer: fine)").matches || riduciMovimento()) return;
+    const c = document.createElement("div");
+    c.className = "cursore";
+    c.setAttribute("aria-hidden", "true");
+    c.innerHTML = "<span></span>";
+    document.body.appendChild(c);
+    document.documentElement.classList.add("ha-cursore");
+    const etichetta = c.firstElementChild;
+    const x = import_gsap.gsap.quickTo(c, "x", { duration: 0.35, ease: "power3.out" });
+    const y = import_gsap.gsap.quickTo(c, "y", { duration: 0.35, ease: "power3.out" });
+    const TESTI = { trascina: "Trascina", apri: "Apri" };
+    window.addEventListener("pointermove", (e) => {
+      if (e.pointerType !== "mouse") return;
+      x(e.clientX);
+      y(e.clientY);
+      const zona = e.target.closest ? e.target.closest("[data-cursore]") : null;
+      const tipo = zona ? zona.dataset.cursore : "";
+      const interattivo = !tipo && e.target.closest && e.target.closest("a, button, input, label");
+      c.classList.toggle("trascina", tipo === "trascina");
+      c.classList.toggle("apri", tipo === "apri");
+      c.classList.toggle("attivo", !!interattivo);
+      etichetta.textContent = TESTI[tipo] || "";
+    }, { passive: true });
+    document.querySelectorAll("[data-magnetico]").forEach((el) => {
+      const mx = import_gsap.gsap.quickTo(el, "x", { duration: 0.4, ease: "power3.out" });
+      const my = import_gsap.gsap.quickTo(el, "y", { duration: 0.4, ease: "power3.out" });
+      el.addEventListener("pointermove", (e) => {
+        const r = el.getBoundingClientRect();
+        mx((e.clientX - r.left - r.width / 2) * 0.3);
+        my((e.clientY - r.top - r.height / 2) * 0.3);
+      });
+      el.addEventListener("pointerleave", () => {
+        mx(0);
+        my(0);
+      });
+    });
+  }
+  function montaPassaggio() {
+    const nativo = "CSSViewTransitionRule" in window;
+    if (nativo || riduciMovimento()) return;
+    const s = document.createElement("div");
+    s.className = "sipario";
+    s.setAttribute("aria-hidden", "true");
+    s.innerHTML = "<i></i><i></i>";
+    document.body.appendChild(s);
+    const ante = s.querySelectorAll("i");
+    if (sessione.leggi("is:porta")) {
+      sessione.scrivi("is:porta", false);
+      import_gsap.gsap.set(s, { visibility: "visible" });
+      import_gsap.gsap.fromTo(ante, { scaleX: 1 }, { scaleX: 0, duration: DUR.media, ease: EASE.scena, onComplete: () => import_gsap.gsap.set(s, { visibility: "hidden" }) });
+    }
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest ? e.target.closest("a[href]") : null;
+      if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      if (a.target === "_blank" || a.hasAttribute("download")) return;
+      const url = new URL(a.href, location.href);
+      if (url.origin !== location.origin || url.pathname === location.pathname) return;
+      e.preventDefault();
+      sessione.scrivi("is:porta", true);
+      import_gsap.gsap.set(s, { visibility: "visible" });
+      import_gsap.gsap.fromTo(ante, { scaleX: 0 }, { scaleX: 1, duration: DUR.breve, ease: EASE.scena, onComplete: () => location.href = url.href });
+    });
+    window.addEventListener("pageshow", (e) => {
+      if (e.persisted) import_gsap.gsap.set(ante, { scaleX: 0 });
+    });
+  }
+  function montaScorrimentoTestata(t) {
+    let ultimo = scrollY;
+    let attesa2 = 0;
+    const aggiorna = () => {
+      attesa2 = 0;
+      const y = Math.max(0, scrollY);
+      const bloccata = document.documentElement.classList.contains("menu-aperto") || document.body.classList.contains("in-vetrina");
+      t.classList.toggle("velata", y > 24 && !bloccata);
+      if (!bloccata && Math.abs(y - ultimo) > 6) {
+        t.classList.toggle("nascosta", y > ultimo && y > 220 && !t.contains(document.activeElement));
+        ultimo = y;
+      }
+      if (bloccata) t.classList.remove("nascosta");
+    };
+    addEventListener("scroll", () => {
+      if (!attesa2) attesa2 = requestAnimationFrame(aggiorna);
+    }, { passive: true });
+    addEventListener("is:blocco-scroll", aggiorna);
+    aggiorna();
+  }
+  function montaCornice() {
+    const testata = montaTestata();
+    montaScorrimentoTestata(testata);
+    montaIndietro();
+    montaMenu(testata.querySelector(".apri-menu"));
+    montaPiede();
+    montaPreferiti();
+    montaCursore();
+    montaPassaggio();
+    return { testata };
+  }
+
+  // ../../../../../home/claude/intimi-plus/src/pages/vetrina.js
+  var import_gsap2 = __toESM(require_gsap(), 1);
+
+  // ../../../../../home/claude/intimi-plus/src/motion/testo.js
+  init_define_import_meta_env();
+  function dividi(el) {
+    if (!el || el.dataset.diviso) return el ? [...el.querySelectorAll(".car")] : [];
+    const testo = el.textContent.trim();
+    el.setAttribute("aria-label", testo);
+    el.dataset.diviso = "1";
+    el.textContent = "";
+    const caratteri = [];
+    testo.split(/(\s+)/).forEach((pezzo) => {
+      if (!pezzo) return;
+      if (/^\s+$/.test(pezzo)) {
+        el.appendChild(document.createTextNode(" "));
+        return;
+      }
+      const parola = document.createElement("span");
+      parola.className = "parola";
+      parola.setAttribute("aria-hidden", "true");
+      for (const c of pezzo) {
+        const s = document.createElement("span");
+        s.className = "car";
+        s.textContent = c;
+        parola.appendChild(s);
+        caratteri.push(s);
+      }
+      el.appendChild(parola);
+    });
+    return caratteri;
+  }
+  function riscrivi(el, testo) {
+    delete el.dataset.diviso;
+    el.textContent = testo;
+    return dividi(el);
+  }
+
+  // ../../../../../home/claude/intimi-plus/src/core/qualita.js
+  init_define_import_meta_env();
+  var memo = null;
+  function livelloQualita() {
+    if (memo) return memo;
+    const forzato = new URLSearchParams(location.search).get("qualita");
+    if (["completo", "ridotto", "essenziale"].includes(forzato)) return memo = forzato;
+    const conn = navigator.connection || {};
+    const memoria = navigator.deviceMemory || 4;
+    const core = navigator.hardwareConcurrency || 4;
+    const mobile = matchMedia("(pointer: coarse)").matches || innerWidth < 768;
+    if (riduciMovimento() || conn.saveData || memoria <= 2 || core <= 2) memo = "essenziale";
+    else if (mobile || memoria <= 4 || core <= 4) memo = "ridotto";
+    else memo = "completo";
+    return memo;
+  }
+
+  // ../../../../../home/claude/intimi-plus/src/core/scheda.js
+  init_define_import_meta_env();
+  function abbinamenti(p) {
+    const l = look.find((x) => x.capi.includes(p.id));
+    const dalLook = l ? l.capi.filter((id) => id !== p.id).map(perId).filter(Boolean) : [];
+    const altri = prodotti.filter((x) => x.id !== p.id && x.categoria !== p.categoria && !dalLook.includes(x));
+    return [...dalLook, ...altri].slice(0, 3);
+  }
+  function creaScheda({ alCambio = () => {
+  } } = {}) {
+    const d = document.createElement("dialog");
+    d.className = "foglio";
+    d.setAttribute("aria-labelledby", "scheda-titolo");
+    d.innerHTML = `
+    <button class="tondo foglio-chiudi" type="button" data-chiudi aria-label="Chiudi la scheda">${ICONE.chiudi}</button>
+    <div class="foglio-maniglia" aria-hidden="true"></div>
+    <div class="foglio-corpo scheda" data-corpo></div>
+    <div class="zoom" data-zoom hidden><img alt=""><button class="tondo" type="button" data-zoom-chiudi aria-label="Chiudi lo zoom">${ICONE.chiudi}</button></div>`;
+    document.body.appendChild(d);
+    const corpo2 = d.querySelector("[data-corpo]");
+    const zoom = d.querySelector("[data-zoom]");
+    const zoomImg = zoom.querySelector("img");
+    let prodotto = null;
+    let scelta = null;
+    function disegna2() {
+      const p = prodotto;
+      const v = scelta;
+      const t = Taglie.di(p.id);
+      const vicini = abbinamenti(p);
+      corpo2.innerHTML = `
+      <button class="scheda-foto" type="button" data-foto aria-label="Ingrandisci la foto">${figura(v, `${p.nome}, ${v.nome}`, { sizes: "(min-width: 900px) 520px, 100vw", pronta: true })}
+        ${p.demo ? '<span class="etichetta-demo">Immagine dimostrativa</span>' : ""}<span class="lente" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5M11 8v6M8 11h6"/></svg></span></button>
+      <p class="occhiello">${nomeCategoria(p.categoria)}${p.sottocategoria ? ` \xB7 ${p.sottocategoria}` : ""}${p.novita ? ' \xB7 <b class="nuovo">Nuovo</b>' : ""}</p>
+      <h2 id="scheda-titolo">${p.nome}</h2>
+      <p class="scheda-prezzo">${prezzo(p)}${p.marchio ? ` <span>${p.marchio}</span>` : ""}</p>
+      <p class="scheda-descr">${p.descrizione}</p>
+      ${p.dettagli && p.dettagli.length ? `<ul class="scheda-dettagli">${p.dettagli.map((x) => `<li>${x}</li>`).join("")}</ul>` : ""}
+      <fieldset class="varianti">
+        <legend>Colore <b data-nome-colore>${v.nome}</b></legend>
+        <div class="campioni">${p.varianti.map((x) => `<label class="campione" style="--c:${x.hex}"><input type="radio" name="colore" value="${x.id}" ${x.id === v.id ? "checked" : ""}><span></span><i class="sr-only">${x.nome}</i></label>`).join("")}</div>
+      </fieldset>
+      ${unica(p) ? "" : `<fieldset class="scelta-taglie" data-taglie>
+        <legend>La tua taglia</legend>
+        <div class="taglie">${taglieDi(p).map((x) => `<label class="taglia"><input type="radio" name="taglia" value="${x}" ${x === t ? "checked" : ""}><span>${x}</span></label>`).join("")}</div>
+      </fieldset>`}
+      <div class="scheda-azioni">
+        <button class="bottone pieno" type="button" data-da-parte>Mettimelo da parte</button>
+        <button class="tondo" type="button" data-cuore aria-pressed="${Preferiti.ha(p.id)}" aria-label="Aggiungi al camerino">${ICONE.cuore}</button>
+        <button class="tondo" type="button" data-condividi aria-label="Condividi questo prodotto">${ICONE.condividi}</button>
+      </div>
+      <button class="scheda-prova" type="button" data-prova>Prenota la prova in boutique <span aria-hidden="true">\u2192</span></button>
+      ${vicini.length ? `<section class="abbina" aria-label="Completa il look">
+        <p class="occhiello">Completa il look</p>
+        <ul>${vicini.map((x) => `<li><button type="button" data-abbina="${x.id}"><img src="${src(x.varianti[0].immagine, 600)}" alt="" loading="lazy" width="300" height="375"><span>${x.nome}</span><small>${prezzo(x)}</small></button></li>`).join("")}</ul>
+      </section>` : ""}`;
+    }
+    corpo2.addEventListener("change", (e) => {
+      if (e.target.name === "taglia") {
+        Taglie.imposta(prodotto.id, e.target.value);
+        return;
+      }
+      if (e.target.name !== "colore") return;
+      scelta = variante(prodotto, e.target.value);
+      corpo2.querySelector("[data-nome-colore]").textContent = scelta.nome;
+      const foto = corpo2.querySelector("[data-foto]");
+      const vecchia = foto.querySelector("picture");
+      vecchia.insertAdjacentHTML("afterend", figura(scelta, `${prodotto.nome}, ${scelta.nome}`, { sizes: "(min-width: 900px) 520px, 100vw", pronta: true }));
+      const nuova = vecchia.nextElementSibling.querySelector("img");
+      nuova.style.opacity = "0";
+      const mostra2 = () => {
+        nuova.style.opacity = "1";
+        vecchia.remove();
+      };
+      if (nuova.complete) requestAnimationFrame(mostra2);
+      else nuova.addEventListener("load", mostra2, { once: true });
+      alCambio(true, prodotto, scelta);
+    });
+    function apriZoom() {
+      const img = corpo2.querySelector("[data-foto] img");
+      zoomImg.src = img.currentSrc || img.src;
+      zoomImg.alt = img.alt;
+      zoom.hidden = false;
+      zoom.style.setProperty("--ox", "50%");
+      zoom.style.setProperty("--oy", "40%");
+      requestAnimationFrame(() => zoom.classList.add("vivo"));
+    }
+    function chiudiZoom() {
+      zoom.classList.remove("vivo");
+      setTimeout(() => zoom.hidden = true, 260);
+    }
+    const muovi = (e) => {
+      const r = zoom.getBoundingClientRect();
+      zoom.style.setProperty("--ox", `${(e.clientX - r.left) / r.width * 100}%`);
+      zoom.style.setProperty("--oy", `${(e.clientY - r.top) / r.height * 100}%`);
+    };
+    zoom.addEventListener("pointermove", muovi);
+    zoom.addEventListener("pointerdown", (e) => {
+      muovi(e);
+      zoom.setPointerCapture(e.pointerId);
+    });
+    zoom.addEventListener("click", (e) => {
+      if (e.target.closest("[data-zoom-chiudi]") || e.pointerType === "mouse") chiudiZoom();
+    });
+    let tocchi = 0;
+    zoom.addEventListener("pointerup", (e) => {
+      if (e.pointerType === "mouse") return;
+      const ora = Date.now();
+      if (ora - tocchi < 320) chiudiZoom();
+      tocchi = ora;
+    });
+    d.addEventListener("cancel", (e) => {
+      if (!zoom.hidden) {
+        e.preventDefault();
+        chiudiZoom();
+      }
+    });
+    d.addEventListener("click", (e) => {
+      if (e.target === d || e.target.closest("[data-chiudi]")) return d.close();
+      if (e.target.closest("[data-foto]")) return apriZoom();
+      if (e.target.closest("[data-da-parte]")) {
+        if (!unica(prodotto) && !Taglie.di(prodotto.id)) return richiama(corpo2.querySelector("[data-taglie]"), "Scegli la tua taglia.");
+        return inviaRichiesta(messaggioDaParte(prodotto, scelta));
+      }
+      if (e.target.closest("[data-prova]")) return apriProva([prodotto.id]);
+      if (e.target.closest("[data-condividi]")) return condividi(prodotto, scelta);
+      const abbina = e.target.closest("[data-abbina]");
+      if (abbina) {
+        const p = perId(abbina.dataset.abbina);
+        if (p) api.apri(p, null, { da: abbina.querySelector("img") });
+        return void 0;
+      }
+      const cuore = e.target.closest("[data-cuore]");
+      if (cuore) {
+        const ora = Preferiti.alterna(prodotto.id);
+        cuore.setAttribute("aria-pressed", String(ora));
+        avvisa(ora ? "Aggiunto al camerino." : "Tolto dal camerino.", 1800);
+      }
+      return void 0;
+    });
+    d.addEventListener("close", () => {
+      d.style.transform = "";
+      zoom.hidden = true;
+      zoom.classList.remove("vivo");
+      alCambio(false, prodotto, scelta);
+    });
+    const maniglia = d.querySelector(".foglio-maniglia");
+    let y0 = null;
+    maniglia.addEventListener("pointerdown", (e) => {
+      y0 = e.clientY;
+      maniglia.setPointerCapture(e.pointerId);
+      d.style.transition = "none";
+    });
+    maniglia.addEventListener("pointermove", (e) => {
+      if (y0 == null) return;
+      d.style.transform = `translateY(${Math.max(0, e.clientY - y0)}px)`;
+    });
+    const rilascia = (e) => {
+      if (y0 == null) return;
+      const dy = e.clientY - y0;
+      y0 = null;
+      d.style.transition = "";
+      if (dy > 110) d.close();
+      else d.style.transform = "";
+    };
+    maniglia.addEventListener("pointerup", rilascia);
+    maniglia.addEventListener("pointercancel", rilascia);
+    function mostra(p, idVariante) {
+      prodotto = p;
+      scelta = variante(p, idVariante);
+      disegna2();
+      if (!d.open) d.showModal();
+      corpo2.scrollTop = 0;
+      alCambio(true, prodotto, scelta);
+    }
+    const api = {
+      get aperta() {
+        return d.open;
+      },
+      get prodotto() {
+        return prodotto;
+      },
+      // { da: <img> } fa crescere quella foto fino a diventare la foto della scheda
+      apri(p, idVariante, { da = null } = {}) {
+        const puo = da && document.startViewTransition && !riduciMovimento() && da.getBoundingClientRect().width > 0;
+        if (!puo) return mostra(p, idVariante);
+        const html2 = document.documentElement;
+        html2.classList.add("allarga");
+        if (d.open) d.classList.add("diretto");
+        da.style.viewTransitionName = "foto-capo";
+        const t = document.startViewTransition(() => {
+          da.style.viewTransitionName = "";
+          d.classList.add("diretto");
+          mostra(p, idVariante);
+          const img = corpo2.querySelector("[data-foto] img");
+          if (img) img.style.viewTransitionName = "foto-capo";
+        });
+        t.finished.finally(() => {
+          html2.classList.remove("allarga");
+          d.classList.remove("diretto");
+          const img = corpo2.querySelector("[data-foto] img");
+          if (img) img.style.viewTransitionName = "";
+        });
+        return void 0;
+      },
+      chiudi() {
+        if (d.open) d.close();
+      }
+    };
+    return api;
+  }
+
+  // ../../../../../home/claude/intimi-plus/src/pages/vetrina.js
+  var html = document.documentElement;
+  var corpo = document.body;
+  var livello = livelloQualita();
+  var statico = riduciMovimento();
+  html.classList.add(`livello-${livello}`);
+  var $ = (s, r = document) => r.querySelector(s);
+  var $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  montaCornice();
+  var palco = $("#palco");
+  var capiBox = $("[data-capi]");
+  var buio = $(".palco-buio");
+  var zonaGriglia = $("#griglia");
+  var griglia = $("[data-griglia]");
+  var annuncio = $("#annuncio");
+  var elNome = $("[data-nome]");
+  var elCategoria = $("[data-categoria]");
+  var elNumero = $("[data-numero]");
+  var elTotale = $("[data-totale]");
+  var elVuoto = $("[data-vuoto]");
+  var suggerimento = $("[data-suggerimento]") || { hidden: true };
+  var stato = {
+    vista: "vetrina",
+    filtro: "tutti",
+    scelte: scelteVuote(),
+    // filtri fini: tipo, marchio, colore, taglia, prezzo
+    ordine: "novita",
+    lista: [],
+    indice: 0,
+    pos: 0
+    // posizione continua: segue il dito durante lo swipe
+  };
+  var capi = [];
+  var tinte = [];
+  var moto = null;
+  var daCronologia = false;
+  var filtroValido = (f) => FILTRI.some((x) => x.id === f) ? f : "tutti";
+  var corrente = () => stato.lista[stato.indice] || null;
+  function leggiURL() {
+    const q = new URLSearchParams(location.search);
+    const salvata = locale.leggi("is:vista");
+    const predefinita = statico || livello === "essenziale" ? "griglia" : "vetrina";
+    const vista = q.get("vista");
+    return {
+      vista: vista === "griglia" || vista === "vetrina" ? vista : salvata === "griglia" || salvata === "vetrina" ? salvata : predefinita,
+      filtro: filtroValido(q.get("categoria") || "tutti"),
+      scelte: Object.fromEntries(GRUPPI.map((g) => [g.id, (q.get(g.id) || "").split(",").filter(Boolean)])),
+      ordine: ORDINI.some((o) => o.id === q.get("ordine")) ? q.get("ordine") : "novita",
+      prodotto: q.get("prodotto"),
+      colore: q.get("colore")
+    };
+  }
+  function scriviURL({ spingi = false, prodotto = null, colore = null } = {}) {
+    if (daCronologia) return;
+    const q = new URLSearchParams();
+    if (stato.vista === "griglia") q.set("vista", "griglia");
+    if (stato.filtro !== "tutti") q.set("categoria", stato.filtro);
+    GRUPPI.forEach((g) => stato.scelte[g.id].length && q.set(g.id, stato.scelte[g.id].join(",")));
+    if (stato.ordine !== "novita") q.set("ordine", stato.ordine);
+    if (prodotto) {
+      q.set("prodotto", prodotto);
+      if (colore) q.set("colore", colore);
+    }
+    const url = `${location.pathname}${q.toString() ? `?${q}` : ""}`;
+    if (url === location.pathname + location.search) return;
+    if (spingi) history.pushState({ scheda: true }, "", url);
+    else history.replaceState(prodotto ? history.state : null, "", url);
+  }
+  var scheda = creaScheda({
+    alCambio(aperta, p, v) {
+      if (aperta) {
+        const giaInUrl = new URLSearchParams(location.search).get("prodotto") === p.id;
+        scriviURL({ spingi: !giaInUrl, prodotto: p.id, colore: v.id });
+        return;
+      }
+      if (daCronologia) return;
+      if (history.state && history.state.scheda) history.back();
+      else scriviURL();
+      aggiornaCuori();
+    }
+  });
+  function fotoDi(p) {
+    if (stato.vista === "griglia") return $(`.cella[data-id="${p.id}"] img`);
+    return $(`.capo[data-i="${stato.indice}"] img`);
+  }
+  function apriScheda(p, idColore) {
+    if (!p) return;
+    const i = stato.lista.indexOf(p);
+    if (i >= 0 && i !== stato.indice && stato.vista === "vetrina") vai(i, { immediato: true });
+    else if (i >= 0) stato.indice = i;
+    scheda.apri(p, idColore, { da: fotoDi(p) });
+  }
+  var luminanza = (hex) => {
+    const n = parseInt(hex.replace("#", ""), 16);
+    return (0.299 * (n >> 16 & 255) + 0.587 * (n >> 8 & 255) + 0.114 * (n & 255)) / 255;
+  };
+  function passoLaterale() {
+    return palco.clientWidth * (palco.clientWidth < 768 ? 0.74 : 0.42);
+  }
+  function allestisci() {
+    capiBox.innerHTML = stato.lista.map((p, i) => `<div class="capo" role="group" aria-roledescription="prodotto" aria-label="${p.nome}, ${i + 1} di ${stato.lista.length}" data-i="${i}" data-cursore="apri" hidden>
+      <div class="capo-foto">${figura(p.varianti[0], `${p.nome}, ${p.varianti[0].nome}${p.demo ? " (immagine dimostrativa)" : ""}`, { sizes: "(min-width: 768px) 52vh, 96vw", pronta: i === stato.indice })}</div>
+      ${p.novita ? '<span class="segno-novita">Novit\xE0</span>' : ""}
+      ${p.demo ? '<span class="etichetta-demo">Immagine dimostrativa</span>' : ""}
+    </div>`).join("");
+    capi = $$(".capo", capiBox);
+    tinte = stato.lista.map((p) => p.tinta || "#e9dcc6");
+    const vuota = !stato.lista.length;
+    elVuoto.hidden = !vuota;
+    $(".didascalia").style.visibility = vuota ? "hidden" : "";
+    if (vuota) {
+      elVuoto.innerHTML = `${messaggioVuoto()}`;
+    }
+  }
+  function disegna() {
+    const n = capi.length;
+    if (!n) return;
+    const pos = stato.pos;
+    const passo = passoLaterale();
+    for (let i = 0; i < n; i += 1) {
+      const d = i - pos;
+      const ad = Math.abs(d);
+      const el = capi[i];
+      if (ad > 2.2) {
+        if (!el.hidden) el.hidden = true;
+        continue;
+      }
+      if (el.hidden) el.hidden = false;
+      const vicino = Math.min(ad, 1);
+      el.style.transform = `translate3d(${(d * passo).toFixed(1)}px, ${(vicino * 18).toFixed(1)}px, ${(-ad * 430).toFixed(1)}px) rotateY(${(d * -34).toFixed(2)}deg) scale(${(1 - vicino * 0.1).toFixed(3)})`;
+      el.style.zIndex = String(10 - Math.round(ad * 2));
+      el.classList.toggle("di-lato", ad > 0.5);
+      el.classList.toggle("corrente", ad < 0.25);
+    }
+    const a = import_gsap2.gsap.utils.clamp(0, n - 1, Math.floor(pos));
+    const b = Math.min(n - 1, a + 1);
+    const t = import_gsap2.gsap.utils.clamp(0, 1, pos - a);
+    corpo.style.setProperty("--tinta", import_gsap2.gsap.utils.interpolate(tinte[a], tinte[b], t));
+    buio.style.opacity = (Math.sin(Math.min(t, 1 - t) * Math.PI) * 0.42).toFixed(3);
+  }
+  function aggiornaTono() {
+    const scura = stato.vista === "vetrina" && corrente() ? luminanza(corrente().tinta || "#e9dcc6") < 0.45 : false;
+    corpo.classList.toggle("scuro", scura);
+    corpo.classList.toggle("chiaro", !scura);
+    if (stato.vista === "griglia") corpo.style.setProperty("--tinta", "#f4ece0");
+    const tema = document.querySelector('meta[name="theme-color"]');
+    if (tema) tema.content = stato.vista === "vetrina" && corrente() ? corrente().tinta : "#f4ece0";
+  }
+  function aggiornaDidascalia(verso = 1, anima = true) {
+    const p = corrente();
+    if (!p) return;
+    elCategoria.textContent = [p.marchio || nomeCategoria(p.categoria), prezzo(p)].filter(Boolean).join(" \xB7 ");
+    const lettere = riscrivi(elNome, p.nome);
+    if (anima && !statico) {
+      import_gsap2.gsap.fromTo(lettere, { yPercent: 110 * verso, rotate: 6 * verso }, { yPercent: 0, rotate: 0, duration: DUR.media, ease: EASE.entrata, stagger: 0.012, overwrite: true });
+      import_gsap2.gsap.fromTo(elCategoria, { autoAlpha: 0 }, { autoAlpha: 1, duration: DUR.breve, overwrite: true });
+    }
+    capi.forEach((c, i) => {
+      if (i === stato.indice) c.removeAttribute("aria-hidden");
+      else c.setAttribute("aria-hidden", "true");
+    });
+    annuncio.textContent = `${p.nome}, ${prezzo(p)}. Prodotto ${stato.indice + 1} di ${stato.lista.length}.`;
+    aggiornaTono();
+  }
+  function vai(i, { immediato = false, slancio = 0 } = {}) {
+    const n = stato.lista.length;
+    if (!n) return;
+    const bersaglio = import_gsap2.gsap.utils.clamp(0, n - 1, i);
+    const verso = bersaglio >= stato.indice ? 1 : -1;
+    const cambia = bersaglio !== stato.indice;
+    stato.indice = bersaglio;
+    if (moto) moto.kill();
+    if (immediato || statico) {
+      stato.pos = bersaglio;
+      disegna();
+    } else {
+      const distanza = Math.abs(bersaglio - stato.pos);
+      const durata = import_gsap2.gsap.utils.clamp(0.35, 1.1, DUR.media * Math.max(0.5, distanza) / (1 + Math.abs(slancio) * 0.6));
+      moto = import_gsap2.gsap.to(stato, { pos: bersaglio, duration: durata, ease: EASE.entrata, onUpdate: disegna });
+    }
+    if (cambia) {
+      aggiornaDidascalia(verso, !immediato);
+      scriviURL();
+    }
+  }
+  var gesto = { attivo: false, asse: "", x0: 0, y0: 0, pos0: 0, t0: 0, ultimi: [], suCapo: false, id: null };
+  function nascondiSuggerimento() {
+    if (suggerimento.hidden) return;
+    suggerimento.hidden = true;
+    locale.scrivi("is:suggerimento", true);
+  }
+  palco.addEventListener("pointerdown", (e) => {
+    if (e.button !== 0 || e.target.closest("button, a")) return;
+    if (e.pointerType === "touch" && (e.clientX < 30 || e.clientX > innerWidth - 22)) return;
+    Object.assign(gesto, { attivo: true, asse: "", x0: e.clientX, y0: e.clientY, pos0: stato.pos, t0: performance.now(), ultimi: [[e.clientX, performance.now()]], suCapo: !!e.target.closest(".capo.corrente"), id: e.pointerId });
+  });
+  palco.addEventListener("pointermove", (e) => {
+    if (!gesto.attivo || e.pointerId !== gesto.id) return;
+    const dx = e.clientX - gesto.x0;
+    const dy = e.clientY - gesto.y0;
+    if (!gesto.asse) {
+      if (Math.abs(dx) > 8 && Math.abs(dx) >= Math.abs(dy)) {
+        gesto.asse = "x";
+        if (moto) moto.kill();
+        gesto.pos0 = stato.pos;
+        gesto.x0 = e.clientX;
+        try {
+          palco.setPointerCapture(e.pointerId);
+        } catch {
+        }
+        nascondiSuggerimento();
+      } else if (Math.abs(dy) > 12) gesto.asse = "y";
+      return;
+    }
+    if (gesto.asse !== "x") return;
+    const n = stato.lista.length;
+    let pos = gesto.pos0 - (e.clientX - gesto.x0) / passoLaterale();
+    if (pos < 0) pos *= 0.3;
+    else if (pos > n - 1) pos = n - 1 + (pos - (n - 1)) * 0.3;
+    stato.pos = pos;
+    gesto.ultimi.push([e.clientX, performance.now()]);
+    if (gesto.ultimi.length > 5) gesto.ultimi.shift();
+    disegna();
+  });
+  function fineGesto(e) {
+    if (!gesto.attivo || e.pointerId !== gesto.id) return;
+    gesto.attivo = false;
+    const dx = e.clientX - gesto.x0;
+    const dy = e.clientY - gesto.y0;
+    const durata = performance.now() - gesto.t0;
+    if (gesto.asse === "x") {
+      const [x1, t1] = gesto.ultimi[0];
+      const [x2, t2] = gesto.ultimi[gesto.ultimi.length - 1];
+      const velocita = t2 > t1 ? (x2 - x1) / (t2 - t1) : 0;
+      const partenza = Math.round(gesto.pos0);
+      const deciso = Math.abs(dx) > passoLaterale() * 0.22 || Math.abs(velocita) > 0.45;
+      const verso = Math.abs(velocita) > 0.45 ? -Math.sign(velocita) : -Math.sign(dx);
+      vai(deciso ? partenza + verso : partenza, { slancio: velocita });
+      return;
+    }
+    if (e.type === "pointercancel") return;
+    if (gesto.asse === "y" && dy < -60) {
+      nascondiSuggerimento();
+      apriScheda(corrente());
+      return;
+    }
+    if (!gesto.asse && durata < 400 && gesto.suCapo) {
+      nascondiSuggerimento();
+      apriScheda(corrente());
+    } else if (!gesto.asse && durata < 400) {
+      const lato = e.target.closest(".capo");
+      if (lato) vai(Number(lato.dataset.i));
+    }
+  }
+  palco.addEventListener("pointerup", fineGesto);
+  palco.addEventListener("pointercancel", fineGesto);
+  var accumulo = 0;
+  var ultimoScatto = 0;
+  palco.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+    const ora = performance.now();
+    if (ora - ultimoScatto < 420) return;
+    accumulo += delta;
+    if (Math.abs(accumulo) > 48) {
+      vai(stato.indice + Math.sign(accumulo));
+      accumulo = 0;
+      ultimoScatto = ora;
+      nascondiSuggerimento();
+    }
+  }, { passive: false });
+  document.addEventListener("keydown", (e) => {
+    if (stato.vista !== "vetrina" || scheda.aperta || html.classList.contains("menu-aperto") || document.querySelector("dialog[open]")) return;
+    if (e.target.closest && e.target.closest("input, textarea")) return;
+    if (e.key === "ArrowRight") vai(stato.indice + 1);
+    else if (e.key === "ArrowLeft") vai(stato.indice - 1);
+    else if (e.key === "Home") vai(0);
+    else if (e.key === "End") vai(stato.lista.length - 1);
+    else if ((e.key === "Enter" || e.key === " ") && e.target === palco) apriScheda(corrente());
+    else return;
+    e.preventDefault();
+    nascondiSuggerimento();
+  });
+  $("[data-prima]").addEventListener("click", () => vai(stato.indice - 1));
+  $("[data-dopo]").addEventListener("click", () => vai(stato.indice + 1));
+  $("[data-apri]").addEventListener("click", () => apriScheda(corrente()));
+  function mostraSuggerimento() {
+    if (locale.leggi("is:suggerimento") || stato.lista.length < 2 || statico) return;
+    suggerimento.hidden = false;
+    import_gsap2.gsap.timeline({ delay: 0.9 }).to(stato, { pos: stato.indice + 0.16, duration: DUR.breve, ease: EASE.scena, onUpdate: disegna }).to(stato, { pos: stato.indice, duration: DUR.media, ease: EASE.molla, onUpdate: disegna });
+    import_gsap2.gsap.delayedCall(6, nascondiSuggerimento);
+  }
+  function disegnaGriglia() {
+    $("[data-titolo-griglia]").textContent = FILTRI.find((f) => f.id === stato.filtro).nome;
+    disegnaAttivi();
+    if (!stato.lista.length) {
+      griglia.innerHTML = `<li style="grid-column:1/-1"><div class="griglia-vuota">${messaggioVuoto()}</div></li>`;
+      return;
+    }
+    griglia.innerHTML = stato.lista.map((p) => `<li><button class="cella" type="button" data-id="${p.id}" aria-label="${p.nome}, ${nomeCategoria(p.categoria)}${p.novita ? ", novit\xE0" : ""}. Apri la scheda">
+      <div class="cella-foto">${figura(p.varianti[0], "", { sizes: "(min-width: 1200px) 24vw, (min-width: 768px) 31vw, 47vw" })}
+        ${p.novita ? '<span class="segno-novita">Novit\xE0</span>' : ""}<span data-cuore-di="${p.id}"></span></div>
+      <h3>${p.nome}</h3><small>${[p.marchio || nomeCategoria(p.categoria), prezzo(p)].filter(Boolean).join(" \xB7 ")}</small>
+      <div class="cella-colori" aria-hidden="true">${p.varianti.map((v) => `<i style="--c:${v.hex}"></i>`).join("")}</div>
+    </button></li>`).join("");
+    aggiornaCuori();
+  }
+  function aggiornaCuori() {
+    $$("[data-cuore-di]").forEach((s) => {
+      s.innerHTML = Preferiti.ha(s.dataset.cuoreDi) ? ICONE.cuore.replace('class="cuore"', 'class="cuoricino"') : "";
+    });
+  }
+  griglia.addEventListener("click", (e) => {
+    const c = e.target.closest(".cella");
+    if (c) apriScheda(perId(c.dataset.id));
+  });
+  var calcola = () => ordina(raffina(filtra(stato.filtro), stato.scelte), stato.ordine);
+  var messaggioVuoto = () => {
+    const n = quanteScelte(stato.scelte);
+    const testo = n ? "Nessun capo con questi filtri." : stato.filtro === "preferiti" ? "Non hai ancora salvato nessun capo." : "Nessun capo in questa selezione.";
+    return `<p>${testo}</p><button class="bottone" type="button" ${n ? "data-azzera" : 'data-azzera="tutto"'}>${n ? "Togli i filtri" : "Mostra tutto"}</button>`;
+  };
+  var pannello = document.createElement("div");
+  pannello.className = "pannello";
+  pannello.hidden = true;
+  pannello.innerHTML = `<div class="pannello-velo" data-chiudi-pannello></div>
+  <div class="pannello-foglio" role="dialog" aria-modal="true" aria-labelledby="pannello-titolo" tabindex="-1">
+    <header class="pannello-testa"><h2 id="pannello-titolo">Filtri</h2><button class="tondo" type="button" data-chiudi-pannello aria-label="Chiudi i filtri"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg></button></header>
+    <div class="pannello-corpo" data-pannello-corpo></div>
+    <footer class="pannello-piede"><button class="bottone" type="button" data-azzera>Azzera</button><button class="bottone pieno" type="button" data-chiudi-pannello data-pannello-mostra></button></footer>
+  </div>`;
+  document.body.append(pannello);
+  var primaDelPannello = null;
+  function disegnaPannello() {
+    const base = filtra(stato.filtro);
+    const gruppi = opzioni(base, stato.scelte).filter((g) => g.voci.length);
+    const mancanti = senzaTaglia(base);
+    $("[data-pannello-corpo]").innerHTML = `<fieldset class="gruppo"><legend>Ordina per</legend><div class="voci">${ORDINI.map((o) => `<button type="button" class="voce" data-ordine="${o.id}" aria-pressed="${o.id === stato.ordine}">${o.nome}</button>`).join("")}</div></fieldset>` + gruppi.map((g) => `<fieldset class="gruppo"><legend>${g.nome}${stato.scelte[g.id].length ? ` <b>${stato.scelte[g.id].length}</b>` : ""}</legend><div class="voci">${g.voci.map((o) => {
+      const scelta = stato.scelte[g.id].includes(o.v);
+      return `<button type="button" class="voce" data-gruppo="${g.id}" data-voce="${o.v}" aria-pressed="${scelta}"${!o.n && !scelta ? " disabled" : ""}>${o.hex ? `<i style="--c:${o.hex}"></i>` : ""}${o.v}</button>`;
+    }).join("")}</div></fieldset>`).join("");
+    const n = stato.lista.length;
+    $("[data-pannello-mostra]").textContent = n === 1 ? "Mostra 1 capo" : `Mostra ${n} capi`;
+    $("[data-azzera]", pannello).disabled = !quanteScelte(stato.scelte) && stato.ordine === "novita";
+  }
+  function apriPannello() {
+    primaDelPannello = document.activeElement;
+    disegnaPannello();
+    pannello.hidden = false;
+    requestAnimationFrame(() => pannello.classList.add("aperto"));
+    $(".pannello-foglio").focus();
+  }
+  function chiudiPannello() {
+    if (pannello.hidden) return;
+    pannello.classList.remove("aperto");
+    setTimeout(() => {
+      pannello.hidden = true;
+    }, statico ? 0 : 280);
+    if (primaDelPannello) primaDelPannello.focus();
+    if (stato.vista === "griglia") scrollTo(0, 0);
+  }
+  function cambiaScelte() {
+    if (moto) moto.kill();
+    applicaFiltro(stato.filtro);
+    scriviURL();
+    if (!pannello.hidden) disegnaPannello();
+    annuncio.textContent = `${stato.lista.length} capi.`;
+  }
+  function azzera(tutto) {
+    stato.scelte = scelteVuote();
+    stato.ordine = "novita";
+    if (tutto) stato.filtro = "tutti";
+    cambiaScelte();
+  }
+  function disegnaAttivi() {
+    const box = $("[data-attivi]");
+    const voci = GRUPPI.flatMap((g) => stato.scelte[g.id].map((v) => `<button type="button" data-gruppo="${g.id}" data-voce="${v}" aria-label="Togli il filtro ${v}">${v}<span aria-hidden="true">\xD7</span></button>`));
+    box.hidden = !voci.length;
+    box.innerHTML = voci.join("");
+  }
+  document.addEventListener("click", (e) => {
+    const t = e.target;
+    if (t.closest("[data-apri-pannello]")) return apriPannello();
+    if (t.closest("[data-chiudi-pannello]")) return chiudiPannello();
+    const z = t.closest("[data-azzera]");
+    if (z) return azzera(z.dataset.azzera === "tutto");
+    const o = t.closest("[data-ordine]");
+    if (o) {
+      stato.ordine = o.dataset.ordine;
+      return cambiaScelte();
+    }
+    const v = t.closest("[data-voce]");
+    if (v) {
+      const l = stato.scelte[v.dataset.gruppo];
+      const i = l.indexOf(v.dataset.voce);
+      if (i >= 0) l.splice(i, 1);
+      else l.push(v.dataset.voce);
+      cambiaScelte();
+      const stessa = $$(".voce[data-voce]", pannello).find((b) => b.dataset.voce === v.dataset.voce && b.dataset.gruppo === v.dataset.gruppo);
+      if (stessa && !pannello.hidden) stessa.focus();
+    }
+    return void 0;
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !pannello.hidden) {
+      e.stopPropagation();
+      chiudiPannello();
+    }
+  }, true);
+  function disegnaFiltri() {
+    const n = quanteScelte(stato.scelte);
+    const b = $("[data-apri-pannello]");
+    b.classList.toggle("attivo", n > 0);
+    b.setAttribute("aria-label", n ? `Filtri: ${n} attivi` : "Filtri");
+    $("b", b).textContent = n || "";
+    $("[data-filtri]").innerHTML = FILTRI.map((f) => `<button type="button" data-filtro="${f.id}" aria-pressed="${f.id === stato.filtro}">${f.nome}</button>`).join("");
+  }
+  function applicaFiltro(f, { conserva = null } = {}) {
+    stato.filtro = filtroValido(f);
+    stato.lista = calcola();
+    const i = conserva ? stato.lista.indexOf(conserva) : -1;
+    stato.indice = Math.max(0, i);
+    stato.pos = stato.indice;
+    allestisci();
+    disegna();
+    aggiornaDidascalia(1, false);
+    disegnaGriglia();
+    disegnaFiltri();
+    aggiornaTono();
+  }
+  function cambiaFiltro(f) {
+    if (f === stato.filtro) return;
+    const esegui = () => {
+      stato.scelte.tipi = [];
+      applicaFiltro(f);
+      scriviURL();
+      annuncio.textContent = `${FILTRI.find((x) => x.id === stato.filtro).nome}: ${stato.lista.length} capi.`;
+      const attivo = $(`[data-filtri] [aria-pressed="true"]`);
+      if (attivo) attivo.scrollIntoView({ inline: "center", block: "nearest", behavior: statico ? "auto" : "smooth" });
+    };
+    if (statico) return esegui();
+    if (moto) moto.kill();
+    if (stato.vista === "vetrina") {
+      import_gsap2.gsap.timeline().to(buio, { opacity: 0.9, duration: DUR.micro, ease: EASE.uscita }).to(capi, { scale: 0.9, autoAlpha: 0, duration: DUR.micro, ease: EASE.uscita, stagger: 0.02 }, 0).add(esegui).fromTo(buio, { opacity: 0.9 }, { opacity: 0, duration: DUR.media, ease: EASE.scena }).from(".capo.corrente .capo-foto", { yPercent: 6, scale: 0.94, duration: DUR.media, ease: EASE.entrata }, "<");
+    } else {
+      import_gsap2.gsap.timeline().to(griglia, { autoAlpha: 0, y: 16, duration: DUR.micro, ease: EASE.uscita }).add(() => {
+        esegui();
+        scrollTo(0, 0);
+      }).set(griglia, { autoAlpha: 1, y: 0 }).from(".griglia > li", { autoAlpha: 0, y: 30, duration: DUR.breve, ease: EASE.entrata, stagger: 0.04 });
+    }
+    return void 0;
+  }
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-filtro]");
+    if (b) cambiaFiltro(b.dataset.filtro);
+  });
+  function mostraVista() {
+    const inVetrina = stato.vista === "vetrina";
+    palco.hidden = !inVetrina;
+    zonaGriglia.hidden = inVetrina;
+    corpo.classList.toggle("in-vetrina", inVetrina);
+    corpo.classList.toggle("in-griglia", !inVetrina);
+    if (!inVetrina) corpo.style.setProperty("--tinta", "#f4ece0");
+    $$("[data-vista]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.vista === stato.vista)));
+    aggiornaTono();
+    if (inVetrina) disegna();
+  }
+  function cellaVicinaAlCentro() {
+    const celle = $$(".cella", griglia);
+    let migliore = null;
+    let minimo = Infinity;
+    celle.forEach((c) => {
+      const r = c.getBoundingClientRect();
+      const dist = Math.abs(r.top + r.height / 2 - innerHeight / 2) + Math.abs(r.left + r.width / 2 - innerWidth / 2) * 0.5;
+      if (dist < minimo) {
+        minimo = dist;
+        migliore = c;
+      }
+    });
+    return migliore;
+  }
+  function cambiaVista(nuova, { ricorda = true } = {}) {
+    if (nuova === stato.vista) return;
+    if (ricorda) locale.scrivi("is:vista", nuova);
+    const p0 = corrente();
+    let partenza = null;
+    let sorgente = null;
+    if (!statico && stato.lista.length) {
+      if (nuova === "griglia") {
+        sorgente = $(".capo.corrente img") || capi[stato.indice] && capi[stato.indice].querySelector("img");
+      } else {
+        const cella = cellaVicinaAlCentro();
+        if (cella) {
+          sorgente = cella.querySelector("img");
+          const i = stato.lista.indexOf(perId(cella.dataset.id));
+          if (i >= 0) {
+            stato.indice = i;
+            stato.pos = i;
+          }
+        }
+      }
+      if (sorgente) partenza = sorgente.getBoundingClientRect();
+    }
+    if (moto) moto.kill();
+    stato.vista = nuova;
+    mostraVista();
+    scriviURL();
+    annuncio.textContent = nuova === "griglia" ? "Modalit\xE0 griglia." : "Modalit\xE0 vetrina.";
+    if (nuova === "vetrina") {
+      disegna();
+      aggiornaDidascalia(1, false);
+    }
+    if (!partenza || !sorgente) return;
+    let arrivoEl = null;
+    if (nuova === "griglia") {
+      const cella = p0 ? $(`.cella[data-id="${p0.id}"]`) : null;
+      if (cella) {
+        cella.scrollIntoView({ block: "center", behavior: "auto" });
+        arrivoEl = cella.querySelector("img");
+      }
+    } else {
+      arrivoEl = capi[stato.indice] ? capi[stato.indice].querySelector("img") : null;
+    }
+    if (!arrivoEl) return;
+    const arrivo = arrivoEl.getBoundingClientRect();
+    const volo = document.createElement("img");
+    volo.className = "volo";
+    volo.alt = "";
+    volo.src = sorgente.currentSrc || sorgente.src;
+    document.body.appendChild(volo);
+    import_gsap2.gsap.set(arrivoEl, { autoAlpha: 0 });
+    const raggio = (r) => nuova === "griglia" ? [`${r.width / 2}px ${r.width / 2}px 0 0`, "0px"] : ["0px", `${arrivo.width / 2}px ${arrivo.width / 2}px 0 0`];
+    const [r0, r1] = raggio(partenza);
+    import_gsap2.gsap.fromTo(
+      volo,
+      { left: partenza.left, top: partenza.top, width: partenza.width, height: partenza.height, borderRadius: r0 },
+      {
+        left: arrivo.left,
+        top: arrivo.top,
+        width: arrivo.width,
+        height: arrivo.height,
+        borderRadius: r1,
+        duration: DUR.media,
+        ease: EASE.scena,
+        onComplete() {
+          import_gsap2.gsap.set(arrivoEl, { autoAlpha: 1 });
+          volo.remove();
+        }
+      }
+    );
+    if (nuova === "griglia") {
+      import_gsap2.gsap.from(".griglia > li", { autoAlpha: 0, y: 40, duration: DUR.media, ease: EASE.entrata, stagger: 0.03, clearProps: "all" });
+      import_gsap2.gsap.from(".griglia-testa", { autoAlpha: 0, duration: DUR.media, clearProps: "all" });
+    } else {
+      import_gsap2.gsap.from(".didascalia, .palco-cornice, .palco-luce", { autoAlpha: 0, duration: DUR.media, ease: EASE.scena, clearProps: "opacity,visibility" });
+      import_gsap2.gsap.from(".capo.di-lato", { autoAlpha: 0, duration: DUR.media, delay: DUR.micro, clearProps: "opacity,visibility" });
+    }
+  }
+  $$("[data-vista]").forEach((b) => b.addEventListener("click", () => cambiaVista(b.dataset.vista)));
+  function daURL({ primaVolta = false } = {}) {
+    const u = leggiURL();
+    const p = u.prodotto ? perId(u.prodotto) : null;
+    let filtro = u.filtro;
+    let { scelte, ordine } = u;
+    if (p && !raffina(filtra(filtro), scelte).includes(p)) {
+      filtro = "tutti";
+      scelte = scelteVuote();
+    }
+    const cambiato = filtro !== stato.filtro || ordine !== stato.ordine || JSON.stringify(scelte) !== JSON.stringify(stato.scelte);
+    stato.scelte = scelte;
+    stato.ordine = ordine;
+    if (primaVolta || cambiato) applicaFiltro(filtro, { conserva: p || corrente() });
+    if (primaVolta || u.vista !== stato.vista) {
+      stato.vista = u.vista;
+      mostraVista();
+    }
+    if (p) {
+      const i = stato.lista.indexOf(p);
+      if (i >= 0 && i !== stato.indice) vai(i, { immediato: true });
+      scheda.apri(p, u.colore);
+    } else scheda.chiudi();
+    if (primaVolta && !p && stato.vista === "vetrina") mostraSuggerimento();
+  }
+  window.addEventListener("popstate", () => {
+    daCronologia = true;
+    daURL();
+    daCronologia = false;
+  });
+  var attesa = 0;
+  window.addEventListener("resize", () => {
+    cancelAnimationFrame(attesa);
+    attesa = requestAnimationFrame(() => stato.vista === "vetrina" && disegna());
+  });
+  window.addEventListener("orientationchange", () => setTimeout(disegna, 250));
+  Preferiti.ascolta(() => {
+    aggiornaCuori();
+    if (stato.filtro === "preferiti" && !scheda.aperta) applicaFiltro("preferiti");
+  });
+  window.addEventListener("pagehide", () => {
+    if (moto) moto.kill();
+    import_gsap2.gsap.killTweensOf(stato);
+  });
+  daURL({ primaVolta: true });
+  if (!statico && stato.vista === "vetrina" && !scheda.aperta) {
+    import_gsap2.gsap.fromTo(buio, { opacity: 0.85 }, { opacity: 0, duration: DUR.lunga, ease: EASE.scena });
+    import_gsap2.gsap.from(".capo.corrente .capo-foto", { yPercent: 5, scale: 0.95, duration: DUR.lunga, ease: EASE.entrata, clearProps: "transform" });
+  }
+})();
+</script></body></html>
