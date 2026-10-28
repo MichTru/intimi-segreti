@@ -4171,7 +4171,7 @@ main {
     const t = unica(p) ? null : Taglie.di(p.id);
     return `\u2022 ${p.nome}${p.varianti.length > 1 ? `, ${v.nome}` : ""}${t ? `, taglia ${t}` : ""} (${prezzo(p)})`;
   };
-  var messaggioInsieme = (ids, titolo = "questi capi visti sul sito") => `Buongiorno, potete mettermi da parte ${titolo}?
+  var messaggioInsieme = (ids) => `Buongiorno, nel mio camerino sul sito ho scelto questi capi. Sono disponibili?
 ${ids.map(perId).filter(Boolean).map((p) => riga(p)).join("\n")}`;
   var messaggioNovita = () => "Buongiorno, vorrei ricevere su WhatsApp le novit\xE0 della boutique.";
   var messaggioBuono = (importo, per, da) => `Buongiorno, vorrei un buono regalo da ${euro(importo)}${per ? ` per ${per}` : ""}${da ? `, da parte di ${da}` : ""}. Come posso ritirarlo?`;
@@ -4489,7 +4489,7 @@ Va bene?`);
           <button class="tondo" type="button" data-togli="${p.id}" aria-label="Togli ${p.nome} dal camerino">${ICONE.chiudi}</button></li>`;
       }).join("")}</ul>
       <p class="camerino-totale"><small>Totale</small><span>${testoTotale(capi)}</span></p>
-      <div class="scheda-azioni"><button class="bottone pieno" type="button" data-invia>Mettimeli da parte</button></div>
+      <div class="scheda-azioni"><button class="bottone pieno" type="button" data-invia>Invia alla boutique</button></div>
       <button class="scheda-prova" type="button" data-prova>Prenota la prova in boutique <span aria-hidden="true">\u2192</span></button>`;
     }
     d.addEventListener("change", (e) => {
@@ -4961,8 +4961,7 @@ Va bene?`);
           <ul class="pl-capi">${l.capi.map((c) => `<li><a href="vetrina.html?prodotto=${c.id}">${c.nome}</a><span>${prezzo(c)}</span></li>`).join("")}</ul>
           <p class="pl-totale"><small>Insieme</small><span>${testoTotale(l.capi)}</span></p>
           <div class="pl-azioni">
-            <button class="bottone pieno piccolo" type="button" data-look-parte="${l.id}">Mettimeli da parte</button>
-            <button class="bottone piccolo" type="button" data-look-camerino="${l.id}">Nel camerino</button>
+            <button class="bottone pieno piccolo" type="button" data-look-camerino="${l.id}">Aggiungi al camerino</button>
           </div>
         </div>
       </article>`;
@@ -4970,17 +4969,9 @@ Va bene?`);
     const capiDi = (id) => validi.find((l) => l.id === id).capi;
     const nelCamerino = (capi) => capi.forEach((p) => !Preferiti.ha(p.id) && Preferiti.alterna(p.id));
     pista.addEventListener("click", (e) => {
-      const parte = e.target.closest("[data-look-parte]");
       const cam = e.target.closest("[data-look-camerino]");
-      if (cam) {
-        nelCamerino(capiDi(cam.dataset.lookCamerino));
-        avvisa("Look aggiunto al camerino.", 1800);
-      }
-      if (!parte) return;
-      const l = validi.find((x) => x.id === parte.dataset.lookParte);
-      if (l.capi.every((p) => unica(p) || Taglie.di(p.id))) return inviaRichiesta(messaggioInsieme(l.capi.map((p) => p.id), `il look \xAB${l.nome}\xBB visto sul sito`));
-      nelCamerino(l.capi);
-      avvisa("Scegli le taglie nel camerino.", 2200);
+      if (!cam) return;
+      nelCamerino(capiDi(cam.dataset.lookCamerino));
       $("[data-apri-preferiti]").click();
     });
   }

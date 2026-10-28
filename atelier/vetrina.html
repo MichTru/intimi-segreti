@@ -2072,9 +2072,6 @@ html.allarga::view-transition-new(foto-capo) {
     justify-content: space-between;
     order: -1;
   }
-  .didascalia .bottone {
-    display: none;
-  }
   .didascalia-nome {
     margin-bottom: 0;
   }
@@ -3337,10 +3334,7 @@ html.allarga::view-transition-new(foto-capo) {
     const t = unica(p) ? null : Taglie.di(p.id);
     return `\u2022 ${p.nome}${p.varianti.length > 1 ? `, ${v.nome}` : ""}${t ? `, taglia ${t}` : ""} (${prezzo(p)})`;
   };
-  var messaggioDaParte = (p, v) => `Buongiorno, potete mettermi da parte questo capo visto sul sito?
-${riga(p, v && v.id)}
-${linkProdotto(p, v)}`;
-  var messaggioInsieme = (ids, titolo = "questi capi visti sul sito") => `Buongiorno, potete mettermi da parte ${titolo}?
+  var messaggioInsieme = (ids) => `Buongiorno, nel mio camerino sul sito ho scelto questi capi. Sono disponibili?
 ${ids.map(perId).filter(Boolean).map((p) => riga(p)).join("\n")}`;
   var GIORNI = ["domenica", "luned\xEC", "marted\xEC", "mercoled\xEC", "gioved\xEC", "venerd\xEC", "sabato"];
   var MESI = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"];
@@ -3656,7 +3650,7 @@ Va bene?`);
           <button class="tondo" type="button" data-togli="${p.id}" aria-label="Togli ${p.nome} dal camerino">${ICONE.chiudi}</button></li>`;
       }).join("")}</ul>
       <p class="camerino-totale"><small>Totale</small><span>${testoTotale(capi2)}</span></p>
-      <div class="scheda-azioni"><button class="bottone pieno" type="button" data-invia>Mettimeli da parte</button></div>
+      <div class="scheda-azioni"><button class="bottone pieno" type="button" data-invia>Invia alla boutique</button></div>
       <button class="scheda-prova" type="button" data-prova>Prenota la prova in boutique <span aria-hidden="true">\u2192</span></button>`;
     }
     d.addEventListener("change", (e) => {
@@ -3887,8 +3881,7 @@ Va bene?`);
         <div class="taglie">${taglieDi(p).map((x) => `<label class="taglia"><input type="radio" name="taglia" value="${x}" ${x === t ? "checked" : ""}><span>${x}</span></label>`).join("")}</div>
       </fieldset>`}
       <div class="scheda-azioni">
-        <button class="bottone pieno" type="button" data-da-parte>Mettimelo da parte</button>
-        <button class="tondo" type="button" data-cuore aria-pressed="${Preferiti.ha(p.id)}" aria-label="Aggiungi al camerino">${ICONE.cuore}</button>
+        <button class="bottone pieno" type="button" data-camerino>${Preferiti.ha(p.id) ? "Nel camerino \xB7 apri" : "Aggiungi al camerino"}</button>
         <button class="tondo" type="button" data-condividi aria-label="Condividi questo prodotto">${ICONE.condividi}</button>
       </div>
       <button class="scheda-prova" type="button" data-prova>Prenota la prova in boutique <span aria-hidden="true">\u2192</span></button>
@@ -3960,9 +3953,18 @@ Va bene?`);
     d.addEventListener("click", (e) => {
       if (e.target === d || e.target.closest("[data-chiudi]")) return d.close();
       if (e.target.closest("[data-foto]")) return apriZoom();
-      if (e.target.closest("[data-da-parte]")) {
+      const cam = e.target.closest("[data-camerino]");
+      if (cam) {
+        if (Preferiti.ha(prodotto.id)) {
+          d.close();
+          document.querySelector("[data-apri-preferiti]").click();
+          return void 0;
+        }
         if (!unica(prodotto) && !Taglie.di(prodotto.id)) return richiama(corpo2.querySelector("[data-taglie]"), "Scegli la tua taglia.");
-        return inviaRichiesta(messaggioDaParte(prodotto, scelta));
+        Preferiti.alterna(prodotto.id);
+        cam.textContent = "Nel camerino \xB7 apri";
+        avvisa("Aggiunto al camerino.", 1800);
+        return void 0;
       }
       if (e.target.closest("[data-prova]")) return apriProva([prodotto.id]);
       if (e.target.closest("[data-condividi]")) return condividi(prodotto, scelta);
@@ -3971,12 +3973,6 @@ Va bene?`);
         const p = perId(abbina.dataset.abbina);
         if (p) api.apri(p, null, { da: abbina.querySelector("img") });
         return void 0;
-      }
-      const cuore = e.target.closest("[data-cuore]");
-      if (cuore) {
-        const ora = Preferiti.alterna(prodotto.id);
-        cuore.setAttribute("aria-pressed", String(ora));
-        avvisa(ora ? "Aggiunto al camerino." : "Tolto dal camerino.", 1800);
       }
       return void 0;
     });
@@ -4293,11 +4289,6 @@ Va bene?`);
       return;
     }
     if (e.type === "pointercancel") return;
-    if (gesto.asse === "y" && dy < -60) {
-      nascondiSuggerimento();
-      apriScheda(corrente());
-      return;
-    }
     if (!gesto.asse && durata < 400 && gesto.suCapo) {
       nascondiSuggerimento();
       apriScheda(corrente());
