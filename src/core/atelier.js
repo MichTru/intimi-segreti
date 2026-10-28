@@ -29,7 +29,7 @@ export function totale(capi) {
 export const testoTotale = (capi) => {
   const { somma, mancano } = totale(capi);
   if (!somma) return 'Prezzi in boutique';
-  return mancano ? `${euro(somma)} + ${mancano === 1 ? 'un capo' : `${mancano} capi`} in boutique` : euro(somma);
+  return mancano ? `Da ${euro(somma)}` : euro(somma);
 };
 
 const riga = (p, idVariante) => {

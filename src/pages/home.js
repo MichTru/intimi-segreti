@@ -342,8 +342,7 @@ function costruisciLookbook() {
       </article>`;
     })
     .join('');
-  $('#look').style.setProperty('--n', String(validi.length));
-
+  
   const capiDi = (id) => validi.find((l) => l.id === id).capi;
   const nelCamerino = (capi) => capi.forEach((p) => !Preferiti.ha(p.id) && Preferiti.alterna(p.id));
   pista.addEventListener('click', (e) => {
@@ -364,39 +363,21 @@ function costruisciLookbook() {
 }
 
 function montaLookbook() {
-  const zona = $('#look');
   const pista = $('[data-lookbook]');
   const barra = $('[data-lookbook-barra]');
   const pagine = $$('.pagina-look', pista);
-  const n = pagine.length;
-  if (!n || statico) return () => {};
-  let alto = 0;
-  let altezza = 0;
-  let frame = 0;
-  const misura = () => {
-    const r = zona.getBoundingClientRect();
-    alto = r.top + scrollY;
-    altezza = r.height - innerHeight;
+  if (!pagine.length) return () => {};
+  const passo = () => pagine[0].getBoundingClientRect().width + 14;
+  const aggiorna = () => {
+    const max = pista.scrollWidth - pista.clientWidth;
+    const p = max > 0 ? pista.scrollLeft / max : 1;
+    barra.style.transform = `scaleX(${(1 + p * (pagine.length - 1)) / pagine.length})`;
   };
-  const disegna = () => {
-    frame = 0;
-    const p = Math.min(1, Math.max(0, (scrollY - alto) / Math.max(1, altezza)));
-    const pos = p * (n - 1);
-    pista.style.transform = `translate3d(${-pos * 100}vw,0,0)`;
-    barra.style.transform = `scaleX(${(pos + 1) / n})`;
-    pagine.forEach((el, i) => el.style.setProperty('--q', String(Math.max(-1, Math.min(1, pos - i)).toFixed(4))));
-  };
-  const chiedi = () => { if (!frame) frame = requestAnimationFrame(disegna); };
-  const ridimensiona = () => { misura(); disegna(); };
-  addEventListener('scroll', chiedi, { passive: true });
-  addEventListener('resize', ridimensiona);
-  misura();
-  disegna();
-  setTimeout(ridimensiona, 800); // dopo il caricamento delle foto sopra
-  return () => {
-    removeEventListener('scroll', chiedi);
-    removeEventListener('resize', ridimensiona);
-  };
+  pista.addEventListener('scroll', aggiorna, { passive: true });
+  $('[data-lookbook-prima]').addEventListener('click', () => pista.scrollBy({ left: -passo(), behavior: 'smooth' }));
+  $('[data-lookbook-dopo]').addEventListener('click', () => pista.scrollBy({ left: passo(), behavior: 'smooth' }));
+  aggiorna();
+  return () => pista.removeEventListener('scroll', aggiorna);
 }
 
 // Buono regalo: la carta si aggiorna mentre si sceglie e si inclina seguendo il dito.

@@ -84,13 +84,17 @@
         </div>
       </section>
 
-      <!-- 4 — Lookbook: i look scorrono come le pagine di una rivista -->
-      <section class="lookbook" id="look" data-tono="scuro" data-capitolo="Lookbook" aria-roledescription="lookbook" aria-label="Lookbook">
-        <div class="lookbook-palco">
-          <p class="lookbook-titolo occhiello" aria-hidden="true">Lookbook</p>
-          <div class="lookbook-pista" data-lookbook></div>
-          <div class="lookbook-barra" aria-hidden="true"><i data-lookbook-barra></i></div>
-        </div>
+      <!-- 4 — Lookbook: i look si sfogliano con uno swipe -->
+      <section class="lookbook" id="look" data-tono="scuro" data-capitolo="Lookbook" aria-label="Lookbook">
+        <header class="lookbook-testa">
+          <h2>Due capi, <em>un look.</em></h2>
+          <div class="lookbook-frecce">
+            <button class="tondo" type="button" data-lookbook-prima aria-label="Look precedente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6" /></svg></button>
+            <button class="tondo" type="button" data-lookbook-dopo aria-label="Look successivo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6" /></svg></button>
+          </div>
+        </header>
+        <div class="lookbook-pista" data-lookbook data-cursore="trascina"></div>
+        <div class="lookbook-barra" aria-hidden="true"><i data-lookbook-barra></i></div>
       </section>
 
       <!-- 5 — Le collezioni: la pagina divisa in tre -->
