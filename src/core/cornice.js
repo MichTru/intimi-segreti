@@ -5,19 +5,22 @@ import '@fontsource-variable/fraunces/full-italic.css';
 import '@fontsource/jost/300.css';
 import '@fontsource/jost/400.css';
 import '../styles/base.css';
+import '../styles/atelier.css';
 
 import { gsap } from 'gsap';
 import sito from '../data/site.json';
 import { EASE, DUR, riduciMovimento } from '../motion/tokens.js';
 import { Preferiti, sessione } from './memoria.js';
-import { perId, nomeCategoria, src } from './catalogo.js';
-import { inviaRichiesta, messaggioLista, etichettaRichiesta, notaRichiesta } from './contatto.js';
+import { perId, src, prezzo } from './catalogo.js';
+import { Taglie, taglieDi, unica, testoTotale, messaggioInsieme, apriProva, richiama } from './atelier.js';
+import { inviaRichiesta } from './contatto.js';
 import { ICONE } from './icone.js';
 
 const VOCI = [
   { href: '/', testo: 'La vetrina', nota: 'Home' },
   { href: '/vetrina/', testo: 'Vetrina Digitale', nota: 'Catalogo' },
-  { href: '/vetrina/?categoria=regalo', testo: 'Idee regalo', nota: 'Selezione' },
+  { href: '/#look', testo: 'Lookbook', nota: 'I look' },
+  { href: '/#buono', testo: 'Buono regalo', nota: 'Da regalare' },
   { href: '/#boutique', testo: 'La Boutique', nota: 'Lugo' },
   { href: '/#contatti', testo: 'Contatti', nota: 'Vieni a trovarci' },
 ];
@@ -36,7 +39,7 @@ function montaTestata() {
   t.innerHTML = `
     <a class="marchio" href="/" aria-label="${sito.nome}, torna alla home"><span class="logo" aria-hidden="true"></span></a>
     <div class="testata-azioni">
-      <button class="tondo conta-preferiti" type="button" data-apri-preferiti aria-label="I tuoi preferiti">${ICONE.cuore}<b aria-hidden="true"></b></button>
+      <button class="tondo conta-preferiti" type="button" data-apri-preferiti aria-label="Il tuo camerino">${ICONE.cuore}<b aria-hidden="true"></b></button>
       <button class="apri-menu" type="button" aria-expanded="false" aria-controls="menu">Menu <i aria-hidden="true"></i></button>
     </div>`;
   document.body.prepend(t);
@@ -114,16 +117,17 @@ function montaPiede() {
   document.body.appendChild(p);
 }
 
-// ---------- Preferiti ----------
+// ---------- Il camerino (i preferiti, con taglia e totale) ----------
 function montaPreferiti() {
   const d = document.createElement('dialog');
-  d.className = 'foglio';
+  d.className = 'foglio camerino';
   d.setAttribute('aria-labelledby', 'titolo-preferiti');
   d.innerHTML = `
     <button class="tondo foglio-chiudi" type="button" data-chiudi aria-label="Chiudi">${ICONE.chiudi}</button>
     <div class="foglio-maniglia" aria-hidden="true"></div>
     <div class="foglio-corpo scheda">
-      <h2 id="titolo-preferiti">Preferiti</h2>
+      <p class="occhiello">Intimi Segreti</p>
+      <h2 id="titolo-preferiti">Il tuo <em>camerino.</em></h2>
       <div data-contenuto></div>
     </div>`;
   document.body.appendChild(d);
@@ -134,28 +138,45 @@ function montaPreferiti() {
     document.querySelectorAll('.conta-preferiti b').forEach((b) => (b.textContent = ids.length ? String(ids.length) : ''));
     if (!d.open) return;
     if (!ids.length) {
-      corpo.innerHTML = `<p class="scheda-descr">Non hai ancora salvato nessun capo. Tocca il cuore su un prodotto della Vetrina Digitale per ritrovarlo qui.</p>
+      corpo.innerHTML = `<p class="scheda-descr">Il camerino è vuoto.</p>
         <div class="scheda-azioni"><a class="bottone pieno" href="/vetrina/">Vai alla Vetrina Digitale</a></div>`;
       return;
     }
-    corpo.innerHTML = `<ul class="lista-preferiti">${ids
-      .map((id) => {
-        const p = perId(id);
-        return `<li><img src="${src(p.varianti[0].immagine, 600)}" alt="" loading="lazy" width="64" height="80">
-          <div><a href="/vetrina/?prodotto=${p.id}">${p.nome}</a><small>${nomeCategoria(p.categoria)}</small></div>
-          <button class="tondo" type="button" data-togli="${p.id}" aria-label="Togli ${p.nome} dai preferiti">${ICONE.chiudi}</button></li>`;
+    const capi = ids.map(perId);
+    corpo.innerHTML = `<ul class="lista-camerino">${capi
+      .map((p) => {
+        const t = Taglie.di(p.id);
+        return `<li><a href="/vetrina/?prodotto=${p.id}"><img src="${src(p.varianti[0].immagine, 600)}" alt="" loading="lazy" width="72" height="90"></a>
+          <div><a href="/vetrina/?prodotto=${p.id}">${p.nome}</a><small>${prezzo(p)}</small>
+            ${unica(p) ? '<small>Taglia unica</small>' : `<label class="mini-taglia"><span class="sr-only">Taglia per ${p.nome}</span><select data-taglia="${p.id}">
+              <option value="">Taglia</option>${taglieDi(p).map((x) => `<option ${x === t ? 'selected' : ''}>${x}</option>`).join('')}</select></label>`}</div>
+          <button class="tondo" type="button" data-togli="${p.id}" aria-label="Togli ${p.nome} dal camerino">${ICONE.chiudi}</button></li>`;
       })
       .join('')}</ul>
-      <div class="scheda-azioni"><button class="bottone pieno" type="button" data-invia>${haTesto()}</button></div>
-`;
+      <p class="camerino-totale"><small>Totale</small><span>${testoTotale(capi)}</span></p>
+      <div class="scheda-azioni"><button class="bottone pieno" type="button" data-invia>Mettimeli da parte</button></div>
+      <button class="scheda-prova" type="button" data-prova>Prenota la prova in boutique <span aria-hidden="true">→</span></button>`;
   }
-  const haTesto = () => (etichettaRichiesta() === 'Chiedi in boutique' ? 'Invia la lista alla boutique' : 'Copia la lista');
 
+  d.addEventListener('change', (e) => {
+    const s = e.target.closest('[data-taglia]');
+    if (s) Taglie.imposta(s.dataset.taglia, s.value || null);
+  });
   d.addEventListener('click', (e) => {
     if (e.target === d || e.target.closest('[data-chiudi]')) d.close();
     const togli = e.target.closest('[data-togli]');
     if (togli) Preferiti.alterna(togli.dataset.togli);
-    if (e.target.closest('[data-invia]')) inviaRichiesta(messaggioLista(Preferiti.tutti()));
+    if (e.target.closest('[data-invia]')) {
+      const ids = Preferiti.tutti().filter(perId);
+      const manca = ids.map(perId).find((p) => !unica(p) && !Taglie.di(p.id));
+      if (manca) return richiama(d.querySelector(`[data-taglia="${manca.id}"]`), `Scegli la taglia per ${manca.nome}.`);
+      inviaRichiesta(messaggioInsieme(ids));
+    }
+    if (e.target.closest('[data-prova]')) {
+      d.close();
+      apriProva(Preferiti.tutti().filter(perId));
+    }
+    return undefined;
   });
   document.addEventListener('click', (e) => {
     if (!e.target.closest('[data-apri-preferiti]')) return;

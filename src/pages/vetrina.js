@@ -108,12 +108,18 @@ const scheda = creaScheda({
   },
 });
 
+// foto da cui far crescere la scheda: la cella della griglia o il capo sul palco
+function fotoDi(p) {
+  if (stato.vista === 'griglia') return $(`.cella[data-id="${p.id}"] img`);
+  return $(`.capo[data-i="${stato.indice}"] img`);
+}
+
 function apriScheda(p, idColore) {
   if (!p) return;
   const i = stato.lista.indexOf(p);
   if (i >= 0 && i !== stato.indice && stato.vista === 'vetrina') vai(i, { immediato: true });
   else if (i >= 0) stato.indice = i;
-  scheda.apri(p, idColore);
+  scheda.apri(p, idColore, { da: fotoDi(p) });
 }
 
 // ------------------------------------------------------------------

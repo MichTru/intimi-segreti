@@ -3,6 +3,9 @@
 // soli, il resto entra una volta quando arriva sullo schermo. Tutto ciò che si
 // muove da solo si può fermare.
 import { montaCornice } from '../core/cornice.js';
+import { Taglie, unica, testoTotale, messaggioInsieme, messaggioNovita, messaggioBuono } from '../core/atelier.js';
+import { Preferiti } from '../core/memoria.js';
+import { avvisa } from '../core/avviso.js';
 import '../styles/home.css';
 
 import sito from '../data/site.json';
@@ -314,38 +317,126 @@ function montaRella() {
   };
 }
 
-function costruisciLook() {
-  $('[data-look]').innerHTML = look
+// Lookbook: i look scorrono in orizzontale mentre la pagina scende,
+// come le pagine di una rivista. Ogni look si mette da parte con un tocco.
+function costruisciLookbook() {
+  const pista = $('[data-lookbook]');
+  const validi = look.map((l) => ({ ...l, capi: l.capi.map(perId).filter(Boolean) })).filter((l) => l.capi.length >= 2);
+  pista.innerHTML = validi
     .map((l, i) => {
-      const capi = l.capi.map(perId).filter(Boolean);
-      if (capi.length < 2) return '';
-      const [a, b] = capi;
-      const totale = capi.reduce((s, c) => s + (c.prezzo || 0), 0);
-      return `<article class="look compare">
-        <div class="look-foto">
-          <a href="/vetrina/?prodotto=${a.id}" aria-label="${a.nome}, ${prezzo(a)}"><img src="${src(a.varianti[0].immagine, 600)}" alt="${a.nome}" loading="lazy" width="600" height="750"></a>
-          <span class="look-piu" aria-hidden="true">+</span>
-          <a href="/vetrina/?prodotto=${b.id}" aria-label="${b.nome}, ${prezzo(b)}"><img src="${src(b.varianti[0].immagine, 600)}" alt="${b.nome}" loading="lazy" width="600" height="750"></a>
-        </div>
-        <div class="look-testo">
-          ${a.marchio ? `<p class="occhiello">${a.marchio}</p>` : ''}
-          <h3>${l.nome}</h3>
-          <ul class="look-lista">${capi.map((c) => `<li><a href="/vetrina/?prodotto=${c.id}">${c.nome}</a><span>${prezzo(c)}</span></li>`).join('')}</ul>
-          <div class="look-piede">
-            <p class="look-totale"><small>Insieme</small><span>${euro(totale)}</span></p>
-            <button class="bottone pieno piccolo" type="button" data-look-chiedi="${l.id}">${etichettaRichiesta()}</button>
+      const [a, b] = l.capi;
+      const parole = l.nome.split(' ');
+      const titolo = parole.length > 1 ? `${parole.slice(0, -1).join(' ')} <em>${parole.at(-1)}</em>` : `<em>${l.nome}</em>`;
+      return `<article class="pagina-look" style="--i:${i}" aria-label="${l.nome}">
+        <a class="pl-foto" href="/vetrina/?prodotto=${a.id}" tabindex="-1" aria-hidden="true"><img src="${src(a.varianti[0].immagine)}" alt="" loading="lazy" width="1200" height="1500"></a>
+        <a class="pl-foto2" href="/vetrina/?prodotto=${b.id}" tabindex="-1" aria-hidden="true"><img src="${src(b.varianti[0].immagine, 600)}" alt="" loading="lazy" width="600" height="750"></a>
+        <div class="pl-testo">
+          <h3>${titolo}</h3>
+          <ul class="pl-capi">${l.capi.map((c) => `<li><a href="/vetrina/?prodotto=${c.id}">${c.nome}</a><span>${prezzo(c)}</span></li>`).join('')}</ul>
+          <p class="pl-totale"><small>Insieme</small><span>${testoTotale(l.capi)}</span></p>
+          <div class="pl-azioni">
+            <button class="bottone pieno piccolo" type="button" data-look-parte="${l.id}">Mettimeli da parte</button>
+            <button class="bottone piccolo" type="button" data-look-camerino="${l.id}">Nel camerino</button>
           </div>
         </div>
       </article>`;
     })
     .join('');
-  $('[data-look]').addEventListener('click', (e) => {
-    const b = e.target.closest('[data-look-chiedi]');
-    if (!b) return;
-    const l = look.find((x) => x.id === b.dataset.lookChiedi);
-    const capi = l.capi.map(perId).filter(Boolean);
-    inviaRichiesta(`Buongiorno, vorrei informazioni sul look «${l.nome}» visto sul sito:\n${capi.map((c) => `• ${c.nome} (${prezzo(c)})`).join('\n')}`);
+  $('#look').style.setProperty('--n', String(validi.length));
+
+  const capiDi = (id) => validi.find((l) => l.id === id).capi;
+  const nelCamerino = (capi) => capi.forEach((p) => !Preferiti.ha(p.id) && Preferiti.alterna(p.id));
+  pista.addEventListener('click', (e) => {
+    const parte = e.target.closest('[data-look-parte]');
+    const cam = e.target.closest('[data-look-camerino]');
+    if (cam) {
+      nelCamerino(capiDi(cam.dataset.lookCamerino));
+      avvisa('Look aggiunto al camerino.', 1800);
+    }
+    if (!parte) return;
+    const l = validi.find((x) => x.id === parte.dataset.lookParte);
+    if (l.capi.every((p) => unica(p) || Taglie.di(p.id))) return inviaRichiesta(messaggioInsieme(l.capi.map((p) => p.id), `il look «${l.nome}» visto sul sito`));
+    // manca qualche taglia: il look va nel camerino, dove si scelgono
+    nelCamerino(l.capi);
+    avvisa('Scegli le taglie nel camerino.', 2200);
+    $('[data-apri-preferiti]').click();
   });
+}
+
+function montaLookbook() {
+  const zona = $('#look');
+  const pista = $('[data-lookbook]');
+  const barra = $('[data-lookbook-barra]');
+  const pagine = $$('.pagina-look', pista);
+  const n = pagine.length;
+  if (!n || statico) return () => {};
+  let alto = 0;
+  let altezza = 0;
+  let frame = 0;
+  const misura = () => {
+    const r = zona.getBoundingClientRect();
+    alto = r.top + scrollY;
+    altezza = r.height - innerHeight;
+  };
+  const disegna = () => {
+    frame = 0;
+    const p = Math.min(1, Math.max(0, (scrollY - alto) / Math.max(1, altezza)));
+    const pos = p * (n - 1);
+    pista.style.transform = `translate3d(${-pos * 100}vw,0,0)`;
+    barra.style.transform = `scaleX(${(pos + 1) / n})`;
+    pagine.forEach((el, i) => el.style.setProperty('--q', String(Math.max(-1, Math.min(1, pos - i)).toFixed(4))));
+  };
+  const chiedi = () => { if (!frame) frame = requestAnimationFrame(disegna); };
+  const ridimensiona = () => { misura(); disegna(); };
+  addEventListener('scroll', chiedi, { passive: true });
+  addEventListener('resize', ridimensiona);
+  misura();
+  disegna();
+  setTimeout(ridimensiona, 800); // dopo il caricamento delle foto sopra
+  return () => {
+    removeEventListener('scroll', chiedi);
+    removeEventListener('resize', ridimensiona);
+  };
+}
+
+// Buono regalo: la carta si aggiorna mentre si sceglie e si inclina seguendo il dito.
+function montaBuono() {
+  const modulo = $('[data-buono]');
+  const scena = $('[data-buono-scena]');
+  const carta = $('[data-buono-carta]');
+  if (!modulo) return;
+  const aggiorna = () => {
+    const f = new FormData(modulo);
+    $('[data-buono-cifra]').textContent = euro(Number(f.get('importo')));
+    const per = String(f.get('per') || '').trim();
+    const da = String(f.get('da') || '').trim();
+    $('[data-buono-per]').textContent = per ? `Per ${per}` : 'Per te';
+    $('[data-buono-da]').textContent = da ? `da ${da}` : '';
+    carta.classList.remove('battito');
+    void carta.offsetWidth;
+    carta.classList.add('battito');
+  };
+  modulo.addEventListener('input', aggiorna);
+  modulo.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const f = new FormData(modulo);
+    inviaRichiesta(messaggioBuono(Number(f.get('importo')), String(f.get('per') || '').trim(), String(f.get('da') || '').trim()));
+  });
+  if (statico) return;
+  const inclina = (e) => {
+    const r = scena.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    carta.style.setProperty('--ry', `${x * 22}deg`);
+    carta.style.setProperty('--rx', `${-y * 18}deg`);
+    carta.style.setProperty('--gx', `${(x + 0.5) * 100}%`);
+    carta.style.setProperty('--gy', `${(y + 0.5) * 100}%`);
+    carta.classList.add('tenuta');
+  };
+  scena.addEventListener('pointermove', inclina);
+  scena.addEventListener('pointerdown', inclina);
+  scena.addEventListener('pointerleave', () => carta.classList.remove('tenuta'));
+  scena.addEventListener('pointerup', (e) => { if (e.pointerType !== 'mouse') carta.classList.remove('tenuta'); });
 }
 
 // Pellicola: una "gif" fatta con le foto dei capi, che scattano una dopo l'altra.
@@ -415,10 +506,13 @@ costruisciApertura();
 const pagine = costruisciCopertine();
 costruisciNastro();
 costruisciRella();
-costruisciLook();
+costruisciLookbook();
+montaBuono();
+$('[data-novita]').addEventListener('click', () => inviaRichiesta(messaggioNovita()));
 const fermaPellicola = montaPellicola();
 costruisciTerzi();
 const fermaRella = montaRella();
+const fermaLookbook = montaLookbook();
 riempiBoutique();
 
 // ------------------------------------------------------------------
@@ -554,8 +648,9 @@ function avvia() {
 avvia();
 window.addEventListener('pagehide', (e) => {
   if (e.persisted) return;
-  osservatori.forEach((o) => o.disconnect());
+  osservatori.forEach((o) => o && o.disconnect && o.disconnect());
   fermaPellicola();
   fermaGiostra();
   fermaRella();
+  fermaLookbook();
 });

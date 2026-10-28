@@ -49,6 +49,14 @@
         "pullover-bottoni",
         "jeans-ampio"
       ]
+    },
+    {
+      "id": "rose-pelliccia",
+      "nome": "Rose e pelliccia",
+      "capi": [
+        "tshirt-red-roses",
+        "tote-ecopelliccia"
+      ]
     }
   ],
   "categorie": [

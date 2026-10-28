@@ -1,26 +1,35 @@
 # Intimi Segreti — Boutique digitale
 
-Sito della boutique Intimi Segreti di Lugo (RA): home, Vetrina Digitale (vetrina con swipe, griglia, filtri per tipo, marchio, colore, taglia, prezzo), scheda prodotto, preferiti, privacy.
-
-## Due cartelle
-
-- **`sito-pronto/`** — il sito già pronto da pubblicare, senza nessuna installazione. È quello attualmente online su Netlify.
-  Per pubblicarlo da GitHub su Netlify: *Add new project → Import from GitHub*, nessun comando di build, **Publish directory: `sito-pronto`**.
-- **Il resto (`src/`, `public/`, `index.html`, `vetrina/`…)** — il codice sorgente da modificare, costruito con Vite:
+Sito statico a più pagine, costruito con Vite. Nessun framework.
 
 ```bash
 npm install
 npm run dev        # sviluppo, http://localhost:5173
-npm run build      # produzione in dist/
+npm run build      # produzione in dist/ (+ pagine di condivisione, dati strutturati, sitemap)
+npm run preview    # prova della versione di produzione
 ```
 
-## ⚠️ Stato del collaudo
+Il contenuto di `dist/` si pubblica su qualsiasi hosting statico. Impostare `404.html` come pagina di errore.
 
-Il codice è stato scritto in un ambiente senza accesso a npm: `npm install` e `vite build` non sono mai stati eseguiti.
-`sito-pronto/` è stato generato impacchettando il sorgente con esbuild e provato in Chromium a misura di telefono (390×844) e di PC (1440×900).
-Non provati: dispositivi reali (iPhone/Safari), la build di Vite.
+## ⚠️ Stato del collaudo — da leggere
 
-Le foto dei prodotti vengono da screenshot e siti di altri rivenditori o sono generate: vanno sostituite con scatti della boutique (o con immagini di cui si hanno i diritti) prima del lancio. Dati ancora da inserire: vedi `DATI-MANCANTI.md`.
+Il progetto è stato scritto in un ambiente senza accesso a npm: **`npm install`, `vite dev` e `vite build` non sono mai stati eseguiti**.
+Le prove sono state fatte impacchettando il codice con esbuild.
+
+**Verificato in Chromium (390×844 e 1440×900), scorrendo davvero la pagina:**
+la home completa — copertine con passaggio a cerchio, nastro, rella orizzontale, look, pila delle collezioni,
+chiusura «Lugo», contatti — senza errori in console e senza scroll orizzontale.
+La home non usa librerie esterne: il motore di scroll è `src/motion/scena.js`.
+
+**Verificato solo nella logica** (con GSAP sostituito da un segnaposto): Vetrina Digitale (swipe, soglia del gesto,
+frecce, filtri, scheda, preferiti, griglia, stato nell'URL, tasto indietro), menu, copia della richiesta, `tools/post-build.mjs`.
+
+**Non verificato:**
+
+- le animazioni GSAP di Vetrina Digitale, menu, cursore e passaggio Vetrina ↔ Griglia;
+- il carattere Fraunces (nelle prove c'era un serif sostitutivo: la parola gigante può avere ingombro diverso);
+- i percorsi di `@fontsource-variable/fraunces` e la build di Vite;
+- qualsiasi dispositivo reale: iPhone e Safari non sono stati provati, prestazioni non misurate.
 
 ## Aggiornare il catalogo
 

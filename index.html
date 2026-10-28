@@ -80,18 +80,17 @@
         </div>
         <div class="rella-piede">
           <a class="bottone pieno" href="/vetrina/">Entra nella Vetrina Digitale</a>
+          <button class="bottone" type="button" data-novita>Avvisami delle novità</button>
         </div>
       </section>
 
-      <!-- 4 — I look: capi che si portano insieme -->
-      <section class="look-zona" id="look" data-tono="chiaro" data-capitolo="I look">
-        <header class="look-testa">
-          <div>
-            <h2>Due capi, <em>un look.</em></h2>
-          </div>
-          <div class="pellicola" data-pellicola aria-hidden="true"></div>
-        </header>
-        <div class="look-griglia" data-look></div>
+      <!-- 4 — Lookbook: i look scorrono come le pagine di una rivista -->
+      <section class="lookbook" id="look" data-tono="scuro" data-capitolo="Lookbook" aria-roledescription="lookbook" aria-label="Lookbook">
+        <div class="lookbook-palco">
+          <p class="lookbook-titolo occhiello" aria-hidden="true">Lookbook</p>
+          <div class="lookbook-pista" data-lookbook></div>
+          <div class="lookbook-barra" aria-hidden="true"><i data-lookbook-barra></i></div>
+        </div>
       </section>
 
       <!-- 5 — Le collezioni: la pagina divisa in tre -->
@@ -99,6 +98,36 @@
 
       <!-- stacco: una fascia vuota che separa le collezioni dalla chiusura -->
       <div class="stacco" aria-hidden="true" data-tono="chiaro"></div>
+
+      <!-- Buono regalo -->
+      <section class="buono-zona" id="buono" data-tono="scuro" data-capitolo="Buono regalo">
+        <div class="buono-scena" data-buono-scena>
+          <div class="buono-carta" data-buono-carta aria-hidden="true">
+            <span class="buono-riflesso"></span>
+            <img class="buono-logo" src="/assets/site/logo-oro.webp" alt="" width="943" height="512" loading="lazy" />
+            <p class="buono-cifra" data-buono-cifra>50 €</p>
+            <p class="buono-righe"><span data-buono-per>Per te</span><span data-buono-da></span></p>
+            <p class="buono-etichetta">Buono regalo</p>
+          </div>
+        </div>
+        <form class="buono-modulo" data-buono>
+          <p class="occhiello">Buono regalo</p>
+          <h2>Il regalo giusto, <em>lo sceglie lei.</em></h2>
+          <fieldset class="scelta-taglie"><legend>Importo</legend>
+            <div class="taglie">
+              <label class="taglia larga"><input type="radio" name="importo" value="25" /><span>25 €</span></label>
+              <label class="taglia larga"><input type="radio" name="importo" value="50" checked /><span>50 €</span></label>
+              <label class="taglia larga"><input type="radio" name="importo" value="100" /><span>100 €</span></label>
+              <label class="taglia larga"><input type="radio" name="importo" value="150" /><span>150 €</span></label>
+            </div>
+          </fieldset>
+          <div class="buono-campi">
+            <label><span>Per</span><input name="per" maxlength="24" autocomplete="off" placeholder="Giulia" /></label>
+            <label><span>Da</span><input name="da" maxlength="24" autocomplete="off" placeholder="Marco" /></label>
+          </div>
+          <button class="bottone pieno" type="submit" data-magnetico>Richiedi il buono</button>
+        </form>
+      </section>
 
       <!-- 6 — Verso la boutique -->
       <section class="lugo-zona" id="mondo" data-tono="scuro" data-capitolo="La boutique" data-loop>
