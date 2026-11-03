@@ -3487,6 +3487,27 @@ main {
   .pl-azioni .bottone { min-height: 42px; }
   .lookbook-barra { margin-top: 10px; flex: none; }
 }
+/* Le collezioni: foto piene, corsivo leggero */
+.terzo h3 { font-weight: 350; font-style: italic; letter-spacing: -0.01em; }
+.terzi-testa { display: none; }
+@media (max-width: 767px) {
+  .terzi { height: auto; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: none; gap: 10px; padding: 9svh var(--bordo) 10svh; }
+  .terzi-testa { display: block; grid-column: 1 / -1; margin-bottom: 10px; }
+  .terzi-testa h2 { font-size: clamp(2.2rem, 9vw, 3rem); }
+  .terzi-testa h2 em { color: var(--cipria); }
+  .terzo, .terzo:nth-child(2) { min-height: 0; aspect-ratio: 3 / 4; padding: 14px 14px 16px; justify-content: flex-end; border-radius: 14px; background: var(--borgogna); }
+  .terzi > a:first-of-type { grid-column: 1 / -1; aspect-ratio: 4 / 3.5; padding: 20px 18px; }
+  .terzo + .terzo { border: 0; }
+  .terzo img { left: 0; width: 100%; object-position: 50% 22%; }
+  .terzo::before, .terzo:nth-child(2)::before { background: linear-gradient(180deg, transparent 38%, rgb(42 10 20 / 0.88)); }
+  .terzo h3 { font-size: clamp(1.6rem, 7vw, 2.1rem); }
+  .terzi > a:first-of-type h3 { font-size: clamp(2.3rem, 10vw, 3.2rem); }
+  .terzo p { display: none; }
+  .terzi > a:first-of-type p { display: block; font-size: 0.86rem; margin-top: 2px; }
+  .terzo-vai { margin-top: 6px; font-size: 0.6rem; letter-spacing: 0.14em; white-space: nowrap; }
+  .terzi > a:first-of-type img { object-position: 50% 12%; }
+  .terzi > a:first-of-type::before { background: linear-gradient(180deg, transparent 22%, rgb(42 10 20 / 0.55) 50%, rgb(42 10 20 / 0.94)); }
+}
 </style>
 </head>
 <body>
@@ -3910,7 +3931,7 @@ main {
           luce: "#f3d9d2",
           testo: "#f6efe6"
         },
-        frase: "La selezione di intimo arriva in vetrina a breve. Intanto, chiedi in boutique."
+        frase: "Da scegliere in boutique, con calma."
       }
     ],
     prodotti: [
@@ -5344,15 +5365,15 @@ Va bene?`);
     };
   }
   function costruisciTerzi() {
-    $("[data-terzi]").innerHTML = categorie.filter((c) => c.id !== "mare").map((c, i) => {
+    $("[data-terzi]").innerHTML = '<header class="terzi-testa"><h2>Le <em>collezioni.</em></h2></header>' + categorie.filter((c) => c.id !== "mare").map((c, i) => {
       const p = filtra(c.id)[0];
       const foto = p ? src(p.varianti[0].immagine) : `${SITO}manifesto-verticale.webp`;
-      return `<a class="terzo" href="${p ? `vetrina.html?categoria=${c.id}` : "/#contatti"}">
+      return `<a class="terzo" href="${p ? `vetrina.html?categoria=${c.id}` : "#contatti"}">
         <img src="${foto}" alt="" loading="lazy" width="1200" height="1500">
         
         <h3>${c.nome}</h3>
         <p>${c.frase}</p>
-        <span class="terzo-vai">${p ? `Guarda ${c.nome.toLowerCase()}` : "Contatta la boutique"}</span>
+        <span class="terzo-vai">${p ? `Guarda ${c.nome.toLowerCase()}` : "Chiedi in boutique"}</span>
       </a>`;
     }).join("");
   }
