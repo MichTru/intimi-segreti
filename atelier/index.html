@@ -1809,152 +1809,124 @@ html.allarga::view-transition-new(foto-capo) {
   }
 }
 .mare-zona {
-  --mare: #2f6f8d;
-  --mare-notte: #14323f;
-  --sabbia: #f2e6d0;
-  --corallo: #d9694f;
   position: relative;
+  height: 92svh;
+  min-height: 600px;
   overflow: hidden;
-  padding: 0 0 12svh;
-  background:
-    linear-gradient(
-      #f8f1e4 0,
-      var(--sabbia) 60%,
-      #ead9bb 100%);
-  color: var(--mare-notte);
-  --testo: var(--mare-notte);
-  --fondo: var(--sabbia);
-  --tenue: rgb(20 50 63 / 0.62);
-  --linea: rgb(20 50 63 / 0.2);
-  --accento: var(--mare);
+  background: var(--borgogna-notte);
+  color: var(--avorio);
+  --testo: var(--avorio);
+  --fondo: var(--borgogna);
 }
-.mare-cielo {
-  position: relative;
-  height: clamp(150px, 26vw, 260px);
-  background: linear-gradient(#fbf6ec, #f4ead8);
-}
-.mare-sole {
+.mare-link {
   position: absolute;
-  right: 12%;
-  top: 18%;
-  width: clamp(56px, 9vw, 110px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: #f1c56d;
-  animation: sole 9s ease-in-out infinite;
-}
-@keyframes sole {
-  50% {
-    transform: translateY(8px) scale(1.04);
-  }
-}
-.mare-onda {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 200%;
-  height: 100%;
-  animation: onda 26s linear infinite;
-}
-.onda-1 {
-  fill: #8cc0cc;
-  opacity: 0.8;
-}
-.onda-2 {
-  fill: #4f8fa8;
-  opacity: 0.85;
-  animation-duration: 19s;
-  animation-direction: reverse;
-}
-.onda-3 {
-  fill: var(--sabbia);
-  animation-duration: 14s;
-}
-@keyframes onda {
-  to {
-    transform: translateX(-50%);
-  }
-}
-.mare-testa {
-  padding: 2svh var(--bordo) 30px;
-}
-.mare-testa .occhiello {
-  color: var(--mare);
-}
-.mare-testa h2 {
-  font-size: clamp(2.6rem, 10vw, 5.6rem);
-  margin-top: 0.2em;
-}
-.mare-testa h2 em {
-  color: var(--corallo);
-}
-.mare-capi {
-  list-style: none;
-  margin: 0;
-  padding: 10px var(--bordo) 26px;
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-}
-.mare-capi::-webkit-scrollbar {
-  display: none;
-}
-.mare-capi li {
-  flex: none;
-  width: 62vw;
-  scroll-snap-align: start;
-  transform: rotate(var(--g));
-  transition: transform var(--t-breve) var(--ease-molla);
-}
-.mare-capi li:hover {
-  transform: rotate(0deg) translateY(-6px);
-}
-.mare-capi a {
-  display: grid;
-  gap: 4px;
-  padding: 8px 8px 14px;
-  background: #fffdf8;
+  inset: 0;
+  display: block;
   text-decoration: none;
-  box-shadow: 0 16px 26px -16px rgb(20 50 63 / 0.45);
+  color: inherit;
 }
-.mare-capi img {
+.mare-foto,
+.mare-foto img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: 100%;
+}
+.mare-foto img {
   object-fit: cover;
+  object-position: 46% 20%;
+  transform-origin: 50% 25%;
+  animation: respiro 30s ease-in-out infinite alternate;
+  filter: saturate(0.94) contrast(1.03);
 }
-.mare-capi span {
+.mare-velo {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, var(--borgogna-notte) 0, rgb(42 10 20 / 0.55) 9%, transparent 26%, transparent 52%, rgb(42 10 20 / 0.7) 80%, var(--borgogna-notte) 100%),
+    radial-gradient(120% 90% at 65% 40%, transparent 45%, rgb(42 10 20 / 0.45) 100%);
+}
+.mare-velo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, rgb(106 26 47 / 0.32), transparent 45%, rgb(220 179 169 / 0.12));
+  mix-blend-mode: soft-light;
+}
+.mare-testo {
+  position: absolute;
+  left: var(--bordo);
+  right: var(--bordo);
+  bottom: calc(var(--sotto) + 13svh);
+  display: grid;
+  justify-items: start;
+}
+.mare-testo > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 1.1s var(--ease-entrata), transform 1.1s var(--ease-entrata);
+}
+.mare-zona.in-vista .mare-testo > * {
+  opacity: 1;
+  transform: none;
+}
+.mare-zona.in-vista .mare-testo > :nth-child(2) {
+  transition-delay: 0.12s;
+}
+.mare-zona.in-vista .mare-testo > :nth-child(3) {
+  transition-delay: 0.24s;
+}
+.mare-testo .occhiello {
+  color: var(--cipria);
+}
+.mare-titolo {
+  display: block;
   font-family: var(--serif);
-  font-size: 1.2rem;
-  margin-top: 8px;
+  font-weight: 350;
+  font-variation-settings: "SOFT" 100;
+  font-size: clamp(2.6rem, 11vw, 5.6rem);
+  line-height: 1.02;
+  margin: 0.2em 0 0.55em;
+  max-width: 8em;
+  text-shadow: 0 2px 30px rgb(42 10 20 / 0.5);
 }
-.mare-capi small {
-  color: var(--tenue);
+.mare-titolo em {
+  color: var(--cipria);
 }
-.mare-piede {
-  padding: 8px var(--bordo) 0;
+.mare-link .bottone {
+  transition: background-color var(--t-micro), color var(--t-micro);
 }
-@media (min-width: 900px) {
-  .mare-capi {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 28px;
-    overflow: visible;
-    padding-inline: 6vw;
+.mare-link:hover .bottone {
+  background: transparent;
+  color: var(--avorio);
+}
+@media (min-width: 768px) {
+  .mare-zona {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 1672 / 941;
   }
-  .mare-capi li {
-    width: auto;
+  .mare-foto img {
+    object-position: 50% 50%;
   }
-  .mare-testa,
-  .mare-piede {
-    padding-inline: 6vw;
+  .mare-titolo {
+    display: none;
+  }
+  .mare-testo {
+    left: 10vw;
+    right: auto;
+    bottom: 12%;
+    gap: 14px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .mare-onda,
-  .mare-sole {
+  .mare-foto img {
     animation: none;
+  }
+  .mare-testo > * {
+    opacity: 1;
+    transform: none;
   }
 }
 
@@ -3578,20 +3550,19 @@ main {
         <div class="lookbook-barra" aria-hidden="true"><i data-lookbook-barra></i></div>
       </section>
 
-      <!-- Moda mare: la stagione chiara, in contrasto con il velluto -->
-      <section class="mare-zona" id="mare" data-tono="chiaro" data-capitolo="Moda mare" data-mare>
-        <div class="mare-cielo" aria-hidden="true">
-          <i class="mare-sole"></i>
-          <svg class="mare-onda onda-1" viewBox="0 0 2880 200" preserveAspectRatio="none"><path d="M0 70 C 120 44 360 96 480 70 C 600 44 840 96 960 70 C 1080 44 1320 96 1440 70 C 1560 44 1800 96 1920 70 C 2040 44 2280 96 2400 70 C 2520 44 2760 96 2880 70 V 200 H 0 Z"/></svg>
-          <svg class="mare-onda onda-2" viewBox="0 0 2880 200" preserveAspectRatio="none"><path d="M0 110 C 90 90 270 130 360 110 C 450 90 630 130 720 110 C 810 90 990 130 1080 110 C 1170 90 1350 130 1440 110 C 1530 90 1710 130 1800 110 C 1890 90 2070 130 2160 110 C 2250 90 2430 130 2520 110 C 2610 90 2790 130 2880 110 V 200 H 0 Z"/></svg>
-          <svg class="mare-onda onda-3" viewBox="0 0 2880 200" preserveAspectRatio="none"><path d="M0 150 C 72 136 216 164 288 150 C 360 136 504 164 576 150 C 648 136 792 164 864 150 C 936 136 1080 164 1152 150 C 1224 136 1368 164 1440 150 C 1512 136 1656 164 1728 150 C 1800 136 1944 164 2016 150 C 2088 136 2232 164 2304 150 C 2376 136 2520 164 2592 150 C 2664 136 2808 164 2880 150 V 200 H 0 Z"/></svg>
-        </div>
-        <div class="mare-testa">
-          <p class="occhiello">Moda mare</p>
-          <h2>Il mare <em>entra in boutique.</em></h2>
-        </div>
-        <ul class="mare-capi" data-mare-capi></ul>
-        <div class="mare-piede"><a class="bottone pieno" href="vetrina.html?categoria=mare" data-magnetico>Scopri la moda mare</a></div>
+      <section class="mare-zona" id="mare" data-capitolo="Moda mare" data-mare>
+        <a class="mare-link" href="vetrina.html?categoria=mare">
+          <picture class="mare-foto">
+            <source media="(max-width: 767px)" srcset="assets/site/mare-verticale.webp">
+            <img src="assets/site/mare.webp" alt="Moda mare da Intimi Segreti" loading="lazy" decoding="async" draggable="false">
+          </picture>
+          <span class="mare-velo" aria-hidden="true"></span>
+          <span class="mare-testo">
+            <span class="occhiello">Moda mare</span>
+            <span class="mare-titolo">Il mare <em>entra in boutique.</em></span>
+            <span class="bottone pieno">Scopri costumi e moda mare</span>
+          </span>
+        </a>
       </section>
 
       <!-- 5 — Le collezioni: la pagina divisa in tre -->
@@ -5279,14 +5250,18 @@ Va bene?`);
   }
   function costruisciMare() {
     const zona = $("[data-mare]");
-    const capi = filtra("mare");
-    if (!site_default.stagioneMare || !capi.length) {
+    if (!site_default.stagioneMare) {
       zona.hidden = true;
       return;
     }
-    $("[data-mare-capi]").innerHTML = capi.map((p, i) => `<li style="--g:${i % 2 ? 3 : -3}deg"><a href="vetrina.html?prodotto=${p.id}">
-      <img src="${src(p.varianti[0].immagine, 600)}" alt="${p.nome}" loading="lazy" width="600" height="750">
-      <span>${p.nome}</span><small>${prezzo(p)}</small></a></li>`).join("");
+    if (!("IntersectionObserver" in window)) return zona.classList.add("in-vista");
+    const os = new IntersectionObserver(([v]) => {
+      if (v.isIntersecting) {
+        zona.classList.add("in-vista");
+        os.disconnect();
+      }
+    }, { threshold: 0.35 });
+    os.observe(zona);
   }
   function montaBuono() {
     const modulo = $("[data-buono]");
@@ -5519,5 +5494,6 @@ Va bene?`);
   });
 })();
 </script>
+
 </body>
 </html>
