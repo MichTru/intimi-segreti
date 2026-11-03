@@ -3470,6 +3470,23 @@ main {
     padding: 7svh 0;
   }
 }
+/* Lookbook su telefono: tutta la scheda in un solo schermo */
+@media (max-width: 899px) {
+  .lookbook { height: 100svh; min-height: 540px; padding: calc(var(--testata) + var(--sopra) + 6px) 0 calc(var(--sotto) + 14px); display: flex; flex-direction: column; }
+  .lookbook-testa { margin-bottom: 12px; }
+  .lookbook-testa h2 { font-size: clamp(1.9rem, 8vw, 2.8rem); }
+  .lookbook-pista { flex: 1; min-height: 0; padding-bottom: 0; }
+  .pagina-look { height: 100%; grid-template-rows: minmax(0, 1fr) auto; }
+  .pl-foto { grid-area: 1 / 1; aspect-ratio: auto; min-height: 0; height: 100%; }
+  .pl-foto2 { grid-area: 1 / 1; position: relative; align-self: end; justify-self: end; top: auto; right: auto; width: min(26vw, 13svh); margin: 0 12px -18px 0; }
+  .pl-testo { padding: 12px 16px 14px; gap: 8px; }
+  .pl-testo h3 { font-size: clamp(1.6rem, 6.8vw, 2.3rem); padding-right: calc(min(26vw, 13svh) + 4px); }
+  .pl-capi li { font-size: 0.86rem; }
+  .pl-totale { padding-top: 6px; }
+  .pl-totale span { font-size: 1.25rem; }
+  .pl-azioni .bottone { min-height: 42px; }
+  .lookbook-barra { margin-top: 10px; flex: none; }
+}
 </style>
 </head>
 <body>
