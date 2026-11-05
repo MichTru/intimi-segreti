@@ -195,3 +195,44 @@ html.allarga::view-transition-old(foto-capo), html.allarga::view-transition-new(
   .pl-azioni .bottone { min-height: 42px; }
   .lookbook-barra { margin-top: 10px; flex: none; }
 }
+/* In copertina: una copertina da rivista */
+.copertine-zona { height: max(620px, 100svh); }
+.copertine-zona::after { content: ""; position: absolute; inset: 0; z-index: 7; pointer-events: none; background: var(--velluto); background-blend-mode: normal; opacity: 0.0; }
+.tema-borgogna { background: var(--velluto); }
+.tema-cipria { background: radial-gradient(80% 60% at 50% 42%, #f1d6cd, #d7aa9f 70%, #c99796); }
+.tema-avorio { background: radial-gradient(80% 60% at 50% 42%, #fbf4ea, #ecdfcb 70%, #e1cfb6); }
+.c-alone { top: 50%; width: min(110vw, 640px); opacity: 0.9; }
+.c-parola { z-index: 1; top: 52%; bottom: auto; translate: 0 -50%; font-weight: 340; font-variation-settings: "SOFT" 100, "WONK" 0; font-size: clamp(4.5rem, 23vw, 15rem); letter-spacing: -0.035em; line-height: 1; opacity: 0.32; }
+.c-parola.contorno { z-index: 4; opacity: 1; -webkit-text-stroke: 1px var(--c-parola); }
+.c-soggetto { top: auto; bottom: calc(var(--sotto) + 170px); height: 46%; }
+.attiva .c-soggetto { animation: fluttua 6s ease-in-out 1.2s infinite; }
+@keyframes fluttua { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
+.c-soggetto.scontorno::before { display: none; }
+.c-soggetto.scontorno img { z-index: 2; }
+.c-soggetto.scontorno::after { content: ""; position: absolute; z-index: 3; left: -7%; right: -7%; bottom: -5%; height: 11%; border-radius: 50%; translate: 0 0; animation: inherit; background: radial-gradient(60% 55% at 38% 35%, rgb(255 255 255 / 0.55), transparent 60%), linear-gradient(118deg, transparent 30%, rgb(176 120 98 / 0.35) 31%, transparent 33%, transparent 58%, rgb(176 120 98 / 0.28) 59%, transparent 61%), linear-gradient(180deg, #f5e4dc, #e2c1b5 60%, #c99c8f); box-shadow: 0 18px 26px -14px rgb(20 6 10 / 0.7), inset 0 -6px 10px -6px rgb(120 70 60 / 0.5); }
+.c-soggetto.scontorno { overflow: visible; }
+.c-soggetto.arco { height: 50%; bottom: calc(var(--sotto) + 140px); box-shadow: 0 30px 50px -24px rgb(20 6 10 / 0.65), 0 0 0 6px rgb(251 246 238 / 0.9); }
+.c-nome { font-weight: 360; font-size: clamp(1.7rem, 7.4vw, 2.5rem); }
+.c-nome + .c-prezzo { margin-top: 4px; }
+.c-prezzo { font-size: 1.3rem; color: var(--champagne); }
+.tema-cipria .c-prezzo, .tema-avorio .c-prezzo { color: var(--c-parola); }
+.c-vai.bottone.pieno { background: transparent; color: var(--c-testo); border-color: color-mix(in srgb, var(--c-testo) 55%, transparent); min-height: 42px; }
+.c-vai.bottone.pieno:hover { background: var(--c-testo); color: var(--c-fondo); }
+.giostra-comandi { left: var(--bordo); right: var(--bordo); bottom: calc(var(--sotto) + 22px); gap: 10px; }
+.giostra-punti { flex: 1; gap: 6px; }
+.giostra-punti button { flex: 1; width: auto; }
+.giostra-punti button::before, .giostra-punti i { width: 100%; height: 2px; border-radius: 1px; }
+.giostra-comandi [data-giostra-pausa] { display: none; }
+.nastro { padding: 4svh 0; }
+.nastro-riga { font-weight: 340; font-variation-settings: "SOFT" 100; font-size: clamp(2.4rem, 8.4vw, 7rem); letter-spacing: -0.01em; }
+.nastro-riga.contro { -webkit-text-stroke: 1px var(--cipria); }
+@media (min-width: 768px) {
+  .copertine-zona { height: max(600px, 100svh); }
+  .c-parola { font-size: clamp(7rem, 12.5vw, 14rem); top: 50%; left: 56%; }
+  .c-soggetto { top: auto; bottom: 120px; height: 62%; }
+  .c-soggetto.arco { top: auto; height: 62%; bottom: 110px; }
+  .giostra-comandi { left: 6vw; right: auto; width: min(420px, 30vw); bottom: 34px; }
+  .giostra-comandi [data-giostra-pausa] { display: inline-grid; }
+}
+@media (max-width: 767px) { .c-info { top: calc(var(--testata) + var(--sopra) + 10px); } }
+@media (prefers-reduced-motion: reduce) { .attiva .c-soggetto { animation: none; } }
