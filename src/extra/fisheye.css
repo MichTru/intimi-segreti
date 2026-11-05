@@ -1,0 +1,11 @@
+/* In vetrina: carosello curvo */
+.fisheye-zona { position: relative; display: grid; grid-template-rows: minmax(0, 1fr) auto; height: max(600px, 100svh); padding: calc(var(--testata) + var(--sopra) + 8px) 0 calc(var(--sotto) + 28px); background: radial-gradient(70% 45% at 50% 42%, rgb(106 26 47 / 0.55), transparent 75%), var(--borgogna-notte); color: var(--avorio); --testo: var(--avorio); --fondo: var(--borgogna-notte); --tenue: rgb(244 236 224 / 0.62); --linea: rgb(244 236 224 / 0.3); overflow: hidden; }
+.fisheye { display: block; width: 100%; height: 100%; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.fisheye-info { display: grid; justify-items: center; text-align: center; gap: 4px; padding: 0 var(--bordo); transition: opacity 0.18s ease, transform 0.35s var(--ease-entrata); }
+.fisheye-info.cambia { opacity: 0; transform: translateY(6px); }
+.fisheye-info .occhiello { color: var(--champagne); min-height: 1.2em; }
+.fisheye-info h2 { font-weight: 350; font-size: clamp(1.9rem, 8vw, 3.2rem); font-style: italic; }
+.fisheye-prezzo { font-family: var(--serif); font-size: 1.2rem; color: var(--cipria); margin-bottom: 12px; }
+@media (min-width: 768px) {
+  .fisheye-zona { padding-bottom: 6svh; }
+}
