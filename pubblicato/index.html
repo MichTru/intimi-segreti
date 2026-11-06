@@ -3576,6 +3576,22 @@ dialog.foglio .bottone.pieno:hover { background: transparent; color: var(--borgo
 dialog.foglio .taglia input:checked + span, dialog.foglio .giorno input:checked + span { background: var(--borgogna); border-color: var(--borgogna); color: var(--avorio); }
 dialog.foglio h2 { font-weight: 350; }
 dialog.foglio .scheda-prezzo { color: var(--borgogna); }
+/* Menu: velluto, voci chiare, WhatsApp in fondo */
+.menu { background: var(--velluto); padding-bottom: calc(var(--sotto) + 26px); }
+.menu-voci { align-self: center; gap: 0; }
+.menu-voci li { border-top: 1px solid rgb(244 236 224 / 0.14); overflow: hidden; }
+.menu-voci li:last-child { border-bottom: 1px solid rgb(244 236 224 / 0.14); }
+.menu-voci a { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; padding: 0.34em 0; font-weight: 350; font-size: clamp(2rem, 8.6vw, 4.4rem); line-height: 1.05; }
+.menu-voci a::after { content: ""; flex: none; width: 12px; height: 12px; border-top: 1px solid var(--champagne); border-right: 1px solid var(--champagne); transform: rotate(45deg); opacity: 0.45; transition: opacity var(--t-micro), transform var(--t-breve) var(--ease-entrata); }
+.menu-voci a:hover { transform: none; color: var(--cipria); font-style: italic; }
+.menu-voci a:hover::after { opacity: 1; transform: translateX(4px) rotate(45deg); }
+.menu-voci small { display: none; }
+.menu-piede { display: grid; gap: 18px; color: rgb(244 236 224 / 0.72); }
+.menu-piede .bottone.pieno { justify-self: start; background: var(--avorio); border-color: var(--avorio); color: var(--borgogna); }
+.menu-piede .bottone.pieno:hover { background: transparent; color: var(--avorio); }
+.menu-righe { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 0.82rem; }
+.menu-righe a { text-underline-offset: 4px; }
+@media (min-width: 900px) { .menu { padding-inline: 6vw; } .menu-voci { width: min(720px, 56vw); } .menu-voci a { font-size: clamp(2.2rem, 3.8vw, 3.4rem); padding: 0.28em 0; } }
 </style>
 <script>document.body.className="pagina-home";</script>
     <a class="salta" href="#contenuto">Salta al contenuto</a>
@@ -4731,12 +4747,12 @@ Va bene?`);
 
   // ../../../../../home/claude/intimi-plus/src/core/cornice.js
   var VOCI = [
-    { href: "index.html", testo: "La vetrina", nota: "Home" },
-    { href: "vetrina.html", testo: "Vetrina Digitale", nota: "Catalogo" },
-    { href: "index.html#look", testo: "Lookbook", nota: "I look" },
-    { href: "index.html#buono", testo: "Buono regalo", nota: "Da regalare" },
-    { href: "index.html#boutique", testo: "La Boutique", nota: "Lugo" },
-    { href: "index.html#contatti", testo: "Contatti", nota: "Vieni a trovarci" }
+    { href: "index.html", testo: "Home" },
+    { href: "vetrina.html", testo: "Vetrina Digitale" },
+    { href: "index.html#look", testo: "Lookbook" },
+    { href: "index.html#mare", testo: "Moda mare" },
+    { href: "index.html#buono", testo: "Buono regalo" },
+    { href: "index.html#boutique", testo: "La boutique" }
   ];
   var social = () => Object.entries(site_default.social || {}).filter(([, url]) => !!url).map(([nome, url]) => `<a href="${url}" target="_blank" rel="noopener">${nome[0].toUpperCase()}${nome.slice(1)}</a>`).join("");
   function montaTestata() {
@@ -4759,8 +4775,8 @@ Va bene?`);
     m.innerHTML = `
     <div class="menu-testa"><span class="marchio"><span class="logo" role="img" aria-label="${site_default.nome}"></span></span>
       <button class="tondo" type="button" data-chiudi-menu aria-label="Chiudi il menu">${ICONE.chiudi}</button></div>
-    <ul class="menu-voci">${VOCI.map((v) => `<li><a href="${v.href}">${v.testo} <small>${v.nota}</small></a></li>`).join("")}</ul>
-    <div class="menu-piede"><span>${site_default.luogo}</span>${social()}<a href="privacy.html">Privacy e cookie</a></div>`;
+    <ul class="menu-voci">${VOCI.map((v) => `<li><a href="${v.href}">${v.testo}</a></li>`).join("")}</ul>
+    <div class="menu-piede"><a class="bottone pieno piccolo" href="https://wa.me/393398412774" target="_blank" rel="noopener">Scrivici su WhatsApp</a><div class="menu-righe"><span>Via Baracca 55, Lugo</span>${social()}<a href="privacy.html">Privacy e cookie</a></div></div>`;
     document.body.appendChild(m);
     const voci = m.querySelectorAll(".menu-voci a");
     let tl = null;

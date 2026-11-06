@@ -1,0 +1,16 @@
+/* Menu: velluto, voci chiare, WhatsApp in fondo */
+.menu { background: var(--velluto); padding-bottom: calc(var(--sotto) + 26px); }
+.menu-voci { align-self: center; gap: 0; }
+.menu-voci li { border-top: 1px solid rgb(244 236 224 / 0.14); overflow: hidden; }
+.menu-voci li:last-child { border-bottom: 1px solid rgb(244 236 224 / 0.14); }
+.menu-voci a { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; padding: 0.34em 0; font-weight: 350; font-size: clamp(2rem, 8.6vw, 4.4rem); line-height: 1.05; }
+.menu-voci a::after { content: ""; flex: none; width: 12px; height: 12px; border-top: 1px solid var(--champagne); border-right: 1px solid var(--champagne); transform: rotate(45deg); opacity: 0.45; transition: opacity var(--t-micro), transform var(--t-breve) var(--ease-entrata); }
+.menu-voci a:hover { transform: none; color: var(--cipria); font-style: italic; }
+.menu-voci a:hover::after { opacity: 1; transform: translateX(4px) rotate(45deg); }
+.menu-voci small { display: none; }
+.menu-piede { display: grid; gap: 18px; color: rgb(244 236 224 / 0.72); }
+.menu-piede .bottone.pieno { justify-self: start; background: var(--avorio); border-color: var(--avorio); color: var(--borgogna); }
+.menu-piede .bottone.pieno:hover { background: transparent; color: var(--avorio); }
+.menu-righe { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 0.82rem; }
+.menu-righe a { text-underline-offset: 4px; }
+@media (min-width: 900px) { .menu { padding-inline: 6vw; } .menu-voci { width: min(720px, 56vw); } .menu-voci a { font-size: clamp(2.2rem, 3.8vw, 3.4rem); padding: 0.28em 0; } }
