@@ -2698,6 +2698,37 @@ html.allarga::view-transition-new(foto-capo) {
     transition: none;
   }
 }
+/* Schede e fogli: azione principale in borgogna */
+dialog.foglio .bottone.pieno { background: var(--borgogna); border-color: var(--borgogna); color: var(--avorio); }
+dialog.foglio .bottone.pieno:hover { background: transparent; color: var(--borgogna); }
+dialog.foglio .taglia input:checked + span, dialog.foglio .giorno input:checked + span { background: var(--borgogna); border-color: var(--borgogna); color: var(--avorio); }
+dialog.foglio h2 { font-weight: 350; }
+dialog.foglio .scheda-prezzo { color: var(--borgogna); }
+/* Vetrina Digitale nello stile dell'atelier */
+.pagina-vetrina.in-vetrina, .pagina-vetrina.in-vetrina.chiaro, .pagina-vetrina.in-vetrina.scuro { background: var(--borgogna-notte); --testo: var(--avorio); --tenue: rgb(244 236 224 / 0.66); --linea: rgb(244 236 224 / 0.26); --accento: var(--champagne); }
+.pagina-vetrina.in-vetrina .testata.velata { background: rgb(42 10 20 / 0.94); color: var(--avorio); }
+.palco { background: radial-gradient(58% 42% at 50% 38%, color-mix(in srgb, var(--tinta) 42%, transparent), transparent 78%), var(--velluto); }
+.palco-cornice, .contatore { display: none; }
+.capo-foto { background: color-mix(in srgb, var(--tinta) 85%, #fff); box-shadow: 0 0 0 1px rgb(217 195 160 / 0.45), 0 44px 60px -30px rgb(0 0 0 / 0.75); }
+.pedana { height: 30px; translate: -50% -14px; width: min(70vw, 480px); background: radial-gradient(60% 55% at 38% 35%, rgb(255 255 255 / 0.5), transparent 60%), linear-gradient(118deg, transparent 30%, rgb(176 120 98 / 0.32) 31%, transparent 33%, transparent 60%, rgb(176 120 98 / 0.26) 61%, transparent 63%), linear-gradient(180deg, #f5e4dc, #e2c1b5 60%, #c99c8f); box-shadow: 0 18px 26px -14px rgb(0 0 0 / 0.75), inset 0 -6px 10px -6px rgb(120 70 60 / 0.5); z-index: 0; }
+.capo .segno-novita, .cella-foto .segno-novita { border-radius: 3px; background: #fbf6ee; color: #2a0a14; font-size: 0.58rem; letter-spacing: 0.18em; padding: 0.55em 0.8em 0.5em; transform: rotate(6deg); box-shadow: 0 8px 14px -8px rgb(42 10 20 / 0.55); }
+.capo .segno-novita::before, .cella-foto .segno-novita::before { content: ""; display: block; width: 5px; height: 5px; margin: 0 auto 4px; border-radius: 50%; background: var(--cipria); box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.18); }
+.didascalia .occhiello { color: var(--champagne); }
+.didascalia-nome { font-weight: 350; font-style: italic; }
+.didascalia .bottone { border-color: rgb(244 236 224 / 0.5); }
+.giro .tondo { border-color: rgb(244 236 224 / 0.3); }
+.in-vetrina .banco { background: linear-gradient(transparent, rgb(42 10 20 / 0.94) 40%); }
+.filtri button, .apri-pannello { border-color: var(--linea); }
+.filtri button[aria-pressed=true] { background: var(--accento); border-color: var(--accento); color: var(--borgogna-notte); }
+.in-griglia .filtri button[aria-pressed=true] { background: var(--borgogna); border-color: var(--borgogna); color: var(--avorio); }
+.vista button[aria-pressed=true] { background: var(--accento); color: var(--borgogna-notte); }
+.in-griglia .vista button[aria-pressed=true] { background: var(--borgogna); color: var(--avorio); }
+.in-griglia .apri-pannello { background: transparent; color: var(--nero); border: 1px solid var(--linea); }
+.in-vetrina .apri-pannello { background: transparent; color: var(--avorio); border: 1px solid var(--linea); }
+.griglia-titolo { font-weight: 350; }
+.cella-foto { border-radius: 8px; box-shadow: 0 24px 32px -24px rgb(74 16 33 / 0.5); }
+.cella-foto .segno-novita { left: auto; right: 8px; top: 8px; }
+.cella h3 { font-weight: 350; font-style: italic; }
 </style></head><body class="pagina-vetrina" data-senza-piede>
     <a class="salta" href="#contenuto">Salta al contenuto</a>
     <main id="contenuto">

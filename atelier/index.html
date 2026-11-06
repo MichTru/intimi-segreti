@@ -3579,6 +3579,12 @@ main {
 .gruccia h3 { font-weight: 350; font-style: italic; font-size: 1.35rem; margin-top: 14px; }
 .gruccia small { display: block; margin-top: 2px; }
 @media (prefers-reduced-motion: reduce) { .gruccia { transform: none; } }
+/* Schede e fogli: azione principale in borgogna */
+dialog.foglio .bottone.pieno { background: var(--borgogna); border-color: var(--borgogna); color: var(--avorio); }
+dialog.foglio .bottone.pieno:hover { background: transparent; color: var(--borgogna); }
+dialog.foglio .taglia input:checked + span, dialog.foglio .giorno input:checked + span { background: var(--borgogna); border-color: var(--borgogna); color: var(--avorio); }
+dialog.foglio h2 { font-weight: 350; }
+dialog.foglio .scheda-prezzo { color: var(--borgogna); }
 </style>
 </head>
 <body>
