@@ -4,7 +4,7 @@
 .palco { background: radial-gradient(58% 42% at 50% 38%, color-mix(in srgb, var(--tinta) 42%, transparent), transparent 78%), var(--velluto); }
 .palco-cornice, .contatore { display: none; }
 .capo-foto { background: color-mix(in srgb, var(--tinta) 85%, #fff); box-shadow: 0 0 0 1px rgb(217 195 160 / 0.45), 0 44px 60px -30px rgb(0 0 0 / 0.75); }
-.pedana { height: 30px; translate: -50% -14px; width: min(70vw, 480px); background: radial-gradient(60% 55% at 38% 35%, rgb(255 255 255 / 0.5), transparent 60%), linear-gradient(118deg, transparent 30%, rgb(176 120 98 / 0.32) 31%, transparent 33%, transparent 60%, rgb(176 120 98 / 0.26) 61%, transparent 63%), linear-gradient(180deg, #f5e4dc, #e2c1b5 60%, #c99c8f); box-shadow: 0 18px 26px -14px rgb(0 0 0 / 0.75), inset 0 -6px 10px -6px rgb(120 70 60 / 0.5); z-index: 0; }
+.pedana { display: none; }
 .capo .segno-novita, .cella-foto .segno-novita { border-radius: 3px; background: #fbf6ee; color: #2a0a14; font-size: 0.58rem; letter-spacing: 0.18em; padding: 0.55em 0.8em 0.5em; transform: rotate(6deg); box-shadow: 0 8px 14px -8px rgb(42 10 20 / 0.55); }
 .capo .segno-novita::before, .cella-foto .segno-novita::before { content: ""; display: block; width: 5px; height: 5px; margin: 0 auto 4px; border-radius: 50%; background: var(--cipria); box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.18); }
 .didascalia .occhiello { color: var(--champagne); }
