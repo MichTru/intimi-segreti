@@ -1,0 +1,19 @@
+/* Più cipria: le sezioni dove si sceglie e si compra */
+.nastro { background: var(--avorio); color: var(--borgogna); }
+.nastro-riga.contro { -webkit-text-stroke: 1px var(--borgogna); }
+.buono-zona { background: radial-gradient(70% 60% at 75% 40%, rgb(255 240 234 / 0.55), transparent 70%), linear-gradient(170deg, #e7c6bd, #dcb3a9 70%, #d2a69b); color: var(--borgogna-notte); --testo: var(--borgogna-notte); --fondo: #dcb3a9; --tenue: rgb(42 10 20 / 0.66); --linea: rgb(42 10 20 / 0.24); --accento: var(--borgogna); }
+.buono-modulo h2 em { color: var(--borgogna-vivo); }
+.buono-campi input { color: var(--borgogna-notte); }
+.buono-campi input::placeholder { color: rgb(42 10 20 / 0.35); }
+.buono-campi input:focus { border-color: var(--borgogna); }
+.buono-modulo .taglia input:checked + span { background: var(--borgogna); border-color: var(--borgogna); color: var(--avorio); }
+.buono-modulo .bottone.pieno { background: var(--borgogna); border-color: var(--borgogna); color: var(--avorio); }
+.buono-modulo .bottone.pieno:hover { background: transparent; color: var(--borgogna); }
+.boutique { background: var(--cipria-chiaro); color: var(--borgogna-notte); --testo: var(--borgogna-notte); --fondo: var(--cipria-chiaro); --tenue: rgb(42 10 20 / 0.66); --linea: rgb(42 10 20 / 0.2); }
+.boutique h2 em { color: var(--borgogna-vivo); }
+.boutique .bottone.pieno, .rella-piede .bottone.pieno { background: var(--borgogna); border-color: var(--borgogna); color: var(--avorio); }
+.boutique .bottone.pieno:hover, .rella-piede .bottone.pieno:hover { background: transparent; color: var(--borgogna); }
+.mappa { background: #f6ebe5; }
+.lugo-parola { font-weight: 340; font-variation-settings: "SOFT" 100; }
+.m-azioni .bottone.pieno, .pl-azioni .bottone.pieno, .mare-link .bottone, .fisheye-info .bottone { background: var(--cipria); border-color: var(--cipria); color: var(--borgogna-notte); }
+.m-azioni .bottone.pieno:hover, .pl-azioni .bottone.pieno:hover, .fisheye-info .bottone:hover { background: transparent; color: var(--cipria); }

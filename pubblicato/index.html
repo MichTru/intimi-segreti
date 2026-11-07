@@ -1,4 +1,6 @@
 <title>Intimi Segreti</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/site/icona-32.png"><link rel="apple-touch-icon" sizes="180x180" href="assets/site/icona-180.png"><link rel="manifest" href="manifest.webmanifest"><meta name="apple-mobile-web-app-title" content="Intimi Segreti"><meta name="application-name" content="Intimi Segreti"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Jost:wght@300;400&display=swap">
 <style>:root{color-scheme:dark}
 /* vuoto.css */
@@ -3592,6 +3594,25 @@ dialog.foglio .scheda-prezzo { color: var(--borgogna); }
 .menu-righe { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 0.82rem; }
 .menu-righe a { text-underline-offset: 4px; }
 @media (min-width: 900px) { .menu { padding-inline: 6vw; } .menu-voci { width: min(720px, 56vw); } .menu-voci a { font-size: clamp(2.2rem, 3.8vw, 3.4rem); padding: 0.28em 0; } }
+/* Più cipria: le sezioni dove si sceglie e si compra */
+.nastro { background: var(--avorio); color: var(--borgogna); }
+.nastro-riga.contro { -webkit-text-stroke: 1px var(--borgogna); }
+.buono-zona { background: radial-gradient(70% 60% at 75% 40%, rgb(255 240 234 / 0.55), transparent 70%), linear-gradient(170deg, #e7c6bd, #dcb3a9 70%, #d2a69b); color: var(--borgogna-notte); --testo: var(--borgogna-notte); --fondo: #dcb3a9; --tenue: rgb(42 10 20 / 0.66); --linea: rgb(42 10 20 / 0.24); --accento: var(--borgogna); }
+.buono-modulo h2 em { color: var(--borgogna-vivo); }
+.buono-campi input { color: var(--borgogna-notte); }
+.buono-campi input::placeholder { color: rgb(42 10 20 / 0.35); }
+.buono-campi input:focus { border-color: var(--borgogna); }
+.buono-modulo .taglia input:checked + span { background: var(--borgogna); border-color: var(--borgogna); color: var(--avorio); }
+.buono-modulo .bottone.pieno { background: var(--borgogna); border-color: var(--borgogna); color: var(--avorio); }
+.buono-modulo .bottone.pieno:hover { background: transparent; color: var(--borgogna); }
+.boutique { background: var(--cipria-chiaro); color: var(--borgogna-notte); --testo: var(--borgogna-notte); --fondo: var(--cipria-chiaro); --tenue: rgb(42 10 20 / 0.66); --linea: rgb(42 10 20 / 0.2); }
+.boutique h2 em { color: var(--borgogna-vivo); }
+.boutique .bottone.pieno, .rella-piede .bottone.pieno { background: var(--borgogna); border-color: var(--borgogna); color: var(--avorio); }
+.boutique .bottone.pieno:hover, .rella-piede .bottone.pieno:hover { background: transparent; color: var(--borgogna); }
+.mappa { background: #f6ebe5; }
+.lugo-parola { font-weight: 340; font-variation-settings: "SOFT" 100; }
+.m-azioni .bottone.pieno, .pl-azioni .bottone.pieno, .mare-link .bottone, .fisheye-info .bottone { background: var(--cipria); border-color: var(--cipria); color: var(--borgogna-notte); }
+.m-azioni .bottone.pieno:hover, .pl-azioni .bottone.pieno:hover, .fisheye-info .bottone:hover { background: transparent; color: var(--cipria); }
 </style>
 <script>document.body.className="pagina-home";</script>
     <a class="salta" href="#contenuto">Salta al contenuto</a>
@@ -5044,7 +5065,7 @@ Va bene?`);
       <img class="m-logo" src="${SITO}logo-oro.webp" alt="" width="943" height="512">
       <p class="occhiello">Boutique \xB7 ${site_default.luogo}</p>
       <p class="m-frase">${m.frase || ""}</p>
-      <div class="m-azioni"><a class="bottone pieno" href="vetrina.html">Vetrina Digitale</a><a class="bottone" href="index.html#copertina">In copertina</a></div>
+      <div class="m-azioni"><a class="bottone pieno" href="vetrina.html">Vetrina Digitale</a><a class="bottone" href="index.html#in-vetrina">In vetrina</a></div>
     </div>`;
   }
   function costruisciCopertine() {

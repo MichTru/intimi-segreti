@@ -1,0 +1,5 @@
+/* Griglia della Vetrina su cipria chiaro */
+.pagina-vetrina.in-griglia { --tinta: var(--cipria-chiaro); background: var(--cipria-chiaro); --testo: var(--borgogna-notte); --tenue: rgb(42 10 20 / 0.66); --linea: rgb(42 10 20 / 0.22); }
+.pagina-vetrina.in-griglia .testata.velata { background: rgb(236 213 205 / 0.95); color: var(--borgogna-notte); }
+.in-griglia .apri-pannello { color: var(--borgogna-notte); }
+.in-vetrina .didascalia .bottone { background: var(--cipria); border-color: var(--cipria); color: var(--borgogna-notte); }

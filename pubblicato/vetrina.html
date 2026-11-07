@@ -1,4 +1,6 @@
 <!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Vetrina Digitale</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/site/icona-32.png"><link rel="apple-touch-icon" sizes="180x180" href="assets/site/icona-180.png"><link rel="manifest" href="manifest.webmanifest"><meta name="apple-mobile-web-app-title" content="Intimi Segreti"><meta name="application-name" content="Intimi Segreti"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Jost:wght@300;400&display=swap">
 <style>:root{color-scheme:dark}
 /* vuoto.css */
@@ -2745,6 +2747,11 @@ dialog.foglio .scheda-prezzo { color: var(--borgogna); }
 .menu-righe { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 0.82rem; }
 .menu-righe a { text-underline-offset: 4px; }
 @media (min-width: 900px) { .menu { padding-inline: 6vw; } .menu-voci { width: min(720px, 56vw); } .menu-voci a { font-size: clamp(2.2rem, 3.8vw, 3.4rem); padding: 0.28em 0; } }
+/* Griglia della Vetrina su cipria chiaro */
+.pagina-vetrina.in-griglia { --tinta: var(--cipria-chiaro); background: var(--cipria-chiaro); --testo: var(--borgogna-notte); --tenue: rgb(42 10 20 / 0.66); --linea: rgb(42 10 20 / 0.22); }
+.pagina-vetrina.in-griglia .testata.velata { background: rgb(236 213 205 / 0.95); color: var(--borgogna-notte); }
+.in-griglia .apri-pannello { color: var(--borgogna-notte); }
+.in-vetrina .didascalia .bottone { background: var(--cipria); border-color: var(--cipria); color: var(--borgogna-notte); }
 </style></head><body class="pagina-vetrina" data-senza-piede>
     <a class="salta" href="#contenuto">Salta al contenuto</a>
     <main id="contenuto">
